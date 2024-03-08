@@ -7,6 +7,11 @@ Let's look at a longer permutation now: $541237896$. As in @sec-function, we can
 The entire permutation can be broken up into cycles:
 
 ```{sage}
+#| echo: false
+set_random_seed(53657261)
+```
+
+```{sage}
 π = Permutation([5,4,1,2,3,7,8,9,6])
 π.to_digraph().plot(vertex_size=1500)
 ```
