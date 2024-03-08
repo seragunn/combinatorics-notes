@@ -211,7 +211,7 @@ window.Quarto = {
 <section id="commutating" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="commutating"><span class="header-section-number">4.2</span> Commutating</h2>
 <p>From <a href="permutations.html#exr-compute-product" class="quarto-xref">Exercise&nbsp;<span>2.1</span></a>, we saw that in general <span class="math inline">\(\pi_1 \pi_2 \neq \pi_2 \pi_1\)</span>. Nonetheless, if we are swapping disjoint sets of pairs like <span class="math inline">\((12)\)</span> followed by <span class="math inline">\((34)\)</span> then there is no interaction between the swaps. So the order doesn’t matter: <span class="math inline">\((12)(34) = (34)(12)\)</span>.</p>
-<div id="1549f767" class="cell" data-execution_count="1">
+<div id="f3cff428" class="cell" data-execution_count="1">
 <pre class="sage cell-code"><code>B.&lt;a,b,c&gt; = BraidGroup(4)
 plot(a * c)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="1">
@@ -222,7 +222,7 @@ plot(a * c)</code></pre>
 </div>
 </div>
 </div>
-<div id="015bbde1" class="cell" data-execution_count="2">
+<div id="e2832691" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>a * c == c * a</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>True</code></pre>
@@ -232,9 +232,12 @@ plot(a * c)</code></pre>
 <section id="aba-bab" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="aba-bab"><span class="header-section-number">4.3</span> ABA = BAB</h2>
 <p>At the top of <a href="visual.html#sec-braids" class="quarto-xref"><span>Section 3.2</span></a> we saw that <span class="math inline">\((12)(23)(12) = (13)\)</span>. We also have <span class="math inline">\((23)(12)(23) = (13)\)</span>. Compare the following pictures.</p>
-<div id="f92ef523" class="cell" data-execution_count="3">
 <pre class="sage cell-code"><code>B.&lt;a,b&gt; = BraidGroup(3)
-plot(a * b * a)</code></pre>
+plot(a * b * a)
+plot(b * a * b)</code></pre>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div id="73ec54b8" class="cell quarto-layout-cell" data-execution_count="3" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <figure class="figure">
@@ -243,13 +246,14 @@ plot(a * b * a)</code></pre>
 </div>
 </div>
 </div>
-<div id="314a8020" class="cell" data-execution_count="4">
-<pre class="sage cell-code"><code>plot(b * a * b)</code></pre>
+<div id="87772170" class="cell quarto-layout-cell" data-execution_count="4" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 <figure class="figure">
 <p><img src="generators_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
 </figure>
+</div>
+</div>
 </div>
 </div>
 </div>

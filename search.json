@@ -164,7 +164,7 @@
     "href": "generators.html#aba-bab",
     "title": "4  Generators",
     "section": "4.3 ABA = BAB",
-    "text": "4.3 ABA = BAB\nAt the top of Section 3.2 we saw that \\((12)(23)(12) = (13)\\). We also have \\((23)(12)(23) = (13)\\). Compare the following pictures.\n\nB.&lt;a,b&gt; = BraidGroup(3)\nplot(a * b * a)\n\n\n\n\n\n\n\n\n\nplot(b * a * b)\n\n\n\n\n\n\n\n\nWe can see visually that the middle green strand is sliding from one side of the blue/red crossing to the other.",
+    "text": "4.3 ABA = BAB\nAt the top of Section 3.2 we saw that \\((12)(23)(12) = (13)\\). We also have \\((23)(12)(23) = (13)\\). Compare the following pictures.\nB.&lt;a,b&gt; = BraidGroup(3)\nplot(a * b * a)\nplot(b * a * b)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe can see visually that the middle green strand is sliding from one side of the blue/red crossing to the other.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Generators</span>"
     ]
