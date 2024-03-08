@@ -4,7 +4,11 @@ project:
 book:
   title: "Combinatorics Notes"
   author: "Trevor Gunn"
-  date: "3/6/2024"
+  date: today
+  repo-url: https://github.com/trevorgunn/combinatorics-notes/
+  site-url: https://trevorgunn.github.io/combinatorics-notes/
+  repo-actions: [edit, issue, source]
+  favicon: icon.svg
   chapters:
     - index.qmd
     - inclusion-exclusion.qmd
