@@ -1,0 +1,3 @@
+# Preface {.unnumbered}
+
+Combinatorics notes extending the book [Applied Combinatorics by Keller and Trotter](https://www.appliedcombinatorics.org/appcomb/).

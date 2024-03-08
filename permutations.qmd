@@ -1,0 +1,86 @@
+# Permutations
+
+A permutation of a finite set $X$ can be thought of in a few ways. The set of all permutations of $\{1,\dots,n\}$ will be denoted $S_n$. This is also called *the symmetric group*.
+
+## As a shuffle of the symbols
+
+E.g. $53214$ is a shuffle of $X = \{1,2,3,4,5\}$.
+
+This gives us one way of counting the number of permutations. For the first position in the shuffle, we may write any of the $n$ numbers. For the second position, we have $n - 1$ numbers to choose from---we cannot repeat the first. Likewise the third has $n - 2$ to choose from, not repeating the first or second. In this way, the number of permutations is
+
+$$
+n \cdot (n - 1) \cdot (n - 2) \cdots 2 \cdot 1, \text{ denoted } n!.
+$$
+
+## As a function from $X$ to itself {#sec-function}
+
+E.g. The shuffle $53214$ may be thought of as a function $\pi : X \to X$ where $\pi(i)$ equals the $i$-th number in the shuffle:
+
+$$
+\pi(1) = 5, \pi(2) = 3, \pi(3) = 2, \pi(4) = 1, \pi(5) = 4.
+$$
+
+These functions are often represented by a table:
+
+|      $i$ | 1 | 2 | 3 | 4 | 5 |
+|----------|---|---|---|---|---|
+| $\pi(i)$ | 5 | 3 | 2 | 1 | 4 |
+
+Something new added by the table/function representation is that we can talk about the inverse function which undoes the shuffle:
+
+|      $j = \pi(i)$ | 5 | 3 | 2 | 1 | 4 |
+|-------------------|---|---|---|---|---|
+| $i = \pi^{-1}(j)$ | 1 | 2 | 3 | 4 | 5 |
+
+or reordering the columns:
+
+|           $j$ | 1 | 2 | 3 | 4 | 5 |
+|---------------|---|---|---|---|---|
+| $\pi^{-1}(j)$ | 4 | 3 | 2 | 5 | 1 |
+
+### Composition of functions
+
+Given two permutations, $\pi_1, \pi_2 : X \to X$, we can compose them to get a new function $(\pi_1 \circ \pi_2)$. One way to compute this is via the following procedure:
+
+1. Write the two functions as tables.
+2. Reorder the columns of the outermost function in the composition to align with the output of the innermost function.
+3. Stack the tables on top of eachother.
+
+E.g. Take $\pi_2$ to be the function represented by the shuffle $53214$ and take $\pi_1$ to be represented by the shuffle $13254$. So as a table
+
+|        $i$ | 1 | 2 | 3 | 4 | 5 |
+|------------|---|---|---|---|---|
+| $\pi_1(i)$ | 1 | 3 | 2 | 5 | 4 |
+
+Now we shuffle the columns so the top is $53214$:
+
+|        $i$ | 5 | 3 | 2 | 1 | 4 |
+|------------|---|---|---|---|---|
+| $\pi_1(i)$ | 4 | 2 | 3 | 1 | 5 |
+
+Then stack this with $\pi_2$:
+
+|            $i$ | 1 | 2 | 3 | 4 | 5 |
+|----------------|---|---|---|---|---|
+| $j = \pi_2(i)$ | 5 | 3 | 2 | 1 | 4 |
+| $\pi_1(j)$     | 4 | 2 | 3 | 1 | 5 |
+
+The bottom row is $\pi_1 \circ \pi_2$.
+
+::: {#exr-compute-product}
+###
+
+Compute this in the other order: $\pi_2 \circ \pi_1$. *Observe that the order matters.*
+
+Note: in some sources (e.g. books, software), compositions are witten as a product in the reverse order. Here are computation in the software [SageMath](https://sagecell.sagemath.org/).
+
+```{sage}
+π1 = Permutation([1,3,2,5,4])
+π2 = Permutation([5,3,2,1,4])
+π2 * π1
+```
+
+```{sage}
+π1 * π2
+```
+:::

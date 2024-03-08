@@ -1,0 +1,37 @@
+# Generators
+
+In @thm-product-of-transpositions we saw that every cycle and hence every permutation can be written as a product of adjacent swaps: $(12), (23), (34), \dots, (n-1,n)$. Here we will identify some relations that hold among these generating elements.
+
+Let us call $\tau_i = (i, i+1)$ the swap of $i$ and $i + 1$.
+
+## Squaring relation
+
+We have $\tau_i^2 = 1$ where $1$ represents the identity permutation (no shuffling). This says that if we swap $i$ and $i + 1$ and then swap again, we get back to a sorted list.
+
+## Commutating
+
+From @exr-compute-product, we saw that in general $\pi_1 \pi_2 \neq \pi_2 \pi_1$. Nonetheless, if we are swapping disjoint sets of pairs like $(12)$ followed by $(34)$ then there is no interaction between the swaps. So the order doesn't matter: $(12)(34) = (34)(12)$.
+
+```{sage}
+B.<a,b,c> = BraidGroup(4)
+plot(a * c)
+```
+
+```{sage}
+a * c == c * a
+```
+
+## ABA = BAB
+
+At the top of @sec-braids we saw that $(12)(23)(12) = (13)$. We also have $(23)(12)(23) = (13)$. Compare the following pictures.
+
+```{sage}
+B.<a,b> = BraidGroup(3)
+plot(a * b * a)
+```
+
+```{sage}
+plot(b * a * b)
+```
+
+We can see visually that the middle green strand is sliding from one side of the blue/red crossing to the other.

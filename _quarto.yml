@@ -1,0 +1,17 @@
+project:
+  type: book
+
+book:
+  title: "Combinatorics Notes"
+  author: "Trevor Gunn"
+  date: "3/6/2024"
+  chapters:
+    - index.qmd
+    - inclusion-exclusion.qmd
+    - permutations.qmd
+    - visual.qmd
+    - generators.qmd
+
+format:
+  html:
+    theme: cosmo
