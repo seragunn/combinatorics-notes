@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Combinatorics Notes - 2&nbsp; Permutations</title>
+<title>Combinatorics Notes - 7&nbsp; Exercises</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./visual.html" rel="next">
-<link href="./inclusion-exclusion.html" rel="prev">
+<link href="./inversions.html" rel="prev">
 <link href="./icon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -111,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="./permutations.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Permutations</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="./permutation-exercises.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exercises</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -174,7 +173,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations.html" class="sidebar-item-text sidebar-link active">
+  <a href="./permutations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
   </div>
 </li>
@@ -204,7 +203,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutation-exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="./permutation-exercises.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
@@ -216,24 +215,14 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#as-a-shuffle-of-the-symbols" id="toc-as-a-shuffle-of-the-symbols" class="nav-link active" data-scroll-target="#as-a-shuffle-of-the-symbols"><span class="header-section-number">2.1</span> As a shuffle of the symbols</a></li>
-  <li><a href="#sec-function" id="toc-sec-function" class="nav-link" data-scroll-target="#sec-function"><span class="header-section-number">2.2</span> As a function from <span class="math inline">\(X\)</span> to itself</a>
-  <ul class="collapse">
-  <li><a href="#composition-of-functions" id="toc-composition-of-functions" class="nav-link" data-scroll-target="#composition-of-functions"><span class="header-section-number">2.2.1</span> Composition of functions</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/permutations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/permutations.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="./permutations.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Permutations</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="./permutation-exercises.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exercises</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Permutations</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exercises</span></h1>
 </div>
 
 
@@ -250,198 +239,15 @@ window.Quarto = {
 </header>
 
 
-<p>A permutation of a finite set <span class="math inline">\(X\)</span> can be thought of in a few ways. The set of all permutations of <span class="math inline">\(\{1,\dots,n\}\)</span> will be denoted <span class="math inline">\(S_n\)</span>. This is also called <em>the symmetric group</em>.</p>
-<section id="as-a-shuffle-of-the-symbols" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="as-a-shuffle-of-the-symbols"><span class="header-section-number">2.1</span> As a shuffle of the symbols</h2>
-<p>E.g. <span class="math inline">\(53214\)</span> is a shuffle of <span class="math inline">\(X = \{1,2,3,4,5\}\)</span>.</p>
-<p>This gives us one way of counting the number of permutations. For the first position in the shuffle, we may write any of the <span class="math inline">\(n\)</span> numbers. For the second position, we have <span class="math inline">\(n - 1\)</span> numbers to choose from—we cannot repeat the first. Likewise the third has <span class="math inline">\(n - 2\)</span> to choose from, not repeating the first or second. In this way, the number of permutations is</p>
-<p><span class="math display">\[
-n \cdot (n - 1) \cdot (n - 2) \cdots 2 \cdot 1, \text{ denoted } n!.
-\]</span></p>
-</section>
-<section id="sec-function" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="sec-function"><span class="header-section-number">2.2</span> As a function from <span class="math inline">\(X\)</span> to itself</h2>
-<p>E.g. The shuffle <span class="math inline">\(53214\)</span> may be thought of as a function <span class="math inline">\(\pi : X \to X\)</span> where <span class="math inline">\(\pi(i)\)</span> equals the <span class="math inline">\(i\)</span>-th number in the shuffle:</p>
-<p><span class="math display">\[
-\pi(1) = 5, \pi(2) = 3, \pi(3) = 2, \pi(4) = 1, \pi(5) = 4.
-\]</span></p>
-<p>These functions are often represented by a table:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(i\)</span></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\pi(i)\)</span></td>
-<td>5</td>
-<td>3</td>
-<td>2</td>
-<td>1</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-<p>Something new added by the table/function representation is that we can talk about the inverse function which undoes the shuffle:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(j = \pi(i)\)</span></th>
-<th>5</th>
-<th>3</th>
-<th>2</th>
-<th>1</th>
-<th>4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(i = \pi^{-1}(j)\)</span></td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-<p>or reordering the columns:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(j\)</span></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\pi^{-1}(j)\)</span></td>
-<td>4</td>
-<td>3</td>
-<td>2</td>
-<td>5</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<section id="composition-of-functions" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="composition-of-functions"><span class="header-section-number">2.2.1</span> Composition of functions</h3>
-<p>Given two permutations, <span class="math inline">\(\pi_1, \pi_2 : X \to X\)</span>, we can compose them to get a new function <span class="math inline">\((\pi_1 \circ \pi_2)\)</span>. One way to compute this is via the following procedure:</p>
 <ol type="1">
-<li>Write the two functions as tables.</li>
-<li>Reorder the columns of the outermost function in the composition to align with the output of the innermost function.</li>
-<li>Stack the tables on top of eachother.</li>
+<li><p>Convert <span class="math inline">\(2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11\)</span> to a product of cycles and draw the associated digraph.</p></li>
+<li><p>Convert <span class="math inline">\((1,8,12)(2,3,6,7,9)(4,10,11)\)</span> to a shuffle of <span class="math inline">\(1,\dots,12\)</span></p></li>
+<li><p>Show that <span class="math inline">\((12)(23)(34)(23)(12) = (14)\)</span> by drawing the braid diagram.</p></li>
+<li><p>Compute the sign of the permutations in 1. and 2.</p></li>
+<li><p>Write <span class="math inline">\((182635)\)</span> as a product of transpositions.</p></li>
 </ol>
-<p>E.g. Take <span class="math inline">\(\pi_2\)</span> to be the function represented by the shuffle <span class="math inline">\(53214\)</span> and take <span class="math inline">\(\pi_1\)</span> to be represented by the shuffle <span class="math inline">\(13254\)</span>. So as a table</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(i\)</span></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\pi_1(i)\)</span></td>
-<td>1</td>
-<td>3</td>
-<td>2</td>
-<td>5</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-<p>Now we shuffle the columns so the top is <span class="math inline">\(53214\)</span>:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(i\)</span></th>
-<th>5</th>
-<th>3</th>
-<th>2</th>
-<th>1</th>
-<th>4</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\pi_1(i)\)</span></td>
-<td>4</td>
-<td>2</td>
-<td>3</td>
-<td>1</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-<p>Then stack this with <span class="math inline">\(\pi_2\)</span>:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(i\)</span></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(j = \pi_2(i)\)</span></td>
-<td>5</td>
-<td>3</td>
-<td>2</td>
-<td>1</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\pi_1(j)\)</span></td>
-<td>4</td>
-<td>2</td>
-<td>3</td>
-<td>1</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-<p>The bottom row is <span class="math inline">\(\pi_1 \circ \pi_2\)</span>.</p>
-<div id="exr-compute-product" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2.1</strong></span> Compute this in the other order: <span class="math inline">\(\pi_2 \circ \pi_1\)</span>. <em>Observe that the order matters.</em></p>
-<p>Note: in some sources (e.g.&nbsp;books, software), compositions are witten as a product in the reverse order. Here are computation in the software <a href="https://sagecell.sagemath.org/">SageMath</a>.</p>
-<div id="b98aaccc" class="cell" data-execution_count="1">
-<pre class="sage cell-code"><code>π1 = Permutation([1,3,2,5,4])
-π2 = Permutation([5,3,2,1,4])
-π2 * π1</code></pre>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>[4, 2, 3, 1, 5]</code></pre>
-</div>
-</div>
-<div id="c165193d" class="cell" data-execution_count="2">
-<pre class="sage cell-code"><code>π1 * π2</code></pre>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>[5, 2, 3, 4, 1]</code></pre>
-</div>
-</div>
-</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -855,14 +661,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./inclusion-exclusion.html" class="pagination-link" aria-label="Inclusion/Exclusion">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span>
+      <a href="./inversions.html" class="pagination-link" aria-label="Inversions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inversions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./visual.html" class="pagination-link" aria-label="Visual representations of permutations">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -870,4 +673,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/permutations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/permutations.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/permutation-exercises.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/permutation-exercises.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
