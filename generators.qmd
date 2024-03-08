@@ -25,6 +25,7 @@ a * c == c * a
 
 At the top of @sec-braids we saw that $(12)(23)(12) = (13)$. We also have $(23)(12)(23) = (13)$. Compare the following pictures.
 
+::: {layout-ncol=2}
 ```{sage}
 B.<a,b> = BraidGroup(3)
 plot(a * b * a)
@@ -33,5 +34,6 @@ plot(a * b * a)
 ```{sage}
 plot(b * a * b)
 ```
+:::
 
 We can see visually that the middle green strand is sliding from one side of the blue/red crossing to the other.
