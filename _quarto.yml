@@ -12,10 +12,17 @@ book:
   favicon: icon.svg
   chapters:
     - index.qmd
-    - inclusion-exclusion.qmd
-    - permutations.qmd
-    - visual.qmd
-    - generators.qmd
+    - part: "Inclusion-Exclusion"
+      chapters:
+        - inclusion-exclusion.qmd
+    - part: "Permutations"
+      chapters:
+        - permutations.qmd
+        - visual.qmd
+        - generators.qmd
+        - sign.qmd
+        - inversions.qmd
+        - permutation-exercises.qmd
 
 format:
   html:

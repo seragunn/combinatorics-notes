@@ -1,0 +1,11 @@
+# Exercises
+
+1. Convert $2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11$ to a product of cycles and draw the associated digraph.
+
+2. Convert $(1,8,12)(2,3,6,7,9)(4,10,11)$ to a shuffle of $1,\dots,12$
+
+3. Show that $(12)(23)(34)(23)(12) = (14)$ by drawing the braid diagram.
+
+4. Compute the sign of the permutations in 1. and 2.
+
+5. Write $(182635)$ as a product of transpositions.
