@@ -32,6 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <link href="./visual.html" rel="next">
 <link href="./inclusion-exclusion.html" rel="prev">
+<link href="./icon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -126,6 +127,9 @@ window.Quarto = {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Combinatorics Notes</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/trevorgunn/combinatorics-notes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -181,7 +185,7 @@ window.Quarto = {
   <li><a href="#composition-of-functions" id="toc-composition-of-functions" class="nav-link" data-scroll-target="#composition-of-functions"><span class="header-section-number">2.2.1</span> Composition of functions</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/permutations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/permutations.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -378,7 +382,7 @@ n \cdot (n - 1) \cdot (n - 2) \cdots 2 \cdot 1, \text{ denoted } n!.
 <div id="exr-compute-product" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2.1</strong></span> Compute this in the other order: <span class="math inline">\(\pi_2 \circ \pi_1\)</span>. <em>Observe that the order matters.</em></p>
 <p>Note: in some sources (e.g.&nbsp;books, software), compositions are witten as a product in the reverse order. Here are computation in the software <a href="https://sagecell.sagemath.org/">SageMath</a>.</p>
-<div id="186cad10" class="cell" data-execution_count="1">
+<div id="5ca5e650" class="cell" data-execution_count="1">
 <pre class="sage cell-code"><code>π1 = Permutation([1,3,2,5,4])
 π2 = Permutation([5,3,2,1,4])
 π2 * π1</code></pre>
@@ -386,7 +390,7 @@ n \cdot (n - 1) \cdot (n - 2) \cdots 2 \cdot 1, \text{ denoted } n!.
 <pre><code>[4, 2, 3, 1, 5]</code></pre>
 </div>
 </div>
-<div id="16c65cc5" class="cell" data-execution_count="2">
+<div id="46119662" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>π1 * π2</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>[5, 2, 3, 4, 1]</code></pre>
@@ -480,7 +484,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/trevorgunn\.github\.io\/combinatorics-notes\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -825,4 +829,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/permutations.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/permutations.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
