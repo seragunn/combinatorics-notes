@@ -8,6 +8,7 @@ book:
   repo-url: https://github.com/trevorgunn/combinatorics-notes/
   site-url: https://trevorgunn.github.io/combinatorics-notes/
   repo-actions: [edit, issue, source]
+  downloads: [pdf]
   favicon: icon.svg
   chapters:
     - index.qmd
@@ -19,3 +20,12 @@ book:
 format:
   html:
     theme: cosmo
+  pdf:
+    fig-width: 2
+    include-in-header:
+      text: |
+        \usepackage[utf8]{inputenc}
+        \usepackage{mathrsfs}
+        \usepackage{textalpha}
+
+pdf-engine: pdflatex

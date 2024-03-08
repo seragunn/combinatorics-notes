@@ -35,7 +35,7 @@ Thus, if we alternate: adding in single sets, subtracting pairs of intersections
 
 $$
 \binom{m}1 - \binom{m}2 + \binom{m}3 -  \binom{m}4 + \cdots
-$$ {#eq-I/E-alternating-sum}
+$$ {#eq-IE-alternating-sum}
 times.
 
 Let's have a closer look at this. We know the Binomial Theorem says that
@@ -48,7 +48,7 @@ $$
 0 = \binom{m}0 - \binom{m}1 + \binom{m}2 - \dots + \binom{m}m (-1)^m.
 $$
 
-And since $\binom{m}0 = 1$, if we move all the other terms to the other side of the equation, we see that @eq-I/E-alternating-sum evaluates to $1$.
+And since $\binom{m}0 = 1$, if we move all the other terms to the other side of the equation, we see that @eq-IE-alternating-sum evaluates to $1$.
 
 ::: {#nte-0to0 .callout-note}
 ###
@@ -57,12 +57,10 @@ For this problem we are counting the size of $A_1 \cup \dots \cup A_n$ so each e
 
 The general I/E formula is then
 
-$$
 \begin{align*}
 |A_1 \cup \dots \cup A_n| &= \sum_i |A_i| - \sum_{i < j} |A_i \cap A_j| + \sum_{i < j < k} |A_i \cap A_j \cap A_k| - \dots \\
 &= \sum_{t = 1}^n (-1)^{t + 1} \sum_{i_1 < \dots < i_t} |A_{i_1} \cap \dots \cap A_{i_t}|.
 \end{align*}
-$$
 
 Note: $(-1)^{t + 1}$ takes the values $1, -1, 1, -1, \dots$ starting at $t = 1$.
 
@@ -74,14 +72,13 @@ For example, let $[m] = \{1,\dots,m\} and suppose we want to count the number of
 
 Let $X$ be the total set of functions. Then to count the functions avoiding $A_1 \cup \dots \cup A_n$ we do
 
-$$ \begin{align*}
+\begin{align*}
 |X \setminus (A_1 \cup \dots A_n)| &= |X| - |A_1 \cup \dots A_n| \\
 &= |X| - \sum_i |A_i| + \sum_{i < j} |A_i \cap A_j| - \cdots
 \end{align*}
-$$
 
 ::: {.callout-caution}
-###
+### Caution
 The formula $|A \setminus B| = |A| - |B|$ works only when $B$ is contained entirely inside $A$.
 :::
 
@@ -93,11 +90,10 @@ Let $N_{=}(S)$ be the number of $x$ satisfying exactly those properties in $S$ a
 
 ::: {#thm-inclusion-exclusion}
 ### Inclusion/Exclusion
-$$ \begin{align*}
+\begin{align*}
 N_{=}(\varnothing) &= N_{\ge}(\varnothing) - \sum_i N_\ge(i) + \sum_{i < j} N_\ge(i,j) - \cdots \\
 &= \sum_{S} (-1)^{|S|} N_\ge(S).
 \end{align*}
-$$
 :::
 
 ::: {.proof}
@@ -151,12 +147,10 @@ b) If we are avoiding $k$ outputs then there are only $n - k$ choices for each o
 
 With this in mind, we have $N_\ge(S) = (n - k)^m$ if $|S| = k$ (we avoid at least the specified $k$ outputs). So by inclusion exclusion, the number of functions which avoid *no* outputs (i.e. surjections) is
 
-$$
 \begin{align*}
 &N_\ge(\varnothing) - \sum_i N_\ge(i) + \sum_{i < j} N_\ge(i,j) - \cdots \\
 &\hspace{4em} = n^m - \sum_i (n - 1)^m + \sum_{i < j} (n - 2)^m - \cdots.
 \end{align*}
-$$
 
 And since there are $\binom{n}{k}$ ways to choose $k$ outputs to avoid, we can also write this as
 
@@ -167,7 +161,7 @@ $$
 The textbook calls this number $S(m,n)$.
 
 ::: {.callout-note}
-###
+### Note
 In the above application, $N_\ge(S) = (n - k)^m$ only depended on the size $k$ of $S$. This is true in many but not all examples.
 :::
 

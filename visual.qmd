@@ -45,6 +45,11 @@ Note: as mentioned earlier: SageMath ommits the cycle $(5)$ representing the fix
 
 ## Braids {#sec-braids}
 
+```{sage}
+#| echo: false
+sage.plot.graphics.Graphics.SHOW_OPTIONS['figsize']=3
+```
+
 Another visual representation used frequently in the mathematical study of knots is that of crossing lines. Let's look at an example:
 
 ```{sage}

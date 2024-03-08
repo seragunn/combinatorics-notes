@@ -13,6 +13,11 @@ We have $\tau_i^2 = 1$ where $1$ represents the identity permutation (no shuffli
 From @exr-compute-product, we saw that in general $\pi_1 \pi_2 \neq \pi_2 \pi_1$. Nonetheless, if we are swapping disjoint sets of pairs like $(12)$ followed by $(34)$ then there is no interaction between the swaps. So the order doesn't matter: $(12)(34) = (34)(12)$.
 
 ```{sage}
+#| echo: false
+sage.plot.graphics.Graphics.SHOW_OPTIONS['figsize']=3
+```
+
+```{sage}
 B.<a,b,c> = BraidGroup(4)
 plot(a * c)
 ```
