@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/index.html</loc>
-    <lastmod>2024-03-08T02:58:23.170Z</lastmod>
+    <lastmod>2024-03-08T05:37:54.858Z</lastmod>
   </url>
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/inclusion-exclusion.html</loc>
-    <lastmod>2024-03-08T00:40:03.518Z</lastmod>
+    <lastmod>2024-03-08T05:35:56.499Z</lastmod>
   </url>
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/permutations.html</loc>
-    <lastmod>2024-03-08T00:40:03.518Z</lastmod>
+    <lastmod>2024-03-08T05:21:00.809Z</lastmod>
   </url>
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/visual.html</loc>
-    <lastmod>2024-03-08T01:05:02.152Z</lastmod>
+    <lastmod>2024-03-08T05:21:29.723Z</lastmod>
   </url>
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/generators.html</loc>
-    <lastmod>2024-03-08T01:30:12.621Z</lastmod>
+    <lastmod>2024-03-08T05:21:00.802Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trevorgunn.github.io/combinatorics-notes/Combinatorics-Notes.pdf</loc>
+    <lastmod>2024-03-08T05:43:34.147Z</lastmod>
   </url>
 </urlset>
