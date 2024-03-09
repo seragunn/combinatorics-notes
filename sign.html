@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Combinatorics Notes - 5&nbsp; Sign of a Permutation</title>
+<title>Combinatorics Notes - 6&nbsp; Sign of a Permutation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="./sign.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="./sign.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -161,6 +161,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./totient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -175,37 +181,37 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./permutations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./visual.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./generators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sign.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./inversions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./permutation-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -220,26 +226,26 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#step-1-reducing-to-the-identity" id="toc-step-1-reducing-to-the-identity" class="nav-link active" data-scroll-target="#step-1-reducing-to-the-identity"><span class="header-section-number">5.1</span> Step 1: reducing to the identity</a></li>
-  <li><a href="#step-2-setting-up-the-induction-hypothesis" id="toc-step-2-setting-up-the-induction-hypothesis" class="nav-link" data-scroll-target="#step-2-setting-up-the-induction-hypothesis"><span class="header-section-number">5.2</span> Step 2: setting up the induction hypothesis</a></li>
-  <li><a href="#step-3-reorganizing-the-product" id="toc-step-3-reorganizing-the-product" class="nav-link" data-scroll-target="#step-3-reorganizing-the-product"><span class="header-section-number">5.3</span> Step 3: reorganizing the product</a>
+  <li><a href="#step-1-reducing-to-the-identity" id="toc-step-1-reducing-to-the-identity" class="nav-link active" data-scroll-target="#step-1-reducing-to-the-identity"><span class="header-section-number">6.1</span> Step 1: reducing to the identity</a></li>
+  <li><a href="#step-2-setting-up-the-induction-hypothesis" id="toc-step-2-setting-up-the-induction-hypothesis" class="nav-link" data-scroll-target="#step-2-setting-up-the-induction-hypothesis"><span class="header-section-number">6.2</span> Step 2: setting up the induction hypothesis</a></li>
+  <li><a href="#step-3-reorganizing-the-product" id="toc-step-3-reorganizing-the-product" class="nav-link" data-scroll-target="#step-3-reorganizing-the-product"><span class="header-section-number">6.3</span> Step 3: reorganizing the product</a>
   <ul class="collapse">
-  <li><a href="#case-1-disjoint" id="toc-case-1-disjoint" class="nav-link" data-scroll-target="#case-1-disjoint"><span class="header-section-number">5.3.1</span> Case 1: disjoint</a></li>
-  <li><a href="#case-2-two-numbers-in-common" id="toc-case-2-two-numbers-in-common" class="nav-link" data-scroll-target="#case-2-two-numbers-in-common"><span class="header-section-number">5.3.2</span> Case 2: two numbers in common</a></li>
-  <li><a href="#case-3-larger-number-in-common" id="toc-case-3-larger-number-in-common" class="nav-link" data-scroll-target="#case-3-larger-number-in-common"><span class="header-section-number">5.3.3</span> Case 3: larger number in common</a></li>
-  <li><a href="#case-4-smaller-number-in-common" id="toc-case-4-smaller-number-in-common" class="nav-link" data-scroll-target="#case-4-smaller-number-in-common"><span class="header-section-number">5.3.4</span> Case 4: smaller number in common</a></li>
+  <li><a href="#case-1-disjoint" id="toc-case-1-disjoint" class="nav-link" data-scroll-target="#case-1-disjoint"><span class="header-section-number">6.3.1</span> Case 1: disjoint</a></li>
+  <li><a href="#case-2-two-numbers-in-common" id="toc-case-2-two-numbers-in-common" class="nav-link" data-scroll-target="#case-2-two-numbers-in-common"><span class="header-section-number">6.3.2</span> Case 2: two numbers in common</a></li>
+  <li><a href="#case-3-larger-number-in-common" id="toc-case-3-larger-number-in-common" class="nav-link" data-scroll-target="#case-3-larger-number-in-common"><span class="header-section-number">6.3.3</span> Case 3: larger number in common</a></li>
+  <li><a href="#case-4-smaller-number-in-common" id="toc-case-4-smaller-number-in-common" class="nav-link" data-scroll-target="#case-4-smaller-number-in-common"><span class="header-section-number">6.3.4</span> Case 4: smaller number in common</a></li>
   </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">5.4</span> Summary</a></li>
-  <li><a href="#notationcomputation" id="toc-notationcomputation" class="nav-link" data-scroll-target="#notationcomputation"><span class="header-section-number">5.5</span> Notation/Computation</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6.4</span> Summary</a></li>
+  <li><a href="#notationcomputation" id="toc-notationcomputation" class="nav-link" data-scroll-target="#notationcomputation"><span class="header-section-number">6.5</span> Notation/Computation</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/sign.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/sign.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="./sign.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="./sign.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-sign" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></h1>
+<h1 class="title"><span id="sec-sign" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></h1>
 </div>
 
 
@@ -256,11 +262,11 @@ window.Quarto = {
 </header>
 
 
-<p>We established in <a href="visual.html#thm-product-of-transpositions" class="quarto-xref">Theorem&nbsp;<span>3.1</span></a> that every permutation can be written as a product of transpositions. But more than that, in all our examples, the number of transpositions required to perform a shuffle was always consistently odd or consistently even. For instance, <span class="math inline">\((13) = (12)(23)(12)\)</span> has an odd number of transpositions on both sides.</p>
-<p>If we look at <a href="generators.html#sec-all-relations" class="quarto-xref"><span>Section 4.4</span></a>, we said that every possible way to manipulate a permutation can be reduced to three rules, each of which preserves the parity (odd or even) of the number of transpositions.</p>
+<p>We established in <a href="visual.html#thm-product-of-transpositions" class="quarto-xref">Theorem&nbsp;<span>4.1</span></a> that every permutation can be written as a product of transpositions. But more than that, in all our examples, the number of transpositions required to perform a shuffle was always consistently odd or consistently even. For instance, <span class="math inline">\((13) = (12)(23)(12)\)</span> has an odd number of transpositions on both sides.</p>
+<p>If we look at <a href="generators.html#sec-all-relations" class="quarto-xref"><span>Section 5.4</span></a>, we said that every possible way to manipulate a permutation can be reduced to three rules, each of which preserves the parity (odd or even) of the number of transpositions.</p>
 <p>In case you were unsatisfied with relying on the fact that every relation reduces to the three given relations, we will present two different proofs that the parity is always consistent: one here, one in the next section.</p>
-<section id="step-1-reducing-to-the-identity" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="step-1-reducing-to-the-identity"><span class="header-section-number">5.1</span> Step 1: reducing to the identity</h2>
+<section id="step-1-reducing-to-the-identity" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="step-1-reducing-to-the-identity"><span class="header-section-number">6.1</span> Step 1: reducing to the identity</h2>
 <p>Suppose we have two different ways to write a given permutation as a product of transpositions:</p>
 <p><span class="math display">\[
 \pi = \tau_1 \tau_2 \dots \tau_m = \tau_1' \tau_2' \dots \tau_n'.
@@ -280,26 +286,26 @@ window.Quarto = {
 \]</span></p>
 <p>So saying “<span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> have the same parity” is equivalent to saying “<span class="math inline">\(1\)</span> cannot be written as an odd number of transpositions.”</p>
 </section>
-<section id="step-2-setting-up-the-induction-hypothesis" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="step-2-setting-up-the-induction-hypothesis"><span class="header-section-number">5.2</span> Step 2: setting up the induction hypothesis</h2>
+<section id="step-2-setting-up-the-induction-hypothesis" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="step-2-setting-up-the-induction-hypothesis"><span class="header-section-number">6.2</span> Step 2: setting up the induction hypothesis</h2>
 <p>Let’s introduce some letters now for our transpositions. Say</p>
 <p><span id="eq-identity-product-of-transpositions"><span class="math display">\[
 1 = (a_1b_1)(a_2b_2) \cdots (a_kb_k)
-\tag{5.1}\]</span></span></p>
+\tag{6.1}\]</span></span></p>
 <p>where <span class="math inline">\(a_i \neq b_i\)</span> for all <span class="math inline">\(i\)</span> (we’re always swapping two different things).</p>
 <p>We know that <span class="math inline">\(k\)</span> isn’t <span class="math inline">\(1\)</span> since a single transposition is not the same as the identity. So look now at <span class="math inline">\(k \ge 2\)</span>. We will show that we can always rewrite this product using <span class="math inline">\(k - 2\)</span> transpositions.</p>
 <p>There are a couple ways to phrase this next part of the proof. First, we could say: take as an inductive hypothesis that for all <span class="math inline">\(k' &lt; k\)</span> if the identity is written as a product of <span class="math inline">\(k'\)</span> transpositions then <span class="math inline">\(k'\)</span> is even. In this way, going from <span class="math inline">\(k\)</span> to <span class="math inline">\(k' = k - 2\)</span> we know that <span class="math inline">\(k - 2\)</span> is even and hence so is <span class="math inline">\(k\)</span>.</p>
 <p>Another way we could say this: we are always reducing by <span class="math inline">\(2\)</span> every time so <span class="math inline">\(k - 2 - 2 - 2 - \dots\)</span> will either end up at <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> and we know it can’t end up at <span class="math inline">\(1\)</span>.</p>
 </section>
-<section id="step-3-reorganizing-the-product" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="step-3-reorganizing-the-product"><span class="header-section-number">5.3</span> Step 3: reorganizing the product</h2>
-<p>Look back at <a href="#eq-identity-product-of-transpositions" class="quarto-xref">Equation&nbsp;<span>5.1</span></a>. Since <span class="math inline">\((ab) = (ba)\)</span>, to keep things consistent, we will assume that <span class="math inline">\(a_i &lt; b_i\)</span> always. Let <span class="math inline">\(a\)</span> be the smallest number appearing in any transposition. E.g. for <span class="math inline">\((23)(34)(23)(24)\)</span> we have <span class="math inline">\(a = 2\)</span>.</p>
+<section id="step-3-reorganizing-the-product" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="step-3-reorganizing-the-product"><span class="header-section-number">6.3</span> Step 3: reorganizing the product</h2>
+<p>Look back at <a href="#eq-identity-product-of-transpositions" class="quarto-xref">Equation&nbsp;<span>6.1</span></a>. Since <span class="math inline">\((ab) = (ba)\)</span>, to keep things consistent, we will assume that <span class="math inline">\(a_i &lt; b_i\)</span> always. Let <span class="math inline">\(a\)</span> be the smallest number appearing in any transposition. E.g. for <span class="math inline">\((23)(34)(23)(24)\)</span> we have <span class="math inline">\(a = 2\)</span>.</p>
 <p>We will slide all the the transpositions with an <span class="math inline">\(a\)</span> in them to the right (towards the beginning of the composition). Now we can’t just move things without changing the product so we have to be strategic.</p>
 <p>Let’s say we have in the middle of our expression <span class="math inline">\((uv)(xy)\)</span> where <span class="math inline">\(u = a\)</span> and <span class="math inline">\(x \neq a\)</span> and so we want to move <span class="math inline">\((uv)\)</span> to the right of <span class="math inline">\((xy)\)</span>.</p>
-<section id="case-1-disjoint" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="case-1-disjoint"><span class="header-section-number">5.3.1</span> Case 1: disjoint</h3>
+<section id="case-1-disjoint" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="case-1-disjoint"><span class="header-section-number">6.3.1</span> Case 1: disjoint</h3>
 <p>If <span class="math inline">\(u, v, x, y\)</span> are all distinct, then the two swaps can be done in either order and <span class="math inline">\((uv)(xy) = (xy)(uv)\)</span>.</p>
-<div id="6c6194ab" class="cell" data-execution_count="1">
+<div id="4f79d573" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
@@ -309,14 +315,14 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="case-2-two-numbers-in-common" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="case-2-two-numbers-in-common"><span class="header-section-number">5.3.2</span> Case 2: two numbers in common</h3>
+<section id="case-2-two-numbers-in-common" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="case-2-two-numbers-in-common"><span class="header-section-number">6.3.2</span> Case 2: two numbers in common</h3>
 <p>If <span class="math inline">\((uv) = (xy)\)</span> then <span class="math inline">\((uv)(xy) = (uv)^2 = 1\)</span> and we have reduced the number of transpositions by <span class="math inline">\(2\)</span> as we said we would.</p>
 </section>
-<section id="case-3-larger-number-in-common" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="case-3-larger-number-in-common"><span class="header-section-number">5.3.3</span> Case 3: larger number in common</h3>
+<section id="case-3-larger-number-in-common" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="case-3-larger-number-in-common"><span class="header-section-number">6.3.3</span> Case 3: larger number in common</h3>
 <p>Consider the product <span class="math inline">\((12)(23) = (123)\)</span> (swap <span class="math inline">\(2,3\)</span> first then <span class="math inline">\(1,2\)</span>)</p>
-<div id="a3cf6b2d" class="cell" data-execution_count="2">
+<div id="46ff7718" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <figure class="figure">
@@ -325,8 +331,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Compare this with the identity <span class="math inline">\((23)(12)(23) = (13)\)</span> that we worked out in <a href="generators.html" class="quarto-xref"><span>Chapter 4</span></a>:</p>
-<div id="ee0623d1" class="cell" data-execution_count="3">
+<p>Compare this with the identity <span class="math inline">\((23)(12)(23) = (13)\)</span> that we worked out in <a href="generators.html" class="quarto-xref"><span>Chapter 5</span></a>:</p>
+<div id="64b3aa49" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <figure class="figure">
@@ -338,11 +344,11 @@ window.Quarto = {
 <p>Multiply both sides on the left by <span class="math inline">\((23)\)</span> and simplify using <span class="math inline">\((23)(23) = 1\)</span> to get <span class="math inline">\((12)(23) = (23)(13)\)</span>.</p>
 <p>In this way, the smallest number is always moving to the right. The rule is <span class="math inline">\((uv)(xy) = (xy)(uv')\)</span> where <span class="math inline">\(v'\)</span> is the number in <span class="math inline">\((xy)\)</span> which wasn’t in common.</p>
 <div id="exr-diagram-for-swap" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Work out the diagrams to show that <span class="math inline">\((12)(23) = (23)(13)\)</span>. (I would show you in SageMath, but the software doesn’t draw <span class="math inline">\((13)\)</span> very well.)</p>
+<p><span class="theorem-title"><strong>Exercise 6.1</strong></span> Work out the diagrams to show that <span class="math inline">\((12)(23) = (23)(13)\)</span>. (I would show you in SageMath, but the software doesn’t draw <span class="math inline">\((13)\)</span> very well.)</p>
 </div>
 </section>
-<section id="case-4-smaller-number-in-common" class="level3" data-number="5.3.4">
-<h3 data-number="5.3.4" class="anchored" data-anchor-id="case-4-smaller-number-in-common"><span class="header-section-number">5.3.4</span> Case 4: smaller number in common</h3>
+<section id="case-4-smaller-number-in-common" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="case-4-smaller-number-in-common"><span class="header-section-number">6.3.4</span> Case 4: smaller number in common</h3>
 <p>Using the previous case, we move all the terms having <span class="math inline">\(u = a\)</span> to the right. So now we have a bunch of terms <span class="math inline">\((av_1)(av_2) \dots (av_r)\)</span> in the right of our product. We know we have at least two pairs because if we swap <span class="math inline">\(a\)</span> out of position, something later on has to swap it back into position.</p>
 <p>Also, if any of the adjacent pairs are equal, we can cancel them as in Case 2. Otherwise, we do something similar to Case 3 where</p>
 <p><span class="math display">\[
@@ -351,22 +357,22 @@ window.Quarto = {
 <p>by multiplying on the right by <span class="math inline">\((12)\)</span></p>
 <p>The feature of this identity is that we have one fewer <span class="math inline">\(1\)</span>’s, or more generally, one fewer <span class="math inline">\(a\)</span>’s. And we can keep doing this until we are left with either a single <span class="math inline">\(a\)</span> (impossible) or we eventually find a pair that cancels.</p>
 <div id="exr-diagram-for-swap" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Draw the diagram for this identity.</p>
+<p><span class="theorem-title"><strong>Exercise 6.2</strong></span> Draw the diagram for this identity.</p>
 </div>
 </section>
 </section>
-<section id="summary" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">5.4</span> Summary</h2>
+<section id="summary" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">6.4</span> Summary</h2>
 <p>We showed that we can push all the transpositions containing a <span class="math inline">\(1\)</span> to the right and then moving those transpositions past each other until we had fewer and fewer <span class="math inline">\(1\)</span>’s and eventuall there must be a pair with both numbers in common because we can’t just move <span class="math inline">\(1\)</span> a single time in our sequence of transpositions.</p>
 <div id="exm-reorganizing" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.1</strong></span> Start with <span class="math inline">\((12)(23)(12)(13)\)</span>. Use Case 3 to swap the first and second: <span class="math inline">\((23)(13)(12)(13)\)</span>. Now use Case 4 to swap the second and third: <span class="math inline">\((23)(23)(13)(13)\)</span>. Now cancel using Case 2.</p>
+<p><span class="theorem-title"><strong>Example 6.1</strong></span> Start with <span class="math inline">\((12)(23)(12)(13)\)</span>. Use Case 3 to swap the first and second: <span class="math inline">\((23)(13)(12)(13)\)</span>. Now use Case 4 to swap the second and third: <span class="math inline">\((23)(23)(13)(13)\)</span>. Now cancel using Case 2.</p>
 </div>
 </section>
-<section id="notationcomputation" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="notationcomputation"><span class="header-section-number">5.5</span> Notation/Computation</h2>
+<section id="notationcomputation" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="notationcomputation"><span class="header-section-number">6.5</span> Notation/Computation</h2>
 <p>If <span class="math inline">\(\pi\)</span> is a permutation, common notations for its parity or sign are: <span class="math inline">\(\operatorname{sgn} \pi\)</span> and <span class="math inline">\((-1)^\pi\)</span>. We say the sign is <span class="math inline">\(+1\)</span> if it is an even length product and the sign is <span class="math inline">\(-1\)</span> if it is an odd length product.</p>
 <p>We have the identity <span class="math inline">\(\operatorname{sgn}(\pi_1 \pi_2) = \operatorname{sgn}\pi_1 \operatorname{sgn} \pi_2\)</span> because, for example, multiplying two odd length products creates an even length product (<span class="math inline">\((-1) \cdot (-1) = +1\)</span>)</p>
-<p>One way to compute this is by decomposing <span class="math inline">\(\pi\)</span> into cycles. We saw in <a href="visual.html#thm-product-of-transpositions" class="quarto-xref">Theorem&nbsp;<span>3.1</span></a> how to write cycles in terms of transpositions: <span class="math inline">\((12345) = (12)(23)(34)(45)\)</span>. The observation here is that odd length cycles become an even length product of transpositions and vice versa.</p>
+<p>One way to compute this is by decomposing <span class="math inline">\(\pi\)</span> into cycles. We saw in <a href="visual.html#thm-product-of-transpositions" class="quarto-xref">Theorem&nbsp;<span>4.1</span></a> how to write cycles in terms of transpositions: <span class="math inline">\((12345) = (12)(23)(34)(45)\)</span>. The observation here is that odd length cycles become an even length product of transpositions and vice versa.</p>
 <p>So the algorithm is:</p>
 <ol type="1">
 <li>Convert the permutation into a product of cycles.</li>
@@ -374,9 +380,9 @@ window.Quarto = {
 <li>Multiply those numbers together to find the sign.</li>
 </ol>
 <div id="exm-calculating-parity" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.2</strong></span> Consider the shuffle <span class="math inline">\(376819254\)</span>. We can write this as <span class="math inline">\((1369485)(27)\)</span> this is a product of a cycle of length <span class="math inline">\(7\)</span> and a cycle of length <span class="math inline">\(2\)</span>. Therefore the sign is <span class="math inline">\((+1)(-1) = -1\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 6.2</strong></span> Consider the shuffle <span class="math inline">\(376819254\)</span>. We can write this as <span class="math inline">\((1369485)(27)\)</span> this is a product of a cycle of length <span class="math inline">\(7\)</span> and a cycle of length <span class="math inline">\(2\)</span>. Therefore the sign is <span class="math inline">\((+1)(-1) = -1\)</span>.</p>
 <p>This computation in SageMath:</p>
-<div id="99007173" class="cell" data-execution_count="4">
+<div id="31a97b19" class="cell" data-execution_count="4">
 <pre class="sage cell-code"><code>π = Permutation([3,7,6,8,1,9,2,5,4])
 sign(π)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -801,12 +807,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./generators.html" class="pagination-link" aria-label="Generators">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Generators</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Generators</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./inversions.html" class="pagination-link" aria-label="Inversions">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inversions</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inversions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

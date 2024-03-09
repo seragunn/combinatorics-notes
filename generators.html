@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Combinatorics Notes - 4&nbsp; Generators</title>
+<title>Combinatorics Notes - 5&nbsp; Generators</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="./generators.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Generators</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="./generators.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Generators</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -161,6 +161,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./totient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -175,37 +181,37 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./permutations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./visual.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./generators.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sign.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./inversions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./permutation-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -220,19 +226,19 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#squaring-relation" id="toc-squaring-relation" class="nav-link active" data-scroll-target="#squaring-relation"><span class="header-section-number">4.1</span> Squaring relation</a></li>
-  <li><a href="#commutating" id="toc-commutating" class="nav-link" data-scroll-target="#commutating"><span class="header-section-number">4.2</span> Commutating</a></li>
-  <li><a href="#aba-bab" id="toc-aba-bab" class="nav-link" data-scroll-target="#aba-bab"><span class="header-section-number">4.3</span> ABA = BAB</a></li>
-  <li><a href="#sec-all-relations" id="toc-sec-all-relations" class="nav-link" data-scroll-target="#sec-all-relations"><span class="header-section-number">4.4</span> Other relations?</a></li>
+  <li><a href="#squaring-relation" id="toc-squaring-relation" class="nav-link active" data-scroll-target="#squaring-relation"><span class="header-section-number">5.1</span> Squaring relation</a></li>
+  <li><a href="#commutating" id="toc-commutating" class="nav-link" data-scroll-target="#commutating"><span class="header-section-number">5.2</span> Commutating</a></li>
+  <li><a href="#aba-bab" id="toc-aba-bab" class="nav-link" data-scroll-target="#aba-bab"><span class="header-section-number">5.3</span> ABA = BAB</a></li>
+  <li><a href="#sec-all-relations" id="toc-sec-all-relations" class="nav-link" data-scroll-target="#sec-all-relations"><span class="header-section-number">5.4</span> Other relations?</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generators.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generators.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="./generators.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Generators</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="./generators.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Generators</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-generators" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Generators</span></span></h1>
+<h1 class="title"><span id="sec-generators" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Generators</span></span></h1>
 </div>
 
 
@@ -249,16 +255,16 @@ window.Quarto = {
 </header>
 
 
-<p>In <a href="visual.html#thm-product-of-transpositions" class="quarto-xref">Theorem&nbsp;<span>3.1</span></a> we saw that every cycle and hence every permutation can be written as a product of adjacent swaps: <span class="math inline">\((12), (23), (34), \dots, (n-1,n)\)</span>. Here we will identify some relations that hold among these generating elements.</p>
+<p>In <a href="visual.html#thm-product-of-transpositions" class="quarto-xref">Theorem&nbsp;<span>4.1</span></a> we saw that every cycle and hence every permutation can be written as a product of adjacent swaps: <span class="math inline">\((12), (23), (34), \dots, (n-1,n)\)</span>. Here we will identify some relations that hold among these generating elements.</p>
 <p>Let us call <span class="math inline">\(\tau_i = (i, i+1)\)</span> the swap of <span class="math inline">\(i\)</span> and <span class="math inline">\(i + 1\)</span>.</p>
-<section id="squaring-relation" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="squaring-relation"><span class="header-section-number">4.1</span> Squaring relation</h2>
+<section id="squaring-relation" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="squaring-relation"><span class="header-section-number">5.1</span> Squaring relation</h2>
 <p>We have <span class="math inline">\(\tau_i^2 = 1\)</span> where <span class="math inline">\(1\)</span> represents the identity permutation (no shuffling). This says that if we swap <span class="math inline">\(i\)</span> and <span class="math inline">\(i + 1\)</span> and then swap again, we get back to a sorted list.</p>
 </section>
-<section id="commutating" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="commutating"><span class="header-section-number">4.2</span> Commutating</h2>
-<p>From <a href="permutations.html#exr-compute-product" class="quarto-xref">Exercise&nbsp;<span>2.1</span></a>, we saw that in general <span class="math inline">\(\pi_1 \pi_2 \neq \pi_2 \pi_1\)</span>. Nonetheless, if we are swapping disjoint sets of pairs like <span class="math inline">\((12)\)</span> followed by <span class="math inline">\((34)\)</span> then there is no interaction between the swaps. So the order doesn’t matter: <span class="math inline">\((12)(34) = (34)(12)\)</span>. Specifically, <span class="math inline">\(\tau_i\)</span> and <span class="math inline">\(\tau_j\)</span> commute (<span class="math inline">\(\tau_i\tau_j = \tau_j\tau_i\)</span>) provided <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are at least <span class="math inline">\(2\)</span> apart.</p>
-<div id="58ba9f16" class="cell" data-execution_count="2">
+<section id="commutating" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="commutating"><span class="header-section-number">5.2</span> Commutating</h2>
+<p>From <a href="permutations.html#exr-compute-product" class="quarto-xref">Exercise&nbsp;<span>3.1</span></a>, we saw that in general <span class="math inline">\(\pi_1 \pi_2 \neq \pi_2 \pi_1\)</span>. Nonetheless, if we are swapping disjoint sets of pairs like <span class="math inline">\((12)\)</span> followed by <span class="math inline">\((34)\)</span> then there is no interaction between the swaps. So the order doesn’t matter: <span class="math inline">\((12)(34) = (34)(12)\)</span>. Specifically, <span class="math inline">\(\tau_i\)</span> and <span class="math inline">\(\tau_j\)</span> commute (<span class="math inline">\(\tau_i\tau_j = \tau_j\tau_i\)</span>) provided <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are at least <span class="math inline">\(2\)</span> apart.</p>
+<div id="7d5511ad" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>B.&lt;a,b,c&gt; = BraidGroup(4)
 plot(a * c)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -269,22 +275,22 @@ plot(a * c)</code></pre>
 </div>
 </div>
 </div>
-<div id="0bb5eeca" class="cell" data-execution_count="3">
+<div id="837a9656" class="cell" data-execution_count="3">
 <pre class="sage cell-code"><code>a * c == c * a</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>True</code></pre>
 </div>
 </div>
 </section>
-<section id="aba-bab" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="aba-bab"><span class="header-section-number">4.3</span> ABA = BAB</h2>
-<p>At the top of <a href="visual.html#sec-braids" class="quarto-xref"><span>Section 3.2</span></a> we saw that <span class="math inline">\((12)(23)(12) = (13)\)</span>. We also have <span class="math inline">\((23)(12)(23) = (13)\)</span>. Compare the following pictures.</p>
+<section id="aba-bab" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="aba-bab"><span class="header-section-number">5.3</span> ABA = BAB</h2>
+<p>At the top of <a href="visual.html#sec-braids" class="quarto-xref"><span>Section 4.2</span></a> we saw that <span class="math inline">\((12)(23)(12) = (13)\)</span>. We also have <span class="math inline">\((23)(12)(23) = (13)\)</span>. Compare the following pictures.</p>
 <pre class="sage cell-code"><code>B.&lt;a,b&gt; = BraidGroup(3)
 plot(a * b * a)
 plot(b * a * b)</code></pre>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div id="40375de6" class="cell quarto-layout-cell" data-execution_count="4" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="ff777735" class="cell quarto-layout-cell" data-execution_count="4" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 <figure class="figure">
@@ -293,7 +299,7 @@ plot(b * a * b)</code></pre>
 </div>
 </div>
 </div>
-<div id="b2fe0019" class="cell quarto-layout-cell" data-execution_count="5" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="2879a850" class="cell quarto-layout-cell" data-execution_count="5" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <figure class="figure">
@@ -306,15 +312,15 @@ plot(b * a * b)</code></pre>
 </div>
 <p>We can see visually that the middle green strand is sliding from one side of the blue/red crossing to the other.</p>
 </section>
-<section id="sec-all-relations" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="sec-all-relations"><span class="header-section-number">4.4</span> Other relations?</h2>
+<section id="sec-all-relations" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-all-relations"><span class="header-section-number">5.4</span> Other relations?</h2>
 <p>It turns out, every way to simplify or manipulate products of transpositions can be reduced to exactly these three rules:</p>
 <ol type="1">
 <li><span class="math inline">\(\tau_i^2 = 1\)</span></li>
 <li><span class="math inline">\(\tau_i\tau_j = \tau_j\tau_i\)</span> for <span class="math inline">\(|i - j| \ge 2\)</span> (at least two apart)</li>
 <li><span class="math inline">\(\tau_i\tau_{i+1}\tau_i = \tau_{i+1}\tau_i\tau_{i+1}\)</span></li>
 </ol>
-<p>The proof of this has two stages. One which we have already seen. First, you show that every permutation can be written as a product of transpositions of adjacent elements (<a href="visual.html#thm-product-of-transpositions" class="quarto-xref">Theorem&nbsp;<span>3.1</span></a>). This shows that you can use <span class="math inline">\(\tau_1,\dots,\tau_n\)</span> and these rules to write every element of <span class="math inline">\(S_n\)</span>. I.e. the number of objects generated by these rules is at least <span class="math inline">\(n!\)</span>.</p>
+<p>The proof of this has two stages. One which we have already seen. First, you show that every permutation can be written as a product of transpositions of adjacent elements (<a href="visual.html#thm-product-of-transpositions" class="quarto-xref">Theorem&nbsp;<span>4.1</span></a>). This shows that you can use <span class="math inline">\(\tau_1,\dots,\tau_n\)</span> and these rules to write every element of <span class="math inline">\(S_n\)</span>. I.e. the number of objects generated by these rules is at least <span class="math inline">\(n!\)</span>.</p>
 <p>The second step is showing that the number of objects generated by these rules is no more than <span class="math inline">\(n!\)</span> so that it is exactly the same as <span class="math inline">\(S_n\)</span>. This requires more tools than we have available to us (i.e.&nbsp;group theory). A proof for those in-the-know may be found <a href="https://warwick.ac.uk/fac/sci/maths/people/staff/fbouyer/presentation_of_group.pdf">here for instance</a>.</p>
 <p>We will take it as a fact that these rules descrie <span class="math inline">\(S_n\)</span> exactly.</p>
 
@@ -734,12 +740,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./visual.html" class="pagination-link" aria-label="Visual representations of permutations">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./sign.html" class="pagination-link" aria-label="Sign of a Permutation">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
