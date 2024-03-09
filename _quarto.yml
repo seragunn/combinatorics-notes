@@ -15,6 +15,7 @@ book:
     - part: "Inclusion-Exclusion"
       chapters:
         - inclusion-exclusion.qmd
+        - totient.qmd
     - part: "Permutations"
       chapters:
         - permutations.qmd

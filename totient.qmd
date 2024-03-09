@@ -1,0 +1,131 @@
+# Euler's Totient Function
+
+Consider the number system of the integers mod $n$. This means we group the numbers based on whether they have the same remainder when divided by $n$. For example, $3 \cdot 7 \equiv 1 \pmod {10}$ because both $21$ and $1$ have the same remainder when divided by $10$.
+
+This number system works a lot like the inteegers. We have addition, subtraction and multiplication. The question is: when can we divide? For example, is it possible to solve $2x \equiv 3 \pmod{10}$ for $x$? I.e. is there a way to move the $2$ to the other side of the equation? The answer is no, because $2x$ will never have a remainder of $3$.
+
+What about $7x \equiv 3 \pmod{10}$? This is trickier. Let's look at our multiples of $7$:
+$$
+0, 7, 14, 21, 28, 35, 42, 49, 56, 63
+$$
+Ok so we see that $7 \cdot 9 \equiv 3 \pmod {10}$.
+
+The next theorem gives the criterion for when we can "divide both sides by $a$."
+
+::: {#thm-modular-inverses}
+###
+We can solve the equation $ax \equiv b \pmod{n}$ for any $b$ if and only if $\gcd(a, n) = 1$.
+:::
+
+::: {.proof}
+First, suppose $\gcd(a, n) \neq 1$ and call this gcd $d$. Consider the equation $ax \equiv 1 \pmod{n}$. This means that $ax$ has a remainder of $1$ when divided by $n$ or in other words $ax$ is $1$ more than a multiple of $n$: $ax = qn + 1$. Now, $d$ is a divisor of both $a$ and $n$ by definition, which means $ax - qn$ should be a multiple of $d$. But $ax - qn = 1$ and we said $d \neq 1$, that is impossible. So $ax \equiv 1 \pmod{n}$ has no solution.
+
+Next, suppose $\gcd(a, n) = 1$. By Theorem 3.9 of the Keller/Trotter book, also known as Bézout's theorem, we can find integers $u$ and $v$ such that $au + nv = \gcd(a, n) = 1$. If we rearrange, we get $au = 1 - nv$. So $au$ and $1$ differ by a multiple of $n$.
+
+Let's apply this to our equation: take the equation $ax \equiv b \pmod n$ and multiply by $u$ to get
+$$
+aux = (1 - nv)x \equiv bu \pmod n
+$$
+Since $(1 - nv)x$ and $x$ differ by a multiple of $n$, they share the same remainder. Thus our solution is $x \equiv bu \pmod n$.
+:::
+
+::: {#exm-modular-inverse}
+###
+Let's follow the steps to solve $7x \equiv 3 \pmod 10$. First, we do Euclid's algorithm to find the gcd of $7$ and $10$.
+
+\begin{align*}
+10 &= 7 + 3 \\
+7 &= 2 \cdot 3 + 1
+\end{align*}
+
+To get Bézout's identity: we solve each equation for the remainder term and then substitute the bigger remainder into the next equation:
+\begin{align*}
+3 &= 10 - 7 \\
+1 &= 7 - 2 \cdot 3 = 7 - 2 \cdot (10 - 7) = 3 \cdot 7 - 2 \cdot 10.
+\end{align*}
+
+So $3$ is our $u$. Multiply both sides of $7x \equiv 3 \pmod {10}$ by $3$ and we get
+\begin{align*}
+3 \cdot 7 x &\equiv 3 \cdot 3 \pmod{10} \\
+1 \cdot x &\equiv 9 \pmod{10}
+\end{align*}
+:::
+
+## The totient function
+
+Numbers where $\gcd(a, n) = 1$ are called "coprime to $n$." They show up often when talking about modular arithmetic. We have a function, $\phi(n)$ called "Euler's totient function" which counts the number of integers less than $n$ which are coprime to $n$. For example, $\phi(10) = 4$ counting $1, 3, 7, 9$.
+
+Euler gave the following formula for $\phi(n)$ in terms of the prime factors $p$ of $n$:
+$$
+\phi(n) = n \cdot \prod_{\substack{p \mid n \\ p \text{ prime}}} \left(1 - \frac1p \right)
+$$
+Here $p \mid n$ means $p$ divides $n$ or $p$ is a factor of $n$.
+
+This is the form we will prove in a minute, but let us also rewrite this formula in maybe a more helpful way. Say $n = p_1^{k_1} \cdots p_r^{k_r}$ is the prime factorization of $n$. Then
+
+$$
+\phi(n) = p_1^{k_1} \cdots p_r^{k_r} \cdot \left( 1 - \frac1{p_1} \right) \cdots \left( 1 - \frac1{p_r} \right).
+$$
+Now look at each pair of factors involving $p_i$:
+$$
+p_i^{k_i} \left( 1 - \frac1{p_i} \right) = p_i^{k_i} \left( \frac{p_i - 1}{p_i} \right) = p_i^{k_i - 1}(p_i - 1).
+$$
+
+Putting that together, we get
+$$
+\phi(n) = p_1^{k_1 - 1}(p_1 - 1) \cdots p_r^{k_r - 1}(p_r - 1).
+$$
+
+::: {#exm-calculating-totient}
+###
+For $n = 18 = 2 \cdot 3^2$ we have
+$$
+\phi(12) = 2^0(2 - 1)3^1(3 - 1) = 6.
+$$
+You can double check this by listing all the numbers coprime to $18$.
+:::
+
+## Applying Inclusion/Exclusion
+
+For each of the primes $p_i$ which are factors of $n$. Consider the property $P_i$ which says that $a$ is divisible by $p_i$. As we've been doing, for a subset of these primes, we want to count the number of $a$ in $0,\dots,n-1$ which are divisible by at least those primes in $S$.
+
+::: {#lem-number-of-multiples}
+Let $m$ be a divisor of $n$. The number of integers $a < n$ which are a multiple of $m$ is $n / m$.
+:::
+
+::: {.proof}
+Let's look at an example first. Suppose $n = 100$ and $m = 5$. Then we list the numbers from $0,\dots,99$ and write the list mod $5$. That is:
+$$
+0,1,2,3,4,0,1,2,3,4,0,1,2,3,4,\dots,0,1,2,3,4.
+$$
+Because $n - 1$ is one less than $n$, our last number has a remainder of one less than $5$. So we see every number $0, 1, 2, 3, 4$ exactly the same number of times. Since there are $5$ possible remainders, we much see every remainder $100/5 = 20$ times. This includes a remainder of $0$.
+
+This pattern works generally: we repeat remainders of $0, \dots, m - 1$ and we end on $m - 1$ because $n - 1$ is one less than a multiple of $m$.
+:::
+
+So putting this into our inclusion-exclusion notation, if $S = \{i_1, \dots, i_k\}$, then
+$$
+N_\ge(S) = \frac{n}{p_{i_1} \dots p_{i_k}}.
+$$
+
+## Wrapping up
+
+By Inclusion/Exclusion, the number of whole numbers $a < n$ not divisible by any $p_i$ is
+$$
+N_\ge(\varnothing) - \sum_i N_\ge(i) + \sum_{i < j} N_\ge(i, j) - \cdots
+$$
+and that is
+$$
+n - \sum_i \frac{n}{p_i} + \sum_{i < j} \frac{n}{p_ip_j} - \cdots = n \left( 1 - \sum_i \frac{1}{p_i} + \sum_{i < j} \frac{1}{p_ip_j} - \cdots \right).
+$$
+
+We should be able to factor a $(1 - 1/p_1)$ out of this so let's work at giving that a go by separating terms including $p_1$ from those that don't:
+\begin{align*}
+&1 - \sum_i \frac{1}{p_i} + \sum_{i < j} \frac{1}{p_ip_j} - \cdots \\
+&\qquad = 1 - \frac1{p_1} - \sum_{1 < i} \frac{1}{p_i} - \frac1{p_1} \sum_{1 < j} \frac{1}{p_j} + \sum_{1 < i < j} \frac1{p_ip_j} - \cdots \\
+&\qquad = \left(1 - \frac1{p_1}\right) - \left(\sum_{1 < i} \frac{1}{p_i} - \frac1{p_1} \sum_{1 < j} \frac{1}{p_j}\right) + \left(\sum_{1 < i < j} \frac1{p_ip_j} - \frac1{p_1} \sum_{1 < i < j} \frac1{p_ip_j} \right) - \cdots \\
+&\qquad = \left( 1 - \frac1{p_1} \right) \left( 1 - \sum_{1 < i} \frac{1}{p_i} + \sum_{1 < i < j} \frac{1}{p_ip_j} - \cdots \right).
+\end{align*}
+Note: in the second term in the second to last line, the sum over all $j > 2$ is the same as the sum over all $i > 2$ just with a different name given to the variable.
+
+So we are able to factor out $(1 - 1/p_1)$ to get a similar expression with one fewer primes. Similarly, we can factor out $(1 - 1/p_2)$ and so on until there are no more primes. This gives us Euler's product representation for the totient function.
