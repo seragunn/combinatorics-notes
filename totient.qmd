@@ -121,9 +121,9 @@ $$
 
 We should be able to factor a $(1 - 1/p_1)$ out of this so let's work at giving that a go by separating terms including $p_1$ from those that don't:
 \begin{align*}
-&1 - \sum_i \frac{1}{p_i} + \sum_{i < j} \frac{1}{p_ip_j} - \cdots \\
-&\qquad = 1 - \frac1{p_1} - \sum_{1 < i} \frac{1}{p_i} - \frac1{p_1} \sum_{1 < j} \frac{1}{p_j} + \sum_{1 < i < j} \frac1{p_ip_j} - \cdots \\
-&\qquad = \left(1 - \frac1{p_1}\right) - \left(\sum_{1 < i} \frac{1}{p_i} - \frac1{p_1} \sum_{1 < j} \frac{1}{p_j}\right) + \left(\sum_{1 < i < j} \frac1{p_ip_j} - \frac1{p_1} \sum_{1 < i < j} \frac1{p_ip_j} \right) - \cdots \\
+&1 - {\color{orange} \sum_i \frac{1}{p_i}} + {\color{red} \sum_{i < j} \frac{1}{p_ip_j}} - \cdots \\
+&\qquad = 1 - {\color{orange}\frac1{p_1} - \sum_{1 < i} \frac{1}{p_i}} + {\color{red}\frac1{p_1} \sum_{1 < j} \frac{1}{p_j} + \sum_{1 < i < j} \frac1{p_ip_j}} - \cdots \\
+&\qquad = \left(1 - {\color{orange} \frac1{p_1}} \right) - \left({\color{orange}\frac1{p_1}\sum_{1 < i} \frac{1}{p_i}} - {\color{red} \frac1{p_1} \sum_{1 < j} \frac{1}{p_j} }\right) + \left({\color{red}\sum_{1 < i < j} \frac1{p_ip_j}} - \frac1{p_1} \sum_{1 < i < j} \frac1{p_ip_j} \right) - \cdots \\
 &\qquad = \left( 1 - \frac1{p_1} \right) \left( 1 - \sum_{1 < i} \frac{1}{p_i} + \sum_{1 < i < j} \frac{1}{p_ip_j} - \cdots \right).
 \end{align*}
 Note: in the second term in the second to last line, the sum over all $j > 2$ is the same as the sum over all $i > 2$ just with a different name given to the variable.
