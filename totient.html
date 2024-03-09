@@ -330,9 +330,9 @@ N_\ge(\varnothing) - \sum_i N_\ge(i) + \sum_{i &lt; j} N_\ge(i, j) - \cdots
 n - \sum_i \frac{n}{p_i} + \sum_{i &lt; j} \frac{n}{p_ip_j} - \cdots = n \left( 1 - \sum_i \frac{1}{p_i} + \sum_{i &lt; j} \frac{1}{p_ip_j} - \cdots \right).
 \]</span></p>
 <p>We should be able to factor a <span class="math inline">\((1 - 1/p_1)\)</span> out of this so let’s work at giving that a go by separating terms including <span class="math inline">\(p_1\)</span> from those that don’t: <span class="math display">\[\begin{align*}
-&amp;1 - \sum_i \frac{1}{p_i} + \sum_{i &lt; j} \frac{1}{p_ip_j} - \cdots \\
-&amp;\qquad = 1 - \frac1{p_1} - \sum_{1 &lt; i} \frac{1}{p_i} - \frac1{p_1} \sum_{1 &lt; j} \frac{1}{p_j} + \sum_{1 &lt; i &lt; j} \frac1{p_ip_j} - \cdots \\
-&amp;\qquad = \left(1 - \frac1{p_1}\right) - \left(\sum_{1 &lt; i} \frac{1}{p_i} - \frac1{p_1} \sum_{1 &lt; j} \frac{1}{p_j}\right) + \left(\sum_{1 &lt; i &lt; j} \frac1{p_ip_j} - \frac1{p_1} \sum_{1 &lt; i &lt; j} \frac1{p_ip_j} \right) - \cdots \\
+&amp;1 - {\color{orange} \sum_i \frac{1}{p_i}} + {\color{red} \sum_{i &lt; j} \frac{1}{p_ip_j}} - \cdots \\
+&amp;\qquad = 1 - {\color{orange}\frac1{p_1} - \sum_{1 &lt; i} \frac{1}{p_i}} + {\color{red}\frac1{p_1} \sum_{1 &lt; j} \frac{1}{p_j} + \sum_{1 &lt; i &lt; j} \frac1{p_ip_j}} - \cdots \\
+&amp;\qquad = \left(1 - {\color{orange} \frac1{p_1}} \right) - \left({\color{orange}\frac1{p_1}\sum_{1 &lt; i} \frac{1}{p_i}} - {\color{red} \frac1{p_1} \sum_{1 &lt; j} \frac{1}{p_j} }\right) + \left({\color{red}\sum_{1 &lt; i &lt; j} \frac1{p_ip_j}} - \frac1{p_1} \sum_{1 &lt; i &lt; j} \frac1{p_ip_j} \right) - \cdots \\
 &amp;\qquad = \left( 1 - \frac1{p_1} \right) \left( 1 - \sum_{1 &lt; i} \frac{1}{p_i} + \sum_{1 &lt; i &lt; j} \frac{1}{p_ip_j} - \cdots \right).
 \end{align*}\]</span> Note: in the second term in the second to last line, the sum over all <span class="math inline">\(j &gt; 2\)</span> is the same as the sum over all <span class="math inline">\(i &gt; 2\)</span> just with a different name given to the variable.</p>
 <p>So we are able to factor out <span class="math inline">\((1 - 1/p_1)\)</span> to get a similar expression with one fewer primes. Similarly, we can factor out <span class="math inline">\((1 - 1/p_2)\)</span> and so on until there are no more primes. This gives us Euler’s product representation for the totient function.</p>
