@@ -6,6 +6,8 @@ If we look at @sec-all-relations, we said that every possible way to manipulate 
 
 In case you were unsatisfied with relying on the fact that every relation reduces to the three given relations, we will present two different proofs that the parity is always consistent: one here, one in the next section.
 
+For a visualization of this proof, see [https://www.youtube.com/watch?v=p6kCYbKIMak](https://www.youtube.com/watch?v=p6kCYbKIMak) starting at 13:50.
+
 ## Step 1: reducing to the identity
 
 Suppose we have two different ways to write a given permutation as a product of transpositions:
