@@ -10,8 +10,8 @@
     ]
   },
   {
-    "objectID": "inclusion-exclusion.html",
-    "href": "inclusion-exclusion.html",
+    "objectID": "inclusion-exclusion/inclusion-exclusion.html",
+    "href": "inclusion-exclusion/inclusion-exclusion.html",
     "title": "1  Inclusion/Exclusion",
     "section": "",
     "text": "1.1 For two sets\nGiven two sets \\(A\\) and \\(B\\), we can compute \\(|A \\cup B|\\) by first adding everything in \\(A\\) and adding everything in \\(B\\). This counts all of \\(A \\cup B\\) except the items in \\(A \\cap B\\) were counted twice. Thus\n\\[\n|A| + |B| = |A \\cup B| + |A \\cap B|.\n\\]",
@@ -21,8 +21,8 @@
     ]
   },
   {
-    "objectID": "inclusion-exclusion.html#for-two-sets",
-    "href": "inclusion-exclusion.html#for-two-sets",
+    "objectID": "inclusion-exclusion/inclusion-exclusion.html#for-two-sets",
+    "href": "inclusion-exclusion/inclusion-exclusion.html#for-two-sets",
     "title": "1  Inclusion/Exclusion",
     "section": "",
     "text": "Example 1.1 Suppose there are \\(100\\) CS students an a school. Of these, \\(50\\) know Java and \\(60\\) know Python (everyone knows at least one of these two languages). If we add \\(50 + 60\\) we get the \\(100\\) total students plus \\(10\\) students who know both.\n\\[\n50 + 60 = 100 + 10.\n\\]",
@@ -32,8 +32,8 @@
     ]
   },
   {
-    "objectID": "inclusion-exclusion.html#for-three-sets",
-    "href": "inclusion-exclusion.html#for-three-sets",
+    "objectID": "inclusion-exclusion/inclusion-exclusion.html#for-three-sets",
+    "href": "inclusion-exclusion/inclusion-exclusion.html#for-three-sets",
     "title": "1  Inclusion/Exclusion",
     "section": "1.2 For three sets",
     "text": "1.2 For three sets\n\n\n\nInclusion/Exclusion for 3 sets\n\n\nWe can do a similar process for three sets. Start by adding up \\(|A| + |B| + |C|\\) then subtract all the intersections of pairs then add back in \\(|A \\cap B \\cap C|\\). For items in each region of the Venn diagram, think about how many times an item is added/subtracted overall.\nE.g. items in \\(A\\) and \\(B\\) but not \\(C\\) will be added in twice in the first step (\\(|A| + |B|\\)) and subtracted once in the second step (\\(|A \\cap B|\\)) so they are counted once.\nItems in \\(A \\cap B \\cap C\\) are added in \\(3 - 3 + 1 = 1\\) times.",
@@ -43,8 +43,8 @@
     ]
   },
   {
-    "objectID": "inclusion-exclusion.html#sec-binomials-and-IE",
-    "href": "inclusion-exclusion.html#sec-binomials-and-IE",
+    "objectID": "inclusion-exclusion/inclusion-exclusion.html#sec-binomials-and-IE",
+    "href": "inclusion-exclusion/inclusion-exclusion.html#sec-binomials-and-IE",
     "title": "1  Inclusion/Exclusion",
     "section": "1.3 Binomial coefficients and I/E",
     "text": "1.3 Binomial coefficients and I/E\nSuppose we are looking at a union of \\(n\\) sets: \\(A_1 \\cup \\dots \\cup A_n\\). Consider an element \\(x\\) belonging exactly to \\(A_1, \\dots, A_m\\) and no other sets. If we do the same procedure of adding \\(|A_1| + \\dots + |A_n|\\) then we are counting \\(x\\) a total of \\(m\\) times. Then, when we subtract all the pairwise intersections, \\(|A_i \\cap A_j|\\), we are subtracting from the count of \\(x\\) a total of \\(\\binom{m}{2}\\) because there are \\(\\binom{m}{2}\\) ways to choose two indices \\(\\{i, j\\} \\subset \\{1, \\dots, m\\}\\).\nThus, if we alternate: adding in single sets, subtracting pairs of intersections, adding tripples, subtracting quadruples, etc. we are counting \\(x\\) a total of\n\\[\n\\binom{m}1 - \\binom{m}2 + \\binom{m}3 -  \\binom{m}4 + \\cdots\n\\tag{1.1}\\] times.\nLet’s have a closer look at this. We know the Binomial Theorem says that \\[\n(1 + x)^m = \\binom{m}0x^0 + \\binom{m}1x^1 + \\binom{m}2x^2 + \\dots + \\binom{m}mx^m.\n\\] Substituting \\(x = -1\\), we get\n\\[\n0 = \\binom{m}0 - \\binom{m}1 + \\binom{m}2 - \\dots + \\binom{m}m (-1)^m.\n\\]\nAnd since \\(\\binom{m}0 = 1\\), if we move all the other terms to the other side of the equation, we see that Equation 1.1 evaluates to \\(1\\).\n\n\n\n\n\n\nNote 1.1\n\n\n\nFor this problem we are counting the size of \\(A_1 \\cup \\dots \\cup A_n\\) so each element is in at least one set (\\(m \\ge 1\\)). This is important so that we can say that \\(0^m = 0\\). In the context of the binomial theorem, \\((1 - 1)^0 = \\binom{0}{0} = 1\\). This will be important later when we want to count elements not belonging to any set.\n\n\nThe general I/E formula is then\n\\[\\begin{align*}\n|A_1 \\cup \\dots \\cup A_n| &= \\sum_i |A_i| - \\sum_{i &lt; j} |A_i \\cap A_j| + \\sum_{i &lt; j &lt; k} |A_i \\cap A_j \\cap A_k| - \\dots \\\\\n&= \\sum_{t = 1}^n (-1)^{t + 1} \\sum_{i_1 &lt; \\dots &lt; i_t} |A_{i_1} \\cap \\dots \\cap A_{i_t}|.\n\\end{align*}\\]\nNote: \\((-1)^{t + 1}\\) takes the values \\(1, -1, 1, -1, \\dots\\) starting at \\(t = 1\\).",
@@ -54,8 +54,8 @@
     ]
   },
   {
-    "objectID": "inclusion-exclusion.html#sec-avoiding",
-    "href": "inclusion-exclusion.html#sec-avoiding",
+    "objectID": "inclusion-exclusion/inclusion-exclusion.html#sec-avoiding",
+    "href": "inclusion-exclusion/inclusion-exclusion.html#sec-avoiding",
     "title": "1  Inclusion/Exclusion",
     "section": "1.4 Avoiding properties",
     "text": "1.4 Avoiding properties\nInclusion/Exclusion appears most frequently in combinatorics not as a means to count \\(|A_1 \\cup \\dots \\cup A_n|\\) directly but rather as a means to count everything not in \\(A_1 \\cup \\dots \\cup A_n\\).\nFor example, let $[m] = {1,,m} and suppose we want to count the number of functions \\(f : [m] \\to [n]\\) which don’t miss anything in the codomain. I.e. if \\(A_i\\) is the set of functions where \\(f(x)\\) never equals \\(i\\), then we want to count every function not in any set \\(A_i\\).\nLet \\(X\\) be the total set of functions. Then to count the functions avoiding \\(A_1 \\cup \\dots \\cup A_n\\) we do\n\\[\\begin{align*}\n|X \\setminus (A_1 \\cup \\dots A_n)| &= |X| - |A_1 \\cup \\dots A_n| \\\\\n&= |X| - \\sum_i |A_i| + \\sum_{i &lt; j} |A_i \\cap A_j| - \\cdots\n\\end{align*}\\]\n\n\n\n\n\n\nCaution\n\n\n\nThe formula \\(|A \\setminus B| = |A| - |B|\\) works only when \\(B\\) is contained entirely inside \\(A\\).",
@@ -65,8 +65,8 @@
     ]
   },
   {
-    "objectID": "inclusion-exclusion.html#simplifying-notation.",
-    "href": "inclusion-exclusion.html#simplifying-notation.",
+    "objectID": "inclusion-exclusion/inclusion-exclusion.html#simplifying-notation.",
+    "href": "inclusion-exclusion/inclusion-exclusion.html#simplifying-notation.",
     "title": "1  Inclusion/Exclusion",
     "section": "1.5 Simplifying notation.",
     "text": "1.5 Simplifying notation.\nLet \\(\\mathscr{P} = \\{P_1, \\dots, P_n\\}\\) be a collection of sets representing negative properties—conditions we want to avoid. For a subset \\(S \\subseteq \\{1,\\dots,n\\}\\), let \\(N_\\ge(S)\\) be the number of items satisfying at least those properties in \\(S\\). I.e. \\(\\bigcap_{i \\in S} P_i\\). We will say “\\(x\\) satisfies \\(S\\)” for short. Also, if \\(S = \\{a,b,c\\}\\), let us write for example, \\(N_\\ge(a,b,c)\\) instead of \\(N_\\ge(\\{a,b,c\\})\\) for simplicity.\nLet \\(N_{=}(S)\\) be the number of \\(x\\) satisfying exactly those properties in \\(S\\) and no properties not in \\(S\\). When \\(\\mathscr{P}\\) represents properties we wish to avoid, then \\(N_{=}(\\varnothing)\\) is the number of elements satisfying none of the properties.\n\nTheorem 1.1 (Inclusion/Exclusion) \\[\\begin{align*}\nN_{=}(\\varnothing) &= N_{\\ge}(\\varnothing) - \\sum_i N_\\ge(i) + \\sum_{i &lt; j} N_\\ge(i,j) - \\cdots \\\\\n&= \\sum_{S} (-1)^{|S|} N_\\ge(S).\n\\end{align*}\\]\n\n\nProof. As in Section 1.3, we will break up the sum focusing on each element. So first, we will write \\[\n\\sum_{S} (-1)^{|S|} N_\\ge(S) = \\sum_S (-1)^{|S|} \\sum_{\\substack{x \\\\ x \\text{ satisfies } S}} 1\n\\]\nHere we replace the number \\(N_\\ge(S)\\) by a count of \\(1\\) for each element \\(x\\) which satisfies \\(S\\). This introduces a second sum into the picture and that will allow us to swap the order of summations. Currently, the second sum is over all \\(x\\) with respect to the relation “\\(x\\) satisfies \\(S\\).” When we put the sum over \\(x\\) outside, we still have the relation “\\(x\\) satisfies \\(S\\)” but rather than summing over all \\(x\\) with this property, we sum over all \\(S\\):\n\\[\n\\sum_S (-1)^{|S|} \\sum_{\\substack{x \\\\ x \\text{ satisfies } S}} 1 = \\sum_x \\sum_{\\substack{S \\\\ x \\text{ satisfies } S}} (-1)^{|S|}.\n\\]\nWe also move the \\((-1)^|S|\\) inside the second sum because that quantity depends on \\(|S|\\).\nNext, just as we did in Section 1.3, let us say that \\(x\\) satisfies exactly \\(P_{i_1}, \\dots, P_{i_m}\\) (\\(m\\) will depend on \\(x\\)) and let \\(S_x = \\{i_1, \\dots, i_m\\}\\). This set is the largest set that \\(x\\) satisfies. Every other set that \\(x\\) satisfies will be a subset of \\(S_x\\).\nWe now break up our sum based on the size of those subsets \\(S \\subseteq S_x\\), using the binomial coefficients to count the number of such \\(S\\):\n\\[\n\\sum_x \\sum_{\\substack{S \\\\ x \\text{ satisfies } S}} (-1)^{|S|} = \\sum_x \\sum_{k = 0}^m \\underbrace{\\binom{m}{k} (-1)^k}_{\\substack{|S| = k \\text{ and } x \\text{ satisfies } S \\\\ \\iff |S| = k \\text{ and } S \\subseteq S_x}}.\n\\]\nThis, by the Binomial Theorem, is the same as \\[\n\\sum_x (1 - 1)^m.\n\\] Remember here that \\(m\\) depends on \\(x\\).\nAs discussed in Note 1.1, \\(0^m = 0\\) if \\(m \\ge 1\\) but if \\(m = 0\\) then \\(0^0 = 1\\). Saying \\(m = 0\\) means that \\(x\\) satisfies exactly \\(0\\) properties—which is what we are looking for. So the final simplification looks like \\[\n\\sum_x 0^m = \\sum_{\\substack{x \\\\ m = 0}} 1 = N_{=}(\\varnothing).\n\\]",
@@ -76,8 +76,8 @@
     ]
   },
   {
-    "objectID": "inclusion-exclusion.html#application-1-surjections",
-    "href": "inclusion-exclusion.html#application-1-surjections",
+    "objectID": "inclusion-exclusion/inclusion-exclusion.html#application-1-surjections",
+    "href": "inclusion-exclusion/inclusion-exclusion.html#application-1-surjections",
     "title": "1  Inclusion/Exclusion",
     "section": "1.6 Application 1: Surjections",
     "text": "1.6 Application 1: Surjections\nAs in Section 1.4, let \\(X\\) be the set of all functions from \\([m]\\) to \\([n]\\) and let \\(P_i\\) be the set of functions where \\(i\\) is never an output: \\(f(x) \\neq i\\) for any input \\(x\\).\n\nLemma 1.1  \n\nThe number of functions from an \\(m\\) element set to an \\(n\\) element set is \\(n^m\\).\nThe number of functions from an \\(m\\) element set to an \\(n\\) element set that avoid \\(k\\) outputs is \\((n - k)^m\\).\n\n\n\nProof. \n\nThere are \\(n\\) choices for \\(f(1)\\) and \\(n\\) choices for \\(f(2)\\), etc. So there are \\(n^m\\) choices in total for \\(f(1), \\dots, f(m)\\).\nIf we are avoiding \\(k\\) outputs then there are only \\(n - k\\) choices for each of \\(f(1),\\dots,f(m)\\) so \\((n - k)^m\\).\n\n\nWith this in mind, we have \\(N_\\ge(S) = (n - k)^m\\) if \\(|S| = k\\) (we avoid at least the specified \\(k\\) outputs). So by inclusion exclusion, the number of functions which avoid no outputs (i.e. surjections) is\n\\[\\begin{align*}\n&N_\\ge(\\varnothing) - \\sum_i N_\\ge(i) + \\sum_{i &lt; j} N_\\ge(i,j) - \\cdots \\\\\n&\\hspace{4em} = n^m - \\sum_i (n - 1)^m + \\sum_{i &lt; j} (n - 2)^m - \\cdots.\n\\end{align*}\\]\nAnd since there are \\(\\binom{n}{k}\\) ways to choose \\(k\\) outputs to avoid, we can also write this as\n\\[\nn^m - \\binom{n}1 (n - 1)^m + \\binom{n}2 (n - 2)^m - \\dots = \\sum_{k} \\binom{n}k (-1)^k (n - k)^m.\n\\]\nThe textbook calls this number \\(S(m,n)\\).\n\n\n\n\n\n\nNote\n\n\n\nIn the above application, \\(N_\\ge(S) = (n - k)^m\\) only depended on the size \\(k\\) of \\(S\\). This is true in many but not all examples.",
@@ -87,8 +87,8 @@
     ]
   },
   {
-    "objectID": "inclusion-exclusion.html#application-2-derangements",
-    "href": "inclusion-exclusion.html#application-2-derangements",
+    "objectID": "inclusion-exclusion/inclusion-exclusion.html#application-2-derangements",
+    "href": "inclusion-exclusion/inclusion-exclusion.html#application-2-derangements",
     "title": "1  Inclusion/Exclusion",
     "section": "1.7 Application 2: Derangements",
     "text": "1.7 Application 2: Derangements\nLet \\(X\\) be the set of all permutations of \\([n]\\). We wish to count the permutations with no fixed points. So let \\(P_i\\) be the property that \\(i\\) is a fixed point. Then \\(N_{=}(\\varnothing)\\) is the number of permutations with zero fixed points. This number is called \\(d_n\\) in the textbook.\n\nLemma 1.2  \n\nThe number of permutations of \\([n]\\) is \\(n!\\)\nThe number of permutations with at least \\(k\\) specified fixed points is \\((n - k)!\\)\n\n\n\nProof. \n\nDiscussed in Chapter 2 of the book.\nTo say that there are \\(k\\) specified fixed points means were are permuting the other \\(n - k\\) items. Similar to (a), there are \\((n - k)!\\) ways to permute \\(n - k\\) items.\n\n\nApplying Inclusion/Exclusion, we thus have \\[\nd_n = n! - \\binom{n}1 (n - 1)! + \\binom{n}2 (n - 2)! - \\dots = \\sum_{k} \\binom{n}k (-1)^k (n - k)!.\n\\] Again, there are \\(\\binom{n}k\\) ways to choose a set \\(S\\) of \\(k\\) fixed points and each of these has the same number \\(N_\\ge(S) = (n - k)!\\).",
@@ -98,8 +98,8 @@
     ]
   },
   {
-    "objectID": "totient.html",
-    "href": "totient.html",
+    "objectID": "inclusion-exclusion/totient.html",
+    "href": "inclusion-exclusion/totient.html",
     "title": "2  Euler’s Totient Function",
     "section": "",
     "text": "2.1 The totient function\nNumbers where \\(\\gcd(a, n) = 1\\) are called “coprime to \\(n\\).” They show up often when talking about modular arithmetic. We have a function, \\(\\phi(n)\\) called “Euler’s totient function” which counts the number of integers less than \\(n\\) which are coprime to \\(n\\). For example, \\(\\phi(10) = 4\\) counting \\(1, 3, 7, 9\\).\nEuler gave the following formula for \\(\\phi(n)\\) in terms of the prime factors \\(p\\) of \\(n\\): \\[\n\\phi(n) = n \\cdot \\prod_{\\substack{p \\mid n \\\\ p \\text{ prime}}} \\left(1 - \\frac1p \\right)\n\\] Here \\(p \\mid n\\) means \\(p\\) divides \\(n\\) or \\(p\\) is a factor of \\(n\\).\nThis is the form we will prove in a minute, but let us also rewrite this formula in maybe a more helpful way. Say \\(n = p_1^{k_1} \\cdots p_r^{k_r}\\) is the prime factorization of \\(n\\). Then\n\\[\n\\phi(n) = p_1^{k_1} \\cdots p_r^{k_r} \\cdot \\left( 1 - \\frac1{p_1} \\right) \\cdots \\left( 1 - \\frac1{p_r} \\right).\n\\] Now look at each pair of factors involving \\(p_i\\): \\[\np_i^{k_i} \\left( 1 - \\frac1{p_i} \\right) = p_i^{k_i} \\left( \\frac{p_i - 1}{p_i} \\right) = p_i^{k_i - 1}(p_i - 1).\n\\]\nPutting that together, we get \\[\n\\phi(n) = p_1^{k_1 - 1}(p_1 - 1) \\cdots p_r^{k_r - 1}(p_r - 1).\n\\]",
@@ -109,8 +109,8 @@
     ]
   },
   {
-    "objectID": "totient.html#the-totient-function",
-    "href": "totient.html#the-totient-function",
+    "objectID": "inclusion-exclusion/totient.html#the-totient-function",
+    "href": "inclusion-exclusion/totient.html#the-totient-function",
     "title": "2  Euler’s Totient Function",
     "section": "",
     "text": "Example 2.2 For \\(n = 18 = 2 \\cdot 3^2\\) we have \\[\n\\phi(12) = 2^0(2 - 1)3^1(3 - 1) = 6.\n\\] You can double check this by listing all the numbers coprime to \\(18\\).",
@@ -120,8 +120,8 @@
     ]
   },
   {
-    "objectID": "totient.html#applying-inclusionexclusion",
-    "href": "totient.html#applying-inclusionexclusion",
+    "objectID": "inclusion-exclusion/totient.html#applying-inclusionexclusion",
+    "href": "inclusion-exclusion/totient.html#applying-inclusionexclusion",
     "title": "2  Euler’s Totient Function",
     "section": "2.2 Applying Inclusion/Exclusion",
     "text": "2.2 Applying Inclusion/Exclusion\nFor each of the primes \\(p_i\\) which are factors of \\(n\\). Consider the property \\(P_i\\) which says that \\(a\\) is divisible by \\(p_i\\). As we’ve been doing, for a subset of these primes, we want to count the number of \\(a\\) in \\(0,\\dots,n-1\\) which are divisible by at least those primes in \\(S\\).\n\nLemma 2.1 Let \\(m\\) be a divisor of \\(n\\). The number of integers \\(a &lt; n\\) which are a multiple of \\(m\\) is \\(n / m\\).\n\n\nProof. Let’s look at an example first. Suppose \\(n = 100\\) and \\(m = 5\\). Then we list the numbers from \\(0,\\dots,99\\) and write the list mod \\(5\\). That is: \\[\n0,1,2,3,4,0,1,2,3,4,0,1,2,3,4,\\dots,0,1,2,3,4.\n\\] Because \\(n - 1\\) is one less than \\(n\\), our last number has a remainder of one less than \\(5\\). So we see every number \\(0, 1, 2, 3, 4\\) exactly the same number of times. Since there are \\(5\\) possible remainders, we much see every remainder \\(100/5 = 20\\) times. This includes a remainder of \\(0\\).\nThis pattern works generally: we repeat remainders of \\(0, \\dots, m - 1\\) and we end on \\(m - 1\\) because \\(n - 1\\) is one less than a multiple of \\(m\\).\n\nSo putting this into our inclusion-exclusion notation, if \\(S = \\{i_1, \\dots, i_k\\}\\), then \\[\nN_\\ge(S) = \\frac{n}{p_{i_1} \\dots p_{i_k}}.\n\\]",
@@ -131,8 +131,8 @@
     ]
   },
   {
-    "objectID": "totient.html#wrapping-up",
-    "href": "totient.html#wrapping-up",
+    "objectID": "inclusion-exclusion/totient.html#wrapping-up",
+    "href": "inclusion-exclusion/totient.html#wrapping-up",
     "title": "2  Euler’s Totient Function",
     "section": "2.3 Wrapping up",
     "text": "2.3 Wrapping up\nBy Inclusion/Exclusion, the number of whole numbers \\(a &lt; n\\) not divisible by any \\(p_i\\) is \\[\nN_\\ge(\\varnothing) - \\sum_i N_\\ge(i) + \\sum_{i &lt; j} N_\\ge(i, j) - \\cdots\n\\] and that is \\[\nn - \\sum_i \\frac{n}{p_i} + \\sum_{i &lt; j} \\frac{n}{p_ip_j} - \\cdots = n \\left( 1 - \\sum_i \\frac{1}{p_i} + \\sum_{i &lt; j} \\frac{1}{p_ip_j} - \\cdots \\right).\n\\]\nWe should be able to factor a \\((1 - 1/p_1)\\) out of this so let’s work at giving that a go by separating terms including \\(p_1\\) from those that don’t: \\[\\begin{align*}\n&1 - {\\color{orange} \\sum_i \\frac{1}{p_i}} + {\\color{red} \\sum_{i &lt; j} \\frac{1}{p_ip_j}} - \\cdots \\\\\n&\\qquad = 1 - {\\color{orange}\\frac1{p_1} - \\sum_{1 &lt; i} \\frac{1}{p_i}} + {\\color{red}\\frac1{p_1} \\sum_{1 &lt; j} \\frac{1}{p_j} + \\sum_{1 &lt; i &lt; j} \\frac1{p_ip_j}} - \\cdots \\\\\n&\\qquad = \\left(1 - {\\color{orange} \\frac1{p_1}} \\right) - \\left({\\color{orange}\\frac1{p_1}\\sum_{1 &lt; i} \\frac{1}{p_i}} - {\\color{red} \\frac1{p_1} \\sum_{1 &lt; j} \\frac{1}{p_j} }\\right) + \\left({\\color{red}\\sum_{1 &lt; i &lt; j} \\frac1{p_ip_j}} - \\frac1{p_1} \\sum_{1 &lt; i &lt; j} \\frac1{p_ip_j} \\right) - \\cdots \\\\\n&\\qquad = \\left( 1 - \\frac1{p_1} \\right) \\left( 1 - \\sum_{1 &lt; i} \\frac{1}{p_i} + \\sum_{1 &lt; i &lt; j} \\frac{1}{p_ip_j} - \\cdots \\right).\n\\end{align*}\\] Note: in the second term in the second to last line, the sum over all \\(j &gt; 2\\) is the same as the sum over all \\(i &gt; 2\\) just with a different name given to the variable.\nSo we are able to factor out \\((1 - 1/p_1)\\) to get a similar expression with one fewer primes. Similarly, we can factor out \\((1 - 1/p_2)\\) and so on until there are no more primes. This gives us Euler’s product representation for the totient function.",
@@ -142,8 +142,8 @@
     ]
   },
   {
-    "objectID": "permutations.html",
-    "href": "permutations.html",
+    "objectID": "permutations/permutations.html",
+    "href": "permutations/permutations.html",
     "title": "3  Permutations",
     "section": "",
     "text": "3.1 As a shuffle of the symbols\nE.g. \\(53214\\) is a shuffle of \\(X = \\{1,2,3,4,5\\}\\).\nThis gives us one way of counting the number of permutations. For the first position in the shuffle, we may write any of the \\(n\\) numbers. For the second position, we have \\(n - 1\\) numbers to choose from—we cannot repeat the first. Likewise the third has \\(n - 2\\) to choose from, not repeating the first or second. In this way, the number of permutations is\n\\[\nn \\cdot (n - 1) \\cdot (n - 2) \\cdots 2 \\cdot 1, \\text{ denoted } n!.\n\\]",
@@ -153,8 +153,8 @@
     ]
   },
   {
-    "objectID": "permutations.html#sec-function",
-    "href": "permutations.html#sec-function",
+    "objectID": "permutations/permutations.html#sec-function",
+    "href": "permutations/permutations.html#sec-function",
     "title": "3  Permutations",
     "section": "3.2 As a function from \\(X\\) to itself",
     "text": "3.2 As a function from \\(X\\) to itself\nE.g. The shuffle \\(53214\\) may be thought of as a function \\(\\pi : X \\to X\\) where \\(\\pi(i)\\) equals the \\(i\\)-th number in the shuffle:\n\\[\n\\pi(1) = 5, \\pi(2) = 3, \\pi(3) = 2, \\pi(4) = 1, \\pi(5) = 4.\n\\]\nThese functions are often represented by a table:\n\n\n\n\\(i\\)\n1\n2\n3\n4\n5\n\n\n\n\n\\(\\pi(i)\\)\n5\n3\n2\n1\n4\n\n\n\nSomething new added by the table/function representation is that we can talk about the inverse function which undoes the shuffle:\n\n\n\n\\(j = \\pi(i)\\)\n5\n3\n2\n1\n4\n\n\n\n\n\\(i = \\pi^{-1}(j)\\)\n1\n2\n3\n4\n5\n\n\n\nor reordering the columns:\n\n\n\n\\(j\\)\n1\n2\n3\n4\n5\n\n\n\n\n\\(\\pi^{-1}(j)\\)\n4\n3\n2\n5\n1\n\n\n\n\n3.2.1 Composition of functions\nGiven two permutations, \\(\\pi_1, \\pi_2 : X \\to X\\), we can compose them to get a new function \\((\\pi_1 \\circ \\pi_2)\\). One way to compute this is via the following procedure:\n\nWrite the two functions as tables.\nReorder the columns of the outermost function in the composition to align with the output of the innermost function.\nStack the tables on top of eachother.\n\nE.g. Take \\(\\pi_2\\) to be the function represented by the shuffle \\(53214\\) and take \\(\\pi_1\\) to be represented by the shuffle \\(13254\\). So as a table\n\n\n\n\\(i\\)\n1\n2\n3\n4\n5\n\n\n\n\n\\(\\pi_1(i)\\)\n1\n3\n2\n5\n4\n\n\n\nNow we shuffle the columns so the top is \\(53214\\):\n\n\n\n\\(i\\)\n5\n3\n2\n1\n4\n\n\n\n\n\\(\\pi_1(i)\\)\n4\n2\n3\n1\n5\n\n\n\nThen stack this with \\(\\pi_2\\):\n\n\n\n\\(i\\)\n1\n2\n3\n4\n5\n\n\n\n\n\\(j = \\pi_2(i)\\)\n5\n3\n2\n1\n4\n\n\n\\(\\pi_1(j)\\)\n4\n2\n3\n1\n5\n\n\n\nThe bottom row is \\(\\pi_1 \\circ \\pi_2\\).\n\nExercise 3.1 Compute this in the other order: \\(\\pi_2 \\circ \\pi_1\\). Observe that the order matters.\nNote: in some sources (e.g. books, software), compositions are witten as a product in the reverse order. Here are computation in the software SageMath.\n\nπ1 = Permutation([1,3,2,5,4])\nπ2 = Permutation([5,3,2,1,4])\nπ2 * π1\n\n[4, 2, 3, 1, 5]\n\n\n\nπ1 * π2\n\n[5, 2, 3, 4, 1]",
@@ -164,8 +164,8 @@
     ]
   },
   {
-    "objectID": "visual.html",
-    "href": "visual.html",
+    "objectID": "permutations/visual.html",
+    "href": "permutations/visual.html",
     "title": "4  Visual representations of permutations",
     "section": "",
     "text": "4.1 As a collection of cycles\nLet’s look at a longer permutation now: \\(541237896\\). As in Section 3.2, we can view this as a function where \\(1\\) goes to \\(5\\), \\(2\\) goes to \\(4\\) etc. Following the path of a single number we get a cycle: \\(1\\) goes to \\(5\\) goes to \\(3\\) goes to \\(1\\). Likewise \\(2\\) goes to \\(4\\) goes to \\(2\\). And so on.\nThe entire permutation can be broken up into cycles:\nπ = Permutation([5,4,1,2,3,7,8,9,6])\nπ.to_digraph().plot(vertex_size=1500)",
@@ -175,8 +175,8 @@
     ]
   },
   {
-    "objectID": "visual.html#as-a-collection-of-cycles",
-    "href": "visual.html#as-a-collection-of-cycles",
+    "objectID": "permutations/visual.html#as-a-collection-of-cycles",
+    "href": "permutations/visual.html#as-a-collection-of-cycles",
     "title": "4  Visual representations of permutations",
     "section": "",
     "text": "4.1.1 Notation\nThe cycle \\(1 \\to 5 \\to 3 \\to 1\\) can be written as \\((153)\\). In general, \\((a_1,\\dots,a_n)\\) represents the cycle \\(a_1 \\to a_2 \\to \\dots \\to a_n \\to a_1\\). We often ommit the commas when every number is a single digit.\nHere is how to compute the cycles in SageMath:\n\nπ.cycle_string()\n\n'(1,5,3)(2,4)(6,7,8,9)'\n\n\nThe answer is given as a product (i.e. composition) of cycles.\nElements which do not go anywhere—also called fixed-points—are represented by cycles of length \\(1\\) E.g. \\((123)(4)\\) represents the two cycles \\(1 \\to 2 \\to 3 \\to 1\\) and \\(4 \\to 4\\). We often ommit length \\(1\\) cycles from the notation so \\((123)(4) = (123)\\) as a permutation of \\(1,2,3,4\\).\n\nExercise 4.1 Compute the cycle decomposition for \\(341859672\\). You can verify your answer in SageMath.\nπ = Permutation([3,4,1,8,5,9,6,7,2])\nπ.cycle_string()\n\nNote: as mentioned earlier: SageMath ommits the cycle \\((5)\\) representing the fixed point \\(\\pi(5) = 5\\).",
@@ -186,8 +186,8 @@
     ]
   },
   {
-    "objectID": "visual.html#sec-braids",
-    "href": "visual.html#sec-braids",
+    "objectID": "permutations/visual.html#sec-braids",
+    "href": "permutations/visual.html#sec-braids",
     "title": "4  Visual representations of permutations",
     "section": "4.2 Braids",
     "text": "4.2 Braids\nAnother visual representation used frequently in the mathematical study of knots is that of crossing lines. Let’s look at an example:\n\nB.&lt;a,b&gt; = BraidGroup(3)\nplot(a * b * a)\n\n\n\n\n\n\n\n\nThis represents a permutation where the first end ends up in the third position (\\(1 \\to 3\\)), the second end ends up in the second position (\\(2 \\to 2\\)) and the third end ends up in the first position (\\(3 \\to 1\\)). Overall, \\(1\\) and \\(3\\) are swapped, so this permutation is \\((13)\\).\n\n4.2.1 Transpositions\nCycles of length \\(2\\) are called transpositions. E.g. \\((14)\\) is a transposition which switches \\(1\\) and \\(4\\). The picture above represents a composition of \\(3\\) transpositions \\((13) = (12)(23)(12)\\).\n\nTheorem 4.1 (Product of transpositions)  \n\nEvery permutation can be written as a product of transpositions\nEvery permutation can be written as a product of transpositions of adjacent elements.\n\nAnother way to say this is that by swapping pairs of elements at a time, we can obtain any possible shuffle.\n\n\nProof. We know that a permutation may be written in terms of cycles. So if we can show that any cycle can be written as a successive sequence of swaps we are good. We will give a visual demonstration of this fact:\n\nB.&lt;t1,t2,t3,t4,t5&gt; = BraidGroup(6)\nplot(t1 * t2 * t3 * t4 * t5)\n\n\n\n\n\n\n\n\nSo the cycle \\((123456) = (12)(23)(34)(45)(56)\\). Remember that compositions are read from right to left: e.g. \\((f \\circ g)(i) = f(g(i))\\) means first do \\(g\\) then do \\(f\\).\nThis kind of decomposition generalizes: you can replace \\((123456)\\) with any cycle of any length. E.g. \\((1456) = (14)(45)(56)\\) although one more reminder that products in SageMath are backwards from the function composition standpoint:\n\nS = SymmetricGroup(6)\nS((5,6)) * S((4,5)) * S((1,4))\n\n(1,4,5,6)\n\n\n\nFor an alternative proof, this decomposition into a sequence of adjacent swaps is exactly how the sorting algorithm BubbleSort works. We can sort any list using BubbleSort which does only adjacent swaps. So the shuffle is obtained by reversing those swaps to go from sorted to shuffled.\n\n\n4.2.2 Braids versus permutations\nYou may have noticed in what we did, the word “braid” was used. Braids are similar to permutation except that we keep track of which strand goes above and which strand goes below. E.g. the transposition \\((12)\\) applied twice looks like\n\nB.&lt;a,b&gt; = BraidGroup(3)\nplot(a * a)\n\n\n\n\n\n\n\n\nAs a permutation this is the trivial shuffle \\(123\\). But as a braid it is still twisted.\nWhile we are only focused on permutations rather than braids here, we still make use of braids because SageMath is able to create diagrams for us.\n\n4.2.2.1 The Braid Group in SageMath\nThe generators of the braid group are adjacent swaps. So the line B.&lt;a, b&gt; = BraidGroup(3) sets a to a swap of \\(1, 2\\) and sets b to a swap of \\(2, 3\\). We can obtain the reverse swap with a^-1 or b^-1\n\nplot(a^-1 * a^-1)\n\n\n\n\n\n\n\n\nWhen converting from braids to permutations, we ignore whether a strand goes over or under and just focus on the swapping.",
@@ -197,8 +197,8 @@
     ]
   },
   {
-    "objectID": "generators.html",
-    "href": "generators.html",
+    "objectID": "permutations/generators.html",
+    "href": "permutations/generators.html",
     "title": "5  Generators",
     "section": "",
     "text": "5.1 Squaring relation\nWe have \\(\\tau_i^2 = 1\\) where \\(1\\) represents the identity permutation (no shuffling). This says that if we swap \\(i\\) and \\(i + 1\\) and then swap again, we get back to a sorted list.",
@@ -208,8 +208,8 @@
     ]
   },
   {
-    "objectID": "generators.html#commutating",
-    "href": "generators.html#commutating",
+    "objectID": "permutations/generators.html#commutating",
+    "href": "permutations/generators.html#commutating",
     "title": "5  Generators",
     "section": "5.2 Commutating",
     "text": "5.2 Commutating\nFrom Exercise 3.1, we saw that in general \\(\\pi_1 \\pi_2 \\neq \\pi_2 \\pi_1\\). Nonetheless, if we are swapping disjoint sets of pairs like \\((12)\\) followed by \\((34)\\) then there is no interaction between the swaps. So the order doesn’t matter: \\((12)(34) = (34)(12)\\). Specifically, \\(\\tau_i\\) and \\(\\tau_j\\) commute (\\(\\tau_i\\tau_j = \\tau_j\\tau_i\\)) provided \\(i\\) and \\(j\\) are at least \\(2\\) apart.\n\nB.&lt;a,b,c&gt; = BraidGroup(4)\nplot(a * c)\n\n\n\n\n\n\n\n\n\na * c == c * a\n\nTrue",
@@ -219,8 +219,8 @@
     ]
   },
   {
-    "objectID": "generators.html#aba-bab",
-    "href": "generators.html#aba-bab",
+    "objectID": "permutations/generators.html#aba-bab",
+    "href": "permutations/generators.html#aba-bab",
     "title": "5  Generators",
     "section": "5.3 ABA = BAB",
     "text": "5.3 ABA = BAB\nAt the top of Section 4.2 we saw that \\((12)(23)(12) = (13)\\). We also have \\((23)(12)(23) = (13)\\). Compare the following pictures.\nB.&lt;a,b&gt; = BraidGroup(3)\nplot(a * b * a)\nplot(b * a * b)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe can see visually that the middle green strand is sliding from one side of the blue/red crossing to the other.",
@@ -230,8 +230,8 @@
     ]
   },
   {
-    "objectID": "generators.html#sec-all-relations",
-    "href": "generators.html#sec-all-relations",
+    "objectID": "permutations/generators.html#sec-all-relations",
+    "href": "permutations/generators.html#sec-all-relations",
     "title": "5  Generators",
     "section": "5.4 Other relations?",
     "text": "5.4 Other relations?\nIt turns out, every way to simplify or manipulate products of transpositions can be reduced to exactly these three rules:\n\n\\(\\tau_i^2 = 1\\)\n\\(\\tau_i\\tau_j = \\tau_j\\tau_i\\) for \\(|i - j| \\ge 2\\) (at least two apart)\n\\(\\tau_i\\tau_{i+1}\\tau_i = \\tau_{i+1}\\tau_i\\tau_{i+1}\\)\n\nThe proof of this has two stages. One which we have already seen. First, you show that every permutation can be written as a product of transpositions of adjacent elements (Theorem 4.1). This shows that you can use \\(\\tau_1,\\dots,\\tau_n\\) and these rules to write every element of \\(S_n\\). I.e. the number of objects generated by these rules is at least \\(n!\\).\nThe second step is showing that the number of objects generated by these rules is no more than \\(n!\\) so that it is exactly the same as \\(S_n\\). This requires more tools than we have available to us (i.e. group theory). A proof for those in-the-know may be found here for instance.\nWe will take it as a fact that these rules descrie \\(S_n\\) exactly.",
@@ -241,8 +241,8 @@
     ]
   },
   {
-    "objectID": "sign.html",
-    "href": "sign.html",
+    "objectID": "permutations/sign.html",
+    "href": "permutations/sign.html",
     "title": "6  Sign of a Permutation",
     "section": "",
     "text": "6.1 Step 1: reducing to the identity\nSuppose we have two different ways to write a given permutation as a product of transpositions:\n\\[\n\\pi = \\tau_1 \\tau_2 \\dots \\tau_m = \\tau_1' \\tau_2' \\dots \\tau_n'.\n\\]\n(Here the letter \\(\\tau\\) means any transposition, not just for adjacent elements.)\nOur goal is to show that \\(m\\) and \\(n\\) have the same pairty (both are odd or both are even). Notice that if we multiply both sides by \\(\\tau_1\\), we get\n\\[\n\\tau_1 \\cdot \\tau_1 \\tau_2 \\dots \\tau_m = \\tau_1 \\cdot \\tau_1' \\tau_2' \\dots \\tau_n'\n\\]\nbut \\(\\tau_1 \\cdot \\tau_1\\) means swap the same pair twice, and doing this twice is the same as not doing it at all. Therefore the \\(\\tau_1 \\cdot \\tau_1\\) cancels and we are left with\n\\[\n\\tau_2 \\dots \\tau_m = \\tau_1 \\cdot \\tau_1' \\tau_2' \\dots \\tau_n'.\n\\]\nKeep doing this from left to right until we have\n\\[\n1 = \\tau_m \\dots \\tau_2 \\tau_1 \\tau_1' \\tau_2' \\dots \\tau_n'.\n\\]\nSo saying “\\(m\\) and \\(n\\) have the same parity” is equivalent to saying “\\(1\\) cannot be written as an odd number of transpositions.”",
@@ -252,8 +252,8 @@
     ]
   },
   {
-    "objectID": "sign.html#step-2-setting-up-the-induction-hypothesis",
-    "href": "sign.html#step-2-setting-up-the-induction-hypothesis",
+    "objectID": "permutations/sign.html#step-2-setting-up-the-induction-hypothesis",
+    "href": "permutations/sign.html#step-2-setting-up-the-induction-hypothesis",
     "title": "6  Sign of a Permutation",
     "section": "6.2 Step 2: setting up the induction hypothesis",
     "text": "6.2 Step 2: setting up the induction hypothesis\nLet’s introduce some letters now for our transpositions. Say\n\\[\n1 = (a_1b_1)(a_2b_2) \\cdots (a_kb_k)\n\\tag{6.1}\\]\nwhere \\(a_i \\neq b_i\\) for all \\(i\\) (we’re always swapping two different things).\nWe know that \\(k\\) isn’t \\(1\\) since a single transposition is not the same as the identity. So look now at \\(k \\ge 2\\). We will show that we can always rewrite this product using \\(k - 2\\) transpositions.\nThere are a couple ways to phrase this next part of the proof. First, we could say: take as an inductive hypothesis that for all \\(k' &lt; k\\) if the identity is written as a product of \\(k'\\) transpositions then \\(k'\\) is even. In this way, going from \\(k\\) to \\(k' = k - 2\\) we know that \\(k - 2\\) is even and hence so is \\(k\\).\nAnother way we could say this: we are always reducing by \\(2\\) every time so \\(k - 2 - 2 - 2 - \\dots\\) will either end up at \\(0\\) or \\(1\\) and we know it can’t end up at \\(1\\).",
@@ -263,8 +263,8 @@
     ]
   },
   {
-    "objectID": "sign.html#step-3-reorganizing-the-product",
-    "href": "sign.html#step-3-reorganizing-the-product",
+    "objectID": "permutations/sign.html#step-3-reorganizing-the-product",
+    "href": "permutations/sign.html#step-3-reorganizing-the-product",
     "title": "6  Sign of a Permutation",
     "section": "6.3 Step 3: reorganizing the product",
     "text": "6.3 Step 3: reorganizing the product\nLook back at Equation 6.1. Since \\((ab) = (ba)\\), to keep things consistent, we will assume that \\(a_i &lt; b_i\\) always. Let \\(a\\) be the smallest number appearing in any transposition. E.g. for \\((23)(34)(23)(24)\\) we have \\(a = 2\\).\nWe will slide all the the transpositions with an \\(a\\) in them to the right (towards the beginning of the composition). Now we can’t just move things without changing the product so we have to be strategic.\nLet’s say we have in the middle of our expression \\((uv)(xy)\\) where \\(u = a\\) and \\(x \\neq a\\) and so we want to move \\((uv)\\) to the right of \\((xy)\\).\n\n6.3.1 Case 1: disjoint\nIf \\(u, v, x, y\\) are all distinct, then the two swaps can be done in either order and \\((uv)(xy) = (xy)(uv)\\).\n\n\n\n\n\n\n\n\n\n\n\n6.3.2 Case 2: two numbers in common\nIf \\((uv) = (xy)\\) then \\((uv)(xy) = (uv)^2 = 1\\) and we have reduced the number of transpositions by \\(2\\) as we said we would.\n\n\n6.3.3 Case 3: larger number in common\nConsider the product \\((12)(23) = (123)\\) (swap \\(2,3\\) first then \\(1,2\\))\n\n\n\n\n\n\n\n\n\nCompare this with the identity \\((23)(12)(23) = (13)\\) that we worked out in Chapter 5:\n\n\n\n\n\n\n\n\n\nMultiply both sides on the left by \\((23)\\) and simplify using \\((23)(23) = 1\\) to get \\((12)(23) = (23)(13)\\).\nIn this way, the smallest number is always moving to the right. The rule is \\((uv)(xy) = (xy)(uv')\\) where \\(v'\\) is the number in \\((xy)\\) which wasn’t in common.\n\nExercise 6.1 Work out the diagrams to show that \\((12)(23) = (23)(13)\\). (I would show you in SageMath, but the software doesn’t draw \\((13)\\) very well.)\n\n\n\n6.3.4 Case 4: smaller number in common\nUsing the previous case, we move all the terms having \\(u = a\\) to the right. So now we have a bunch of terms \\((av_1)(av_2) \\dots (av_r)\\) in the right of our product. We know we have at least two pairs because if we swap \\(a\\) out of position, something later on has to swap it back into position.\nAlso, if any of the adjacent pairs are equal, we can cancel them as in Case 2. Otherwise, we do something similar to Case 3 where\n\\[\n(12)(23)(12) = (13) \\implies (12)(23) = (13)(12)\n\\]\nby multiplying on the right by \\((12)\\)\nThe feature of this identity is that we have one fewer \\(1\\)’s, or more generally, one fewer \\(a\\)’s. And we can keep doing this until we are left with either a single \\(a\\) (impossible) or we eventually find a pair that cancels.\n\nExercise 6.2 Draw the diagram for this identity.",
@@ -274,8 +274,8 @@
     ]
   },
   {
-    "objectID": "sign.html#summary",
-    "href": "sign.html#summary",
+    "objectID": "permutations/sign.html#summary",
+    "href": "permutations/sign.html#summary",
     "title": "6  Sign of a Permutation",
     "section": "6.4 Summary",
     "text": "6.4 Summary\nWe showed that we can push all the transpositions containing a \\(1\\) to the right and then moving those transpositions past each other until we had fewer and fewer \\(1\\)’s and eventuall there must be a pair with both numbers in common because we can’t just move \\(1\\) a single time in our sequence of transpositions.\n\nExample 6.1 Start with \\((12)(23)(12)(13)\\). Use Case 3 to swap the first and second: \\((23)(13)(12)(13)\\). Now use Case 4 to swap the second and third: \\((23)(23)(13)(13)\\). Now cancel using Case 2.",
@@ -285,8 +285,8 @@
     ]
   },
   {
-    "objectID": "sign.html#notationcomputation",
-    "href": "sign.html#notationcomputation",
+    "objectID": "permutations/sign.html#notationcomputation",
+    "href": "permutations/sign.html#notationcomputation",
     "title": "6  Sign of a Permutation",
     "section": "6.5 Notation/Computation",
     "text": "6.5 Notation/Computation\nIf \\(\\pi\\) is a permutation, common notations for its parity or sign are: \\(\\operatorname{sgn} \\pi\\) and \\((-1)^\\pi\\). We say the sign is \\(+1\\) if it is an even length product and the sign is \\(-1\\) if it is an odd length product.\nWe have the identity \\(\\operatorname{sgn}(\\pi_1 \\pi_2) = \\operatorname{sgn}\\pi_1 \\operatorname{sgn} \\pi_2\\) because, for example, multiplying two odd length products creates an even length product (\\((-1) \\cdot (-1) = +1\\))\nOne way to compute this is by decomposing \\(\\pi\\) into cycles. We saw in Theorem 4.1 how to write cycles in terms of transpositions: \\((12345) = (12)(23)(34)(45)\\). The observation here is that odd length cycles become an even length product of transpositions and vice versa.\nSo the algorithm is:\n\nConvert the permutation into a product of cycles.\nWrite a \\(+1\\) if the cycle has an odd length and a \\(-1\\) if it has an even length.\nMultiply those numbers together to find the sign.\n\n\nExample 6.2 Consider the shuffle \\(376819254\\). We can write this as \\((1369485)(27)\\) this is a product of a cycle of length \\(7\\) and a cycle of length \\(2\\). Therefore the sign is \\((+1)(-1) = -1\\).\nThis computation in SageMath:\n\nπ = Permutation([3,7,6,8,1,9,2,5,4])\nsign(π)\n\n-1",
@@ -296,8 +296,8 @@
     ]
   },
   {
-    "objectID": "inversions.html",
-    "href": "inversions.html",
+    "objectID": "permutations/inversions.html",
+    "href": "permutations/inversions.html",
     "title": "7  Inversions",
     "section": "",
     "text": "7.1 Parity of the number of inversions\nInversions as a concept have a few uses in combinatorics. Relavent to us now is that the number of inversions has the same parity as the permutation. To show this, we will consider how a single transposition affects this parity. But since the total number can go up or down, let us define a quantity which we can analyze to describe the parity.\nFor the identity permutation, define \\[\nV(1) = \\prod_{i &lt; j} (j - i)\n\\]\nE.g. for \\(n = 4\\) this is \\((2 - 1)(3 - 1)(4 - 1)(3 - 2)(4 - 2)(4 - 3)\\). We’re not interested in the absolute value here but rather the sign—which for the identity permutation is \\(+1\\).\nMore generally, define \\[\nV(\\pi) = \\prod_{i &lt; j}(\\pi(j) - \\pi(i)).\n\\]\nNote that we will have a factor of \\(V(\\pi)\\) which is negative whenever \\(i &lt; j\\) and \\(\\pi(i) &gt; \\pi(j)\\). So the sign of \\(V(\\pi)\\) tells us the parity of the number of inversions.\nWhat’s useful here is that factoring out the various \\(-1\\)’s and reordering, we can write \\(V(\\pi) = \\pm V(1)\\) where it is a \\(+1\\) if we have an even number of inversions and a \\(-1\\) if we have an odd number.",
@@ -307,8 +307,8 @@
     ]
   },
   {
-    "objectID": "inversions.html#analysis",
-    "href": "inversions.html#analysis",
+    "objectID": "permutations/inversions.html#analysis",
+    "href": "permutations/inversions.html#analysis",
     "title": "7  Inversions",
     "section": "7.2 Analysis",
     "text": "7.2 Analysis\nWe want to show that a single transposition changes \\(V(1)\\) to \\(-V(1)\\). Then a sequence of odd length will have a sign of \\(-1\\) and one of even length will have a sign of \\(+1\\), matching what we did in Chapter 6.\nSuppose we apply the transposition \\((ij)\\) with \\(i &lt; j\\). Right away, we get one inversion because now \\(\\pi(i) &gt; \\pi(j)\\). Let’s look at the other numbers. Suppose \\(x &lt; i &lt; j\\). Then after swapping, we still have \\(x\\) on the left of \\(i,j\\)$ so no inversions here. Likewise, if \\(i &lt; j &lt; x\\) then \\(x\\) will still be on the right afterwards.\nThe last case is that \\(i &lt; x &lt; j\\). Then we get two inversions going from \\(i,x,j\\) to \\(j,x,i\\). One between \\(i\\) and \\(x\\) and one between \\(x\\) and \\(j\\) since both these pairs are now out of order.\nTo summarize, this single transposition gives us:\n\n\\(0\\) inversions for anything left of \\(i\\) or right of \\(j\\),\n\\(2\\) inversions for each number in between,\n\\(1\\) inversion for the pair \\(i, j\\)\n\nSo overall we get an odd number of inversions for each swap. This shows that the number of inversions is odd if and only if the number of swaps is odd.",
@@ -318,8 +318,8 @@
     ]
   },
   {
-    "objectID": "permutation-exercises.html",
-    "href": "permutation-exercises.html",
+    "objectID": "permutations/permutation-exercises.html",
+    "href": "permutations/permutation-exercises.html",
     "title": "8  Exercises",
     "section": "",
     "text": "Convert \\(2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11\\) to a product of cycles and draw the associated digraph.\nConvert \\((1,8,12)(2,3,6,7,9)(4,10,11)\\) to a shuffle of \\(1,\\dots,12\\)\nShow that \\((12)(23)(34)(23)(12) = (14)\\) by drawing the braid diagram.\nCompute the sign of the permutations in 1. and 2.\nWrite \\((182635)\\) as a product of transpositions.",
