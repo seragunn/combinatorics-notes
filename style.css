@@ -12,3 +12,15 @@
   padding-bottom: 0.2rem;
   font-size: 0.9rem;
 }
+
+.proof {
+  position: relative;
+}
+
+.proof::after {
+  content: "∎";
+  font-size: 150%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
