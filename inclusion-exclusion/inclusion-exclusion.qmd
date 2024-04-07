@@ -19,7 +19,7 @@ $$
 
 ## For three sets
 
-![Inclusion/Exclusion for 3 sets](i/Inclusion-exclusion-3sets.png)
+![Inclusion/Exclusion for 3 sets](../i/Inclusion-exclusion-3sets.png)
 
 We can do a similar process for three sets. Start by adding up $|A| + |B| + |C|$ then subtract all the intersections of pairs then add back in $|A \cap B \cap C|$. For items in each region of the Venn diagram, think about how many times an item is added/subtracted overall.
 

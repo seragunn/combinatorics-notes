@@ -14,16 +14,16 @@ book:
     - index.qmd
     - part: "Inclusion-Exclusion"
       chapters:
-        - inclusion-exclusion.qmd
-        - totient.qmd
+        - inclusion-exclusion/inclusion-exclusion.qmd
+        - inclusion-exclusion/totient.qmd
     - part: "Permutations"
       chapters:
-        - permutations.qmd
-        - visual.qmd
-        - generators.qmd
-        - sign.qmd
-        - inversions.qmd
-        - permutation-exercises.qmd
+        - permutations/permutations.qmd
+        - permutations/visual.qmd
+        - permutations/generators.qmd
+        - permutations/sign.qmd
+        - permutations/inversions.qmd
+        - permutations/permutation-exercises.qmd
 
 format:
   html:
