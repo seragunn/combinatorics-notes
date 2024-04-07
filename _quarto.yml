@@ -28,6 +28,7 @@ book:
 format:
   html:
     theme: cosmo
+    css: style.css
   pdf:
     fig-width: 2
     include-in-header:
