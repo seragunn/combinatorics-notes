@@ -1,0 +1,14 @@
+.theorem {
+  margin: 1em 0;
+  border: 1px solid #dee2e6;
+  border-left: 5px solid #FDE; 
+  border-radius: 0.25rem;
+}
+
+.theorem > p {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  font-size: 0.9rem;
+}
