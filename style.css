@@ -9,8 +9,11 @@
   padding-left: 0.5em;
   padding-right: 0.5em;
   padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
   font-size: 0.9rem;
+}
+
+.theorem > .display:last-child {
+  margin-bottom: -2em;
 }
 
 .proof {
