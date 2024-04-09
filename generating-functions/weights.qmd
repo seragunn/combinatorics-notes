@@ -1,4 +1,4 @@
-# Metric Functions
+# Weight Functions
 
 ## Recap: Strings
 
@@ -10,22 +10,22 @@ For most examples that follow, we will work with binary strings of $0$s and $1$s
 
 ## Definition
 
-Let $S$ be a set of strings (e.g. all binary strings or all ternary strings). A **metric** on $S$ is a function $f : S \to \mathbf{Z}$ satisfying:
+Let $S$ be a set of strings (e.g. all binary strings or all ternary strings). A **weight function** on $S$ is a function $f : S \to \mathbf{Z}$ satisfying:
 
 - $f(x) \ge 0$
 - $f(uv) = f(u) + f(v)$ when $u$ and $v$ are two strings.
 
-:::{#exm-length-metric}
-The length $l$ of a string is a metric. E.g. $l(011) = 3, l(011 \cdot 10011) = l(011) + l(10011)$.
+:::{#exm-length-weight}
+The length $l$ of a string is a weight. E.g. $l(011) = 3, l(011 \cdot 10011) = l(011) + l(10011)$.
 :::
 
-:::{#exm-character-metric}
-$f(s) =$ the number of $1$s in $s$ is a metric. E.g. $f(011) = 2$ and $f(011 \cdot 10011) = f(011) + l(10011)$.
+:::{#exm-character-weight}
+$f(s) =$ the number of $1$s in $s$ is a weight. E.g. $f(011) = 2$ and $f(011 \cdot 10011) = f(011) + l(10011)$.
 :::
 
-### Key property {#sec-key-property-metrics}
+### Key property {#sec-key-property-weights}
 
-The definition of a metric means they behave kind of like a logarithm. Therefore, if we do $x^{f(s)}$, we get a function which satisfies
+The definition of a weight means they behave kind of like a logarithm. Therefore, if we do $x^{f(s)}$, we get a function which satisfies
 
 $$
 x^{f(uv)} = x^{f(u)} \cdot x^{f(v)}.

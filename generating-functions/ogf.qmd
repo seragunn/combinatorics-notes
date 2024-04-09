@@ -2,7 +2,7 @@
 
 ## Definition
 
-Let $L$ be a subset of strings. These is also called a **language**. Let $f$ be a metric. We define the **(ordinary) generating function** of $L$ or **OGF** as
+Let $L$ be a subset of strings. These is also called a **language**. Let $f$ be a weight function. We define the **(ordinary) generating function** of $L$ or **OGF** as
 
 $$
 \Phi_L(x) = \Phi_L^f(x) = \sum_{s \in L} x^{f(s)}.
@@ -19,7 +19,7 @@ It is also common to call generating functions by other letters, like $A(x)$ but
 :::
 
 ::: {#exm-ogf1}
-Let $L$ be the subset $\{01, 1110, 11, 0, 1, 111000, \varepsilon\}$ of binary strings. Let $f$ be the length metric. The OGF of $L$ is
+Let $L$ be the subset $\{01, 1110, 11, 0, 1, 111000, \varepsilon\}$ of binary strings. Let $f$ be the length weight. The OGF of $L$ is
 \begin{align*}
 \Phi_L(x) &= x^{f(01)} + x^{f(1110)} + x^{f(11)} + x^{f(0)} + x^{f(1)} + x^{f(111000)} + x^{f(\varepsilon)} \\
 &= x^2 + x^4 + x^2 + x^1 + x^1 + x^6 + x^0 \\
@@ -38,8 +38,8 @@ For the language $L$ of @exm-ogf1 above, we have for instance, $2$ strings of le
 Let $L$ be the set of all binary strings of length $\le 5$ which have no $11$.
 
 a) for $n = 0, 1, 2, 3, 4, 5$, list all the strings with no $11$
-b) write down the generating function with respect to the length metric
-c) write down the generating function with respect to the "number of 1s" metric
+b) write down the generating function with respect to the length weight
+c) write down the generating function with respect to the "number of 1s" weight
 :::
 
 ## Infinite series

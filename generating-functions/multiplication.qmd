@@ -27,7 +27,7 @@ Suppose $L$ consists of $3$ strings of length $4$ and $8$ of length $6$. Suppose
 
 ## Multiplication theorem
 ::: {#thm-ogf-multiplication}
-Let $L$ and $L'$ be two different languages. Let $f$ be a common metric function like the length of a string. Then
+Let $L$ and $L'$ be two different languages. Let $f$ be a common weight function like the length of a string. Then
 $$
 \Phi_{LL'}(x) = \Phi_L(x)\Phi_{L'}(x).
 $$
@@ -40,7 +40,7 @@ We have
 &= \sum_{u \in L} \sum_{v \in L'} x^{f(uv)} \\
 &= \sum_{u \in L} \sum_{v \in L'} x^{f(u)}x^{f(v)}
 \end{align*}
-using @sec-key-property-metrics. Continuing, we get
+using @sec-key-property-weights. Continuing, we get
 \begin{align*}
 \phantom{\Phi_{LL'}(x)} &= \sum_{u \in L} x^{f(u)} \sum_{v \in L'} x^{f(v)} \\
 &= \Phi_L(x) \Phi_{L'}(x).
@@ -48,7 +48,7 @@ using @sec-key-property-metrics. Continuing, we get
 :::
 
 ::: {.callout-tip}
-One might wonder whether $\sum a_i \sum b_j$ means $(\sum a_i)(\sum b_j)$ or $\sum \left(a_i \sum b_j \right)$. These are the same and it is explained by the distributive property of multiplication. For example,
+One might wonder whether $\sum a_i \sum b_j$ means $(\sum a_i)(\sum b_j)$ or $\sum \left(a_i \sum b_j \right)$. It turns out these are the same, and it is explained by the distributive property of multiplication. For example,
 $$
 (a_1 + a_2 + a_3)(b_1 + b_2) = a_1(b_1 + b_2) + a_2(b_1 + b_2) + a_3(b_1 + b_2).
 $$
