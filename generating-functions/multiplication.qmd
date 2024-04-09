@@ -1,0 +1,55 @@
+# Multiplication of Generating Functions
+
+Suppose $L, L'$ are two languages. We define the concatenated language $LL'$ by concatenating a string from $L$ and a string from $L'$ in all possible ways:
+
+$$
+LL' = \{uv : u \in L, v \in L'\}.
+$$
+
+The utility of this is that many common languages of strings can be written as concatenations of smaller, more simpler languages. And, it will turn out, we can compute the OGF of the more complex language out of the OGFs for the simpler languages.
+
+## Multiplication of Monomials
+Suppose we have a language $L$ which consists of $10$ strings, each of length $5$. Suppose we also have a language $L'$ consisting of $6$ strings, each of length $7$.
+Concatenating any pair of strings will always yield a string of length $12$ and there are $60$ such pairs. This computation is represented by the following multiplication of generating functions:
+$$
+(10x^5) \cdot (6x^7) = 60x^{12}.
+$$
+
+## A step further
+Now suppose $L$ is the same as before: $10$ strings of length $5$, and this time $L'$ consists of $3$ strings of length $4$ and $7$ strings of length $8$. Now if we concatenate to form $LL'$ we are either combining a string of length $5$ with one of length $4$ (in $10 \cdot 3$ ways) or a string of length $5$ with one of length $8$ (in $10 \cdot 7$ ways). Again, this computation is reflected in the product of polynomials
+$$
+10x^5 \cdot (3x^4 + 7x^8) = 30x^9 + 70x^{13}.
+$$
+
+:::{#exr-multiply-finite-ogf}
+Suppose $L$ consists of $3$ strings of length $4$ and $8$ of length $6$. Suppose $L'$ consists of $2$ strings of length $1$ and $5$ strings of length $4$. What will $LL'$ consist of?
+:::
+
+## Multiplication theorem
+::: {#thm-ogf-multiplication}
+Let $L$ and $L'$ be two different languages. Let $f$ be a common metric function like the length of a string. Then
+$$
+\Phi_{LL'}(x) = \Phi_L(x)\Phi_{L'}(x).
+$$
+:::
+
+::: {.proof}
+We have
+\begin{align*}
+\Phi_{LL'}(x) &= \sum_{w \in LL'} x^{f(w)} \\
+&= \sum_{u \in L} \sum_{v \in L'} x^{f(uv)} \\
+&= \sum_{u \in L} \sum_{v \in L'} x^{f(u)}x^{f(v)}
+\end{align*}
+using @sec-key-property-metrics. Continuing, we get
+\begin{align*}
+\phantom{\Phi_{LL'}(x)} &= \sum_{u \in L} x^{f(u)} \sum_{v \in L'} x^{f(v)} \\
+&= \Phi_L(x) \Phi_{L'}(x).
+\end{align*}
+:::
+
+::: {.callout-tip}
+One might wonder whether $\sum a_i \sum b_j$ means $(\sum a_i)(\sum b_j)$ or $\sum \left(a_i \sum b_j \right)$. These are the same and it is explained by the distributive property of multiplication. For example,
+$$
+(a_1 + a_2 + a_3)(b_1 + b_2) = a_1(b_1 + b_2) + a_2(b_1 + b_2) + a_3(b_1 + b_2).
+$$
+:::

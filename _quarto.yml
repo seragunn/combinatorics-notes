@@ -24,6 +24,11 @@ book:
         - permutations/sign.qmd
         - permutations/inversions.qmd
         - permutations/permutation-exercises.qmd
+    - part: "Generating Functions"
+      chapters:
+        - generating-functions/metrics.qmd
+        - generating-functions/ogf.qmd
+        - generating-functions/multiplication.qmd
 
 format:
   html:
