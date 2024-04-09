@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Trevor Gunn">
-<meta name="dcterms.date" content="2024-04-09">
 
-<title>Combinatorics Notes</title>
+<title>Combinatorics Notes - 10&nbsp; Generating Functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,24 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./inclusion-exclusion/inclusion-exclusion.html" rel="next">
-<link href="./icon.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../generating-functions/multiplication.html" rel="next">
+<link href="../generating-functions/metrics.html" rel="prev">
+<link href="../icon.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -71,8 +70,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -84,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/metrics.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/ogf.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -99,10 +127,10 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Combinatorics Notes</a> 
+      <a href="../">Combinatorics Notes</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/trevorgunn/combinatorics-notes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./Combinatorics-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="../Combinatorics-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -115,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -130,13 +158,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
+  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
+  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
   </div>
 </li>
@@ -153,37 +181,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations/permutations.html" class="sidebar-item-text sidebar-link">
+  <a href="../permutations/permutations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations/visual.html" class="sidebar-item-text sidebar-link">
+  <a href="../permutations/visual.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations/generators.html" class="sidebar-item-text sidebar-link">
+  <a href="../permutations/generators.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations/sign.html" class="sidebar-item-text sidebar-link">
+  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations/inversions.html" class="sidebar-item-text sidebar-link">
+  <a href="../permutations/inversions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
@@ -200,19 +228,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./generating-functions/metrics.html" class="sidebar-item-text sidebar-link">
+  <a href="../generating-functions/metrics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metric Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
+  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
+  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
   </div>
 </li>
@@ -228,35 +256,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#definition" id="toc-definition" class="nav-link active" data-scroll-target="#definition"><span class="header-section-number">10.1</span> Definition</a></li>
+  <li><a href="#monomials" id="toc-monomials" class="nav-link" data-scroll-target="#monomials"><span class="header-section-number">10.2</span> Monomials</a></li>
+  <li><a href="#infinite-series" id="toc-infinite-series" class="nav-link" data-scroll-target="#infinite-series"><span class="header-section-number">10.3</span> Infinite series</a>
+  <ul class="collapse">
+  <li><a href="#when-do-we-care-about-convergence" id="toc-when-do-we-care-about-convergence" class="nav-link" data-scroll-target="#when-do-we-care-about-convergence"><span class="header-section-number">10.3.1</span> When do we care about convergence?</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/ogf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/ogf.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/metrics.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/ogf.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Combinatorics Notes</h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Trevor Gunn </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 9, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -266,14 +287,107 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>Combinatorics notes extending the book <a href="https://www.appliedcombinatorics.org/appcomb/">Applied Combinatorics by Keller and Trotter</a>.</p>
-<p xmlns:cc="http://creativecommons.org/ns#">
-This work © 2024 by <span property="cc:attributionName">Trevor Gunn</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a>
-</p>
+<section id="definition" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">10.1</span> Definition</h2>
+<p>Let <span class="math inline">\(L\)</span> be a subset of strings. These is also called a <strong>language</strong>. Let <span class="math inline">\(f\)</span> be a metric. We define the <strong>(ordinary) generating function</strong> of <span class="math inline">\(L\)</span> or <strong>OGF</strong> as</p>
+<p><span class="math display">\[
+\Phi_L(x) = \Phi_L^f(x) = \sum_{s \in L} x^{f(s)}.
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is common in mathematical definitions to write something like <span class="math display">\[
+\Phi_L(x) = \Phi_L^f(x) = \cdots.
+\]</span> This means that I am calling attention to the fact that <span class="math inline">\(\Phi\)</span> depends on <span class="math inline">\(f\)</span> but also saying that because <span class="math inline">\(f\)</span> isn’t going to change much, we are going to drop the <span class="math inline">\(f\)</span> from the notation most or all of the time.</p>
+<p>It is also common to call generating functions by other letters, like <span class="math inline">\(A(x)\)</span> but this needs to be introduced first by saying that <span class="math inline">\(A\)</span> is the OGF wheras <span class="math inline">\(\Phi_L\)</span> means this implicitly.</p>
+</div>
+</div>
+<div id="exm-ogf1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10.1</strong></span> Let <span class="math inline">\(L\)</span> be the subset <span class="math inline">\(\{01, 1110, 11, 0, 1, 111000, \varepsilon\}\)</span> of binary strings. Let <span class="math inline">\(f\)</span> be the length metric. The OGF of <span class="math inline">\(L\)</span> is <span class="math display">\[\begin{align*}
+\Phi_L(x) &amp;= x^{f(01)} + x^{f(1110)} + x^{f(11)} + x^{f(0)} + x^{f(1)} + x^{f(111000)} + x^{f(\varepsilon)} \\
+&amp;= x^2 + x^4 + x^2 + x^1 + x^1 + x^6 + x^0 \\
+&amp;= 1 + 2x + 2x^2 + x^4 + x^6
+\end{align*}\]</span></p>
+</div>
+</section>
+<section id="monomials" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="monomials"><span class="header-section-number">10.2</span> Monomials</h2>
+<p>Inside <span class="math inline">\(\Phi_L(x)\)</span>, each monomial <span class="math inline">\(a_nx^n\)</span> (after collecting terms) represents that <span class="math inline">\(L\)</span> has <span class="math inline">\(a_n\)</span> strings where <span class="math inline">\(f\)</span> equals <span class="math inline">\(n\)</span> (e.g.&nbsp;the length equals <span class="math inline">\(n\)</span>).</p>
+<div id="exm-ogf1-cont" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10.2</strong></span> For the language <span class="math inline">\(L\)</span> of <a href="#exm-ogf1" class="quarto-xref">Example&nbsp;<span>10.1</span></a> above, we have for instance, <span class="math inline">\(2\)</span> strings of legnth <span class="math inline">\(1\)</span>, represented by the monomial <span class="math inline">\(2x^1\)</span>. We have <span class="math inline">\(1\)</span> string of length <span class="math inline">\(6\)</span> represented by the monomial <span class="math inline">\(1x^6\)</span>. We have no strings of length <span class="math inline">\(5\)</span>, represented by the lack of a monomial with <span class="math inline">\(x^5\)</span>. We could also say that the coefficient of <span class="math inline">\(x^5\)</span> is <span class="math inline">\(0\)</span>.</p>
+</div>
+<div id="exr-ogf-finite-set" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.1</strong></span> Let <span class="math inline">\(L\)</span> be the set of all binary strings of length <span class="math inline">\(\le 5\)</span> which have no <span class="math inline">\(11\)</span>.</p>
+<ol type="a">
+<li>for <span class="math inline">\(n = 0, 1, 2, 3, 4, 5\)</span>, list all the strings with no <span class="math inline">\(11\)</span></li>
+<li>write down the generating function with respect to the length metric</li>
+<li>write down the generating function with respect to the “number of 1s” metric</li>
+</ol>
+</div>
+</section>
+<section id="infinite-series" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="infinite-series"><span class="header-section-number">10.3</span> Infinite series</h2>
+<p>We’ve looked at examples where <span class="math inline">\(L\)</span> is a finite set. In many examples, <span class="math inline">\(L\)</span> will be an infinite set. For instance consider the infinite set of all strings of <span class="math inline">\(0\)</span>s. I.e. <span class="math inline">\(\{\varepsilon, 0, 00, 000, 0000, \dots\}\)</span>. For this language, we have the generating function <span class="math display">\[
+A = 1 + x + x^2 + x^3 + \cdots = \frac{1}{1 - x}.
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Geometric series formula
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To prove this formula, we take <span class="math inline">\(A\)</span> and multiply everything by <span class="math inline">\(x\)</span> because that creates a lot of similar terms: <span class="math display">\[\begin{align*}
+A  &amp;= 1 + x + x^2 + x^3 + \cdots \\
+xA &amp;= \phantom{1+{}}x + x^2 + x^3 + \cdots \\
+A - xA &amp;= 1
+\end{align*}\]</span> From which we solve for <span class="math inline">\(A = \dfrac{1}{1 - x}\)</span>.</p>
+</div>
+</div>
+</div>
+<div id="exm-bin-string-ogf" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10.3</strong></span> Let <span class="math inline">\(L\)</span> is the language of all binary strings, i.e.&nbsp;<span class="math inline">\(L = \{\varnothing, 0, 1, 00, 01, 10, 11, 000, \dots\}\)</span>. We know that there are <span class="math inline">\(2^n\)</span> binary strings of length <span class="math inline">\(n\)</span> so the OGF of <span class="math inline">\(L\)</span> is <span class="math display">\[
+\Phi_L(x) = \sum_{n = 0}^\infty 2^nx^n = \sum_{n = 0}^\infty (2x)^n = \frac{1}{1 - 2x}.
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In a calculus or analysis course, we would want to specify here that <span class="math inline">\(|x| &lt; \frac12\)</span> for this series to converge. In combinatorics, we treat these series <em>purely algebraically</em>. That means as an infinite list of monomials without care whether or not the series converges. People use the term <strong>formal power series</strong> to refer to this concept.</p>
+</div>
+</div>
+<section id="when-do-we-care-about-convergence" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="when-do-we-care-about-convergence"><span class="header-section-number">10.3.1</span> When do we care about convergence?</h3>
+<p>For the most part, <em>we don’t</em>. However, in more advanced courses, there are arguements using analysis which only apply to convergent power series. For instance, the fact that the series <span class="math display">\[
+1 + x + 2x^2 + 3x^3 + 5x^4 + 8x^5 + \cdots = \frac{1}{1 - x - x^2}
+\]</span> converges for <span class="math inline">\(|x| &lt; \frac{1}{\phi}\)</span> where <span class="math inline">\(\varphi = \frac{1 + \sqrt5}{2}\)</span> is connected to the fact that the Fibonnaci numbers are approximately <span class="math inline">\(c \varphi^n\)</span> for some constant <span class="math inline">\(c\)</span>.</p>
+<div id="exr-compute-fib" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.2</strong></span> In fact, one can show that <span class="math display">\[
+\mathrm{Fib}_n = \operatorname{round}\left( \frac{\varphi^n}{\sqrt 5} \right).
+\]</span> Use a calculator or a computer to check this works!</p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -688,10 +802,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../generating-functions/metrics.html" class="pagination-link" aria-label="Metric Functions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metric Functions</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./inclusion-exclusion/inclusion-exclusion.html" class="pagination-link" aria-label="Inclusion/Exclusion">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../generating-functions/multiplication.html" class="pagination-link" aria-label="Multiplication of Generating Functions">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -700,4 +817,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/ogf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/ogf.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

@@ -327,5 +327,104 @@
       "Permutations",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Exercises</span>"
     ]
+  },
+  {
+    "objectID": "generating-functions/metrics.html",
+    "href": "generating-functions/metrics.html",
+    "title": "9  Metric Functions",
+    "section": "",
+    "text": "9.1 Recap: Strings\nRecall that an alphabet is a set of characters like \\(\\{0, 1\\}\\) is the alphabet for binary. A string is an ordered sequence of characters from a fixed alphabet. E.g. \\(011011\\) and \\(00011\\) are binary strings.\nAdditionally, \\(\\varepsilon\\) will denote the empty string and multiplication of strings will be done by concatenation. E.g. \\(011 \\cdot 000 = 011000\\).\nFor most examples that follow, we will work with binary strings of \\(0\\)s and \\(1\\)s unless otherwise specified.",
+    "crumbs": [
+      "Generating Functions",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Metric Functions</span>"
+    ]
+  },
+  {
+    "objectID": "generating-functions/metrics.html#definition",
+    "href": "generating-functions/metrics.html#definition",
+    "title": "9  Metric Functions",
+    "section": "9.2 Definition",
+    "text": "9.2 Definition\nLet \\(S\\) be a set of strings (e.g. all binary strings or all ternary strings). A metric on \\(S\\) is a function \\(f : S \\to \\mathbf{Z}\\) satisfying:\n\n\\(f(x) \\ge 0\\)\n\\(f(uv) = f(u) + f(v)\\) when \\(u\\) and \\(v\\) are two strings.\n\n\nExample 9.1 The length \\(l\\) of a string is a metric. E.g. \\(l(011) = 3, l(011 \\cdot 10011) = l(011) + l(10011)\\).\n\n\nExample 9.2 \\(f(s) =\\) the number of \\(1\\)s in \\(s\\) is a metric. E.g. \\(f(011) = 2\\) and \\(f(011 \\cdot 10011) = f(011) + l(10011)\\).\n\n\n9.2.1 Key property\nThe definition of a metric means they behave kind of like a logarithm. Therefore, if we do \\(x^{f(s)}\\), we get a function which satisfies\n\\[\nx^{f(uv)} = x^{f(u)} \\cdot x^{f(v)}.\n\\] This is why we are going to have a bunch of \\(x\\)s all over the next few sections.",
+    "crumbs": [
+      "Generating Functions",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Metric Functions</span>"
+    ]
+  },
+  {
+    "objectID": "generating-functions/ogf.html",
+    "href": "generating-functions/ogf.html",
+    "title": "10  Generating Functions",
+    "section": "",
+    "text": "10.1 Definition\nLet \\(L\\) be a subset of strings. These is also called a language. Let \\(f\\) be a metric. We define the (ordinary) generating function of \\(L\\) or OGF as\n\\[\n\\Phi_L(x) = \\Phi_L^f(x) = \\sum_{s \\in L} x^{f(s)}.\n\\]",
+    "crumbs": [
+      "Generating Functions",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Generating Functions</span>"
+    ]
+  },
+  {
+    "objectID": "generating-functions/ogf.html#definition",
+    "href": "generating-functions/ogf.html#definition",
+    "title": "10  Generating Functions",
+    "section": "",
+    "text": "Note\n\n\n\nIt is common in mathematical definitions to write something like \\[\n\\Phi_L(x) = \\Phi_L^f(x) = \\cdots.\n\\] This means that I am calling attention to the fact that \\(\\Phi\\) depends on \\(f\\) but also saying that because \\(f\\) isn’t going to change much, we are going to drop the \\(f\\) from the notation most or all of the time.\nIt is also common to call generating functions by other letters, like \\(A(x)\\) but this needs to be introduced first by saying that \\(A\\) is the OGF wheras \\(\\Phi_L\\) means this implicitly.\n\n\n\nExample 10.1 Let \\(L\\) be the subset \\(\\{01, 1110, 11, 0, 1, 111000, \\varepsilon\\}\\) of binary strings. Let \\(f\\) be the length metric. The OGF of \\(L\\) is \\[\\begin{align*}\n\\Phi_L(x) &= x^{f(01)} + x^{f(1110)} + x^{f(11)} + x^{f(0)} + x^{f(1)} + x^{f(111000)} + x^{f(\\varepsilon)} \\\\\n&= x^2 + x^4 + x^2 + x^1 + x^1 + x^6 + x^0 \\\\\n&= 1 + 2x + 2x^2 + x^4 + x^6\n\\end{align*}\\]",
+    "crumbs": [
+      "Generating Functions",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Generating Functions</span>"
+    ]
+  },
+  {
+    "objectID": "generating-functions/ogf.html#monomials",
+    "href": "generating-functions/ogf.html#monomials",
+    "title": "10  Generating Functions",
+    "section": "10.2 Monomials",
+    "text": "10.2 Monomials\nInside \\(\\Phi_L(x)\\), each monomial \\(a_nx^n\\) (after collecting terms) represents that \\(L\\) has \\(a_n\\) strings where \\(f\\) equals \\(n\\) (e.g. the length equals \\(n\\)).\n\nExample 10.2 For the language \\(L\\) of Example 10.1 above, we have for instance, \\(2\\) strings of legnth \\(1\\), represented by the monomial \\(2x^1\\). We have \\(1\\) string of length \\(6\\) represented by the monomial \\(1x^6\\). We have no strings of length \\(5\\), represented by the lack of a monomial with \\(x^5\\). We could also say that the coefficient of \\(x^5\\) is \\(0\\).\n\n\nExercise 10.1 Let \\(L\\) be the set of all binary strings of length \\(\\le 5\\) which have no \\(11\\).\n\nfor \\(n = 0, 1, 2, 3, 4, 5\\), list all the strings with no \\(11\\)\nwrite down the generating function with respect to the length metric\nwrite down the generating function with respect to the “number of 1s” metric",
+    "crumbs": [
+      "Generating Functions",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Generating Functions</span>"
+    ]
+  },
+  {
+    "objectID": "generating-functions/ogf.html#infinite-series",
+    "href": "generating-functions/ogf.html#infinite-series",
+    "title": "10  Generating Functions",
+    "section": "10.3 Infinite series",
+    "text": "10.3 Infinite series\nWe’ve looked at examples where \\(L\\) is a finite set. In many examples, \\(L\\) will be an infinite set. For instance consider the infinite set of all strings of \\(0\\)s. I.e. \\(\\{\\varepsilon, 0, 00, 000, 0000, \\dots\\}\\). For this language, we have the generating function \\[\nA = 1 + x + x^2 + x^3 + \\cdots = \\frac{1}{1 - x}.\n\\]\n\n\n\n\n\n\nGeometric series formula\n\n\n\n\n\nTo prove this formula, we take \\(A\\) and multiply everything by \\(x\\) because that creates a lot of similar terms: \\[\\begin{align*}\nA  &= 1 + x + x^2 + x^3 + \\cdots \\\\\nxA &= \\phantom{1+{}}x + x^2 + x^3 + \\cdots \\\\\nA - xA &= 1\n\\end{align*}\\] From which we solve for \\(A = \\dfrac{1}{1 - x}\\).\n\n\n\n\nExample 10.3 Let \\(L\\) is the language of all binary strings, i.e. \\(L = \\{\\varnothing, 0, 1, 00, 01, 10, 11, 000, \\dots\\}\\). We know that there are \\(2^n\\) binary strings of length \\(n\\) so the OGF of \\(L\\) is \\[\n\\Phi_L(x) = \\sum_{n = 0}^\\infty 2^nx^n = \\sum_{n = 0}^\\infty (2x)^n = \\frac{1}{1 - 2x}.\n\\]\n\n\n\n\n\n\n\nNote\n\n\n\nIn a calculus or analysis course, we would want to specify here that \\(|x| &lt; \\frac12\\) for this series to converge. In combinatorics, we treat these series purely algebraically. That means as an infinite list of monomials without care whether or not the series converges. People use the term formal power series to refer to this concept.\n\n\n\n10.3.1 When do we care about convergence?\nFor the most part, we don’t. However, in more advanced courses, there are arguements using analysis which only apply to convergent power series. For instance, the fact that the series \\[\n1 + x + 2x^2 + 3x^3 + 5x^4 + 8x^5 + \\cdots = \\frac{1}{1 - x - x^2}\n\\] converges for \\(|x| &lt; \\frac{1}{\\phi}\\) where \\(\\varphi = \\frac{1 + \\sqrt5}{2}\\) is connected to the fact that the Fibonnaci numbers are approximately \\(c \\varphi^n\\) for some constant \\(c\\).\n\nExercise 10.2 In fact, one can show that \\[\n\\mathrm{Fib}_n = \\operatorname{round}\\left( \\frac{\\varphi^n}{\\sqrt 5} \\right).\n\\] Use a calculator or a computer to check this works!",
+    "crumbs": [
+      "Generating Functions",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Generating Functions</span>"
+    ]
+  },
+  {
+    "objectID": "generating-functions/multiplication.html",
+    "href": "generating-functions/multiplication.html",
+    "title": "11  Multiplication of Generating Functions",
+    "section": "",
+    "text": "11.1 Multiplication of Monomials\nSuppose we have a language \\(L\\) which consists of \\(10\\) strings, each of length \\(5\\). Suppose we also have a language \\(L'\\) consisting of \\(6\\) strings, each of length \\(7\\). Concatenating any pair of strings will always yield a string of length \\(12\\) and there are \\(60\\) such pairs. This computation is represented by the following multiplication of generating functions: \\[\n(10x^5) \\cdot (6x^7) = 60x^{12}.\n\\]",
+    "crumbs": [
+      "Generating Functions",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Multiplication of Generating Functions</span>"
+    ]
+  },
+  {
+    "objectID": "generating-functions/multiplication.html#a-step-further",
+    "href": "generating-functions/multiplication.html#a-step-further",
+    "title": "11  Multiplication of Generating Functions",
+    "section": "11.2 A step further",
+    "text": "11.2 A step further\nNow suppose \\(L\\) is the same as before: \\(10\\) strings of length \\(5\\), and this time \\(L'\\) consists of \\(3\\) strings of length \\(4\\) and \\(7\\) strings of length \\(8\\). Now if we concatenate to form \\(LL'\\) we are either combining a string of length \\(5\\) with one of length \\(4\\) (in \\(10 \\cdot 3\\) ways) or a string of length \\(5\\) with one of length \\(8\\) (in \\(10 \\cdot 7\\) ways). Again, this computation is reflected in the product of polynomials \\[\n10x^5 \\cdot (3x^4 + 7x^8) = 30x^9 + 70x^{13}.\n\\]\n\nExercise 11.1 Suppose \\(L\\) consists of \\(3\\) strings of length \\(4\\) and \\(8\\) of length \\(6\\). Suppose \\(L'\\) consists of \\(2\\) strings of length \\(1\\) and \\(5\\) strings of length \\(4\\). What will \\(LL'\\) consist of?",
+    "crumbs": [
+      "Generating Functions",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Multiplication of Generating Functions</span>"
+    ]
+  },
+  {
+    "objectID": "generating-functions/multiplication.html#multiplication-theorem",
+    "href": "generating-functions/multiplication.html#multiplication-theorem",
+    "title": "11  Multiplication of Generating Functions",
+    "section": "11.3 Multiplication theorem",
+    "text": "11.3 Multiplication theorem\n\nTheorem 11.1 Let \\(L\\) and \\(L'\\) be two different languages. Let \\(f\\) be a common metric function like the length of a string. Then \\[\n\\Phi_{LL'}(x) = \\Phi_L(x)\\Phi_{L'}(x).\n\\]\n\n\nProof. We have \\[\\begin{align*}\n\\Phi_{LL'}(x) &= \\sum_{w \\in LL'} x^{f(w)} \\\\\n&= \\sum_{u \\in L} \\sum_{v \\in L'} x^{f(uv)} \\\\\n&= \\sum_{u \\in L} \\sum_{v \\in L'} x^{f(u)}x^{f(v)}\n\\end{align*}\\] using Section 9.2.1. Continuing, we get \\[\\begin{align*}\n\\phantom{\\Phi_{LL'}(x)} &= \\sum_{u \\in L} x^{f(u)} \\sum_{v \\in L'} x^{f(v)} \\\\\n&= \\Phi_L(x) \\Phi_{L'}(x).\n\\end{align*}\\]\n\n\n\n\n\n\n\nTip\n\n\n\nOne might wonder whether \\(\\sum a_i \\sum b_j\\) means \\((\\sum a_i)(\\sum b_j)\\) or \\(\\sum \\left(a_i \\sum b_j \\right)\\). These are the same and it is explained by the distributive property of multiplication. For example, \\[\n(a_1 + a_2 + a_3)(b_1 + b_2) = a_1(b_1 + b_2) + a_2(b_1 + b_2) + a_3(b_1 + b_2).\n\\]",
+    "crumbs": [
+      "Generating Functions",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Multiplication of Generating Functions</span>"
+    ]
   }
 ]

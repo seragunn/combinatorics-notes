@@ -217,6 +217,35 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Generating Functions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metric Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -307,7 +336,7 @@ window.Quarto = {
 <section id="case-1-disjoint" class="level3" data-number="6.3.1">
 <h3 data-number="6.3.1" class="anchored" data-anchor-id="case-1-disjoint"><span class="header-section-number">6.3.1</span> Case 1: disjoint</h3>
 <p>If <span class="math inline">\(u, v, x, y\)</span> are all distinct, then the two swaps can be done in either order and <span class="math inline">\((uv)(xy) = (xy)(uv)\)</span>.</p>
-<div id="0138a1fb" class="cell" data-execution_count="1">
+<div id="eeb524aa" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
@@ -324,7 +353,7 @@ window.Quarto = {
 <section id="case-3-larger-number-in-common" class="level3" data-number="6.3.3">
 <h3 data-number="6.3.3" class="anchored" data-anchor-id="case-3-larger-number-in-common"><span class="header-section-number">6.3.3</span> Case 3: larger number in common</h3>
 <p>Consider the product <span class="math inline">\((12)(23) = (123)\)</span> (swap <span class="math inline">\(2,3\)</span> first then <span class="math inline">\(1,2\)</span>)</p>
-<div id="686e3c29" class="cell" data-execution_count="2">
+<div id="f4d1dae6" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <figure class="figure">
@@ -334,7 +363,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Compare this with the identity <span class="math inline">\((23)(12)(23) = (13)\)</span> that we worked out in <a href="generators.html" class="quarto-xref"><span>Chapter 5</span></a>:</p>
-<div id="feb07b0a" class="cell" data-execution_count="3">
+<div id="565307c5" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <figure class="figure">
@@ -384,7 +413,7 @@ window.Quarto = {
 <div id="exm-calculating-parity" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6.2</strong></span> Consider the shuffle <span class="math inline">\(376819254\)</span>. We can write this as <span class="math inline">\((1369485)(27)\)</span> this is a product of a cycle of length <span class="math inline">\(7\)</span> and a cycle of length <span class="math inline">\(2\)</span>. Therefore the sign is <span class="math inline">\((+1)(-1) = -1\)</span>.</p>
 <p>This computation in SageMath:</p>
-<div id="f05a26bc" class="cell" data-execution_count="4">
+<div id="d4796995" class="cell" data-execution_count="4">
 <pre class="sage cell-code"><code>π = Permutation([3,7,6,8,1,9,2,5,4])
 sign(π)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="4">

@@ -217,6 +217,35 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Generating Functions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/metrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metric Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -430,7 +459,7 @@ n \cdot (n - 1) \cdot (n - 2) \cdots 2 \cdot 1, \text{ denoted } n!.
 <div id="exr-compute-product" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 3.1</strong></span> Compute this in the other order: <span class="math inline">\(\pi_2 \circ \pi_1\)</span>. <em>Observe that the order matters.</em></p>
 <p>Note: in some sources (e.g.&nbsp;books, software), compositions are witten as a product in the reverse order. Here are computation in the software <a href="https://sagecell.sagemath.org/">SageMath</a>.</p>
-<div id="a3f09717" class="cell" data-execution_count="1">
+<div id="2ae77c66" class="cell" data-execution_count="1">
 <pre class="sage cell-code"><code>π1 = Permutation([1,3,2,5,4])
 π2 = Permutation([5,3,2,1,4])
 π2 * π1</code></pre>
@@ -438,7 +467,7 @@ n \cdot (n - 1) \cdot (n - 2) \cdots 2 \cdot 1, \text{ denoted } n!.
 <pre><code>[4, 2, 3, 1, 5]</code></pre>
 </div>
 </div>
-<div id="7992220d" class="cell" data-execution_count="2">
+<div id="17fb8a81" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>π1 * π2</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>[5, 2, 3, 4, 1]</code></pre>
