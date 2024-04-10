@@ -262,6 +262,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -312,7 +318,7 @@ window.Quarto = {
 <p>We have <span class="math inline">\(\pi(4) = 5\)</span> which is greater than <span class="math inline">\(\pi(5) = 4\)</span>.</p>
 <p>So this permutation has <span class="math inline">\(3\)</span> inversions: <span class="math inline">\((1 &lt; 2) \to (\pi(1) &gt; \pi(2))\)</span> and <span class="math inline">\((1 &lt; 3) \to (\pi(1) &gt; \pi(3))\)</span> and <span class="math inline">\((4 &lt; 5) \to (\pi(4) &gt; \pi(5))\)</span>.</p>
 <p>We can use SageMath to check our work:</p>
-<div id="8623734a" class="cell" data-execution_count="1">
+<div id="bb977257" class="cell" data-execution_count="1">
 <pre class="sage cell-code"><code>π = Permutation([3,1,2,5,4])
 π.inversions()</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="1">

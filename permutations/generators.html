@@ -262,6 +262,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -312,7 +318,7 @@ window.Quarto = {
 <section id="commutating" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="commutating"><span class="header-section-number">5.2</span> Commutating</h2>
 <p>From <a href="permutations.html#exr-compute-product" class="quarto-xref">Exercise&nbsp;<span>3.1</span></a>, we saw that in general <span class="math inline">\(\pi_1 \pi_2 \neq \pi_2 \pi_1\)</span>. Nonetheless, if we are swapping disjoint sets of pairs like <span class="math inline">\((12)\)</span> followed by <span class="math inline">\((34)\)</span> then there is no interaction between the swaps. So the order doesn’t matter: <span class="math inline">\((12)(34) = (34)(12)\)</span>. Specifically, <span class="math inline">\(\tau_i\)</span> and <span class="math inline">\(\tau_j\)</span> commute (<span class="math inline">\(\tau_i\tau_j = \tau_j\tau_i\)</span>) provided <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are at least <span class="math inline">\(2\)</span> apart.</p>
-<div id="cd8fbb10" class="cell" data-execution_count="2">
+<div id="ad92a3c6" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>B.&lt;a,b,c&gt; = BraidGroup(4)
 plot(a * c)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -323,7 +329,7 @@ plot(a * c)</code></pre>
 </div>
 </div>
 </div>
-<div id="2792669e" class="cell" data-execution_count="3">
+<div id="dbf09c57" class="cell" data-execution_count="3">
 <pre class="sage cell-code"><code>a * c == c * a</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>True</code></pre>
@@ -338,7 +344,7 @@ plot(a * b * a)
 plot(b * a * b)</code></pre>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div id="c44a0bfe" class="cell quarto-layout-cell" data-execution_count="4" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="546b7a91" class="cell quarto-layout-cell" data-execution_count="4" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 <figure class="figure">
@@ -347,7 +353,7 @@ plot(b * a * b)</code></pre>
 </div>
 </div>
 </div>
-<div id="3294f412" class="cell quarto-layout-cell" data-execution_count="5" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="4997d889" class="cell quarto-layout-cell" data-execution_count="5" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <figure class="figure">

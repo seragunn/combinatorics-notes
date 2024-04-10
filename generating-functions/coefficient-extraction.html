@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Combinatorics Notes - 11&nbsp; Multiplication of Generating Functions</title>
+<title>Combinatorics Notes - 13&nbsp; Coefficient Extraction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../generating-functions/stars-and-bars-revisited.html" rel="next">
-<link href="../generating-functions/ogf.html" rel="prev">
+<link href="../generating-functions/stars-and-bars-revisited.html" rel="prev">
 <link href="../icon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -141,7 +140,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/multiplication.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/coefficient-extraction.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -252,7 +251,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link active">
+  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
   </div>
 </li>
@@ -264,7 +263,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
+  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
   </div>
 </li>
@@ -280,22 +279,18 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#multiplication-of-monomials" id="toc-multiplication-of-monomials" class="nav-link active" data-scroll-target="#multiplication-of-monomials"><span class="header-section-number">11.1</span> Multiplication of Monomials</a></li>
-  <li><a href="#a-step-further" id="toc-a-step-further" class="nav-link" data-scroll-target="#a-step-further"><span class="header-section-number">11.2</span> A step further</a></li>
-  <li><a href="#multiplication-theorem" id="toc-multiplication-theorem" class="nav-link" data-scroll-target="#multiplication-theorem"><span class="header-section-number">11.3</span> Multiplication theorem</a></li>
-  <li><a href="#sec-0s-then-1s" id="toc-sec-0s-then-1s" class="nav-link" data-scroll-target="#sec-0s-then-1s"><span class="header-section-number">11.4</span> Strings with 0s followed by 1s</a>
-  <ul class="collapse">
-  <li><a href="#calculus" id="toc-calculus" class="nav-link" data-scroll-target="#calculus"><span class="header-section-number">11.4.1</span> Calculus?</a></li>
-  </ul></li>
+  <li><a href="#shifts" id="toc-shifts" class="nav-link active" data-scroll-target="#shifts"><span class="header-section-number">13.1</span> Shifts</a></li>
+  <li><a href="#derivatives" id="toc-derivatives" class="nav-link" data-scroll-target="#derivatives"><span class="header-section-number">13.2</span> Derivatives</a></li>
+  <li><a href="#newtons-binomial-theorem" id="toc-newtons-binomial-theorem" class="nav-link" data-scroll-target="#newtons-binomial-theorem"><span class="header-section-number">13.3</span> Newton’s Binomial Theorem</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/multiplication.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/multiplication.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/coefficient-extraction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/coefficient-extraction.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/multiplication.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/coefficient-extraction.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></h1>
 </div>
 
 
@@ -312,114 +307,116 @@ window.Quarto = {
 </header>
 
 
-<p>Suppose <span class="math inline">\(L, L'\)</span> are two languages. We define the concatenated language <span class="math inline">\(LL'\)</span> by concatenating a string from <span class="math inline">\(L\)</span> and a string from <span class="math inline">\(L'\)</span> in all possible ways:</p>
+<p>In this section, we develop some techniques for extracting coefficients from generating functions. Remember that coefficient of <span class="math inline">\(x^n\)</span> represents the number of solutions of weight <span class="math inline">\(n\)</span>. So knowing that the generating function is, for example,</p>
 <p><span class="math display">\[
-LL' = \{uv : u \in L, v \in L'\}.
+A(x) = \frac{x^{k - 1}(x^5 - x^{14})}{(1 - x)^k} = \sum a_n x^n,
 \]</span></p>
-<p>The utility of this is that many common languages of strings can be written as concatenations of smaller, more simpler languages. And, it will turn out, we can compute the OGF of the more complex language out of the OGFs for the simpler languages.</p>
-<section id="multiplication-of-monomials" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="multiplication-of-monomials"><span class="header-section-number">11.1</span> Multiplication of Monomials</h2>
-<p>Suppose we have a language <span class="math inline">\(L\)</span> which consists of <span class="math inline">\(10\)</span> strings, each of length <span class="math inline">\(5\)</span>. Suppose we also have a language <span class="math inline">\(L'\)</span> consisting of <span class="math inline">\(6\)</span> strings, each of length <span class="math inline">\(7\)</span>. Concatenating any pair of strings will always yield a string of length <span class="math inline">\(12\)</span> and there are <span class="math inline">\(60\)</span> such pairs. This computation is represented by the following multiplication of generating functions: <span class="math display">\[
-(10x^5) \cdot (6x^7) = 60x^{12}.
-\]</span></p>
-</section>
-<section id="a-step-further" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="a-step-further"><span class="header-section-number">11.2</span> A step further</h2>
-<p>Now suppose <span class="math inline">\(L\)</span> is the same as before: <span class="math inline">\(10\)</span> strings of length <span class="math inline">\(5\)</span>, and this time <span class="math inline">\(L'\)</span> consists of <span class="math inline">\(3\)</span> strings of length <span class="math inline">\(4\)</span> and <span class="math inline">\(7\)</span> strings of length <span class="math inline">\(8\)</span>. Now if we concatenate to form <span class="math inline">\(LL'\)</span> we are either combining a string of length <span class="math inline">\(5\)</span> with one of length <span class="math inline">\(4\)</span> (in <span class="math inline">\(10 \cdot 3\)</span> ways) or a string of length <span class="math inline">\(5\)</span> with one of length <span class="math inline">\(8\)</span> (in <span class="math inline">\(10 \cdot 7\)</span> ways). Again, this computation is reflected in the product of polynomials <span class="math display">\[
-10x^5 \cdot (3x^4 + 7x^8) = 30x^9 + 70x^{13}.
-\]</span></p>
-<div id="exr-multiply-finite-ogf" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 11.1</strong></span> Suppose <span class="math inline">\(L\)</span> consists of <span class="math inline">\(3\)</span> strings of length <span class="math inline">\(4\)</span> and <span class="math inline">\(8\)</span> of length <span class="math inline">\(6\)</span>. Suppose <span class="math inline">\(L'\)</span> consists of <span class="math inline">\(2\)</span> strings of length <span class="math inline">\(1\)</span> and <span class="math inline">\(5\)</span> strings of length <span class="math inline">\(4\)</span>. What will <span class="math inline">\(LL'\)</span> consist of?</p>
+<p>our goal is to find <span class="math inline">\(a_n\)</span>. A common notation for this is <span class="math inline">\(a_n = [x^n] A(x)\)</span>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be careful, this is not the same thing as <span class="math inline">\(A(n)\)</span>. Plugging in <span class="math inline">\(n\)</span> is not the way to find the coefficient. For example, the coefficient of <span class="math inline">\(x^2\)</span> in the quadratic <span class="math inline">\(f(x) = 2x^2 + 3x + 1\)</span> is <span class="math inline">\([x^2]f(x) = 2\)</span> and not <span class="math inline">\(f(2)\)</span> which equals <span class="math inline">\(15\)</span>.</p>
+</div>
+</div>
+<section id="shifts" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="shifts"><span class="header-section-number">13.1</span> Shifts</h2>
+<p>Multiplying <span class="math inline">\(A(x)\)</span> by <span class="math inline">\(x^k\)</span> shifts the sequence left or right (depending on whether <span class="math inline">\(k\)</span> is positive or negative): <span class="math display">\[
+x^k \sum a_n x^n = \sum a_n x^{n + k} = \sum a_{n - k} x^n.
+\]</span> The second equals sign is obtained either by substituting <span class="math inline">\(n \gets n + k\)</span> or by noticing that the coefficient is always <span class="math inline">\(k\)</span> less than the exponent.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Substituting inside a sum
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Consider a summation like <span class="math display">\[
+\sum{k = 2}^\infty k(k-1)x^{k - 2}.
+\]</span> If we want to write this as a sum where <span class="math inline">\(x^k\)</span> is the exponent in our summand, then we can either</p>
+<ol type="1">
+<li>add <span class="math inline">\(2\)</span> everywhere we see <span class="math inline">\(k\)</span>: <span class="math display">\[
+\sum_{k + 2 = 2}^\infty (k + 2)(k + 1)x^{k} = \sum_{k = 0}^\infty (k + 2)(k + 1)x^{k},
+\]</span></li>
+<li>make a substitution of <span class="math inline">\(n = k - 2\)</span> and <span class="math inline">\(k = n + 2\)</span> to get <span class="math display">\[
+\sum_{n + 2 = 2}^\infty (n + 2)(n + 1)x^{n}.
+\]</span></li>
+</ol>
+<p>Both methods are equivalent.</p>
+</div>
+</div>
+</div>
+<p>Putting this together, we have the following result.</p>
+<div id="thm-shift-coefficient" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 13.1</strong></span> If <span class="math inline">\(A(x) = \sum a_nx^n\)</span> then <span class="math display">\[
+[x^n]x^kA(x) = [x^{n - k}] A(x) = a_{n - k}.
+\]</span> “The coefficient of <span class="math inline">\(x^n\)</span> in <span class="math inline">\(x^k A(x)\)</span> is <span class="math inline">\(a_{n - k}\)</span>.”</p>
 </div>
 </section>
-<section id="multiplication-theorem" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="multiplication-theorem"><span class="header-section-number">11.3</span> Multiplication theorem</h2>
-<div id="thm-ogf-multiplication" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.1</strong></span> Let <span class="math inline">\(L\)</span> and <span class="math inline">\(L'\)</span> be two different languages. Let <span class="math inline">\(f\)</span> be a common weight function like the length of a string. Then <span class="math display">\[
-\Phi_{LL'}(x) = \Phi_L(x)\Phi_{L'}(x).
+<section id="derivatives" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="derivatives"><span class="header-section-number">13.2</span> Derivatives</h2>
+<p>As we saw earlier, <span class="math display">\[
+A'(x) = \sum na_nx^{n - 1} = \sum (n + 1)a_{n + 1}x^n.
+\]</span></p>
+<div id="thm-derivative-coefficient" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 13.2</strong></span> <span class="math display">\[
+[x^n] A'(x) = (n + 1) [x^{n + 1}] A(x).
+\]</span> Or for antiderivatives, <span class="math display">\[
+[x^n] A(x) = \frac{1}{n} [x^{n - 1}] A'(x).
+\]</span></p>
+</div>
+</section>
+<section id="newtons-binomial-theorem" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="newtons-binomial-theorem"><span class="header-section-number">13.3</span> Newton’s Binomial Theorem</h2>
+<p>We’ve seen the Binomial Theorem, <span class="math display">\[
+(1 + x)^n = \sum_{k = 0}^n \binom{n}{k}x^k.
+\]</span> And, in the previous section, we worked out power series for <span class="math inline">\((1 - x)^{-n}\)</span>. These kinds of functions are quite common in combinatorics, and not just for integer exponents either.</p>
+<div id="def-general-binom" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 13.1</strong></span> The general binomial coefficient is <span class="math display">\[
+\binom{r}{k} = \frac{r(r - 1)(r - 2) \cdots (r - k + 1)}{k!}
+\]</span> and we define this for any real (or complex) number <span class="math inline">\(r\)</span>.</p>
+</div>
+<p>What Newton observed, is that when you take the derivative of <span class="math inline">\(f(x) = (1 + x)^r\)</span> a few times, you get <span class="math display">\[
+r(1+x)^{r - 1} \text{ then } r(r - 1) (1 + x)^{r - 2} \text{ then } r(r - 1)(r - 2)(1 + x)^{r - 3}, \dots
+\]</span></p>
+<div id="thm-newton-binom" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 13.3</strong></span> The Taylor series of <span class="math inline">\((1 + x)^r\)</span> is <span class="math display">\[
+\sum_{k = 0}^\infty \binom{r}{k}x^k.
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>We have <span class="math display">\[\begin{align*}
-\Phi_{LL'}(x) &amp;= \sum_{w \in LL'} x^{f(w)} \\
-&amp;= \sum_{u \in L} \sum_{v \in L'} x^{f(uv)} \\
-&amp;= \sum_{u \in L} \sum_{v \in L'} x^{f(u)}x^{f(v)}
-\end{align*}\]</span> using <a href="weights.html#sec-key-property-weights" class="quarto-xref"><span>Section 9.2.1</span></a>. Continuing, we get <span class="math display">\[\begin{align*}
-\phantom{\Phi_{LL'}(x)} &amp;= \sum_{u \in L} x^{f(u)} \sum_{v \in L'} x^{f(v)} \\
-&amp;= \Phi_L(x) \Phi_{L'}(x).
-\end{align*}\]</span></p>
+<p><span class="proof-title"><em>Proof</em>. </span>We’ve seen above that for <span class="math inline">\(f(x) = (1 + x)^r\)</span>, we have <span class="math display">\[
+f^{(k)}(x) = r(r-1)(r-2)\cdots(r - k + 1)(1 + x)^{r - k}.
+\]</span> Plugging this into the formula for a Taylor series, <span class="math display">\[
+(1 + x)^r = \sum_{k = 0}^\infty \frac{f^{(k)}(0)}{k!} x^k = \sum_{k = 0}^\infty \frac{r(r - 1)(r - 2) \cdots (r - k + 1)}{k!} = \sum_{k = 0}^\infty \binom{r}{k}x^k.
+\]</span></p>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>One might wonder whether <span class="math inline">\(\sum a_i \sum b_j\)</span> means <span class="math inline">\((\sum a_i)(\sum b_j)\)</span> or <span class="math inline">\(\sum \left(a_i \sum b_j \right)\)</span>. It turns out these are the same, and it is explained by the distributive property of multiplication. For example, <span class="math display">\[
-(a_1 + a_2 + a_3)(b_1 + b_2) = a_1(b_1 + b_2) + a_2(b_1 + b_2) + a_3(b_1 + b_2).
-\]</span></p>
+<p>These series converge for at least <span class="math inline">\(|x| &lt; 1\)</span> (and so techniques of calculus apply to analyzing these series). Convergence for <span class="math inline">\(x = \pm 1\)</span> depends on <span class="math inline">\(r\)</span>. And of course, if <span class="math inline">\(r\)</span> is a whole number then the series is finite and converges everywhere.</p>
 </div>
-</div>
-</section>
-<section id="sec-0s-then-1s" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="sec-0s-then-1s"><span class="header-section-number">11.4</span> Strings with 0s followed by 1s</h2>
-<p>Let <span class="math inline">\(L\)</span> be the language of strings with only <span class="math inline">\(0\)</span>s and let <span class="math inline">\(L'\)</span> be the language of strings with only <span class="math inline">\(1\)</span>s. In <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 10.3</span></a>, we saw that these languages have generating functions <span class="math inline">\(\frac{1}{1 - x}\)</span> (weighting by length). By theorem <a href="#thm-ogf-multiplication" class="quarto-xref">Theorem&nbsp;<span>11.1</span></a>, the language <span class="math inline">\(LL'\)</span> of all strings of <span class="math inline">\(0\)</span>s followed by <span class="math inline">\(1\)</span>s has generating function <span class="math display">\[
-\frac{1}{(1 - x)^2}.
-\]</span></p>
-<p>We can compute this in a couple ways. First, we ask the question: “how many strings are there of length <span class="math inline">\(n\)</span> consisting of a string of <span class="math inline">\(0\)</span>s followed by a string of <span class="math inline">\(1\)</span>s?” E.g. for <span class="math inline">\(n = 4\)</span> there are <span class="math inline">\(5\)</span> such strings: <span class="math display">\[
-0000, 0001, 0011, 0111, 1111.
-\]</span> We can look at this as: there are either <span class="math inline">\(0, 1, 2, 3, 4\)</span> ones. In general, there will be <span class="math inline">\(n + 1\)</span> strings of length <span class="math inline">\(n\)</span> (corresponding to the monomial <span class="math inline">\((n + 1)x^n\)</span>). Therefore <span class="math display">\[
-\frac{1}{(1 - x)^2} = \sum_{n = 0}^\infty (n + 1)x^n = 1 + 2x + 3x^2 + 4x^3 + \cdots.
-\]</span></p>
-<section id="calculus" class="level3" data-number="11.4.1">
-<h3 data-number="11.4.1" class="anchored" data-anchor-id="calculus"><span class="header-section-number">11.4.1</span> Calculus?</h3>
-<p>The monomials we’ve just computed look suspiciously like derivatives: <span class="math inline">\(1\)</span> is the derivative of <span class="math inline">\(x\)</span>, <span class="math inline">\(2x\)</span> is the derivative of <span class="math inline">\(x^2\)</span>, <span class="math inline">\(3x^2\)</span> is the derivative of <span class="math inline">\(x^3\)</span>, and so on. I.e., we have <span class="math display">\[
-\frac{1}{(1 - x)^2} = \sum_{n = 0}^\infty \frac{d}{dx} x^n.
-\]</span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The sums <span class="math inline">\(\sum nx^{n-1}\)</span> and <span class="math inline">\(\sum (n + 1)x^n\)</span> are equal. In words: each sum is adding up all monomials whose coefficient is exactly <span class="math inline">\(1\)</span> more than the exponent. Algebraically, we can transform the first sum to the second by letting <span class="math inline">\(m = n - 1\)</span> and <span class="math inline">\(n = m + 1\)</span>. Then <span class="math display">\[
-\sum nx^{n-1} = \sum (m + 1)x^m.
-\]</span> When working with OGFs, we often want to make such tranformations so that the question of “how many strings of length <span class="math inline">\(n\)</span>” can be read directly from the summand <span class="math inline">\(a_nx^n\)</span>: there are <span class="math inline">\(a_n\)</span> strings of length <span class="math inline">\(n\)</span>.</p>
-</div>
-</div>
-<p>In our calculus courses, we learn that we can often take the derivative of a series term-by-term. Or in other words, we can safely move the derivative operator from inside the term to outside and vice versa: <span class="math display">\[
-\sum_{n = 0}^\infty \frac{d}{dx} x^n = \frac{d}{dx} \sum_{n = 0}^\infty \sum_{n = 0}^\infty x^n.
-\]</span> This we recognize as the geometric series from <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 10.3</span></a>. So that means we should expect <span class="math display">\[
-\frac{1}{(1 - x)^2} = \frac{d}{dx} \frac{1}{1-x}.
-\]</span> Indeed, that is the case.</p>
-<p>The following is a result of analysis that is very potent for many OGF problems.</p>
-<div id="thm-derivative-of-ogf" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.2</strong></span> If <span class="math inline">\(\sum a_n x^n\)</span> converges to a function <span class="math inline">\(f(x)\)</span> (and the radius of convergence is not zero), then <span class="math display">\[
-\sum \frac{d}{dx} a_n x^n = f'(x)
-\]</span> (and the radius of convergence is preserved).</p>
-</div>
-<p>In <a href="ogf.html#sec-convergence" class="quarto-xref"><span>Section 10.3.1</span></a>, we said that these generating functions are still valid even when they don’t converge. But there is utility here in that if we have an expression to represent an infinite sum like how <span class="math inline">\(\frac{1}{1-x}\)</span> represents the geometric series, then we can compute the derivative of the expression and of the infinite series.</p>
-<div id="exm-second-derivative" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11.1</strong></span> Given that <span class="math display">\[
-\frac{1}{(1 - x)^2} = 1 + 2x + 3x^2 + 4x^3 + \dots = \sum nx^{n-1},
-\]</span> we can compute the derivative on both sides to obtain <span class="math display">\[
-\frac{2}{(1 - x)^3} = 2 + 6x + 12x^2 + 20x^3 + \cdots = \sum n(n-1)x^{n-2}.
-\]</span> If we divide by <span class="math inline">\(2\)</span> we might recognize this as <span class="math display">\[
-\frac{1}{(1 - x)^3} = \sum \frac{n(n-1)}{2}x^{n-2} = \sum \binom{n}2x^{n - 2}
-= \sum \binom{n + 2}{2} x^n.
-\]</span></p>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -834,14 +831,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../generating-functions/ogf.html" class="pagination-link" aria-label="Generating Functions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></span>
+      <a href="../generating-functions/stars-and-bars-revisited.html" class="pagination-link" aria-label="Stars and Bars Revisited">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../generating-functions/stars-and-bars-revisited.html" class="pagination-link" aria-label="Stars and Bars Revisited">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -849,4 +843,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/multiplication.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/multiplication.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/coefficient-extraction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/coefficient-extraction.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../generating-functions/coefficient-extraction.html" rel="next">
 <link href="../generating-functions/multiplication.html" rel="prev">
 <link href="../icon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -261,6 +262,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -277,6 +284,12 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#applying-the-multiplication-theorem" id="toc-applying-the-multiplication-theorem" class="nav-link" data-scroll-target="#applying-the-multiplication-theorem"><span class="header-section-number">12.1.1</span> Applying the multiplication theorem</a></li>
   </ul></li>
+  <li><a href="#variations-of-stars-and-bars" id="toc-variations-of-stars-and-bars" class="nav-link" data-scroll-target="#variations-of-stars-and-bars"><span class="header-section-number">12.2</span> Variations of Stars and Bars</a>
+  <ul class="collapse">
+  <li><a href="#other-restrictions" id="toc-other-restrictions" class="nav-link" data-scroll-target="#other-restrictions"><span class="header-section-number">12.2.1</span> Other restrictions</a></li>
+  </ul></li>
+  <li><a href="#slack-variables" id="toc-slack-variables" class="nav-link" data-scroll-target="#slack-variables"><span class="header-section-number">12.3</span> Slack variables</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">12.4</span> Summary</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/stars-and-bars-revisited.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/stars-and-bars-revisited.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -320,19 +333,123 @@ window.Quarto = {
 <section id="applying-the-multiplication-theorem" class="level3" data-number="12.1.1">
 <h3 data-number="12.1.1" class="anchored" data-anchor-id="applying-the-multiplication-theorem"><span class="header-section-number">12.1.1</span> Applying the multiplication theorem</h3>
 <p>Let <span class="math inline">\(L_i\)</span> be the language of strings consisting of <span class="math inline">\(0\)</span> or more of the character <span class="math inline">\(i\)</span>. Then the stars-and-bars language for <span class="math inline">\(k\)</span> people, is <span class="math inline">\(L_1 L_2 \cdots L_k\)</span>. We also know from <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 10.3</span></a> that each of these language has a generating function of <span class="math inline">\(\frac{1}{1-x}\)</span>. It follows that our stars-and-bars language has a generating function of <span class="math display">\[
-\frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k}{k} x^n.
-\]</span> We know these are the coefficients because we know there are <span class="math inline">\(\binom{n + k}{k}\)</span> stars-and-bars strings of length <span class="math inline">\(n\)</span> (i.e.&nbsp;that many ways to distribute the <span class="math inline">\(n\)</span> objects among <span class="math inline">\(k\)</span> people).</p>
+\frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1} x^n.
+\]</span> We know these are the coefficients because we know there are <span class="math inline">\(\binom{n + k - 1}{k - 1}\)</span> stars-and-bars strings of length <span class="math inline">\(n\)</span> (i.e.&nbsp;that many ways to distribute the <span class="math inline">\(n\)</span> objects among <span class="math inline">\(k\)</span> people).</p>
 <div id="exr-proof-by-derivatives" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 12.1</strong></span> Use proof by induction to show that <span class="math display">\[
-\frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k}{k} x^n.
+\frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1} x^n.
 \]</span> Use the derivative to go from case <span class="math inline">\(k\)</span> to case <span class="math inline">\(k + 1\)</span>. Take the geometric series as the base case (<span class="math inline">\(k = 1\)</span>).</p>
 <p>Hint: the derivative is going to reduce the exponent from <span class="math inline">\(x^n\)</span> to <span class="math inline">\(x^{n - 1}\)</span> so to get a step ahead of that, we can add <span class="math inline">\(1\)</span> everywhere we see <span class="math inline">\(n\)</span>: <span class="math display">\[
-\frac{1}{(1 - x)^k} = \sum_{n + 1 = 0}^\infty \binom{n + 1 + k}{k} x^{n + 1}.
+\frac{1}{(1 - x)^k} = \sum_{n + 1 = 0}^\infty \binom{n + k}{k - 1} x^{n + 1}.
 \]</span></p>
 </div>
-
-
 </section>
+</section>
+<section id="variations-of-stars-and-bars" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="variations-of-stars-and-bars"><span class="header-section-number">12.2</span> Variations of Stars and Bars</h2>
+<p>How do do the stars and bars problem where every person gets at least <span class="math inline">\(1\)</span> object? Let’s look back at our work:</p>
+<ol type="1">
+<li>Broke up the problem into a concatenation <span class="math inline">\(L_1 L_2 \cdots L_k\)</span></li>
+<li><span class="math inline">\(L_i = \{\varepsilon, i, ii, iii, \dots\}\)</span></li>
+<li>The generating function of <span class="math inline">\(L_i\)</span> is <span class="math inline">\(\frac{1}{1 - x}\)</span></li>
+<li>Use the multiplication principle to conclude that the generating function of <span class="math inline">\(L_1 L_2 \cdots L_k\)</span> is <span class="math inline">\(\frac{1}{(1 - x)^k}\)</span></li>
+</ol>
+<p>The second step is where we need to start making changes; if each person gets at least <span class="math inline">\(1\)</span> object, then <span class="math inline">\(L_i\)</span> should instead be <span class="math inline">\(\{i, ii, iii, \dots\}\)</span> with generating function</p>
+<p><span class="math display">\[
+x^{f(i)} + x^{f(ii)} + x^{f(iii)} + \dots = x + x^2 + x^3 + \dots = \frac{x}{1 - x}.
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+General Geometric Series
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In general, a geometric series will have some initial term <span class="math inline">\(a\)</span> and then each succesive term is multiplied by a common ratio <span class="math inline">\(r\)</span>. We can factor out the initial term <span class="math inline">\(a\)</span> to evaluate: <span class="math display">\[
+a + ar + ar^2 + ar^3 + \cdots = a(1 + r + r^2 + r^3 + \cdots) = \frac{a}{1 - r}.
+\]</span> Mnemonic: “initial term over <span class="math inline">\(1\)</span> minus the common ratio.” E.g. <span class="math inline">\(3x + 6x^3 + 12x^5 + 24x^7 + \cdots\)</span> has an inital term of <span class="math inline">\(3x\)</span> and a common ratio of <span class="math inline">\(2x^2\)</span>. So this evaluates to <span class="math inline">\(\frac{3x}{1 - 2x^2}\)</span>.</p>
+</div>
+</div>
+</div>
+<p>Substituting this new generating function into our previous steps, we find that the stars-and-bars generating function with everyone getting at least <span class="math inline">\(1\)</span> object is <span class="math display">\[
+\left( \frac{x}{1 - x} \right)^k = \frac{x^k}{(1 - x)^k} = x^k \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1} x^n = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1} x^{n + k}.
+\]</span></p>
+<p>In order to get the number of solutions with <span class="math inline">\(m\)</span> objects, we need the coefficient of <span class="math inline">\(x^m\)</span>, so we need <span class="math inline">\(n + k = m\)</span>. Changing <span class="math inline">\(n + k\)</span> to <span class="math inline">\(m\)</span>, we get</p>
+<p><span class="math display">\[
+\frac{x^k}{(1 - x)^k} = \sum_{m = k}^\infty \binom{m - 1}{k - 1} x^{m}.
+\]</span></p>
+<p>This matches our result of <span class="math inline">\(\binom{m - 1}{k - 1}\)</span> ways to distribute <span class="math inline">\(m\)</span> objects to <span class="math inline">\(k\)</span> people, with each person receiving at least <span class="math inline">\(1\)</span>.</p>
+<section id="other-restrictions" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="other-restrictions"><span class="header-section-number">12.2.1</span> Other restrictions</h3>
+<p>Let’s take the problem <span class="math display">\[
+x_1 + x_2 + \cdots + x_k = n,
+\]</span> where <span class="math inline">\(x_i \ge 1\)</span>. Now consider a restriction like <span class="math inline">\(5 \le x_1 \le 13\)</span>. This changes the language <span class="math inline">\(L_1\)</span> to <span class="math inline">\(\{11111, 111111, \cdots, 1111111111111\}\)</span> and the generating function of <span class="math inline">\(L_1\)</span> to <span class="math display">\[
+x^5 + x^6 + \cdots + x^{13} = \frac{x^5 - x^{14}}{1 - x}.
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Finite Geometric Sums
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Suppose we have a finite geometric sum with initial term <span class="math inline">\(a\)</span>, common ratio <span class="math inline">\(r\)</span> and proceeding for some number of steps. Then using the same method as <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 10.3</span></a>, we can compute the sum <span class="math display">\[\begin{align*}
+S &amp;= a + ar + ar^2 + \cdots + ar^m \\
+rS &amp;= \phantom{a + {}} ar + ar^2 + \cdots + ar^m + ar^{m + 1} \\
+S - rS &amp;= a \phantom{{}+ar + ar^2 + \cdots + ar^m} - ar^{m + 1}.
+\end{align*}\]</span> This yields the formula <span class="math inline">\(S = \frac{a - ar^{m + 1}}{1 - r}\)</span>. Mnemonic: take the initial term and subtract from it the term which would come after the last term (first minus next) over <span class="math inline">\(1 - r\)</span>.</p>
+</div>
+</div>
+</div>
+<p>Combining this with the generating functions <span class="math inline">\(\frac{x}{1 - x}\)</span> for <span class="math inline">\(L_2, L_3, \dots, L_k\)</span>, our restricted problem has an overal generating function of <span class="math display">\[
+\frac{x^5 - x^{14}}{1 - x} \cdot \left( \frac{x}{1 - x} \right)^{k - 1} = \frac{x^{k - 1}(x^{5} - x^{14})}{(1 - x)^k}.
+\]</span></p>
+<p>We will cover how to read the number of solutions from such a generating function in the next section. For now, let’s address one last modification.</p>
+</section>
+</section>
+<section id="slack-variables" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="slack-variables"><span class="header-section-number">12.3</span> Slack variables</h2>
+<p>Consider the problem <span class="math display">\[
+x_1 + x_2 + \dots + x_k \le n
+\]</span> with <span class="math inline">\(x_i \ge 0\)</span>.</p>
+<p>The method for solving this is to add a slack variable <span class="math inline">\(y\)</span> with <span class="math inline">\(y \ge 0\)</span>. This adds to our proceedure a <span class="math inline">\(k + 1\)</span>-st language <span class="math inline">\(L_y\)</span>. This gives us the generating function</p>
+<p><span class="math display">\[
+\frac{1}{(1 - x)^{k + 1}} = \sum_{n = 0}^\infty \binom{n + k}{k} x^n
+\]</span></p>
+<p>Indeed, the coefficient <span class="math inline">\(\binom{n + k}{k}\)</span> matches our previous solution to this problem.</p>
+<p>If on the other hand we had <span class="math inline">\(x_i \ge 1\)</span> then the generating functions for the <span class="math inline">\(L_i\)</span> languages is <span class="math inline">\(\frac{x}{1 - x}\)</span> and we multiply this still by <span class="math inline">\(\frac{1}{1 - x}\)</span> for <span class="math inline">\(L_y\)</span>. Here there is an asymmetry between <span class="math inline">\(L_y\)</span>, which contains the empty string, and the languages <span class="math inline">\(L_i\)</span> which don’t. So for this problem, we have</p>
+<p><span class="math display">\[
+\frac{x^k}{(1 - x)^{k + 1}} = x^k \sum_{n = 0}^\infty \binom{n + k}{k} x^n = \sum_{n = 0}^\infty \binom{n + k}{k} x^{n + k} =  \sum_{n = k}^\infty \binom{n}{k} x^n.
+\]</span></p>
+</section>
+<section id="summary" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">12.4</span> Summary</h2>
+<ol type="a">
+<li>For <span class="math inline">\(x_1 + \dots + x_k = n\)</span> and <span class="math inline">\(x_i \ge 0\)</span>, we have the OGF <span class="math display">\[
+\frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1} x^n.
+\]</span></li>
+<li>For <span class="math inline">\(x_1 + \dots + x_k = n\)</span> and <span class="math inline">\(x_i \ge 1\)</span>, we have the OGF <span class="math display">\[
+\frac{x^k}{(1 - x)^k} = \sum_{n = k}^\infty \binom{n - 1}{k - 1} x^n.
+\]</span></li>
+<li>For <span class="math inline">\(x_1 + \dots + x_k \le n\)</span> and <span class="math inline">\(x_i \ge 0\)</span>, we have the OGF <span class="math display">\[
+\frac{1}{(1 - x)^{k + 1}} = \sum_{n = 0}^\infty \binom{n + k}{k} x^n.
+\]</span></li>
+<li>For <span class="math inline">\(x_1 + \dots + x_k = n\)</span> and <span class="math inline">\(x_i \ge 1\)</span>, we have the OGF <span class="math display">\[
+\frac{x^k}{(1 - x)^{k + 1}} = \sum_{n = k}^\infty \binom{n}{k} x^n.
+\]</span></li>
+</ol>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -752,6 +869,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../generating-functions/coefficient-extraction.html" class="pagination-link" aria-label="Coefficient Extraction">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
