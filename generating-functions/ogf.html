@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../generating-functions/multiplication.html" rel="next">
-<link href="../generating-functions/metrics.html" rel="prev">
+<link href="../generating-functions/weights.html" rel="prev">
 <link href="../icon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -112,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/metrics.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/ogf.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/ogf.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -228,8 +228,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metric Functions</span></span></a>
+  <a href="../generating-functions/weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Weight Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -242,6 +242,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
   </div>
 </li>
       </ul>
@@ -258,9 +264,9 @@ window.Quarto = {
   <ul>
   <li><a href="#definition" id="toc-definition" class="nav-link active" data-scroll-target="#definition"><span class="header-section-number">10.1</span> Definition</a></li>
   <li><a href="#monomials" id="toc-monomials" class="nav-link" data-scroll-target="#monomials"><span class="header-section-number">10.2</span> Monomials</a></li>
-  <li><a href="#infinite-series" id="toc-infinite-series" class="nav-link" data-scroll-target="#infinite-series"><span class="header-section-number">10.3</span> Infinite series</a>
+  <li><a href="#sec-geom-series" id="toc-sec-geom-series" class="nav-link" data-scroll-target="#sec-geom-series"><span class="header-section-number">10.3</span> Infinite series</a>
   <ul class="collapse">
-  <li><a href="#when-do-we-care-about-convergence" id="toc-when-do-we-care-about-convergence" class="nav-link" data-scroll-target="#when-do-we-care-about-convergence"><span class="header-section-number">10.3.1</span> When do we care about convergence?</a></li>
+  <li><a href="#sec-convergence" id="toc-sec-convergence" class="nav-link" data-scroll-target="#sec-convergence"><span class="header-section-number">10.3.1</span> When do we care about convergence?</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/ogf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/ogf.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -268,7 +274,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/metrics.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/ogf.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/ogf.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></h1>
 </div>
@@ -289,7 +295,7 @@ window.Quarto = {
 
 <section id="definition" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">10.1</span> Definition</h2>
-<p>Let <span class="math inline">\(L\)</span> be a subset of strings. These is also called a <strong>language</strong>. Let <span class="math inline">\(f\)</span> be a metric. We define the <strong>(ordinary) generating function</strong> of <span class="math inline">\(L\)</span> or <strong>OGF</strong> as</p>
+<p>Let <span class="math inline">\(L\)</span> be a subset of strings. These is also called a <strong>language</strong>. Let <span class="math inline">\(f\)</span> be a weight function. We define the <strong>(ordinary) generating function</strong> of <span class="math inline">\(L\)</span> or <strong>OGF</strong> as</p>
 <p><span class="math display">\[
 \Phi_L(x) = \Phi_L^f(x) = \sum_{s \in L} x^{f(s)}.
 \]</span></p>
@@ -310,7 +316,7 @@ Note
 </div>
 </div>
 <div id="exm-ogf1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10.1</strong></span> Let <span class="math inline">\(L\)</span> be the subset <span class="math inline">\(\{01, 1110, 11, 0, 1, 111000, \varepsilon\}\)</span> of binary strings. Let <span class="math inline">\(f\)</span> be the length metric. The OGF of <span class="math inline">\(L\)</span> is <span class="math display">\[\begin{align*}
+<p><span class="theorem-title"><strong>Example 10.1</strong></span> Let <span class="math inline">\(L\)</span> be the subset <span class="math inline">\(\{01, 1110, 11, 0, 1, 111000, \varepsilon\}\)</span> of binary strings. Let <span class="math inline">\(f\)</span> be the length weight. The OGF of <span class="math inline">\(L\)</span> is <span class="math display">\[\begin{align*}
 \Phi_L(x) &amp;= x^{f(01)} + x^{f(1110)} + x^{f(11)} + x^{f(0)} + x^{f(1)} + x^{f(111000)} + x^{f(\varepsilon)} \\
 &amp;= x^2 + x^4 + x^2 + x^1 + x^1 + x^6 + x^0 \\
 &amp;= 1 + 2x + 2x^2 + x^4 + x^6
@@ -327,13 +333,13 @@ Note
 <p><span class="theorem-title"><strong>Exercise 10.1</strong></span> Let <span class="math inline">\(L\)</span> be the set of all binary strings of length <span class="math inline">\(\le 5\)</span> which have no <span class="math inline">\(11\)</span>.</p>
 <ol type="a">
 <li>for <span class="math inline">\(n = 0, 1, 2, 3, 4, 5\)</span>, list all the strings with no <span class="math inline">\(11\)</span></li>
-<li>write down the generating function with respect to the length metric</li>
-<li>write down the generating function with respect to the “number of 1s” metric</li>
+<li>write down the generating function with respect to the length weight</li>
+<li>write down the generating function with respect to the “number of 1s” weight</li>
 </ol>
 </div>
 </section>
-<section id="infinite-series" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="infinite-series"><span class="header-section-number">10.3</span> Infinite series</h2>
+<section id="sec-geom-series" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="sec-geom-series"><span class="header-section-number">10.3</span> Infinite series</h2>
 <p>We’ve looked at examples where <span class="math inline">\(L\)</span> is a finite set. In many examples, <span class="math inline">\(L\)</span> will be an infinite set. For instance consider the infinite set of all strings of <span class="math inline">\(0\)</span>s. I.e. <span class="math inline">\(\{\varepsilon, 0, 00, 000, 0000, \dots\}\)</span>. For this language, we have the generating function <span class="math display">\[
 A = 1 + x + x^2 + x^3 + \cdots = \frac{1}{1 - x}.
 \]</span></p>
@@ -375,9 +381,9 @@ Note
 <p>In a calculus or analysis course, we would want to specify here that <span class="math inline">\(|x| &lt; \frac12\)</span> for this series to converge. In combinatorics, we treat these series <em>purely algebraically</em>. That means as an infinite list of monomials without care whether or not the series converges. People use the term <strong>formal power series</strong> to refer to this concept.</p>
 </div>
 </div>
-<section id="when-do-we-care-about-convergence" class="level3" data-number="10.3.1">
-<h3 data-number="10.3.1" class="anchored" data-anchor-id="when-do-we-care-about-convergence"><span class="header-section-number">10.3.1</span> When do we care about convergence?</h3>
-<p>For the most part, <em>we don’t</em>. However, in more advanced courses, there are arguements using analysis which only apply to convergent power series. For instance, the fact that the series <span class="math display">\[
+<section id="sec-convergence" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="sec-convergence"><span class="header-section-number">10.3.1</span> When do we care about convergence?</h3>
+<p>For the most part, <em>we don’t</em>. Meaning an infinite series is still valid even if it doesn’t converge other than when <span class="math inline">\(x = 0\)</span>. However, there are arguements using analysis which only apply to convergent power series. For instance, the fact that the series <span class="math display">\[
 1 + x + 2x^2 + 3x^3 + 5x^4 + 8x^5 + \cdots = \frac{1}{1 - x - x^2}
 \]</span> converges for <span class="math inline">\(|x| &lt; \frac{1}{\phi}\)</span> where <span class="math inline">\(\varphi = \frac{1 + \sqrt5}{2}\)</span> is connected to the fact that the Fibonnaci numbers are approximately <span class="math inline">\(c \varphi^n\)</span> for some constant <span class="math inline">\(c\)</span>.</p>
 <div id="exr-compute-fib" class="theorem exercise">
@@ -802,8 +808,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../generating-functions/metrics.html" class="pagination-link" aria-label="Metric Functions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metric Functions</span></span>
+      <a href="../generating-functions/weights.html" class="pagination-link" aria-label="Weight Functions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Weight Functions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../generating-functions/stars-and-bars-revisited.html" rel="next">
 <link href="../generating-functions/ogf.html" rel="prev">
 <link href="../icon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -111,7 +112,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/metrics.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/multiplication.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/multiplication.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -227,8 +228,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/metrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Metric Functions</span></span></a>
+  <a href="../generating-functions/weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Weight Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -241,6 +242,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
   </div>
 </li>
       </ul>
@@ -258,13 +265,17 @@ window.Quarto = {
   <li><a href="#multiplication-of-monomials" id="toc-multiplication-of-monomials" class="nav-link active" data-scroll-target="#multiplication-of-monomials"><span class="header-section-number">11.1</span> Multiplication of Monomials</a></li>
   <li><a href="#a-step-further" id="toc-a-step-further" class="nav-link" data-scroll-target="#a-step-further"><span class="header-section-number">11.2</span> A step further</a></li>
   <li><a href="#multiplication-theorem" id="toc-multiplication-theorem" class="nav-link" data-scroll-target="#multiplication-theorem"><span class="header-section-number">11.3</span> Multiplication theorem</a></li>
+  <li><a href="#sec-0s-then-1s" id="toc-sec-0s-then-1s" class="nav-link" data-scroll-target="#sec-0s-then-1s"><span class="header-section-number">11.4</span> Strings with 0s followed by 1s</a>
+  <ul class="collapse">
+  <li><a href="#calculus" id="toc-calculus" class="nav-link" data-scroll-target="#calculus"><span class="header-section-number">11.4.1</span> Calculus?</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/multiplication.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/multiplication.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/metrics.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/multiplication.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/multiplication.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></h1>
 </div>
@@ -306,7 +317,7 @@ LL' = \{uv : u \in L, v \in L'\}.
 <section id="multiplication-theorem" class="level2" data-number="11.3">
 <h2 data-number="11.3" class="anchored" data-anchor-id="multiplication-theorem"><span class="header-section-number">11.3</span> Multiplication theorem</h2>
 <div id="thm-ogf-multiplication" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 11.1</strong></span> Let <span class="math inline">\(L\)</span> and <span class="math inline">\(L'\)</span> be two different languages. Let <span class="math inline">\(f\)</span> be a common metric function like the length of a string. Then <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 11.1</strong></span> Let <span class="math inline">\(L\)</span> and <span class="math inline">\(L'\)</span> be two different languages. Let <span class="math inline">\(f\)</span> be a common weight function like the length of a string. Then <span class="math display">\[
 \Phi_{LL'}(x) = \Phi_L(x)\Phi_{L'}(x).
 \]</span></p>
 </div>
@@ -315,7 +326,7 @@ LL' = \{uv : u \in L, v \in L'\}.
 \Phi_{LL'}(x) &amp;= \sum_{w \in LL'} x^{f(w)} \\
 &amp;= \sum_{u \in L} \sum_{v \in L'} x^{f(uv)} \\
 &amp;= \sum_{u \in L} \sum_{v \in L'} x^{f(u)}x^{f(v)}
-\end{align*}\]</span> using <a href="metrics.html#sec-key-property-metrics" class="quarto-xref"><span>Section 9.2.1</span></a>. Continuing, we get <span class="math display">\[\begin{align*}
+\end{align*}\]</span> using <a href="weights.html#sec-key-property-weights" class="quarto-xref"><span>Section 9.2.1</span></a>. Continuing, we get <span class="math display">\[\begin{align*}
 \phantom{\Phi_{LL'}(x)} &amp;= \sum_{u \in L} x^{f(u)} \sum_{v \in L'} x^{f(v)} \\
 &amp;= \Phi_L(x) \Phi_{L'}(x).
 \end{align*}\]</span></p>
@@ -330,13 +341,67 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>One might wonder whether <span class="math inline">\(\sum a_i \sum b_j\)</span> means <span class="math inline">\((\sum a_i)(\sum b_j)\)</span> or <span class="math inline">\(\sum \left(a_i \sum b_j \right)\)</span>. These are the same and it is explained by the distributive property of multiplication. For example, <span class="math display">\[
+<p>One might wonder whether <span class="math inline">\(\sum a_i \sum b_j\)</span> means <span class="math inline">\((\sum a_i)(\sum b_j)\)</span> or <span class="math inline">\(\sum \left(a_i \sum b_j \right)\)</span>. It turns out these are the same, and it is explained by the distributive property of multiplication. For example, <span class="math display">\[
 (a_1 + a_2 + a_3)(b_1 + b_2) = a_1(b_1 + b_2) + a_2(b_1 + b_2) + a_3(b_1 + b_2).
 \]</span></p>
 </div>
 </div>
+</section>
+<section id="sec-0s-then-1s" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="sec-0s-then-1s"><span class="header-section-number">11.4</span> Strings with 0s followed by 1s</h2>
+<p>Let <span class="math inline">\(L\)</span> be the language of strings with only <span class="math inline">\(0\)</span>s and let <span class="math inline">\(L'\)</span> be the language of strings with only <span class="math inline">\(1\)</span>s. In <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 10.3</span></a>, we saw that these languages have generating functions <span class="math inline">\(\frac{1}{1 - x}\)</span> (weighting by length). By theorem <a href="#thm-ogf-multiplication" class="quarto-xref">Theorem&nbsp;<span>11.1</span></a>, the language <span class="math inline">\(LL'\)</span> of all strings of <span class="math inline">\(0\)</span>s followed by <span class="math inline">\(1\)</span>s has generating function <span class="math display">\[
+\frac{1}{(1 - x)^2}.
+\]</span></p>
+<p>We can compute this in a couple ways. First, we ask the question: “how many strings are there of length <span class="math inline">\(n\)</span> consisting of a string of <span class="math inline">\(0\)</span>s followed by a string of <span class="math inline">\(1\)</span>s?” E.g. for <span class="math inline">\(n = 4\)</span> there are <span class="math inline">\(5\)</span> such strings: <span class="math display">\[
+0000, 0001, 0011, 0111, 1111.
+\]</span> We can look at this as: there are either <span class="math inline">\(0, 1, 2, 3, 4\)</span> ones. In general, there will be <span class="math inline">\(n + 1\)</span> strings of length <span class="math inline">\(n\)</span> (corresponding to the monomial <span class="math inline">\((n + 1)x^n\)</span>). Therefore <span class="math display">\[
+\frac{1}{(1 - x)^2} = \sum_{n = 0}^\infty (n + 1)x^n = 1 + 2x + 3x^2 + 4x^3 + \cdots.
+\]</span></p>
+<section id="calculus" class="level3" data-number="11.4.1">
+<h3 data-number="11.4.1" class="anchored" data-anchor-id="calculus"><span class="header-section-number">11.4.1</span> Calculus?</h3>
+<p>The monomials we’ve just computed look suspiciously like derivatives: <span class="math inline">\(1\)</span> is the derivative of <span class="math inline">\(x\)</span>, <span class="math inline">\(2x\)</span> is the derivative of <span class="math inline">\(x^2\)</span>, <span class="math inline">\(3x^2\)</span> is the derivative of <span class="math inline">\(x^3\)</span>, and so on. I.e., we have <span class="math display">\[
+\frac{1}{(1 - x)^2} = \sum_{n = 0}^\infty \frac{d}{dx} x^n.
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The sums <span class="math inline">\(\sum nx^{n-1}\)</span> and <span class="math inline">\(\sum (n + 1)x^n\)</span> are equal. In words: each sum is adding up all monomials whose coefficient is exactly <span class="math inline">\(1\)</span> more than the exponent. Algebraically, we can transform the first sum to the second by letting <span class="math inline">\(m = n - 1\)</span> and <span class="math inline">\(n = m + 1\)</span>. Then <span class="math display">\[
+\sum nx^{n-1} = \sum (m + 1)x^m.
+\]</span> When working with OGFs, we often want to make such tranformations so that the question of “how many strings of length <span class="math inline">\(n\)</span>” can be read directly from the summand <span class="math inline">\(a_nx^n\)</span>: there are <span class="math inline">\(a_n\)</span> strings of length <span class="math inline">\(n\)</span>.</p>
+</div>
+</div>
+<p>In our calculus courses, we learn that we can often take the derivative of a series term-by-term. Or in other words, we can safely move the derivative operator from inside the term to outside and vice versa: <span class="math display">\[
+\sum_{n = 0}^\infty \frac{d}{dx} x^n = \frac{d}{dx} \sum_{n = 0}^\infty \sum_{n = 0}^\infty x^n.
+\]</span> This we recognize as the geometric series from <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 10.3</span></a>. So that means we should expect <span class="math display">\[
+\frac{1}{(1 - x)^2} = \frac{d}{dx} \frac{1}{1-x}.
+\]</span> Indeed, that is the case.</p>
+<p>The following is a result of analysis that is very potent for many OGF problems.</p>
+<div id="thm-derivative-of-ogf" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 11.2</strong></span> If <span class="math inline">\(\sum a_n x^n\)</span> converges to a function <span class="math inline">\(f(x)\)</span> (and the radius of convergence is not zero), then <span class="math display">\[
+\sum \frac{d}{dx} a_n x^n = f'(x)
+\]</span> (and the radius of convergence is preserved).</p>
+</div>
+<p>In <a href="ogf.html#sec-convergence" class="quarto-xref"><span>Section 10.3.1</span></a>, we said that these generating functions are still valid even when they don’t converge. But there is utility here in that if we have an expression to represent an infinite sum like how <span class="math inline">\(\frac{1}{1-x}\)</span> represents the geometric series, then we can compute the derivative of the expression and of the infinite series.</p>
+<div id="exm-second-derivative" class="theorem example">
+<p><span class="theorem-title"><strong>Example 11.1</strong></span> Given that <span class="math display">\[
+\frac{1}{(1 - x)^2} = 1 + 2x + 3x^2 + 4x^3 + \dots = \sum nx^{n-1},
+\]</span> we can compute the derivative on both sides to obtain <span class="math display">\[
+\frac{2}{(1 - x)^3} = 2 + 6x + 12x^2 + 20x^3 + \cdots = \sum n(n-1)x^{n-2}.
+\]</span> If we divide by <span class="math inline">\(2\)</span> we might recognize this as <span class="math display">\[
+\frac{1}{(1 - x)^3} = \sum \frac{n(n-1)}{2}x^{n-2} = \sum \binom{n}2x^{n - 2}
+= \sum \binom{n + 2}{2} x^n.
+\]</span></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -756,6 +821,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../generating-functions/stars-and-bars-revisited.html" class="pagination-link" aria-label="Stars and Bars Revisited">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

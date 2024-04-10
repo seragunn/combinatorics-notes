@@ -329,25 +329,25 @@
     ]
   },
   {
-    "objectID": "generating-functions/metrics.html",
-    "href": "generating-functions/metrics.html",
-    "title": "9  Metric Functions",
+    "objectID": "generating-functions/weights.html",
+    "href": "generating-functions/weights.html",
+    "title": "9  Weight Functions",
     "section": "",
     "text": "9.1 Recap: Strings\nRecall that an alphabet is a set of characters like \\(\\{0, 1\\}\\) is the alphabet for binary. A string is an ordered sequence of characters from a fixed alphabet. E.g. \\(011011\\) and \\(00011\\) are binary strings.\nAdditionally, \\(\\varepsilon\\) will denote the empty string and multiplication of strings will be done by concatenation. E.g. \\(011 \\cdot 000 = 011000\\).\nFor most examples that follow, we will work with binary strings of \\(0\\)s and \\(1\\)s unless otherwise specified.",
     "crumbs": [
       "Generating Functions",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Metric Functions</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Weight Functions</span>"
     ]
   },
   {
-    "objectID": "generating-functions/metrics.html#definition",
-    "href": "generating-functions/metrics.html#definition",
-    "title": "9  Metric Functions",
+    "objectID": "generating-functions/weights.html#definition",
+    "href": "generating-functions/weights.html#definition",
+    "title": "9  Weight Functions",
     "section": "9.2 Definition",
-    "text": "9.2 Definition\nLet \\(S\\) be a set of strings (e.g. all binary strings or all ternary strings). A metric on \\(S\\) is a function \\(f : S \\to \\mathbf{Z}\\) satisfying:\n\n\\(f(x) \\ge 0\\)\n\\(f(uv) = f(u) + f(v)\\) when \\(u\\) and \\(v\\) are two strings.\n\n\nExample 9.1 The length \\(l\\) of a string is a metric. E.g. \\(l(011) = 3, l(011 \\cdot 10011) = l(011) + l(10011)\\).\n\n\nExample 9.2 \\(f(s) =\\) the number of \\(1\\)s in \\(s\\) is a metric. E.g. \\(f(011) = 2\\) and \\(f(011 \\cdot 10011) = f(011) + l(10011)\\).\n\n\n9.2.1 Key property\nThe definition of a metric means they behave kind of like a logarithm. Therefore, if we do \\(x^{f(s)}\\), we get a function which satisfies\n\\[\nx^{f(uv)} = x^{f(u)} \\cdot x^{f(v)}.\n\\] This is why we are going to have a bunch of \\(x\\)s all over the next few sections.",
+    "text": "9.2 Definition\nLet \\(S\\) be a set of strings (e.g. all binary strings or all ternary strings). A weight function on \\(S\\) is a function \\(f : S \\to \\mathbf{Z}\\) satisfying:\n\n\\(f(x) \\ge 0\\)\n\\(f(uv) = f(u) + f(v)\\) when \\(u\\) and \\(v\\) are two strings.\n\n\nExample 9.1 The length \\(l\\) of a string is a weight. E.g. \\(l(011) = 3, l(011 \\cdot 10011) = l(011) + l(10011)\\).\n\n\nExample 9.2 \\(f(s) =\\) the number of \\(1\\)s in \\(s\\) is a weight. E.g. \\(f(011) = 2\\) and \\(f(011 \\cdot 10011) = f(011) + l(10011)\\).\n\n\n9.2.1 Key property\nThe definition of a weight means they behave kind of like a logarithm. Therefore, if we do \\(x^{f(s)}\\), we get a function which satisfies\n\\[\nx^{f(uv)} = x^{f(u)} \\cdot x^{f(v)}.\n\\] This is why we are going to have a bunch of \\(x\\)s all over the next few sections.",
     "crumbs": [
       "Generating Functions",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Metric Functions</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Weight Functions</span>"
     ]
   },
   {
@@ -355,7 +355,7 @@
     "href": "generating-functions/ogf.html",
     "title": "10  Generating Functions",
     "section": "",
-    "text": "10.1 Definition\nLet \\(L\\) be a subset of strings. These is also called a language. Let \\(f\\) be a metric. We define the (ordinary) generating function of \\(L\\) or OGF as\n\\[\n\\Phi_L(x) = \\Phi_L^f(x) = \\sum_{s \\in L} x^{f(s)}.\n\\]",
+    "text": "10.1 Definition\nLet \\(L\\) be a subset of strings. These is also called a language. Let \\(f\\) be a weight function. We define the (ordinary) generating function of \\(L\\) or OGF as\n\\[\n\\Phi_L(x) = \\Phi_L^f(x) = \\sum_{s \\in L} x^{f(s)}.\n\\]",
     "crumbs": [
       "Generating Functions",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Generating Functions</span>"
@@ -366,7 +366,7 @@
     "href": "generating-functions/ogf.html#definition",
     "title": "10  Generating Functions",
     "section": "",
-    "text": "Note\n\n\n\nIt is common in mathematical definitions to write something like \\[\n\\Phi_L(x) = \\Phi_L^f(x) = \\cdots.\n\\] This means that I am calling attention to the fact that \\(\\Phi\\) depends on \\(f\\) but also saying that because \\(f\\) isn’t going to change much, we are going to drop the \\(f\\) from the notation most or all of the time.\nIt is also common to call generating functions by other letters, like \\(A(x)\\) but this needs to be introduced first by saying that \\(A\\) is the OGF wheras \\(\\Phi_L\\) means this implicitly.\n\n\n\nExample 10.1 Let \\(L\\) be the subset \\(\\{01, 1110, 11, 0, 1, 111000, \\varepsilon\\}\\) of binary strings. Let \\(f\\) be the length metric. The OGF of \\(L\\) is \\[\\begin{align*}\n\\Phi_L(x) &= x^{f(01)} + x^{f(1110)} + x^{f(11)} + x^{f(0)} + x^{f(1)} + x^{f(111000)} + x^{f(\\varepsilon)} \\\\\n&= x^2 + x^4 + x^2 + x^1 + x^1 + x^6 + x^0 \\\\\n&= 1 + 2x + 2x^2 + x^4 + x^6\n\\end{align*}\\]",
+    "text": "Note\n\n\n\nIt is common in mathematical definitions to write something like \\[\n\\Phi_L(x) = \\Phi_L^f(x) = \\cdots.\n\\] This means that I am calling attention to the fact that \\(\\Phi\\) depends on \\(f\\) but also saying that because \\(f\\) isn’t going to change much, we are going to drop the \\(f\\) from the notation most or all of the time.\nIt is also common to call generating functions by other letters, like \\(A(x)\\) but this needs to be introduced first by saying that \\(A\\) is the OGF wheras \\(\\Phi_L\\) means this implicitly.\n\n\n\nExample 10.1 Let \\(L\\) be the subset \\(\\{01, 1110, 11, 0, 1, 111000, \\varepsilon\\}\\) of binary strings. Let \\(f\\) be the length weight. The OGF of \\(L\\) is \\[\\begin{align*}\n\\Phi_L(x) &= x^{f(01)} + x^{f(1110)} + x^{f(11)} + x^{f(0)} + x^{f(1)} + x^{f(111000)} + x^{f(\\varepsilon)} \\\\\n&= x^2 + x^4 + x^2 + x^1 + x^1 + x^6 + x^0 \\\\\n&= 1 + 2x + 2x^2 + x^4 + x^6\n\\end{align*}\\]",
     "crumbs": [
       "Generating Functions",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Generating Functions</span>"
@@ -377,18 +377,18 @@
     "href": "generating-functions/ogf.html#monomials",
     "title": "10  Generating Functions",
     "section": "10.2 Monomials",
-    "text": "10.2 Monomials\nInside \\(\\Phi_L(x)\\), each monomial \\(a_nx^n\\) (after collecting terms) represents that \\(L\\) has \\(a_n\\) strings where \\(f\\) equals \\(n\\) (e.g. the length equals \\(n\\)).\n\nExample 10.2 For the language \\(L\\) of Example 10.1 above, we have for instance, \\(2\\) strings of legnth \\(1\\), represented by the monomial \\(2x^1\\). We have \\(1\\) string of length \\(6\\) represented by the monomial \\(1x^6\\). We have no strings of length \\(5\\), represented by the lack of a monomial with \\(x^5\\). We could also say that the coefficient of \\(x^5\\) is \\(0\\).\n\n\nExercise 10.1 Let \\(L\\) be the set of all binary strings of length \\(\\le 5\\) which have no \\(11\\).\n\nfor \\(n = 0, 1, 2, 3, 4, 5\\), list all the strings with no \\(11\\)\nwrite down the generating function with respect to the length metric\nwrite down the generating function with respect to the “number of 1s” metric",
+    "text": "10.2 Monomials\nInside \\(\\Phi_L(x)\\), each monomial \\(a_nx^n\\) (after collecting terms) represents that \\(L\\) has \\(a_n\\) strings where \\(f\\) equals \\(n\\) (e.g. the length equals \\(n\\)).\n\nExample 10.2 For the language \\(L\\) of Example 10.1 above, we have for instance, \\(2\\) strings of legnth \\(1\\), represented by the monomial \\(2x^1\\). We have \\(1\\) string of length \\(6\\) represented by the monomial \\(1x^6\\). We have no strings of length \\(5\\), represented by the lack of a monomial with \\(x^5\\). We could also say that the coefficient of \\(x^5\\) is \\(0\\).\n\n\nExercise 10.1 Let \\(L\\) be the set of all binary strings of length \\(\\le 5\\) which have no \\(11\\).\n\nfor \\(n = 0, 1, 2, 3, 4, 5\\), list all the strings with no \\(11\\)\nwrite down the generating function with respect to the length weight\nwrite down the generating function with respect to the “number of 1s” weight",
     "crumbs": [
       "Generating Functions",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Generating Functions</span>"
     ]
   },
   {
-    "objectID": "generating-functions/ogf.html#infinite-series",
-    "href": "generating-functions/ogf.html#infinite-series",
+    "objectID": "generating-functions/ogf.html#sec-geom-series",
+    "href": "generating-functions/ogf.html#sec-geom-series",
     "title": "10  Generating Functions",
     "section": "10.3 Infinite series",
-    "text": "10.3 Infinite series\nWe’ve looked at examples where \\(L\\) is a finite set. In many examples, \\(L\\) will be an infinite set. For instance consider the infinite set of all strings of \\(0\\)s. I.e. \\(\\{\\varepsilon, 0, 00, 000, 0000, \\dots\\}\\). For this language, we have the generating function \\[\nA = 1 + x + x^2 + x^3 + \\cdots = \\frac{1}{1 - x}.\n\\]\n\n\n\n\n\n\nGeometric series formula\n\n\n\n\n\nTo prove this formula, we take \\(A\\) and multiply everything by \\(x\\) because that creates a lot of similar terms: \\[\\begin{align*}\nA  &= 1 + x + x^2 + x^3 + \\cdots \\\\\nxA &= \\phantom{1+{}}x + x^2 + x^3 + \\cdots \\\\\nA - xA &= 1\n\\end{align*}\\] From which we solve for \\(A = \\dfrac{1}{1 - x}\\).\n\n\n\n\nExample 10.3 Let \\(L\\) is the language of all binary strings, i.e. \\(L = \\{\\varnothing, 0, 1, 00, 01, 10, 11, 000, \\dots\\}\\). We know that there are \\(2^n\\) binary strings of length \\(n\\) so the OGF of \\(L\\) is \\[\n\\Phi_L(x) = \\sum_{n = 0}^\\infty 2^nx^n = \\sum_{n = 0}^\\infty (2x)^n = \\frac{1}{1 - 2x}.\n\\]\n\n\n\n\n\n\n\nNote\n\n\n\nIn a calculus or analysis course, we would want to specify here that \\(|x| &lt; \\frac12\\) for this series to converge. In combinatorics, we treat these series purely algebraically. That means as an infinite list of monomials without care whether or not the series converges. People use the term formal power series to refer to this concept.\n\n\n\n10.3.1 When do we care about convergence?\nFor the most part, we don’t. However, in more advanced courses, there are arguements using analysis which only apply to convergent power series. For instance, the fact that the series \\[\n1 + x + 2x^2 + 3x^3 + 5x^4 + 8x^5 + \\cdots = \\frac{1}{1 - x - x^2}\n\\] converges for \\(|x| &lt; \\frac{1}{\\phi}\\) where \\(\\varphi = \\frac{1 + \\sqrt5}{2}\\) is connected to the fact that the Fibonnaci numbers are approximately \\(c \\varphi^n\\) for some constant \\(c\\).\n\nExercise 10.2 In fact, one can show that \\[\n\\mathrm{Fib}_n = \\operatorname{round}\\left( \\frac{\\varphi^n}{\\sqrt 5} \\right).\n\\] Use a calculator or a computer to check this works!",
+    "text": "10.3 Infinite series\nWe’ve looked at examples where \\(L\\) is a finite set. In many examples, \\(L\\) will be an infinite set. For instance consider the infinite set of all strings of \\(0\\)s. I.e. \\(\\{\\varepsilon, 0, 00, 000, 0000, \\dots\\}\\). For this language, we have the generating function \\[\nA = 1 + x + x^2 + x^3 + \\cdots = \\frac{1}{1 - x}.\n\\]\n\n\n\n\n\n\nGeometric series formula\n\n\n\n\n\nTo prove this formula, we take \\(A\\) and multiply everything by \\(x\\) because that creates a lot of similar terms: \\[\\begin{align*}\nA  &= 1 + x + x^2 + x^3 + \\cdots \\\\\nxA &= \\phantom{1+{}}x + x^2 + x^3 + \\cdots \\\\\nA - xA &= 1\n\\end{align*}\\] From which we solve for \\(A = \\dfrac{1}{1 - x}\\).\n\n\n\n\nExample 10.3 Let \\(L\\) is the language of all binary strings, i.e. \\(L = \\{\\varnothing, 0, 1, 00, 01, 10, 11, 000, \\dots\\}\\). We know that there are \\(2^n\\) binary strings of length \\(n\\) so the OGF of \\(L\\) is \\[\n\\Phi_L(x) = \\sum_{n = 0}^\\infty 2^nx^n = \\sum_{n = 0}^\\infty (2x)^n = \\frac{1}{1 - 2x}.\n\\]\n\n\n\n\n\n\n\nNote\n\n\n\nIn a calculus or analysis course, we would want to specify here that \\(|x| &lt; \\frac12\\) for this series to converge. In combinatorics, we treat these series purely algebraically. That means as an infinite list of monomials without care whether or not the series converges. People use the term formal power series to refer to this concept.\n\n\n\n10.3.1 When do we care about convergence?\nFor the most part, we don’t. Meaning an infinite series is still valid even if it doesn’t converge other than when \\(x = 0\\). However, there are arguements using analysis which only apply to convergent power series. For instance, the fact that the series \\[\n1 + x + 2x^2 + 3x^3 + 5x^4 + 8x^5 + \\cdots = \\frac{1}{1 - x - x^2}\n\\] converges for \\(|x| &lt; \\frac{1}{\\phi}\\) where \\(\\varphi = \\frac{1 + \\sqrt5}{2}\\) is connected to the fact that the Fibonnaci numbers are approximately \\(c \\varphi^n\\) for some constant \\(c\\).\n\nExercise 10.2 In fact, one can show that \\[\n\\mathrm{Fib}_n = \\operatorname{round}\\left( \\frac{\\varphi^n}{\\sqrt 5} \\right).\n\\] Use a calculator or a computer to check this works!",
     "crumbs": [
       "Generating Functions",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Generating Functions</span>"
@@ -421,10 +421,43 @@
     "href": "generating-functions/multiplication.html#multiplication-theorem",
     "title": "11  Multiplication of Generating Functions",
     "section": "11.3 Multiplication theorem",
-    "text": "11.3 Multiplication theorem\n\nTheorem 11.1 Let \\(L\\) and \\(L'\\) be two different languages. Let \\(f\\) be a common metric function like the length of a string. Then \\[\n\\Phi_{LL'}(x) = \\Phi_L(x)\\Phi_{L'}(x).\n\\]\n\n\nProof. We have \\[\\begin{align*}\n\\Phi_{LL'}(x) &= \\sum_{w \\in LL'} x^{f(w)} \\\\\n&= \\sum_{u \\in L} \\sum_{v \\in L'} x^{f(uv)} \\\\\n&= \\sum_{u \\in L} \\sum_{v \\in L'} x^{f(u)}x^{f(v)}\n\\end{align*}\\] using Section 9.2.1. Continuing, we get \\[\\begin{align*}\n\\phantom{\\Phi_{LL'}(x)} &= \\sum_{u \\in L} x^{f(u)} \\sum_{v \\in L'} x^{f(v)} \\\\\n&= \\Phi_L(x) \\Phi_{L'}(x).\n\\end{align*}\\]\n\n\n\n\n\n\n\nTip\n\n\n\nOne might wonder whether \\(\\sum a_i \\sum b_j\\) means \\((\\sum a_i)(\\sum b_j)\\) or \\(\\sum \\left(a_i \\sum b_j \\right)\\). These are the same and it is explained by the distributive property of multiplication. For example, \\[\n(a_1 + a_2 + a_3)(b_1 + b_2) = a_1(b_1 + b_2) + a_2(b_1 + b_2) + a_3(b_1 + b_2).\n\\]",
+    "text": "11.3 Multiplication theorem\n\nTheorem 11.1 Let \\(L\\) and \\(L'\\) be two different languages. Let \\(f\\) be a common weight function like the length of a string. Then \\[\n\\Phi_{LL'}(x) = \\Phi_L(x)\\Phi_{L'}(x).\n\\]\n\n\nProof. We have \\[\\begin{align*}\n\\Phi_{LL'}(x) &= \\sum_{w \\in LL'} x^{f(w)} \\\\\n&= \\sum_{u \\in L} \\sum_{v \\in L'} x^{f(uv)} \\\\\n&= \\sum_{u \\in L} \\sum_{v \\in L'} x^{f(u)}x^{f(v)}\n\\end{align*}\\] using Section 9.2.1. Continuing, we get \\[\\begin{align*}\n\\phantom{\\Phi_{LL'}(x)} &= \\sum_{u \\in L} x^{f(u)} \\sum_{v \\in L'} x^{f(v)} \\\\\n&= \\Phi_L(x) \\Phi_{L'}(x).\n\\end{align*}\\]\n\n\n\n\n\n\n\nTip\n\n\n\nOne might wonder whether \\(\\sum a_i \\sum b_j\\) means \\((\\sum a_i)(\\sum b_j)\\) or \\(\\sum \\left(a_i \\sum b_j \\right)\\). It turns out these are the same, and it is explained by the distributive property of multiplication. For example, \\[\n(a_1 + a_2 + a_3)(b_1 + b_2) = a_1(b_1 + b_2) + a_2(b_1 + b_2) + a_3(b_1 + b_2).\n\\]",
     "crumbs": [
       "Generating Functions",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Multiplication of Generating Functions</span>"
+    ]
+  },
+  {
+    "objectID": "generating-functions/multiplication.html#sec-0s-then-1s",
+    "href": "generating-functions/multiplication.html#sec-0s-then-1s",
+    "title": "11  Multiplication of Generating Functions",
+    "section": "11.4 Strings with 0s followed by 1s",
+    "text": "11.4 Strings with 0s followed by 1s\nLet \\(L\\) be the language of strings with only \\(0\\)s and let \\(L'\\) be the language of strings with only \\(1\\)s. In Section 10.3, we saw that these languages have generating functions \\(\\frac{1}{1 - x}\\) (weighting by length). By theorem Theorem 11.1, the language \\(LL'\\) of all strings of \\(0\\)s followed by \\(1\\)s has generating function \\[\n\\frac{1}{(1 - x)^2}.\n\\]\nWe can compute this in a couple ways. First, we ask the question: “how many strings are there of length \\(n\\) consisting of a string of \\(0\\)s followed by a string of \\(1\\)s?” E.g. for \\(n = 4\\) there are \\(5\\) such strings: \\[\n0000, 0001, 0011, 0111, 1111.\n\\] We can look at this as: there are either \\(0, 1, 2, 3, 4\\) ones. In general, there will be \\(n + 1\\) strings of length \\(n\\) (corresponding to the monomial \\((n + 1)x^n\\)). Therefore \\[\n\\frac{1}{(1 - x)^2} = \\sum_{n = 0}^\\infty (n + 1)x^n = 1 + 2x + 3x^2 + 4x^3 + \\cdots.\n\\]\n\n11.4.1 Calculus?\nThe monomials we’ve just computed look suspiciously like derivatives: \\(1\\) is the derivative of \\(x\\), \\(2x\\) is the derivative of \\(x^2\\), \\(3x^2\\) is the derivative of \\(x^3\\), and so on. I.e., we have \\[\n\\frac{1}{(1 - x)^2} = \\sum_{n = 0}^\\infty \\frac{d}{dx} x^n.\n\\]\n\n\n\n\n\n\nTip\n\n\n\nThe sums \\(\\sum nx^{n-1}\\) and \\(\\sum (n + 1)x^n\\) are equal. In words: each sum is adding up all monomials whose coefficient is exactly \\(1\\) more than the exponent. Algebraically, we can transform the first sum to the second by letting \\(m = n - 1\\) and \\(n = m + 1\\). Then \\[\n\\sum nx^{n-1} = \\sum (m + 1)x^m.\n\\] When working with OGFs, we often want to make such tranformations so that the question of “how many strings of length \\(n\\)” can be read directly from the summand \\(a_nx^n\\): there are \\(a_n\\) strings of length \\(n\\).\n\n\nIn our calculus courses, we learn that we can often take the derivative of a series term-by-term. Or in other words, we can safely move the derivative operator from inside the term to outside and vice versa: \\[\n\\sum_{n = 0}^\\infty \\frac{d}{dx} x^n = \\frac{d}{dx} \\sum_{n = 0}^\\infty \\sum_{n = 0}^\\infty x^n.\n\\] This we recognize as the geometric series from Section 10.3. So that means we should expect \\[\n\\frac{1}{(1 - x)^2} = \\frac{d}{dx} \\frac{1}{1-x}.\n\\] Indeed, that is the case.\nThe following is a result of analysis that is very potent for many OGF problems.\n\nTheorem 11.2 If \\(\\sum a_n x^n\\) converges to a function \\(f(x)\\) (and the radius of convergence is not zero), then \\[\n\\sum \\frac{d}{dx} a_n x^n = f'(x)\n\\] (and the radius of convergence is preserved).\n\nIn Section 10.3.1, we said that these generating functions are still valid even when they don’t converge. But there is utility here in that if we have an expression to represent an infinite sum like how \\(\\frac{1}{1-x}\\) represents the geometric series, then we can compute the derivative of the expression and of the infinite series.\n\nExample 11.1 Given that \\[\n\\frac{1}{(1 - x)^2} = 1 + 2x + 3x^2 + 4x^3 + \\dots = \\sum nx^{n-1},\n\\] we can compute the derivative on both sides to obtain \\[\n\\frac{2}{(1 - x)^3} = 2 + 6x + 12x^2 + 20x^3 + \\cdots = \\sum n(n-1)x^{n-2}.\n\\] If we divide by \\(2\\) we might recognize this as \\[\n\\frac{1}{(1 - x)^3} = \\sum \\frac{n(n-1)}{2}x^{n-2} = \\sum \\binom{n}2x^{n - 2}\n= \\sum \\binom{n + 2}{2} x^n.\n\\]",
+    "crumbs": [
+      "Generating Functions",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Multiplication of Generating Functions</span>"
+    ]
+  },
+  {
+    "objectID": "generating-functions/stars-and-bars-revisited.html",
+    "href": "generating-functions/stars-and-bars-revisited.html",
+    "title": "12  Stars and Bars Revisited",
+    "section": "",
+    "text": "12.1 From 2 people to k people\nLet’s copy the key insight for the \\(k = 2\\) case. A distribution of \\(n\\) objects to \\(k\\) people, with each receiving \\(0\\) or more, looks like a string \\[\n1\\cdots12\\cdots23\\cdots3\\cdots\\cdots k\\cdots k.\n\\] Here the number of \\(i\\)s in the string is the number of objects person \\(i\\) receives. E.g. \\[\n1122223555\n\\] means person \\(1\\) receives \\(2\\) objects, person \\(2\\) receives \\(4\\), person \\(3\\) receives \\(1\\), person \\(5\\) receives \\(3\\), and everyone else (including person \\(4\\)) receives none.",
+    "crumbs": [
+      "Generating Functions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Stars and Bars Revisited</span>"
+    ]
+  },
+  {
+    "objectID": "generating-functions/stars-and-bars-revisited.html#from-2-people-to-k-people",
+    "href": "generating-functions/stars-and-bars-revisited.html#from-2-people-to-k-people",
+    "title": "12  Stars and Bars Revisited",
+    "section": "",
+    "text": "12.1.1 Applying the multiplication theorem\nLet \\(L_i\\) be the language of strings consisting of \\(0\\) or more of the character \\(i\\). Then the stars-and-bars language for \\(k\\) people, is \\(L_1 L_2 \\cdots L_k\\). We also know from Section 10.3 that each of these language has a generating function of \\(\\frac{1}{1-x}\\). It follows that our stars-and-bars language has a generating function of \\[\n\\frac{1}{(1 - x)^k} = \\sum_{n = 0}^\\infty \\binom{n + k}{k} x^n.\n\\] We know these are the coefficients because we know there are \\(\\binom{n + k}{k}\\) stars-and-bars strings of length \\(n\\) (i.e. that many ways to distribute the \\(n\\) objects among \\(k\\) people).\n\nExercise 12.1 Use proof by induction to show that \\[\n\\frac{1}{(1 - x)^k} = \\sum_{n = 0}^\\infty \\binom{n + k}{k} x^n.\n\\] Use the derivative to go from case \\(k\\) to case \\(k + 1\\). Take the geometric series as the base case (\\(k = 1\\)).\nHint: the derivative is going to reduce the exponent from \\(x^n\\) to \\(x^{n - 1}\\) so to get a step ahead of that, we can add \\(1\\) everywhere we see \\(n\\): \\[\n\\frac{1}{(1 - x)^k} = \\sum_{n + 1 = 0}^\\infty \\binom{n + 1 + k}{k} x^{n + 1}.\n\\]",
+    "crumbs": [
+      "Generating Functions",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Stars and Bars Revisited</span>"
     ]
   }
 ]
