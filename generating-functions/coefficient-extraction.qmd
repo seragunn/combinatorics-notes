@@ -9,7 +9,7 @@ $$
 our goal is to find $a_n$. A common notation for this is $a_n = [x^n] A(x)$.
 
 ::: {.callout-warning}
-Be careful, this is not the same thing as $A(n)$. Plugging in $n$ is not the way to find the coefficient. For example, the coefficient of $x^2$ in the quadratic $f(x) = 2x^2 + 3x + 1$ is $[x^2]f(x) = 2$ and not $f(2)$ which equals $15$.
+Be careful! This is not the same thing as $A(n)$. Plugging in $n$ is not the way to find the coefficient. For example, the coefficient of $x^2$ in the quadratic $f(x) = 2x^2 + 3x + 1$ is $[x^2]f(x) = 2$ and not $f(2)$ which equals $15$.
 :::
 
 ## Shifts
@@ -47,6 +47,20 @@ $$
 [x^n]x^kA(x) = [x^{n - k}] A(x) = a_{n - k}.
 $$
 "The coefficient of $x^n$ in $x^k A(x)$ is $a_{n - k}$."
+:::
+
+## Sums and differences
+
+Suppose $A(x) = \sum a_n x^n, B(x) = \sum b_n x^n$ are two power series. Then for any constants $\lambda, \mu$, we have
+$$
+\lambda A(x) + \mu B(x) = \lambda \sum a_n x^n + \mu \sum b_n x^n = \sum (\lambda a_n + \mu b_n) x^n.
+$$
+In terms of our $[x^n]$ operator, we record the following result.
+
+::: {#thm-linear-coefficient}
+$$
+[x^n](\lambda A(x) + \mu B(x)) = \lambda [x^n] A(x) + \mu [x^n] B(x).
+$$
 :::
 
 ## Derivatives
@@ -107,4 +121,34 @@ $$
 
 ::: {.callout-note}
 These series converge for at least $|x| < 1$ (and so techniques of calculus apply to analyzing these series). Convergence for $x = \pm 1$ depends on $r$. And of course, if $r$ is a whole number then the series is finite and converges everywhere.
+:::
+
+## Examples
+
+Let's finally get to solving the problem of @sec-upper-bound-ogf. Recall that we had the generating function
+$$
+A(x) = \frac{x^{k - 1}(x^5 - x^{14})}{(1 - x)^k} = \frac{x^{k + 4} - x^{k + 13}}{(1 - x)^k}.
+$$
+Now we're going to combine this with the first formula from @sec-sb-ogf-summary to get
+\begin{align*}
+[x^n] \frac{x^{k + 4} - x^{k + 13}}{(1 - x)^k} &= [x^n] x^{k + 4} \frac{1}{(1 - x^k)} - [x^n] x^{k + 13} \frac{1}{(1 - x)^k} \\
+&= [x^{n - k - 4}] \frac{1}{(1 - x)^k} - [x^{n - k - 13}] \frac{1}{(1 - x)^k} \\
+&= \binom{(n - k - 4) + k - 1}{k - 1} - \binom{(n - k - 13) + k - 1}{k - 1} \\
+&= \binom{n - 5}{k - 1} - \binom{n - 14}{k - 1}.
+\end{align*}
+
+::: {.callout-tip collapse="true"}
+### Coefficient extraction with the formulas
+The formula from @sec-sb-ogf-summary says
+$$
+\frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1}x^n.
+$$
+That means that the coefficient of $x^n$ is
+$$
+[x^n] \frac{1}{(1 - x)^k} = \binom{n + k - 1}{k - 1}.
+$$
+If we want to apply this to a more complex power of $x$, we do so by substituting where we see $n$, for example,
+$$
+[x^{n + 1}] \frac{1}{(1 - x)^k} = \binom{(n + 1) + k - 1}{k - 1} = \binom{n + k}{k - 1}.
+$$
 :::
