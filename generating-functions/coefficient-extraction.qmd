@@ -1,0 +1,110 @@
+# Coefficient Extraction
+
+In this section, we develop some techniques for extracting coefficients from generating functions. Remember that coefficient of $x^n$ represents the number of solutions of weight $n$. So knowing that the generating function is, for example,
+
+$$
+A(x) = \frac{x^{k - 1}(x^5 - x^{14})}{(1 - x)^k} = \sum a_n x^n,
+$$
+
+our goal is to find $a_n$. A common notation for this is $a_n = [x^n] A(x)$.
+
+::: {.callout-warning}
+Be careful, this is not the same thing as $A(n)$. Plugging in $n$ is not the way to find the coefficient. For example, the coefficient of $x^2$ in the quadratic $f(x) = 2x^2 + 3x + 1$ is $[x^2]f(x) = 2$ and not $f(2)$ which equals $15$.
+:::
+
+## Shifts
+Multiplying $A(x)$ by $x^k$ shifts the sequence left or right (depending on whether $k$ is positive or negative):
+$$
+x^k \sum a_n x^n = \sum a_n x^{n + k} = \sum a_{n - k} x^n.
+$$
+The second equals sign is obtained either by substituting $n \gets n + k$ or by noticing that the coefficient is always $k$ less than the exponent.
+
+::: {.callout-tip collapse="true"}
+### Substituting inside a sum
+Consider a summation like
+$$
+\sum{k = 2}^\infty k(k-1)x^{k - 2}.
+$$
+If we want to write this as a sum where $x^k$ is the exponent in our summand, then we can either
+
+1) add $2$ everywhere we see $k$:
+$$
+\sum_{k + 2 = 2}^\infty (k + 2)(k + 1)x^{k} = \sum_{k = 0}^\infty (k + 2)(k + 1)x^{k},
+$$
+2) make a substitution of $n = k - 2$ and $k = n + 2$ to get
+$$
+\sum_{n + 2 = 2}^\infty (n + 2)(n + 1)x^{n}.
+$$
+
+Both methods are equivalent.
+:::
+
+Putting this together, we have the following result.
+
+::: {#thm-shift-coefficient}
+If $A(x) = \sum a_nx^n$ then
+$$
+[x^n]x^kA(x) = [x^{n - k}] A(x) = a_{n - k}.
+$$
+"The coefficient of $x^n$ in $x^k A(x)$ is $a_{n - k}$."
+:::
+
+## Derivatives
+
+As we saw earlier,
+$$
+A'(x) = \sum na_nx^{n - 1} = \sum (n + 1)a_{n + 1}x^n.
+$$
+
+::: {#thm-derivative-coefficient}
+$$
+[x^n] A'(x) = (n + 1) [x^{n + 1}] A(x).
+$$
+Or for antiderivatives,
+$$
+[x^n] A(x) = \frac{1}{n} [x^{n - 1}] A'(x).
+$$
+:::
+
+## Newton's Binomial Theorem
+
+We've seen the Binomial Theorem,
+$$
+(1 + x)^n = \sum_{k = 0}^n \binom{n}{k}x^k.
+$$
+And, in the previous section, we worked out power series for $(1 - x)^{-n}$. These kinds of functions are quite common in combinatorics, and not just for integer exponents either.
+
+::: {#def-general-binom}
+The general binomial coefficient is
+$$
+\binom{r}{k} = \frac{r(r - 1)(r - 2) \cdots (r - k + 1)}{k!}
+$$
+and we define this for any real (or complex) number $r$.
+:::
+
+What Newton observed, is that when you take the derivative of $f(x) = (1 + x)^r$ a few times, you get
+$$
+r(1+x)^{r - 1} \text{ then } r(r - 1) (1 + x)^{r - 2} \text{ then } r(r - 1)(r - 2)(1 + x)^{r - 3}, \dots
+$$
+
+::: {#thm-newton-binom}
+The Taylor series of $(1 + x)^r$ is
+$$
+\sum_{k = 0}^\infty \binom{r}{k}x^k.
+$$
+:::
+
+::: {.proof}
+We've seen above that for $f(x) = (1 + x)^r$, we have
+$$
+f^{(k)}(x) = r(r-1)(r-2)\cdots(r - k + 1)(1 + x)^{r - k}.
+$$
+Plugging this into the formula for a Taylor series,
+$$
+(1 + x)^r = \sum_{k = 0}^\infty \frac{f^{(k)}(0)}{k!} x^k = \sum_{k = 0}^\infty \frac{r(r - 1)(r - 2) \cdots (r - k + 1)}{k!} = \sum_{k = 0}^\infty \binom{r}{k}x^k.
+$$
+:::
+
+::: {.callout-note}
+These series converge for at least $|x| < 1$ (and so techniques of calculus apply to analyzing these series). Convergence for $x = \pm 1$ depends on $r$. And of course, if $r$ is a whole number then the series is finite and converges everywhere.
+:::
