@@ -12,6 +12,13 @@ book:
   favicon: icon.svg
   sidebar:
     background: primary
+  navbar:
+    background: "#222"
+    left:
+      - text: Home
+        href: https://trevorgunn.github.io/
+      - text: Applied Combinatorics
+        href: https://www.appliedcombinatorics.org/book/app-comb.html
   chapters:
     - index.qmd
     - part: "Inclusion-Exclusion"
