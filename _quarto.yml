@@ -10,6 +10,8 @@ book:
   repo-actions: [edit, issue, source]
   downloads: [pdf]
   favicon: icon.svg
+  sidebar:
+    background: primary
   chapters:
     - index.qmd
     - part: "Inclusion-Exclusion"
@@ -33,7 +35,7 @@ book:
 
 format:
   html:
-    theme: cosmo
+    theme: journal
     css: style.css
   pdf:
     fig-width: 2
