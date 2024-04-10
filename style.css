@@ -34,3 +34,9 @@
   border-radius: 0.25rem;
   padding: 0.4em;
 }
+
+@media (min-width: 768px) {
+  footer:has(.d-sm-block) {
+    display: none;
+  }
+}

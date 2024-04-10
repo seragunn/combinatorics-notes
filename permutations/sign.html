@@ -43,11 +43,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -103,10 +103,39 @@ window.Quarto = {
 <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Combinatorics Notes</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://trevorgunn.github.io/"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.appliedcombinatorics.org/book/app-comb.html"> 
+<span class="menu-text">Applied Combinatorics</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+    <a href="https://github.com/trevorgunn/combinatorics-notes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../Combinatorics-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -115,30 +144,13 @@ window.Quarto = {
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../permutations/permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="../permutations/sign.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
-      </button>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="../">Combinatorics Notes</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/trevorgunn/combinatorics-notes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../Combinatorics-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
-</div>
-    </div>
-      </div>
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
-        </div>
-        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -342,7 +354,7 @@ window.Quarto = {
 <section id="case-1-disjoint" class="level3" data-number="6.3.1">
 <h3 data-number="6.3.1" class="anchored" data-anchor-id="case-1-disjoint"><span class="header-section-number">6.3.1</span> Case 1: disjoint</h3>
 <p>If <span class="math inline">\(u, v, x, y\)</span> are all distinct, then the two swaps can be done in either order and <span class="math inline">\((uv)(xy) = (xy)(uv)\)</span>.</p>
-<div id="9d41c15d" class="cell" data-execution_count="1">
+<div id="953a40bf" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
@@ -359,7 +371,7 @@ window.Quarto = {
 <section id="case-3-larger-number-in-common" class="level3" data-number="6.3.3">
 <h3 data-number="6.3.3" class="anchored" data-anchor-id="case-3-larger-number-in-common"><span class="header-section-number">6.3.3</span> Case 3: larger number in common</h3>
 <p>Consider the product <span class="math inline">\((12)(23) = (123)\)</span> (swap <span class="math inline">\(2,3\)</span> first then <span class="math inline">\(1,2\)</span>)</p>
-<div id="5794dbc3" class="cell" data-execution_count="2">
+<div id="cb22eda9" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <figure class="figure">
@@ -369,7 +381,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Compare this with the identity <span class="math inline">\((23)(12)(23) = (13)\)</span> that we worked out in <a href="generators.html" class="quarto-xref"><span>Chapter 5</span></a>:</p>
-<div id="b4683d55" class="cell" data-execution_count="3">
+<div id="08546c20" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <figure class="figure">
@@ -419,7 +431,7 @@ window.Quarto = {
 <div id="exm-calculating-parity" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6.2</strong></span> Consider the shuffle <span class="math inline">\(376819254\)</span>. We can write this as <span class="math inline">\((1369485)(27)\)</span> this is a product of a cycle of length <span class="math inline">\(7\)</span> and a cycle of length <span class="math inline">\(2\)</span>. Therefore the sign is <span class="math inline">\((+1)(-1) = -1\)</span>.</p>
 <p>This computation in SageMath:</p>
-<div id="57d6fff0" class="cell" data-execution_count="4">
+<div id="adacf717" class="cell" data-execution_count="4">
 <pre class="sage cell-code"><code>π = Permutation([3,7,6,8,1,9,2,5,4])
 sign(π)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="4">
