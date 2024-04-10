@@ -280,8 +280,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#shifts" id="toc-shifts" class="nav-link active" data-scroll-target="#shifts"><span class="header-section-number">13.1</span> Shifts</a></li>
-  <li><a href="#derivatives" id="toc-derivatives" class="nav-link" data-scroll-target="#derivatives"><span class="header-section-number">13.2</span> Derivatives</a></li>
-  <li><a href="#newtons-binomial-theorem" id="toc-newtons-binomial-theorem" class="nav-link" data-scroll-target="#newtons-binomial-theorem"><span class="header-section-number">13.3</span> Newton’s Binomial Theorem</a></li>
+  <li><a href="#sums-and-differences" id="toc-sums-and-differences" class="nav-link" data-scroll-target="#sums-and-differences"><span class="header-section-number">13.2</span> Sums and differences</a></li>
+  <li><a href="#derivatives" id="toc-derivatives" class="nav-link" data-scroll-target="#derivatives"><span class="header-section-number">13.3</span> Derivatives</a></li>
+  <li><a href="#newtons-binomial-theorem" id="toc-newtons-binomial-theorem" class="nav-link" data-scroll-target="#newtons-binomial-theorem"><span class="header-section-number">13.4</span> Newton’s Binomial Theorem</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">13.5</span> Examples</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/coefficient-extraction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/coefficient-extraction.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -322,7 +324,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Be careful, this is not the same thing as <span class="math inline">\(A(n)\)</span>. Plugging in <span class="math inline">\(n\)</span> is not the way to find the coefficient. For example, the coefficient of <span class="math inline">\(x^2\)</span> in the quadratic <span class="math inline">\(f(x) = 2x^2 + 3x + 1\)</span> is <span class="math inline">\([x^2]f(x) = 2\)</span> and not <span class="math inline">\(f(2)\)</span> which equals <span class="math inline">\(15\)</span>.</p>
+<p>Be careful! This is not the same thing as <span class="math inline">\(A(n)\)</span>. Plugging in <span class="math inline">\(n\)</span> is not the way to find the coefficient. For example, the coefficient of <span class="math inline">\(x^2\)</span> in the quadratic <span class="math inline">\(f(x) = 2x^2 + 3x + 1\)</span> is <span class="math inline">\([x^2]f(x) = 2\)</span> and not <span class="math inline">\(f(2)\)</span> which equals <span class="math inline">\(15\)</span>.</p>
 </div>
 </div>
 <section id="shifts" class="level2" data-number="13.1">
@@ -364,21 +366,32 @@ Substituting inside a sum
 \]</span> “The coefficient of <span class="math inline">\(x^n\)</span> in <span class="math inline">\(x^k A(x)\)</span> is <span class="math inline">\(a_{n - k}\)</span>.”</p>
 </div>
 </section>
-<section id="derivatives" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="derivatives"><span class="header-section-number">13.2</span> Derivatives</h2>
+<section id="sums-and-differences" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="sums-and-differences"><span class="header-section-number">13.2</span> Sums and differences</h2>
+<p>Suppose <span class="math inline">\(A(x) = \sum a_n x^n, B(x) = \sum b_n x^n\)</span> are two power series. Then for any constants <span class="math inline">\(\lambda, \mu\)</span>, we have <span class="math display">\[
+\lambda A(x) + \mu B(x) = \lambda \sum a_n x^n + \mu \sum b_n x^n = \sum (\lambda a_n + \mu b_n) x^n.
+\]</span> In terms of our <span class="math inline">\([x^n]\)</span> operator, we record the following result.</p>
+<div id="thm-linear-coefficient" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 13.2</strong></span> <span class="math display">\[
+[x^n](\lambda A(x) + \mu B(x)) = \lambda [x^n] A(x) + \mu [x^n] B(x).
+\]</span></p>
+</div>
+</section>
+<section id="derivatives" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="derivatives"><span class="header-section-number">13.3</span> Derivatives</h2>
 <p>As we saw earlier, <span class="math display">\[
 A'(x) = \sum na_nx^{n - 1} = \sum (n + 1)a_{n + 1}x^n.
 \]</span></p>
 <div id="thm-derivative-coefficient" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 13.2</strong></span> <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 13.3</strong></span> <span class="math display">\[
 [x^n] A'(x) = (n + 1) [x^{n + 1}] A(x).
 \]</span> Or for antiderivatives, <span class="math display">\[
 [x^n] A(x) = \frac{1}{n} [x^{n - 1}] A'(x).
 \]</span></p>
 </div>
 </section>
-<section id="newtons-binomial-theorem" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="newtons-binomial-theorem"><span class="header-section-number">13.3</span> Newton’s Binomial Theorem</h2>
+<section id="newtons-binomial-theorem" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="newtons-binomial-theorem"><span class="header-section-number">13.4</span> Newton’s Binomial Theorem</h2>
 <p>We’ve seen the Binomial Theorem, <span class="math display">\[
 (1 + x)^n = \sum_{k = 0}^n \binom{n}{k}x^k.
 \]</span> And, in the previous section, we worked out power series for <span class="math inline">\((1 - x)^{-n}\)</span>. These kinds of functions are quite common in combinatorics, and not just for integer exponents either.</p>
@@ -391,7 +404,7 @@ A'(x) = \sum na_nx^{n - 1} = \sum (n + 1)a_{n + 1}x^n.
 r(1+x)^{r - 1} \text{ then } r(r - 1) (1 + x)^{r - 2} \text{ then } r(r - 1)(r - 2)(1 + x)^{r - 3}, \dots
 \]</span></p>
 <div id="thm-newton-binom" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 13.3</strong></span> The Taylor series of <span class="math inline">\((1 + x)^r\)</span> is <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 13.4</strong></span> The Taylor series of <span class="math inline">\((1 + x)^r\)</span> is <span class="math display">\[
 \sum_{k = 0}^\infty \binom{r}{k}x^k.
 \]</span></p>
 </div>
@@ -413,6 +426,39 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>These series converge for at least <span class="math inline">\(|x| &lt; 1\)</span> (and so techniques of calculus apply to analyzing these series). Convergence for <span class="math inline">\(x = \pm 1\)</span> depends on <span class="math inline">\(r\)</span>. And of course, if <span class="math inline">\(r\)</span> is a whole number then the series is finite and converges everywhere.</p>
+</div>
+</div>
+</section>
+<section id="examples" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="examples"><span class="header-section-number">13.5</span> Examples</h2>
+<p>Let’s finally get to solving the problem of <a href="stars-and-bars-revisited.html#sec-upper-bound-ogf" class="quarto-xref"><span>Section 12.2.1</span></a>. Recall that we had the generating function <span class="math display">\[
+A(x) = \frac{x^{k - 1}(x^5 - x^{14})}{(1 - x)^k} = \frac{x^{k + 4} - x^{k + 13}}{(1 - x)^k}.
+\]</span> Now we’re going to combine this with the first formula from <a href="stars-and-bars-revisited.html#sec-sb-ogf-summary" class="quarto-xref"><span>Section 12.4</span></a> to get <span class="math display">\[\begin{align*}
+[x^n] \frac{x^{k + 4} - x^{k + 13}}{(1 - x)^k} &amp;= [x^n] x^{k + 4} \frac{1}{(1 - x^k)} - [x^n] x^{k + 13} \frac{1}{(1 - x)^k} \\
+&amp;= [x^{n - k - 4}] \frac{1}{(1 - x)^k} - [x^{n - k - 13}] \frac{1}{(1 - x)^k} \\
+&amp;= \binom{(n - k - 4) + k - 1}{k - 1} - \binom{(n - k - 13) + k - 1}{k - 1} \\
+&amp;= \binom{n - 5}{k - 1} - \binom{n - 14}{k - 1}.
+\end{align*}\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Coefficient extraction with the formulas
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The formula from <a href="stars-and-bars-revisited.html#sec-sb-ogf-summary" class="quarto-xref"><span>Section 12.4</span></a> says <span class="math display">\[
+\frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1}x^n.
+\]</span> That means that the coefficient of <span class="math inline">\(x^n\)</span> is <span class="math display">\[
+[x^n] \frac{1}{(1 - x)^k} = \binom{n + k - 1}{k - 1}.
+\]</span> If we want to apply this to a more complex power of <span class="math inline">\(x\)</span>, we do so by substituting where we see <span class="math inline">\(n\)</span>, for example, <span class="math display">\[
+[x^{n + 1}] \frac{1}{(1 - x)^k} = \binom{(n + 1) + k - 1}{k - 1} = \binom{n + k}{k - 1}.
+\]</span></p>
+</div>
 </div>
 </div>
 

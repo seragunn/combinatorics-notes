@@ -286,10 +286,10 @@ window.Quarto = {
   </ul></li>
   <li><a href="#variations-of-stars-and-bars" id="toc-variations-of-stars-and-bars" class="nav-link" data-scroll-target="#variations-of-stars-and-bars"><span class="header-section-number">12.2</span> Variations of Stars and Bars</a>
   <ul class="collapse">
-  <li><a href="#other-restrictions" id="toc-other-restrictions" class="nav-link" data-scroll-target="#other-restrictions"><span class="header-section-number">12.2.1</span> Other restrictions</a></li>
+  <li><a href="#sec-upper-bound-ogf" id="toc-sec-upper-bound-ogf" class="nav-link" data-scroll-target="#sec-upper-bound-ogf"><span class="header-section-number">12.2.1</span> Other restrictions</a></li>
   </ul></li>
   <li><a href="#slack-variables" id="toc-slack-variables" class="nav-link" data-scroll-target="#slack-variables"><span class="header-section-number">12.3</span> Slack variables</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">12.4</span> Summary</a></li>
+  <li><a href="#sec-sb-ogf-summary" id="toc-sec-sb-ogf-summary" class="nav-link" data-scroll-target="#sec-sb-ogf-summary"><span class="header-section-number">12.4</span> Summary</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/stars-and-bars-revisited.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/stars-and-bars-revisited.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -384,8 +384,8 @@ a + ar + ar^2 + ar^3 + \cdots = a(1 + r + r^2 + r^3 + \cdots) = \frac{a}{1 - r}.
 \frac{x^k}{(1 - x)^k} = \sum_{m = k}^\infty \binom{m - 1}{k - 1} x^{m}.
 \]</span></p>
 <p>This matches our result of <span class="math inline">\(\binom{m - 1}{k - 1}\)</span> ways to distribute <span class="math inline">\(m\)</span> objects to <span class="math inline">\(k\)</span> people, with each person receiving at least <span class="math inline">\(1\)</span>.</p>
-<section id="other-restrictions" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="other-restrictions"><span class="header-section-number">12.2.1</span> Other restrictions</h3>
+<section id="sec-upper-bound-ogf" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="sec-upper-bound-ogf"><span class="header-section-number">12.2.1</span> Other restrictions</h3>
 <p>Let’s take the problem <span class="math display">\[
 x_1 + x_2 + \cdots + x_k = n,
 \]</span> where <span class="math inline">\(x_i \ge 1\)</span>. Now consider a restriction like <span class="math inline">\(5 \le x_1 \le 13\)</span>. This changes the language <span class="math inline">\(L_1\)</span> to <span class="math inline">\(\{11111, 111111, \cdots, 1111111111111\}\)</span> and the generating function of <span class="math inline">\(L_1\)</span> to <span class="math display">\[
@@ -432,8 +432,8 @@ x_1 + x_2 + \dots + x_k \le n
 \frac{x^k}{(1 - x)^{k + 1}} = x^k \sum_{n = 0}^\infty \binom{n + k}{k} x^n = \sum_{n = 0}^\infty \binom{n + k}{k} x^{n + k} =  \sum_{n = k}^\infty \binom{n}{k} x^n.
 \]</span></p>
 </section>
-<section id="summary" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">12.4</span> Summary</h2>
+<section id="sec-sb-ogf-summary" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="sec-sb-ogf-summary"><span class="header-section-number">12.4</span> Summary</h2>
 <ol type="a">
 <li>For <span class="math inline">\(x_1 + \dots + x_k = n\)</span> and <span class="math inline">\(x_i \ge 0\)</span>, we have the OGF <span class="math display">\[
 \frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1} x^n.
