@@ -42,7 +42,7 @@ b) write down the generating function with respect to the length weight
 c) write down the generating function with respect to the "number of 1s" weight
 :::
 
-## Infinite series
+## Infinite series {#sec-geom-series}
 We've looked at examples where $L$ is a finite set. In many examples, $L$ will be an infinite set. For instance consider the infinite set of all strings of $0$s. I.e. $\{\varepsilon, 0, 00, 000, 0000, \dots\}$. For this language, we have the generating function
 $$
 A = 1 + x + x^2 + x^3 + \cdots = \frac{1}{1 - x}.
@@ -70,8 +70,8 @@ $$
 In a calculus or analysis course, we would want to specify here that $|x| < \frac12$ for this series to converge. In combinatorics, we treat these series *purely algebraically*. That means as an infinite list of monomials without care whether or not the series converges. People use the term **formal power series** to refer to this concept.
 :::
 
-### When do we care about convergence?
-For the most part, *we don't*. However, in more advanced courses, there are arguements using analysis which only apply to convergent power series. For instance, the fact that the series
+### When do we care about convergence? {#sec-convergence}
+For the most part, *we don't*. Meaning an infinite series is still valid even if it doesn't converge other than when $x = 0$. However, there are arguements using analysis which only apply to convergent power series. For instance, the fact that the series
 $$
 1 + x + 2x^2 + 3x^3 + 5x^4 + 8x^5 + \cdots = \frac{1}{1 - x - x^2}
 $$

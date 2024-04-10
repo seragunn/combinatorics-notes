@@ -53,3 +53,70 @@ $$
 (a_1 + a_2 + a_3)(b_1 + b_2) = a_1(b_1 + b_2) + a_2(b_1 + b_2) + a_3(b_1 + b_2).
 $$
 :::
+
+## Strings with 0s followed by 1s
+Let $L$ be the language of strings with only $0$s and let $L'$ be the language of strings with only $1$s. In @sec-geom-series, we saw that these languages have generating functions $\frac{1}{1 - x}$ (weighting by length). By theorem @thm-ogf-multiplication, the language $LL'$ of all strings of $0$s followed by $1$s has generating function
+$$
+\frac{1}{(1 - x)^2}.
+$$
+
+We can compute this in a couple ways. First, we ask the question: "how many strings are there of length $n$ consisting of a string of $0$s followed by a string of $1$s?" E.g. for $n = 4$ there are $5$ such strings:
+$$
+0000, 0001, 0011, 0111, 1111.
+$$
+We can look at this as: there are either $0, 1, 2, 3, 4$ ones. In general, there will be $n + 1$ strings of length $n$ (corresponding to the monomial $(n + 1)x^n$). Therefore
+$$
+\frac{1}{(1 - x)^2} = \sum_{n = 0}^\infty (n + 1)x^n = 1 + 2x + 3x^2 + 4x^3 + \cdots.
+$$
+
+### Calculus?
+The monomials we've just computed look suspiciously like derivatives: $1$ is the derivative of $x$, $2x$ is the derivative of $x^2$, $3x^2$ is the derivative of $x^3$, and so on. I.e., we have
+$$
+\frac{1}{(1 - x)^2} = \sum_{n = 0}^\infty \frac{d}{dx} x^n.
+$$
+
+::: {.callout-tip}
+The sums $\sum nx^{n-1}$ and $\sum (n + 1)x^n$ are equal. In words: each sum is adding up all monomials whose coefficient is exactly $1$ more than the exponent. Algebraically, we can transform the first sum to the second by letting $m = n - 1$ and $n = m + 1$. Then
+$$
+\sum nx^{n-1} = \sum (m + 1)x^m.
+$$
+When working with OGFs, we often want to make such tranformations so that the question of "how many strings of length $n$" can be read directly from the summand $a_nx^n$: there are $a_n$ strings of length $n$.
+:::
+
+In our calculus courses, we learn that we can often take the derivative of a series term-by-term. Or in other words, we can safely move the derivative operator from inside the term to outside and vice versa:
+$$
+\sum_{n = 0}^\infty \frac{d}{dx} x^n = \frac{d}{dx} \sum_{n = 0}^\infty \sum_{n = 0}^\infty x^n.
+$$
+This we recognize as the geometric series from @sec-geom-series. So that means we should expect
+$$
+\frac{1}{(1 - x)^2} = \frac{d}{dx} \frac{1}{1-x}.
+$$
+Indeed, that is the case.
+
+The following is a result of analysis that is very potent for many OGF problems.
+
+::: {#thm-derivative-of-ogf}
+If $\sum a_n x^n$ converges to a function $f(x)$ (and the radius of convergence is not zero), then
+$$
+\sum \frac{d}{dx} a_n x^n = f'(x)
+$$
+(and the radius of convergence is preserved).
+:::
+
+In @sec-convergence, we said that these generating functions are still valid even when they don't converge. But there is utility here in that if we have an expression to represent an infinite sum like how $\frac{1}{1-x}$ represents the geometric series, then we can compute the derivative of the expression and of the infinite series.
+
+::: {#exm-second-derivative}
+Given that
+$$
+\frac{1}{(1 - x)^2} = 1 + 2x + 3x^2 + 4x^3 + \dots = \sum nx^{n-1},
+$$
+we can compute the derivative on both sides to obtain
+$$
+\frac{2}{(1 - x)^3} = 2 + 6x + 12x^2 + 20x^3 + \cdots = \sum n(n-1)x^{n-2}.
+$$
+If we divide by $2$ we might recognize this as
+$$
+\frac{1}{(1 - x)^3} = \sum \frac{n(n-1)}{2}x^{n-2} = \sum \binom{n}2x^{n - 2}
+ = \sum \binom{n + 2}{2} x^n.
+$$
+:::
