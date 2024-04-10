@@ -29,6 +29,7 @@ book:
         - generating-functions/weights.qmd
         - generating-functions/ogf.qmd
         - generating-functions/multiplication.qmd
+        - generating-functions/stars-and-bars-revisited.qmd
 
 format:
   html:

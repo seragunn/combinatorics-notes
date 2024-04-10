@@ -54,7 +54,7 @@ $$
 $$
 :::
 
-## Strings with 0s followed by 1s
+## Strings with 0s followed by 1s {#sec-0s-then-1s}
 Let $L$ be the language of strings with only $0$s and let $L'$ be the language of strings with only $1$s. In @sec-geom-series, we saw that these languages have generating functions $\frac{1}{1 - x}$ (weighting by length). By theorem @thm-ogf-multiplication, the language $LL'$ of all strings of $0$s followed by $1$s has generating function
 $$
 \frac{1}{(1 - x)^2}.
