@@ -102,7 +102,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed slimcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -293,7 +293,7 @@ window.Quarto = {
 <div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/coefficient-extraction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/coefficient-extraction.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/coefficient-extraction.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -434,7 +434,7 @@ Note
 </div>
 </div>
 </section>
-<section id="examples" class="level2 page-columns page-full" data-number="13.5">
+<section id="examples" class="level2" data-number="13.5">
 <h2 data-number="13.5" class="anchored" data-anchor-id="examples"><span class="header-section-number">13.5</span> Examples</h2>
 <p>Let’s finally get to solving the problem of <a href="stars-and-bars-revisited.html#sec-upper-bound-ogf" class="quarto-xref"><span>Section 12.2.1</span></a>. Recall that we had the generating function <span class="math display">\[
 A(x) = \frac{x^{k - 1}(x^5 - x^{14})}{(1 - x)^k} = \frac{x^{k + 4} - x^{k + 13}}{(1 - x)^k}.
@@ -490,10 +490,10 @@ Coefficient extraction with the formulas
 \end{align*}\]</span> In line 2, we distribute one <span class="math inline">\(-1\)</span> to each of the <span class="math inline">\(k\)</span> factors in the numerator.</p>
 </div>
 </section>
-<section id="central-binomial-theorem" class="level3 page-columns page-full" data-number="13.5.2">
+<section id="central-binomial-theorem" class="level3" data-number="13.5.2">
 <h3 data-number="13.5.2" class="anchored" data-anchor-id="central-binomial-theorem"><span class="header-section-number">13.5.2</span> Central Binomial Theorem</h3>
 <p>We’ve seen the binomial theorem with a whole number exponent. We’ve seen it with a negative integer exponent. The next place to go is fractions. Let’s start with <span class="math inline">\(n = \frac12\)</span>. For reference, here are the first couple values of this:</p>
-<div id="8ef7094c" class="cell" data-execution_count="1">
+<div id="b14d36b3" class="cell" data-execution_count="1">
 <pre class="sage cell-code"><code>for k in range(4):
     print(binomial(1/2, k))</code></pre>
 <div class="cell-output cell-output-stdout">
@@ -541,7 +541,7 @@ Coefficient extraction with the formulas
 \end{align*}\]</span></p>
 </div>
 <p>This is a neat little result in and of itself but there is deeper implications here. Consider the number of binary strings of length <span class="math inline">\(2k\)</span> with an equal number of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s. That means there are <span class="math inline">\(k\)</span> of each, and that gives us the formula <span class="math inline">\(\binom{2k}{k}\)</span>. These are called the <strong>central binomial coefficients</strong> because they appear right down the center of Pascal’s triangle.</p>
-<div class="page-columns page-full"><p>For those of you who have taken computer science or mathematical linguistics, there is a concept known as a “regular language”—languages which can be parsed by a regular expresion. For these regular languages, we will see later on, that they always yeild a <em>rational</em> generating function. Here we have a non-rational generating function and indeed this language of strings with equal numbers of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s is not a regular language. </p><div class="no-row-height column-margin column-container"><span class="margin-aside">We’ll define many of these terms in a later section for those of you who haven’t seen them before.</span></div></div>
+<p>For those of you who have taken computer science or mathematical linguistics, there is a concept known as a “regular language”—languages which can be parsed by a regular expresion<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For these regular languages, we will see later on, that they always yeild a <em>rational</em> generating function. Here we have a non-rational generating function and indeed this language of strings with equal numbers of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s is not a regular language.</p>
 <p>Going beyond regular languages, the <a href="https://en.wikipedia.org/wiki/Chomsky%E2%80%93Sch%C3%BCtzenberger_enumeration_theorem">Chomsky–Schützenberger Theorem</a> says that if you have an unambiguous context-free grammar, then the generating function for that language is <em>algebraic</em>. That is what we are looking at with <span class="math inline">\(\frac{1}{\sqrt{1 - 4x}}\)</span>. This is an algebraic function because it is a square root of a rational function. Indeed, the language of strings with equal numbers of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s is a context-free language.</p>
 </section>
 <section id="catalan-numbers" class="level3" data-number="13.5.3">
@@ -593,6 +593,12 @@ C(x) = \frac{1 - \sqrt{1 - 4x}}{2x} = \sum_{k = 0}^\infty \frac{1}{k + 1} \binom
 
 
 </section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>We’ll define many of these terms in a later section for those of you who haven’t seen them before.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
