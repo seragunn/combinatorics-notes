@@ -377,7 +377,7 @@
     "href": "generating-functions/ogf.html#monomials",
     "title": "10  Generating Functions",
     "section": "10.2 Monomials",
-    "text": "10.2 Monomials\nInside \\(\\Phi_L(x)\\), each monomial \\(a_nx^n\\) (after collecting terms) represents that \\(L\\) has \\(a_n\\) strings where \\(f\\) equals \\(n\\) (e.g. the length equals \\(n\\)).\n\nExample 10.2 For the language \\(L\\) of Example 10.1 above, we have for instance, \\(2\\) strings of legnth \\(1\\), represented by the monomial \\(2x^1\\). We have \\(1\\) string of length \\(6\\) represented by the monomial \\(1x^6\\). We have no strings of length \\(5\\), represented by the lack of a monomial with \\(x^5\\). We could also say that the coefficient of \\(x^5\\) is \\(0\\).\n\n\nExercise 10.1 Let \\(L\\) be the set of all binary strings of length \\(\\le 5\\) which have no \\(11\\).\n\nfor \\(n = 0, 1, 2, 3, 4, 5\\), list all the strings with no \\(11\\)\nwrite down the generating function with respect to the length weight\nwrite down the generating function with respect to the “number of 1s” weight",
+    "text": "10.2 Monomials\nInside \\(\\Phi_L(x)\\), each monomial \\(a_nx^n\\) (after collecting terms) represents that \\(L\\) has \\(a_n\\) strings where \\(f\\) equals \\(n\\) (e.g. the length equals \\(n\\)).\n\nExample 10.2 For the language \\(L\\) of Example 10.1 above, we have for instance, \\(2\\) strings of legnth \\(1\\), represented by the monomial \\(2x^1\\). We have \\(1\\) string of length \\(6\\) represented by the monomial \\(1x^6\\). We have no strings of length \\(5\\), represented by the lack of a monomial with \\(x^5\\). We could also say that the coefficient of \\(x^5\\) is \\(0\\).\n\n\nExercise 10.1 Let \\(L\\) be the set of all binary strings of length \\(\\le 5\\) which have no \\(11\\).\n\nfor \\(n = 0, 1, 2, 3, 4, 5\\), list all the strings with no \\(11\\)\nwrite down the generating function with respect to the length weight\nwrite down the generating function with respect to the “number of 1s” weight\n\n\n\n10.2.1 Using generating functions to count\nThe monomials \\(a_nx^n\\) are created by adding up all the words in \\(L\\) of weight \\(n\\). So another way to describe the generating function is \\[\n\\Phi_L(x) = \\sum_{s \\in L} x^{f(s)} = \\sum_{n = 0}^\\infty \\#\\{s \\in L : f(s) = n\\} x^n.\n\\tag{10.1}\\] This means the general strategy for getting an answer from a generating function is to—by some process—write it as as a power series \\(\\sum a_n x^n\\) making sure that it’s \\(x^n\\). Then \\(a_n\\) is the answer to the question: how many strings of weight \\(n\\) are there where (whatever conditions we set).\n\nTheorem 10.1 (Addition Theorem) If \\(L\\) and \\(L'\\) are disjoint, then \\(\\Phi_{L \\cup L'}(x) = \\Phi_{L}(x) + \\Phi_{L'}(x)\\).\n\n\nProof. To say that \\(L\\) and \\(L'\\) are disjoint implies that \\[\n\\#\\{s \\in L \\cup L' : f(s) = n\\} = \\#\\{s \\in L : f(s) = n\\} + \\#\\{s \\in L' : f(s) = n\\}.\n\\] Substituting this into Equation 10.1 yields \\[\\begin{align*}\n\\Phi_{L \\cup L'}(x) &= \\sum_{n = 0}^\\infty \\#\\{s \\in L : f(s) = n\\} x^n + \\sum_{n = 0}^\\infty \\#\\{s \\in L' : f(s) = n\\} x^n \\\\\n&= \\Phi_{L}(x) + \\Phi_{L'}(x).\n\\end{align*}\\]",
     "crumbs": [
       "Generating Functions",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Generating Functions</span>"
@@ -421,7 +421,7 @@
     "href": "generating-functions/multiplication.html#multiplication-theorem",
     "title": "11  Multiplication of Generating Functions",
     "section": "11.3 Multiplication theorem",
-    "text": "11.3 Multiplication theorem\n\nTheorem 11.1 Let \\(L\\) and \\(L'\\) be two different languages. Let \\(f\\) be a common weight function like the length of a string. Then \\[\n\\Phi_{LL'}(x) = \\Phi_L(x)\\Phi_{L'}(x).\n\\]\n\n\nProof. We have \\[\\begin{align*}\n\\Phi_{LL'}(x) &= \\sum_{w \\in LL'} x^{f(w)} \\\\\n&= \\sum_{u \\in L} \\sum_{v \\in L'} x^{f(uv)} \\\\\n&= \\sum_{u \\in L} \\sum_{v \\in L'} x^{f(u)}x^{f(v)}\n\\end{align*}\\] using Section 9.2.1. Continuing, we get \\[\\begin{align*}\n\\phantom{\\Phi_{LL'}(x)} &= \\sum_{u \\in L} x^{f(u)} \\sum_{v \\in L'} x^{f(v)} \\\\\n&= \\Phi_L(x) \\Phi_{L'}(x).\n\\end{align*}\\]\n\n\n\n\n\n\n\nTip\n\n\n\nOne might wonder whether \\(\\sum a_i \\sum b_j\\) means \\((\\sum a_i)(\\sum b_j)\\) or \\(\\sum \\left(a_i \\sum b_j \\right)\\). It turns out these are the same, and it is explained by the distributive property of multiplication. For example, \\[\n(a_1 + a_2 + a_3)(b_1 + b_2) = a_1(b_1 + b_2) + a_2(b_1 + b_2) + a_3(b_1 + b_2).\n\\]",
+    "text": "11.3 Multiplication theorem\n\nTheorem 11.1 (Multiplication Theorem) Let \\(L\\) and \\(L'\\) be two different languages. Let \\(f\\) be a common weight function like the length of a string. Then \\[\n\\Phi_{LL'}(x) = \\Phi_L(x)\\Phi_{L'}(x).\n\\]\n\n\nProof. We have \\[\\begin{align*}\n\\Phi_{LL'}(x) &= \\sum_{w \\in LL'} x^{f(w)} \\\\\n&= \\sum_{u \\in L} \\sum_{v \\in L'} x^{f(uv)} \\\\\n&= \\sum_{u \\in L} \\sum_{v \\in L'} x^{f(u)}x^{f(v)}\n\\end{align*}\\] using Section 9.2.1. Continuing, we get \\[\\begin{align*}\n\\phantom{\\Phi_{LL'}(x)} &= \\sum_{u \\in L} x^{f(u)} \\sum_{v \\in L'} x^{f(v)} \\\\\n&= \\Phi_L(x) \\Phi_{L'}(x).\n\\end{align*}\\]\n\n\n\n\n\n\n\nTip\n\n\n\nOne might wonder whether \\(\\sum a_i \\sum b_j\\) means \\((\\sum a_i)(\\sum b_j)\\) or \\(\\sum \\left(a_i \\sum b_j \\right)\\). It turns out these are the same, and it is explained by the distributive property of multiplication. For example, \\[\n(a_1 + a_2 + a_3)(b_1 + b_2) = a_1(b_1 + b_2) + a_2(b_1 + b_2) + a_3(b_1 + b_2).\n\\]",
     "crumbs": [
       "Generating Functions",
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Multiplication of Generating Functions</span>"
@@ -568,6 +568,94 @@
     "crumbs": [
       "Generating Functions",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Coefficient Extraction</span>"
+    ]
+  },
+  {
+    "objectID": "regular-languages/regular-languages.html",
+    "href": "regular-languages/regular-languages.html",
+    "title": "14  Regular Languages",
+    "section": "",
+    "text": "14.1 Kleene Star\nLet \\(L\\) be a language that does not contain the empty string (for reasons of unique representation). The language which repeats \\(L\\) in a sequence is called the Kleene star of \\(L\\), denoted \\(L^*\\). An element of \\(L^*\\) is some finite sequence \\[\nu_1 u_2 \\cdots u_k, \\text{ where } u_i \\in L.\n\\] Another name for such a sequence of length \\(k\\) is \\(L^k\\) (concatenating \\(k\\) strings from \\(L\\)). Thus, \\[\nL^* = L^0 \\cup L^1 \\cup L^2 \\cup L^3 \\cup \\cdots.\n\\] It’s also common notation to write these unions with a \\(+\\) sign to mean “or” (with a heavy implication that we want this to be disjoint). Also note that \\(L^0 = \\{\\varepsilon\\}\\) because concatenating \\(0\\) strings yields an empty string. So we have \\[\nL^* = \\varepsilon + L + L^2 + L^3 + \\cdots.\n\\]",
+    "crumbs": [
+      "Regular Languages",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Regular Languages</span>"
+    ]
+  },
+  {
+    "objectID": "regular-languages/regular-languages.html#kleene-star",
+    "href": "regular-languages/regular-languages.html#kleene-star",
+    "title": "14  Regular Languages",
+    "section": "",
+    "text": "14.1.1 Kleene Plus\nA related construction considers only the sequences of positive length. This is called the Kleene plus operator and it is defined by \\[\nL^+ = L + L^2 + L^3 + \\cdots.\n\\]",
+    "crumbs": [
+      "Regular Languages",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Regular Languages</span>"
+    ]
+  },
+  {
+    "objectID": "regular-languages/regular-languages.html#relation-to-generating-functions",
+    "href": "regular-languages/regular-languages.html#relation-to-generating-functions",
+    "title": "14  Regular Languages",
+    "section": "14.2 Relation to Generating Functions",
+    "text": "14.2 Relation to Generating Functions\nTheorem 10.1 and Theorem 11.1 imply the following theorem.\n\nTheorem 14.1 (Kleene star and plus) Provided the sets \\(L^0, L^1, L^2, \\dots\\) are disjoint, \\[\\begin{align*}\n\\Phi_{L^*} &= \\Phi_{L^0} + \\Phi_{L^1} + \\Phi_{L^2} + \\Phi_{L^3} + \\cdots \\\\\n&= \\Phi_L^0 + \\Phi_L^1 + \\Phi_L^2 + \\Phi_L^3 + \\cdots \\\\\n&= \\frac{1}{1 - \\Phi_L}.\n\\end{align*}\\] Similarly, \\[\\begin{align*}\n\\Phi_{L^+} &= \\Phi_L^1 + \\Phi_L^2 + \\Phi_L^3 + \\cdots \\\\\n&= \\frac{\\Phi_L}{1 - \\Phi_L}.\n\\end{align*}\\]",
+    "crumbs": [
+      "Regular Languages",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Regular Languages</span>"
+    ]
+  },
+  {
+    "objectID": "regular-languages/regular-languages.html#sec-regular-language-examples",
+    "href": "regular-languages/regular-languages.html#sec-regular-language-examples",
+    "title": "14  Regular Languages",
+    "section": "14.3 Examples",
+    "text": "14.3 Examples\nConsider our sequences of \\(1\\)s and \\(2\\)s which gave us the Fibonacci sequence. Here, unlike many previous examples, we don’t want to weight sequences by length but rather by sum (we’re looking for sequences whose sum is \\(n\\) not whose length is \\(n\\)). So let \\(f\\) denote the sum of a sequence, e.g. \\(f(122) = 1 + 2 + 2 = 5\\).\nLet \\(L = \\{1, 2\\}\\). Then \\(L^*\\) represents all sequences of \\(1\\)s and \\(2\\)s. By theorem Theorem 14.1, we have \\[\n\\Phi_{L^*} = \\frac{1}{1 - \\Phi_L} = \\frac{1}{1 - (x^{f(1)} + x^{f(2)})} = \\frac{1}{1 - x - x^2}.\n\\tag{14.1}\\]\nWe know that the number of these sequences which sum to \\(n\\) is counted by the Fibonacci sequence, so like we stated Section 10.3.1, we have\n\ntaylor(1/(1 - x - x^2), x, 0, 10)\n\n\\(\\displaystyle 89 \\, x^{10} + 55 \\, x^{9} + 34 \\, x^{8} + 21 \\, x^{7} + 13 \\, x^{6} + 8 \\, x^{5} + 5 \\, x^{4} + 3 \\, x^{3} + 2 \\, x^{2} + x + 1\\)\n\n\n\n14.3.1 Avoiding ‘11’\nIf we want to avoid \\(11\\) we need to make sure that everyone \\(1\\) has at least one \\(0\\) next to it. We can do this with the language \\(0^+1\\) which guarantees a zero on the left. Taking sequences of these, we get \\((0^+1)^*\\).\nWe’re getting close to the description. We also need to allow a potential initial \\(1\\) in case because that’s the place in the string which might have \\(0\\)s only on the right. So \\((\\varepsilon + 1)(0^+1)^*\\). Lastly, we can have as many zeros as we want after the last \\(1\\) so \\(L = (\\varepsilon + 1)(0^+1)^*0^*\\).\nHere we’re weighting by legnth again, so\n\n\\(\\Phi_{\\varepsilon + 1} = x^0 + x^1\\)\n\\(\\Phi_{0^+1} = \\frac{x}{1 - x} \\cdot x = \\frac{x^2}{1 - x}\\)\n\\(\\Phi_{(0^+1)^*} = \\frac{1}{1 - \\frac{x^2}{1 - x}}\\)\n\\(\\Phi_{0^*} = \\frac{1}{1 - x}\\)\n\nPutting that all together, we have \\[\n\\Phi_L = (1 + x) \\cdot \\frac{1}{1 - \\frac{x^2}{1 - x}} \\cdot \\frac{1}{1 - x} = \\frac{1 + x}{1 - x - x^2}.\n\\]\nThis is similar to Equation 14.1 but the numerator shifts the sequence over a step:\n\ntaylor((1 + x)/(1 - x - x^2), x, 0, 10)\n\n\\(\\displaystyle 144 \\, x^{10} + 89 \\, x^{9} + 55 \\, x^{8} + 34 \\, x^{7} + 21 \\, x^{6} + 13 \\, x^{5} + 8 \\, x^{4} + 5 \\, x^{3} + 3 \\, x^{2} + 2 \\, x + 1\\)",
+    "crumbs": [
+      "Regular Languages",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Regular Languages</span>"
+    ]
+  },
+  {
+    "objectID": "regular-languages/regular-languages.html#even-number-of-1s",
+    "href": "regular-languages/regular-languages.html#even-number-of-1s",
+    "title": "14  Regular Languages",
+    "section": "14.4 Even number of 1s",
+    "text": "14.4 Even number of 1s\nHeuristically, half of all binary strings should have an even number of \\(1\\)s and half should have an odd number. We’ll prove this using generating functions.\nFor a start, the language of binary strings can be written as \\((0 + 1)^*\\) (sequences of \\(0\\)s or \\(1\\)s). If we want to guarantee that every \\(1\\) is partnered with a second \\(1\\) later on, then we can modify this to \\(L = (0 + 10^*1)^*\\). Now we compute \\[\n\\Phi_{10^*1} = x \\cdot \\frac{1}{1 - x} \\cdot x = \\frac{x^2}{1 - x}.\n\\] So therefore, \\[\\begin{align*}\n\\Phi_L &= \\frac{1}{1 - (x + \\frac{x^2}{1 - x})} \\\\\n&= \\frac{1 - x}{(1 - x) - x(1 - x) - x^2} \\\\\n&= \\frac{1 - x}{1 - 2x} \\\\\n&= \\frac{1}{1 - 2x} - \\frac{x}{1 - 2x} \\\\\n&= \\sum_{n = 0}^\\infty 2^n x^n - \\sum_{n = 0}^\\infty 2^{n} x^{n + 1} \\\\\n&= \\sum_{n = 0}^\\infty 2^n x^n - \\sum_{n = 1}^\\infty 2^{n - 1} x^{n}.\n\\end{align*}\\]\nAnd that means that the number of such strings is \\[\n\\begin{cases}\n2^n - 2^{n - 1} = 2^{n - 1} & \\text{if } n \\ge 1 \\\\\n1 & \\text{if } n = 0\n\\end{cases}.\n\\]",
+    "crumbs": [
+      "Regular Languages",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Regular Languages</span>"
+    ]
+  },
+  {
+    "objectID": "regular-languages/regular-languages.html#regular-languages",
+    "href": "regular-languages/regular-languages.html#regular-languages",
+    "title": "14  Regular Languages",
+    "section": "14.5 Regular Languages",
+    "text": "14.5 Regular Languages\nWe describe regular languages inductively:\n\na finite language is regular\nif \\(L, L'\\) are regular then so is \\(L + L'\\)\nif \\(L, L'\\) are regular then so is \\(LL'\\)\nif \\(L, L'\\) are regular then so are \\(L^*\\) and \\(L^+\\)\n\nThat is, a regular language is everything you can create out of a finite description using unions, concatenations, Kleene stars and pluses, and letters from the alphabet.\nSuch a description using these operations is known as a regular expression. This concept is closely related to regular expressions in computer programming although computer programming includes many more operations such as the ? operator where \\(L? = \\varepsilon + L\\).\n\n\n\n\n\n\nNote\n\n\n\nSome regular expression operators in computer programming allow one to create languages which are not regular. For instance, backreferences allow one to ask whether a previous part of the string has been repeated. So computer programming regular expressions exceeds what formal language regular expressions can describe. See Wikipedia for more info.",
+    "crumbs": [
+      "Regular Languages",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Regular Languages</span>"
+    ]
+  },
+  {
+    "objectID": "regular-languages/finite-automata.html",
+    "href": "regular-languages/finite-automata.html",
+    "title": "15  Finite Automata",
+    "section": "",
+    "text": "15.1 Interpreting a FSA\nThe way to use a FSA is to input a string one digit at a time, let’s say from left to right. So if we take the string \\(010011\\) and input it into the automaton in Figure 15.1, we start in state \\(0\\). The arrow\nstateDiagram\n    direction LR\n    [*] --&gt; 0\n\n\n\n\nFigure 15.2: Start arrow\nindicates which state to start in.\nThen we read the first character in our string, which is \\(0\\) and this tells us to follow the edge labeled \\(0\\) from our current state, which puts us back in state \\(0\\).\nNext we read a \\(1\\) and this tells us to follow the edge labeled \\(1\\) and puts us in state \\(1\\). Then another \\(0\\) puts us back in state \\(0\\). Then state \\(0\\) again. Then state \\(1\\).\nWith the last \\(1\\), we try to follow an edge labeled \\(1\\) out of state \\(1\\), but there is no such edge. So at this point we fail and that means the string \\(010011\\) is rejected by the automaton.",
+    "crumbs": [
+      "Regular Languages",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Finite Automata</span>"
+    ]
+  },
+  {
+    "objectID": "regular-languages/finite-automata.html#a-fsa-for-even-1s",
+    "href": "regular-languages/finite-automata.html#a-fsa-for-even-1s",
+    "title": "15  Finite Automata",
+    "section": "15.2 A FSA for even ’1’s",
+    "text": "15.2 A FSA for even ’1’s\nTo create this automaton, we need one state to represent an even number of \\(1\\)s and one state to represent an odd number of \\(1\\)s. To distinguish between success states and failure states, we will use a thick border on the success states.\n\n\n\n\n\n\nstateDiagram\n    direction LR\n\n    classDef accept stroke-width:5px\n\n    [*] --&gt; 0\n    0 --&gt; 0 : 0\n    0 --&gt; 1 : 1\n    1 --&gt; 0 : 1\n    1 --&gt; 1 : 0\n\n    class 0 accept\n\n\n\n\nFigure 15.3: Automaton for an even number of \\(1\\)s\n\n\n\n\n\nThese success or failure states are used at the end of reading a string. If we finish in a success state, the string is good. If we finish in a failure state, the string is bad.",
+    "crumbs": [
+      "Regular Languages",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Finite Automata</span>"
     ]
   }
 ]

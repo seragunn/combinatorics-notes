@@ -270,6 +270,29 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Regular Languages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regular-languages/finite-automata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -318,7 +341,7 @@ window.Quarto = {
 <section id="commutating" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="commutating"><span class="header-section-number">5.2</span> Commutating</h2>
 <p>From <a href="permutations.html#exr-compute-product" class="quarto-xref">Exercise&nbsp;<span>3.1</span></a>, we saw that in general <span class="math inline">\(\pi_1 \pi_2 \neq \pi_2 \pi_1\)</span>. Nonetheless, if we are swapping disjoint sets of pairs like <span class="math inline">\((12)\)</span> followed by <span class="math inline">\((34)\)</span> then there is no interaction between the swaps. So the order doesn’t matter: <span class="math inline">\((12)(34) = (34)(12)\)</span>. Specifically, <span class="math inline">\(\tau_i\)</span> and <span class="math inline">\(\tau_j\)</span> commute (<span class="math inline">\(\tau_i\tau_j = \tau_j\tau_i\)</span>) provided <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are at least <span class="math inline">\(2\)</span> apart.</p>
-<div id="bd0fac6f" class="cell" data-execution_count="2">
+<div id="bab9cfd4" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>B.&lt;a,b,c&gt; = BraidGroup(4)
 plot(a * c)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -329,7 +352,7 @@ plot(a * c)</code></pre>
 </div>
 </div>
 </div>
-<div id="f1db2468" class="cell" data-execution_count="3">
+<div id="c5a71571" class="cell" data-execution_count="3">
 <pre class="sage cell-code"><code>a * c == c * a</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>True</code></pre>
@@ -344,7 +367,7 @@ plot(a * b * a)
 plot(b * a * b)</code></pre>
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div id="7bd5fb71" class="cell quarto-layout-cell" data-execution_count="4" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="a46d3398" class="cell quarto-layout-cell" data-execution_count="4" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 <figure class="figure">
@@ -353,7 +376,7 @@ plot(b * a * b)</code></pre>
 </div>
 </div>
 </div>
-<div id="addbd5d5" class="cell quarto-layout-cell" data-execution_count="5" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="995ba2ac" class="cell quarto-layout-cell" data-execution_count="5" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <figure class="figure">
