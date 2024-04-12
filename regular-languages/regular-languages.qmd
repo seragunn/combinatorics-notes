@@ -48,7 +48,7 @@ Similarly,
 \end{align*}
 :::
 
-## Examples
+## Examples {#sec-regular-language-examples}
 Consider our sequences of $1$s and $2$s which gave us the Fibonacci sequence. Here, unlike many previous examples, we don't want to weight sequences by length but rather by sum (we're looking for sequences whose sum is $n$ not whose length is $n$). So let $f$ denote the sum of a sequence, e.g. $f(122) = 1 + 2 + 2 = 5$.
 
 Let $L = \{1, 2\}$. Then $L^*$ represents all sequences of $1$s and $2$s. By theorem @thm-ogf-kleene, we have

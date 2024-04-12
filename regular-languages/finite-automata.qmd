@@ -1,9 +1,9 @@
 # Finite Automata
 
-Sometimes easier than figuring out how to decompose something into a sequence of smaller blocks, we might draw what is called a **finite state automaton** (FSA) instead. For instance, for the no $11$s language, we make states representing the last character seen as we move through the string and if the last character was a $1$ and we see a second $1$, we know the string should be thrown out.
+As we saw in @sec-regular-language-examples, it can be a bit tricky to come up with a regular expression for a language. Often it's easier to draw what is called a **finite state automaton** (FSA) instead. For instance, for the no $11$s language, we make states representing the last character seen as we move through the string and if the last character was a $1$ and we see a second $1$, we know the string should be thrown out.
 ```{mermaid}
 %%| label: fig-fibonacci-automaton
-%%| fig-cap: "The Fibonacci automaton."
+%%| fig-cap: "The Fibonacci automaton"
 stateDiagram
     direction LR
     [*] --> 0
@@ -11,3 +11,45 @@ stateDiagram
     0 --> 1 : 1
     1 --> 0 : 0
 ```
+
+## Interpreting a FSA
+The way to use a FSA is to input a string one digit at a time, let's say from left to right. So if we take the string $010011$ and input it into the automaton in @fig-fibonacci-automaton, we start in state $0$. The arrow
+
+```{mermaid}
+%%| label: fig-start-arrow
+%%| fig-cap: "Start arrow"
+stateDiagram
+    direction LR
+    [*] --> 0
+```
+
+indicates which state to start in.
+
+Then we read the first character in our string, which is $0$ and this tells us to follow the edge labeled $0$ from our current state, which puts us back in state $0$.
+
+Next we read a $1$ and this tells us to follow the edge labeled $1$ and puts us in state $1$. Then another $0$ puts us back in state $0$. Then state $0$ again. Then state $1$.
+
+With the last $1$, we try to follow an edge labeled $1$ out of state $1$, but there is no such edge. So at this point we fail and that means the string $010011$ is rejected by the automaton.
+
+## A FSA for even '1's
+
+To create this automaton, we need one state to represent an even number of $1$s and one state to represent an odd number of $1$s. To distinguish between success states and failure states, we will use a thick border on the success states.
+
+```{mermaid}
+%%| label: fig-even-1-automaton
+%%| fig-cap: "Automaton for an even number of $1$s"
+stateDiagram
+    direction LR
+
+    classDef accept stroke-width:5px
+
+    [*] --> 0
+    0 --> 0 : 0
+    0 --> 1 : 1
+    1 --> 0 : 1
+    1 --> 1 : 0
+
+    class 0 accept
+```
+
+These success or failure states are used at the end of reading a string. If we finish in a success state, the string is good. If we finish in a failure state, the string is bad.

@@ -35,6 +35,10 @@
   padding: 0.4em;
 }
 
+.edgeLabel, .nodeLabel {
+  color: black !important;
+}
+
 @media (min-width: 768px) {
   footer:has(.d-sm-block) {
     display: none;
