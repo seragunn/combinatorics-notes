@@ -18,7 +18,7 @@ Another name for such a sequence of length $k$ is $L^k$ (concatenating $k$ strin
 $$
 L^* = L^0 \cup L^1 \cup L^2 \cup L^3 \cup \cdots.
 $$
-It's also common notation to write these unions with a $+$ sign to mean "or." So that is
+It's also common notation to write these unions with a $+$ sign to mean "or" (with a heavy implication that we want this to be disjoint). Also note that $L^0 = \{\varepsilon\}$ because concatenating $0$ strings yields an empty string. So we have
 $$
 L^* = \varepsilon + L + L^2 + L^3 + \cdots.
 $$
@@ -31,3 +31,99 @@ L^+ = L + L^2 + L^3 + \cdots.
 $$
 
 ## Relation to Generating Functions
+@thm-ogf-addition and @thm-ogf-multiplication imply the following theorem.
+
+::: {#thm-ogf-kleene}
+### Kleene star and plus
+Provided the sets $L^0, L^1, L^2, \dots$ are *disjoint*,
+\begin{align*}
+\Phi_{L^*} &= \Phi_{L^0} + \Phi_{L^1} + \Phi_{L^2} + \Phi_{L^3} + \cdots \\
+&= \Phi_L^0 + \Phi_L^1 + \Phi_L^2 + \Phi_L^3 + \cdots \\
+&= \frac{1}{1 - \Phi_L}.
+\end{align*}
+Similarly,
+\begin{align*}
+\Phi_{L^+} &= \Phi_L^1 + \Phi_L^2 + \Phi_L^3 + \cdots \\
+&= \frac{\Phi_L}{1 - \Phi_L}.
+\end{align*}
+:::
+
+## Examples
+Consider our sequences of $1$s and $2$s which gave us the Fibonacci sequence. Here, unlike many previous examples, we don't want to weight sequences by length but rather by sum (we're looking for sequences whose sum is $n$ not whose length is $n$). So let $f$ denote the sum of a sequence, e.g. $f(122) = 1 + 2 + 2 = 5$.
+
+Let $L = \{1, 2\}$. Then $L^*$ represents all sequences of $1$s and $2$s. By theorem @thm-ogf-kleene, we have
+$$
+\Phi_{L^*} = \frac{1}{1 - \Phi_L} = \frac{1}{1 - (x^{f(1)} + x^{f(2)})} = \frac{1}{1 - x - x^2}.
+$$ {#eq-12-fib-ogf}
+
+We know that the number of these sequences which sum to $n$ is counted by the Fibonacci sequence, so like we stated @sec-convergence, we have
+```{sage}
+#| echo: false
+%display latex
+```
+```{sage}
+taylor(1/(1 - x - x^2), x, 0, 10)
+```
+
+### Avoiding '11'
+If we want to avoid $11$ we need to make sure that everyone $1$ has at least one $0$ next to it. We can do this with the language $0^+1$ which guarantees a zero on the left. Taking sequences of these, we get $(0^+1)^*$.
+
+We're getting close to the description. We also need to allow a potential initial $1$ in case because that's the place in the string which might have $0$s only on the right. So $(\varepsilon + 1)(0^+1)^*$. Lastly, we can have as many zeros as we want after the last $1$ so $L = (\varepsilon + 1)(0^+1)^*0^*$.
+
+Here we're weighting by legnth again, so
+
+* $\Phi_{\varepsilon + 1} = x^0 + x^1$
+* $\Phi_{0^+1} = \frac{x}{1 - x} \cdot x = \frac{x^2}{1 - x}$
+* $\Phi_{(0^+1)^*} = \frac{1}{1 - \frac{x^2}{1 - x}}$
+* $\Phi_{0^*} = \frac{1}{1 - x}$
+
+Putting that all together, we have
+$$
+\Phi_L = (1 + x) \cdot \frac{1}{1 - \frac{x^2}{1 - x}} \cdot \frac{1}{1 - x} = \frac{1 + x}{1 - x - x^2}.
+$$
+
+This is similar to @eq-12-fib-ogf but the numerator shifts the sequence over a step:
+```{sage}
+taylor((1 + x)/(1 - x - x^2), x, 0, 10)
+```
+
+## Even number of 1s
+Heuristically, half of all binary strings should have an even number of $1$s and half should have an odd number. We'll prove this using generating functions.
+
+For a start, the language of binary strings can be written as $(0 + 1)^*$ (sequences of $0$s or $1$s). If we want to guarantee that every $1$ is partnered with a second $1$ later on, then we can modify this to $L = (0 + 10^*1)^*$. Now we compute
+$$
+\Phi_{10^*1} = x \cdot \frac{1}{1 - x} \cdot x = \frac{x^2}{1 - x}.
+$$
+So therefore,
+\begin{align*}
+\Phi_L &= \frac{1}{1 - (x + \frac{x^2}{1 - x})} \\
+&= \frac{1 - x}{(1 - x) - x(1 - x) - x^2} \\
+&= \frac{1 - x}{1 - 2x} \\
+&= \frac{1}{1 - 2x} - \frac{x}{1 - 2x} \\
+&= \sum_{n = 0}^\infty 2^n x^n - \sum_{n = 0}^\infty 2^{n} x^{n + 1} \\
+&= \sum_{n = 0}^\infty 2^n x^n - \sum_{n = 1}^\infty 2^{n - 1} x^{n}.
+\end{align*}
+
+And that means that the number of such strings is
+$$
+\begin{cases}
+2^n - 2^{n - 1} = 2^{n - 1} & \text{if } n \ge 1 \\
+1 & \text{if } n = 0
+\end{cases}.
+$$
+
+## Regular Languages
+We describe **regular languages** inductively:
+
+* a finite language is regular
+* if $L, L'$ are regular then so is $L + L'$
+* if $L, L'$ are regular then so is $LL'$
+* if $L, L'$ are regular then so are $L^*$ and $L^+$
+
+That is, a regular language is everything you can create out of a finite description using unions, concatenations, Kleene stars and pluses, and letters from the alphabet.
+
+Such a description using these operations is known as a **regular expression**. This concept is closely related to regular expressions in computer programming although computer programming includes many more operations such as the `?` operator where $L? = \varepsilon + L$.
+
+::: {.callout-note}
+Some regular expression operators in computer programming allow one to create languages which are not regular. For instance, backreferences allow one to ask whether a previous part of the string has been repeated. So computer programming regular expressions exceeds what formal language regular expressions can describe. [See Wikipedia for more info.](https://en.wikipedia.org/wiki/Regular_expression#Patterns_for_non-regular_languages)
+:::

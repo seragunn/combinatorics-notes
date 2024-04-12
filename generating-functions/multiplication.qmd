@@ -27,6 +27,7 @@ Suppose $L$ consists of $3$ strings of length $4$ and $8$ of length $6$. Suppose
 
 ## Multiplication theorem
 ::: {#thm-ogf-multiplication}
+### Multiplication Theorem
 Let $L$ and $L'$ be two different languages. Let $f$ be a common weight function like the length of a string. Then
 $$
 \Phi_{LL'}(x) = \Phi_L(x)\Phi_{L'}(x).

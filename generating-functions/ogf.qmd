@@ -42,6 +42,30 @@ b) write down the generating function with respect to the length weight
 c) write down the generating function with respect to the "number of 1s" weight
 :::
 
+### Using generating functions to count
+The monomials $a_nx^n$ are created by adding up all the words in $L$ of weight $n$. So another way to describe the generating function is
+$$
+\Phi_L(x) = \sum_{s \in L} x^{f(s)} = \sum_{n = 0}^\infty \#\{s \in L : f(s) = n\} x^n.
+$$ {#eq-ogf-grouped-by-weight}
+This means the general strategy for getting an answer from a generating function is to---by some process---write it as as a power series $\sum a_n x^n$ making sure that it's $x^n$. Then $a_n$ is the answer to the question: how many strings of weight $n$ are there where (*whatever conditions we set*).
+
+::: {#thm-ogf-addition}
+#### Addition Theorem
+If $L$ and $L'$ are disjoint, then $\Phi_{L \cup L'}(x) = \Phi_{L}(x) + \Phi_{L'}(x)$.
+:::
+
+::: {.proof}
+To say that $L$ and $L'$ are disjoint implies that
+$$
+\#\{s \in L \cup L' : f(s) = n\} = \#\{s \in L : f(s) = n\} + \#\{s \in L' : f(s) = n\}.
+$$
+Substituting this into @eq-ogf-grouped-by-weight yields
+\begin{align*}
+\Phi_{L \cup L'}(x) &= \sum_{n = 0}^\infty \#\{s \in L : f(s) = n\} x^n + \sum_{n = 0}^\infty \#\{s \in L' : f(s) = n\} x^n \\
+&= \Phi_{L}(x) + \Phi_{L'}(x).
+\end{align*}
+:::
+
 ## Infinite series {#sec-geom-series}
 We've looked at examples where $L$ is a finite set. In many examples, $L$ will be an infinite set. For instance consider the infinite set of all strings of $0$s. I.e. $\{\varepsilon, 0, 00, 000, 0000, \dots\}$. For this language, we have the generating function
 $$
