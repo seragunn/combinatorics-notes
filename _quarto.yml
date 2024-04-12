@@ -45,8 +45,10 @@ format:
   html:
     theme: journal
     css: style.css
+    default-image-extension: svg
   pdf:
     fig-width: 2
+    default-image-extension: pdf
     include-in-header:
       text: |
         \usepackage[utf8]{inputenc}
