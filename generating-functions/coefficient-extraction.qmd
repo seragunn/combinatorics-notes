@@ -252,8 +252,9 @@ Take the second formula, and use it with @thm-newton-binom. We will put $(-4x)^k
 
 This is a neat little result in and of itself but there is deeper implications here. Consider the number of binary strings of length $2k$ with an equal number of $0$s and $1$s. That means there are $k$ of each, and that gives us the formula $\binom{2k}{k}$. These are called the **central binomial coefficients** because they appear right down the center of Pascal's triangle.
 
-For those of you who have taken computer science or mathematical linguistics, there is a concept known as a "regular language"---languages which can be parsed by a regular expresion. For these regular languages, we will see later on, that they always yeild a *rational* generating function. Here we have a non-rational generating function and indeed this language of strings with equal numbers of $0$s and $1$s is not a regular language.
-[We'll define many of these terms in a later section for those of you who haven't seen them before.]{.aside}
+For those of you who have taken computer science or mathematical linguistics, there is a concept known as a "regular language"---languages which can be parsed by a regular expresion[^1]. For these regular languages, we will see later on, that they always yeild a *rational* generating function. Here we have a non-rational generating function and indeed this language of strings with equal numbers of $0$s and $1$s is not a regular language.
+
+[^1]: We'll define many of these terms in a later section for those of you who haven't seen them before.
 
 Going beyond regular languages, the [Chomsky–Schützenberger Theorem](https://en.wikipedia.org/wiki/Chomsky%E2%80%93Sch%C3%BCtzenberger_enumeration_theorem) says that if you have an unambiguous context-free grammar, then the generating function for that language is *algebraic*. That is what we are looking at with $\frac{1}{\sqrt{1 - 4x}}$. This is an algebraic function because it is a square root of a rational function. Indeed, the language of strings with equal numbers of $0$s and $1$s is a context-free language.
 
