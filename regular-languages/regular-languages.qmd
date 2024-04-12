@@ -1,0 +1,33 @@
+# Regular Languages
+
+At this point we've seen numerous examples where a language is composed of a sequence of blocks.
+
+* A binary string is a sequence of $0$s and $1$s
+* A Dyck path is a sequence of smaller paths, shifted properly
+* A tiling of a $2 \times n$ grid using dominoes is a sequence of verticle dominoes or pairs of horizontal dominoes
+* Equivalently: we looked at sequences of $1$s and $2$s which sum to $n$; both give the Fibonacci numbers
+* Binary strings with no $11$---also counted by the Fibonacci numbers---can be broken into sequences of blocks although the blocks are more complex than the previous example
+
+## Kleene Star
+
+Let $L$ be a language that does not contain the empty string (for reasons of unique representation). The language which repeats $L$ in a sequence is called the Kleene star of $L$, denoted $L^*$. An element of $L^*$ is some finite sequence
+$$
+u_1 u_2 \cdots u_k, \text{ where } u_i \in L.
+$$
+Another name for such a sequence of length $k$ is $L^k$ (concatenating $k$ strings from $L$). Thus,
+$$
+L^* = L^0 \cup L^1 \cup L^2 \cup L^3 \cup \cdots.
+$$
+It's also common notation to write these unions with a $+$ sign to mean "or." So that is
+$$
+L^* = \varepsilon + L + L^2 + L^3 + \cdots.
+$$
+
+### Kleene Plus
+
+A related construction considers only the sequences of positive length. This is called the Kleene plus operator and it is defined by
+$$
+L^+ = L + L^2 + L^3 + \cdots.
+$$
+
+## Relation to Generating Functions

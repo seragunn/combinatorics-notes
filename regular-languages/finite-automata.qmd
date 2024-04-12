@@ -1,0 +1,13 @@
+# Finite Automata
+
+Sometimes easier than figuring out how to decompose something into a sequence of smaller blocks, we might draw what is called a **finite state automaton** (FSA) instead. For instance, for the no $11$s language, we make states representing the last character seen as we move through the string and if the last character was a $1$ and we see a second $1$, we know the string should be thrown out.
+```{mermaid}
+%%| label: fig-fibonacci-automaton
+%%| fig-cap: "The Fibonacci automaton."
+stateDiagram
+    direction LR
+    [*] --> 0
+    0 --> 0 : 0
+    0 --> 1 : 1
+    1 --> 0 : 0
+```
