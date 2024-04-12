@@ -102,7 +102,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -283,12 +283,17 @@ window.Quarto = {
   <li><a href="#sums-and-differences" id="toc-sums-and-differences" class="nav-link" data-scroll-target="#sums-and-differences"><span class="header-section-number">13.2</span> Sums and differences</a></li>
   <li><a href="#derivatives" id="toc-derivatives" class="nav-link" data-scroll-target="#derivatives"><span class="header-section-number">13.3</span> Derivatives</a></li>
   <li><a href="#newtons-binomial-theorem" id="toc-newtons-binomial-theorem" class="nav-link" data-scroll-target="#newtons-binomial-theorem"><span class="header-section-number">13.4</span> Newton’s Binomial Theorem</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">13.5</span> Examples</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">13.5</span> Examples</a>
+  <ul class="collapse">
+  <li><a href="#negative-binomial-theorem" id="toc-negative-binomial-theorem" class="nav-link" data-scroll-target="#negative-binomial-theorem"><span class="header-section-number">13.5.1</span> Negative Binomial Theorem</a></li>
+  <li><a href="#central-binomial-theorem" id="toc-central-binomial-theorem" class="nav-link" data-scroll-target="#central-binomial-theorem"><span class="header-section-number">13.5.2</span> Central Binomial Theorem</a></li>
+  <li><a href="#catalan-numbers" id="toc-catalan-numbers" class="nav-link" data-scroll-target="#catalan-numbers"><span class="header-section-number">13.5.3</span> Catalan Numbers</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/coefficient-extraction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/coefficient-extraction.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/coefficient-extraction.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -361,7 +366,7 @@ Substituting inside a sum
 </div>
 <p>Putting this together, we have the following result.</p>
 <div id="thm-shift-coefficient" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 13.1</strong></span> If <span class="math inline">\(A(x) = \sum a_nx^n\)</span> then <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 13.1 (Coefficient Shift)</strong></span> If <span class="math inline">\(A(x) = \sum a_nx^n\)</span> then <span class="math display">\[
 [x^n]x^kA(x) = [x^{n - k}] A(x) = a_{n - k}.
 \]</span> “The coefficient of <span class="math inline">\(x^n\)</span> in <span class="math inline">\(x^k A(x)\)</span> is <span class="math inline">\(a_{n - k}\)</span>.”</p>
 </div>
@@ -372,7 +377,7 @@ Substituting inside a sum
 \lambda A(x) + \mu B(x) = \lambda \sum a_n x^n + \mu \sum b_n x^n = \sum (\lambda a_n + \mu b_n) x^n.
 \]</span> In terms of our <span class="math inline">\([x^n]\)</span> operator, we record the following result.</p>
 <div id="thm-linear-coefficient" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 13.2</strong></span> <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 13.2 (Linear Combinations)</strong></span> <span class="math display">\[
 [x^n](\lambda A(x) + \mu B(x)) = \lambda [x^n] A(x) + \mu [x^n] B(x).
 \]</span></p>
 </div>
@@ -383,7 +388,7 @@ Substituting inside a sum
 A'(x) = \sum na_nx^{n - 1} = \sum (n + 1)a_{n + 1}x^n.
 \]</span></p>
 <div id="thm-derivative-coefficient" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 13.3</strong></span> <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 13.3 (Derivatives and Antiderivatives)</strong></span> <span class="math display">\[
 [x^n] A'(x) = (n + 1) [x^{n + 1}] A(x).
 \]</span> Or for antiderivatives, <span class="math display">\[
 [x^n] A(x) = \frac{1}{n} [x^{n - 1}] A'(x).
@@ -404,7 +409,7 @@ A'(x) = \sum na_nx^{n - 1} = \sum (n + 1)a_{n + 1}x^n.
 r(1+x)^{r - 1} \text{ then } r(r - 1) (1 + x)^{r - 2} \text{ then } r(r - 1)(r - 2)(1 + x)^{r - 3}, \dots
 \]</span></p>
 <div id="thm-newton-binom" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 13.4</strong></span> The Taylor series of <span class="math inline">\((1 + x)^r\)</span> is <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 13.4 (Newton’s Binomial Theorem)</strong></span> The Taylor series of <span class="math inline">\((1 + x)^r\)</span> is <span class="math display">\[
 \sum_{k = 0}^\infty \binom{r}{k}x^k.
 \]</span></p>
 </div>
@@ -429,7 +434,7 @@ Note
 </div>
 </div>
 </section>
-<section id="examples" class="level2" data-number="13.5">
+<section id="examples" class="level2 page-columns page-full" data-number="13.5">
 <h2 data-number="13.5" class="anchored" data-anchor-id="examples"><span class="header-section-number">13.5</span> Examples</h2>
 <p>Let’s finally get to solving the problem of <a href="stars-and-bars-revisited.html#sec-upper-bound-ogf" class="quarto-xref"><span>Section 12.2.1</span></a>. Recall that we had the generating function <span class="math display">\[
 A(x) = \frac{x^{k - 1}(x^5 - x^{14})}{(1 - x)^k} = \frac{x^{k + 4} - x^{k + 13}}{(1 - x)^k}.
@@ -461,8 +466,133 @@ Coefficient extraction with the formulas
 </div>
 </div>
 </div>
+<section id="negative-binomial-theorem" class="level3" data-number="13.5.1">
+<h3 data-number="13.5.1" class="anchored" data-anchor-id="negative-binomial-theorem"><span class="header-section-number">13.5.1</span> Negative Binomial Theorem</h3>
+<p>Comparing <a href="#thm-newton-binom" class="quarto-xref">Theorem&nbsp;<span>13.4</span></a> and formula (a.) of <a href="stars-and-bars-revisited.html#sec-sb-ogf-summary" class="quarto-xref"><span>Section 12.4</span></a> yields an interesting result:</p>
+<p><span id="eq-negative-binomial"><span class="math display">\[
+\frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1} x^n = \sum_{n = 0}^\infty \binom{-k}{n} (-x)^n.
+\tag{13.1}\]</span></span> Note that we are looking at <span class="math inline">\((1 - x)^{-k}\)</span> not <span class="math inline">\((1 + x)^{-k}\)</span> hence the <span class="math inline">\((-x)\)</span> on the right.</p>
+<p>The next theorem is most often stated with <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span> swapped. We also use the identity <span class="math inline">\(\binom{a + b}{a} = \binom{a + b}{b}\)</span>.</p>
+<div id="thm-negative-binomial" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 13.5 (Negative Binomial Theorem)</strong></span> <span class="math display">\[
+\binom{-k}{n} (-1)^n = \binom{n + k - 1}{k - 1} = \binom{n + k - 1}{n}.
+\]</span> Or, with <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span> in the usual position: <span class="math display">\[
+\binom{-n}{k} (-1)^k = \binom{n + k - 1}{n - 1} = \binom{n + k - 1}{k}.
+\]</span></p>
+</div>
+<p>Like many things in combinatorics, it’s interesting to give a second proof of this beyond the generating function proof in <a href="#eq-negative-binomial" class="quarto-xref">Equation&nbsp;<span>13.1</span></a>.</p>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{align*}
+\binom{-n}{k} (-1)^k &amp;= \frac{(-n)(-n - 1)(-n - 2)\cdots(-n-k+1)}{k!} (-1)^k \\
+&amp;= \frac{(n)(n + 1)(n + 2)\cdots(n+k-1)}{k!} \\
+&amp;= \frac{(n + k - 1)(n + k - 2) \cdots (n + 1)(n)}{k!} \\
+&amp;= \binom{n + k - 1}{k}.
+\end{align*}\]</span> In line 2, we distribute one <span class="math inline">\(-1\)</span> to each of the <span class="math inline">\(k\)</span> factors in the numerator.</p>
+</div>
+</section>
+<section id="central-binomial-theorem" class="level3 page-columns page-full" data-number="13.5.2">
+<h3 data-number="13.5.2" class="anchored" data-anchor-id="central-binomial-theorem"><span class="header-section-number">13.5.2</span> Central Binomial Theorem</h3>
+<p>We’ve seen the binomial theorem with a whole number exponent. We’ve seen it with a negative integer exponent. The next place to go is fractions. Let’s start with <span class="math inline">\(n = \frac12\)</span>. For reference, here are the first couple values of this:</p>
+<div id="8ef7094c" class="cell" data-execution_count="1">
+<pre class="sage cell-code"><code>for k in range(4):
+    print(binomial(1/2, k))</code></pre>
+<div class="cell-output cell-output-stdout">
+<pre><code>1
+1/2
+-1/8
+1/16</code></pre>
+</div>
+</div>
+<p>It would seem that these are <span class="math inline">\(\pm 1\)</span> over some power of <span class="math inline">\(2\)</span> but if we continue our computation, we find that the next value is <span class="math inline">\(-5/128\)</span>.</p>
+<p>In order to get to the bottom of this, we need to work this out from the definition:</p>
+<p><span class="math display">\[\begin{align*}
+\binom{1/2}{k} &amp;= \frac{\frac12(\frac12 - 1)(\frac12 - 2)\cdots(\frac12 - k + 1)}{k!} \\
+&amp;= \frac{\frac12 (-\frac12)(-\frac32)(-\frac52) \cdots (-\frac{2k - 3}{2})}{k!} \\
+&amp;= \frac{(-\frac12)^{k-1}(1)(3)(5)\cdots(2k-3)}{2k!} \\
+&amp;= (-1)^{k-1}\frac{(1)(3)(5)\cdots(2k-3)}{2^kk!}. \\
+\end{align*}\]</span></p>
+<p>This is a pretty good formula. We can also write it in terms of the <a href="https://en.wikipedia.org/wiki/Double_factorial">double factorial</a> which is the product of all the odd numbers up to <span class="math inline">\(2k - 3\)</span>. (It’s called <em>double</em> because the factors decrease by <span class="math inline">\(2\)</span> each time instead of <span class="math inline">\(1\)</span>.)</p>
+<p>But like in the Wikipedia article, we can write double factorials in terms of more usual factorials. We do this by adding in the missing even numbers to the numerator and balancing that out in the denominator:</p>
+<p><span class="math display">\[\begin{align*}
+\binom{1/2}{k} &amp;= (-1)^{k-1}\frac{(1)(3)\cdots(2k-3) \cdot (2)(4) \cdots (2k - 2)}{2^kk! \cdot (2)(4) \cdots (2k - 2)} \\
+&amp;= (-1)^{k-1}\frac{(1)(2)(3)\cdots(2k-3)(2k - 2)}{2^kk! \cdot 2^{k-1} (1)(2) \cdots (k - 1)} \\
+&amp;= (-1)^{k-1}\frac{(2k - 2)!}{2^{2k-1}k!(k - 1)!} \\
+&amp;= (-1)^{k-1} \frac{1}{2^{2k - 1}k} \binom{2k-2}{k - 1}
+\end{align*}\]</span></p>
+<p>Let’s do this once more with <span class="math inline">\(n = -1/2\)</span> but going through the steps a bit quicker:</p>
+<p><span class="math display">\[\begin{align*}
+\binom{-1/2}{k} &amp;= \frac{(-\frac12)(-\frac32)(-\frac52) \cdots (-\frac{2k - 1}{2})}{k!} \\
+&amp;= (-1)^k \frac{1 \cdot 3 \cdot 5 \cdots (2k - 1)}{2^k k!} \\
+&amp;= (-1)^k \frac{(2k)!}{2^k k! \cdot (2)(4) \cdots (2k)} \\
+&amp;= (-1)^k \frac{(2k)!}{2^k k! \cdot 2^k k!} \\
+&amp;= (-1)^k \frac{1}{4^k} \binom{2k}{k}.
+\end{align*}\]</span></p>
+<p>Let us record these results as a theorem.</p>
+<div id="thm-half-binom" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 13.6 (Half Binomials)</strong></span> <span class="math display">\[
+\binom{1/2}{k} = (-1)^{k-1} \frac{1}{2^{2k - 1}k} \binom{2k-2}{k - 1} \text{ and } \binom{-1/2}{k} = \frac{(-1)^k}{4^k} \binom{2k}{k}.
+\]</span> The first formula is only valid for <span class="math inline">\(k \ge 1\)</span>. If <span class="math inline">\(k = 0\)</span> then we get <span class="math inline">\(\binom{1/2}{0} = 1\)</span> (product of zero terms in the numerator equals <span class="math inline">\(1\)</span> and the denominator is <span class="math inline">\(0! = 1\)</span>).</p>
+</div>
+<div id="exm-central-binomial-ogf" class="theorem example">
+<p><span class="theorem-title"><strong>Example 13.1</strong></span> Take the second formula, and use it with <a href="#thm-newton-binom" class="quarto-xref">Theorem&nbsp;<span>13.4</span></a>. We will put <span class="math inline">\((-4x)^k\)</span> instead of <span class="math inline">\(x^k\)</span> to cancel the <span class="math inline">\((-1/4)^k\)</span>. That is, <span class="math display">\[\begin{align*}
+\frac{1}{\sqrt{1 - 4x}} = (1 - 4x)^{-1/2} &amp;= \sum_{k = 0}^\infty \binom{-1/2}{k} (-4x)^k \\
+&amp;= \sum_{k = 0}^\infty \frac{(-1)^k}{4^k} \binom{2k}{k} (-4x)^k \\
+&amp;= \sum_{k = 0}^\infty \binom{2k}{k} x^k \\
+\end{align*}\]</span></p>
+</div>
+<p>This is a neat little result in and of itself but there is deeper implications here. Consider the number of binary strings of length <span class="math inline">\(2k\)</span> with an equal number of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s. That means there are <span class="math inline">\(k\)</span> of each, and that gives us the formula <span class="math inline">\(\binom{2k}{k}\)</span>. These are called the <strong>central binomial coefficients</strong> because they appear right down the center of Pascal’s triangle.</p>
+<div class="page-columns page-full"><p>For those of you who have taken computer science or mathematical linguistics, there is a concept known as a “regular language”—languages which can be parsed by a regular expresion. For these regular languages, we will see later on, that they always yeild a <em>rational</em> generating function. Here we have a non-rational generating function and indeed this language of strings with equal numbers of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s is not a regular language. </p><div class="no-row-height column-margin column-container"><span class="margin-aside">We’ll define many of these terms in a later section for those of you who haven’t seen them before.</span></div></div>
+<p>Going beyond regular languages, the <a href="https://en.wikipedia.org/wiki/Chomsky%E2%80%93Sch%C3%BCtzenberger_enumeration_theorem">Chomsky–Schützenberger Theorem</a> says that if you have an unambiguous context-free grammar, then the generating function for that language is <em>algebraic</em>. That is what we are looking at with <span class="math inline">\(\frac{1}{\sqrt{1 - 4x}}\)</span>. This is an algebraic function because it is a square root of a rational function. Indeed, the language of strings with equal numbers of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s is a context-free language.</p>
+</section>
+<section id="catalan-numbers" class="level3" data-number="13.5.3">
+<h3 data-number="13.5.3" class="anchored" data-anchor-id="catalan-numbers"><span class="header-section-number">13.5.3</span> Catalan Numbers</h3>
+<p>If you remember the formula for the Catalan numbers even vaguely, you’ll recognize the <span class="math inline">\(\binom{2k}{k}\)</span>. If you squint real hard, the first formula of <a href="#thm-half-binom" class="quarto-xref">Theorem&nbsp;<span>13.6</span></a> looks vaguely similar once you deal with the <span class="math inline">\((-1)^k\)</span> and the <span class="math inline">\(4^k\)</span> as we did in <a href="#exm-central-binomial-ogf" class="quarto-xref">Example&nbsp;<span>13.1</span></a>. Let’s dig into that.</p>
+<p>First, recall the decomposition we had for Dyck paths.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../i/catalan-decomposition.svg" class="img-fluid figure-img"></p>
+<figcaption>Dyck path decomposition based on the first place the path hits the line <span class="math inline">\(y = x\)</span></figcaption>
+</figure>
+</div>
+<p>In terms of “the language of Dyck paths,” what this says is that a Dyck path of length <span class="math inline">\(n\)</span> is equal to</p>
+<ol type="1">
+<li>a shift one step up from the diagonal</li>
+<li>a Dyck path of length <span class="math inline">\(k - 1\)</span></li>
+<li>a Dyck path of length <span class="math inline">\(n - k\)</span></li>
+</ol>
+<p>Here’s the beauty of generating functions: as long as we keep track of the shifts, we don’t need to keep track of the lengths of the subwords or subpaths. So we can describe the language of Dyck paths in simpler terms: it is a shift, together with two smaller Dyck paths. Therefore, if we represent our shift by the monomial <span class="math inline">\(x\)</span>, and our Catalan generating function by <span class="math inline">\(C(x)\)</span>, what we have here is <span class="math inline">\(xC(x)^2\)</span>.</p>
+<p>We almost have it, we just need to be careful of the edge case. If <span class="math inline">\(n = 0\)</span>, the path from <span class="math inline">\((0,0)\)</span> to <span class="math inline">\((0,0)\)</span> is a valid Dyck path which involves no shift. So a Dyck path is either</p>
+<ol type="a">
+<li>this length <span class="math inline">\(0\)</span> Dyck path, which has OGF <span class="math inline">\(x^0 = 1\)</span></li>
+<li>a shift, together with two Dyck paths, with OGF <span class="math inline">\(xC(x)^2\)</span>.</li>
+</ol>
+<p>Therefore, <span class="math inline">\(C(x)\)</span> satisfies the equation <span class="math display">\[
+C(x) = 1 + xC(x)^2.
+\]</span></p>
+<p>If you solve this quadratic equation using the quadratic formula, we find that <span id="eq-initial-catalan-sol"><span class="math display">\[
+C(x) = \frac{1 \pm \sqrt{1 - 4x}}{2x}.
+\tag{13.2}\]</span></span></p>
+<p>In order to get numbers out of this, we use <a href="#thm-newton-binom" class="quarto-xref">Theorem&nbsp;<span>13.4</span></a> to expand the square root (separating the <span class="math inline">\(k = 0\)</span> term so we can apply the formula from <a href="#thm-half-binom" class="quarto-xref">Theorem&nbsp;<span>13.6</span></a>): <span class="math display">\[\begin{align*}
+\sqrt{1 - 4x} &amp;= 1 + \sum_{k = 1}^\infty \binom{1/2}{k}(-4x)^k \\
+&amp;= 1 + \sum_{k = 1}^\infty (-1)^{k-1} \frac{1}{2^{2k - 1}k} \binom{2k-2}{k - 1} (-4x)^k \\
+&amp;= 1 + \sum_{k = 1}^\infty \frac{-2}{k} \binom{2k-2}{k - 1} x^k.
+\end{align*}\]</span></p>
+<p>The presence of the <span class="math inline">\(-\)</span> sign indicates that we want to use the negative square root in <a href="#eq-initial-catalan-sol" class="quarto-xref">Equation&nbsp;<span>13.2</span></a>. Doing this, we obtain</p>
+<p><span class="math display">\[\begin{align*}
+- \sqrt{1 - 4x} &amp;= - 1 + \sum_{k = 1}^\infty \frac{2}{k} \binom{2k-2}{k - 1} x^k \\
+1 - \sqrt{1 - 4x} &amp;= \sum_{k = 1}^\infty \frac{2}{k} \binom{2k-2}{k - 1} x^k \\
+\frac{1 - \sqrt{1 - 4x}}{2x} &amp;= \sum_{k = 1}^\infty \frac{1}{k} \binom{2k-2}{k - 1} x^{k - 1} \\
+&amp;= \sum_{k = 0}^\infty \frac{1}{k + 1} \binom{2k}{k} x^k
+\end{align*}\]</span> (adding <span class="math inline">\(1\)</span> to each <span class="math inline">\(k\)</span> to get from <span class="math inline">\(k - 1\)</span> to <span class="math inline">\(k\)</span>).</p>
+<p>We’ve now found another way to get our Catalan number formula.</p>
+<div id="thm-catalan-ogf" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 13.7 (Catalan OGF)</strong></span> The generating function for the Catalan numbers is <span class="math display">\[
+C(x) = \frac{1 - \sqrt{1 - 4x}}{2x} = \sum_{k = 0}^\infty \frac{1}{k + 1} \binom{2k}{k} x^k.
+\]</span></p>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
