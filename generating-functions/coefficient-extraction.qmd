@@ -42,6 +42,7 @@ Both methods are equivalent.
 Putting this together, we have the following result.
 
 ::: {#thm-shift-coefficient}
+### Coefficient Shift
 If $A(x) = \sum a_nx^n$ then
 $$
 [x^n]x^kA(x) = [x^{n - k}] A(x) = a_{n - k}.
@@ -58,6 +59,7 @@ $$
 In terms of our $[x^n]$ operator, we record the following result.
 
 ::: {#thm-linear-coefficient}
+### Linear Combinations
 $$
 [x^n](\lambda A(x) + \mu B(x)) = \lambda [x^n] A(x) + \mu [x^n] B(x).
 $$
@@ -71,6 +73,7 @@ A'(x) = \sum na_nx^{n - 1} = \sum (n + 1)a_{n + 1}x^n.
 $$
 
 ::: {#thm-derivative-coefficient}
+### Derivatives and Antiderivatives
 $$
 [x^n] A'(x) = (n + 1) [x^{n + 1}] A(x).
 $$
@@ -102,6 +105,7 @@ r(1+x)^{r - 1} \text{ then } r(r - 1) (1 + x)^{r - 2} \text{ then } r(r - 1)(r -
 $$
 
 ::: {#thm-newton-binom}
+### Newton's Binomial Theorem
 The Taylor series of $(1 + x)^r$ is
 $$
 \sum_{k = 0}^\infty \binom{r}{k}x^k.
@@ -150,5 +154,162 @@ $$
 If we want to apply this to a more complex power of $x$, we do so by substituting where we see $n$, for example,
 $$
 [x^{n + 1}] \frac{1}{(1 - x)^k} = \binom{(n + 1) + k - 1}{k - 1} = \binom{n + k}{k - 1}.
+$$
+:::
+
+### Negative Binomial Theorem
+
+Comparing @thm-newton-binom and formula (a.) of @sec-sb-ogf-summary yields an interesting result:
+
+$$
+\frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1} x^n = \sum_{n = 0}^\infty \binom{-k}{n} (-x)^n.
+$$ {#eq-negative-binomial}
+Note that we are looking at $(1 - x)^{-k}$ not $(1 + x)^{-k}$ hence the $(-x)$ on the right.
+
+The next theorem is most often stated with $n$ and $k$ swapped. We also use the identity $\binom{a + b}{a} = \binom{a + b}{b}$.
+
+::: {#thm-negative-binomial}
+### Negative Binomial Theorem
+$$
+\binom{-k}{n} (-1)^n = \binom{n + k - 1}{k - 1} = \binom{n + k - 1}{n}.
+$$
+Or, with $n$ and $k$ in the usual position:
+$$
+\binom{-n}{k} (-1)^k = \binom{n + k - 1}{n - 1} = \binom{n + k - 1}{k}.
+$$
+:::
+
+Like many things in combinatorics, it's interesting to give a second proof of this beyond the generating function proof in @eq-negative-binomial.
+
+::: {.proof}
+\begin{align*}
+\binom{-n}{k} (-1)^k &= \frac{(-n)(-n - 1)(-n - 2)\cdots(-n-k+1)}{k!} (-1)^k \\
+&= \frac{(n)(n + 1)(n + 2)\cdots(n+k-1)}{k!} \\
+&= \frac{(n + k - 1)(n + k - 2) \cdots (n + 1)(n)}{k!} \\
+&= \binom{n + k - 1}{k}.
+\end{align*}
+In line 2, we distribute one $-1$ to each of the $k$ factors in the numerator.
+:::
+
+### Central Binomial Theorem
+We've seen the binomial theorem with a whole number exponent. We've seen it with a negative integer exponent. The next place to go is fractions. Let's start with $n = \frac12$. For reference, here are the first couple values of this:
+
+```{sage}
+for k in range(4):
+    print(binomial(1/2, k))
+```
+
+It would seem that these are $\pm 1$ over some power of $2$ but if we continue our computation, we find that the next value is $-5/128$.
+
+In order to get to the bottom of this, we need to work this out from the definition:
+
+\begin{align*}
+\binom{1/2}{k} &= \frac{\frac12(\frac12 - 1)(\frac12 - 2)\cdots(\frac12 - k + 1)}{k!} \\
+&= \frac{\frac12 (-\frac12)(-\frac32)(-\frac52) \cdots (-\frac{2k - 3}{2})}{k!} \\
+&= \frac{(-\frac12)^{k-1}(1)(3)(5)\cdots(2k-3)}{2k!} \\
+&= (-1)^{k-1}\frac{(1)(3)(5)\cdots(2k-3)}{2^kk!}. \\
+\end{align*}
+
+This is a pretty good formula. We can also write it in terms of the [double factorial](https://en.wikipedia.org/wiki/Double_factorial) which is the product of all the odd numbers up to $2k - 3$. (It's called *double* because the factors decrease by $2$ each time instead of $1$.)
+
+But like in the Wikipedia article, we can write double factorials in terms of more usual factorials. We do this by adding in the missing even numbers to the numerator and balancing that out in the denominator:
+
+\begin{align*}
+\binom{1/2}{k} &= (-1)^{k-1}\frac{(1)(3)\cdots(2k-3) \cdot (2)(4) \cdots (2k - 2)}{2^kk! \cdot (2)(4) \cdots (2k - 2)} \\
+&= (-1)^{k-1}\frac{(1)(2)(3)\cdots(2k-3)(2k - 2)}{2^kk! \cdot 2^{k-1} (1)(2) \cdots (k - 1)} \\
+&= (-1)^{k-1}\frac{(2k - 2)!}{2^{2k-1}k!(k - 1)!} \\
+&= (-1)^{k-1} \frac{1}{2^{2k - 1}k} \binom{2k-2}{k - 1}
+\end{align*}
+
+Let's do this once more with $n = -1/2$ but going through the steps a bit quicker:
+
+\begin{align*}
+\binom{-1/2}{k} &= \frac{(-\frac12)(-\frac32)(-\frac52) \cdots (-\frac{2k - 1}{2})}{k!} \\
+&= (-1)^k \frac{1 \cdot 3 \cdot 5 \cdots (2k - 1)}{2^k k!} \\
+&= (-1)^k \frac{(2k)!}{2^k k! \cdot (2)(4) \cdots (2k)} \\
+&= (-1)^k \frac{(2k)!}{2^k k! \cdot 2^k k!} \\
+&= (-1)^k \frac{1}{4^k} \binom{2k}{k}.
+\end{align*}
+
+Let us record these results as a theorem.
+
+::: {#thm-half-binom}
+#### Half Binomials
+$$
+\binom{1/2}{k} = (-1)^{k-1} \frac{1}{2^{2k - 1}k} \binom{2k-2}{k - 1} \text{ and } \binom{-1/2}{k} = \frac{(-1)^k}{4^k} \binom{2k}{k}.
+$$
+The first formula is only valid for $k \ge 1$. If $k = 0$ then we get $\binom{1/2}{0} = 1$ (product of zero terms in the numerator equals $1$ and the denominator is $0! = 1$).
+:::
+
+::: {#exm-central-binomial-ogf}
+Take the second formula, and use it with @thm-newton-binom. We will put $(-4x)^k$ instead of $x^k$ to cancel the $(-1/4)^k$. That is,
+\begin{align*}
+\frac{1}{\sqrt{1 - 4x}} = (1 - 4x)^{-1/2} &= \sum_{k = 0}^\infty \binom{-1/2}{k} (-4x)^k \\
+&= \sum_{k = 0}^\infty \frac{(-1)^k}{4^k} \binom{2k}{k} (-4x)^k \\
+&= \sum_{k = 0}^\infty \binom{2k}{k} x^k \\
+\end{align*}
+:::
+
+This is a neat little result in and of itself but there is deeper implications here. Consider the number of binary strings of length $2k$ with an equal number of $0$s and $1$s. That means there are $k$ of each, and that gives us the formula $\binom{2k}{k}$. These are called the **central binomial coefficients** because they appear right down the center of Pascal's triangle.
+
+For those of you who have taken computer science or mathematical linguistics, there is a concept known as a "regular language"---languages which can be parsed by a regular expresion. For these regular languages, we will see later on, that they always yeild a *rational* generating function. Here we have a non-rational generating function and indeed this language of strings with equal numbers of $0$s and $1$s is not a regular language.
+[We'll define many of these terms in a later section for those of you who haven't seen them before.]{.aside}
+
+Going beyond regular languages, the [Chomsky–Schützenberger Theorem](https://en.wikipedia.org/wiki/Chomsky%E2%80%93Sch%C3%BCtzenberger_enumeration_theorem) says that if you have an unambiguous context-free grammar, then the generating function for that language is *algebraic*. That is what we are looking at with $\frac{1}{\sqrt{1 - 4x}}$. This is an algebraic function because it is a square root of a rational function. Indeed, the language of strings with equal numbers of $0$s and $1$s is a context-free language.
+
+### Catalan Numbers
+If you remember the formula for the Catalan numbers even vaguely, you'll recognize the $\binom{2k}{k}$. If you squint real hard, the first formula of @thm-half-binom looks vaguely similar once you deal with the $(-1)^k$ and the $4^k$ as we did in @exm-central-binomial-ogf. Let's dig into that.
+
+First, recall the decomposition we had for Dyck paths.
+
+![Dyck path decomposition based on the first place the path hits the line $y = x$](/i/catalan-decomposition)
+
+In terms of "the language of Dyck paths," what this says is that a Dyck path of length $n$ is equal to
+
+1) a shift one step up from the diagonal
+2) a Dyck path of length $k - 1$
+3) a Dyck path of length $n - k$
+
+Here's the beauty of generating functions: as long as we keep track of the shifts, we don't need to keep track of the lengths of the subwords or subpaths. So we can describe the language of Dyck paths in simpler terms: it is a shift, together with two smaller Dyck paths. Therefore, if we represent our shift by the monomial $x$, and our Catalan generating function by $C(x)$, what we have here is $xC(x)^2$.
+
+We almost have it, we just need to be careful of the edge case. If $n = 0$, the path from $(0,0)$ to $(0,0)$ is a valid Dyck path which involves no shift. So a Dyck path is either
+
+a) this length $0$ Dyck path, which has OGF $x^0 = 1$
+b) a shift, together with two Dyck paths, with OGF $xC(x)^2$.
+
+Therefore, $C(x)$ satisfies the equation
+$$
+C(x) = 1 + xC(x)^2.
+$$
+
+If you solve this quadratic equation using the quadratic formula, we find that
+$$
+C(x) = \frac{1 \pm \sqrt{1 - 4x}}{2x}.
+$$ {#eq-initial-catalan-sol}
+
+In order to get numbers out of this, we use @thm-newton-binom to expand the square root (separating the $k = 0$ term so we can apply the formula from @thm-half-binom):
+\begin{align*}
+\sqrt{1 - 4x} &= 1 + \sum_{k = 1}^\infty \binom{1/2}{k}(-4x)^k \\
+&= 1 + \sum_{k = 1}^\infty (-1)^{k-1} \frac{1}{2^{2k - 1}k} \binom{2k-2}{k - 1} (-4x)^k \\
+&= 1 + \sum_{k = 1}^\infty \frac{-2}{k} \binom{2k-2}{k - 1} x^k.
+\end{align*}
+
+The presence of the $-$ sign indicates that we want to use the negative square root in @eq-initial-catalan-sol. Doing this, we obtain
+
+\begin{align*}
+- \sqrt{1 - 4x} &= - 1 + \sum_{k = 1}^\infty \frac{2}{k} \binom{2k-2}{k - 1} x^k \\
+1 - \sqrt{1 - 4x} &= \sum_{k = 1}^\infty \frac{2}{k} \binom{2k-2}{k - 1} x^k \\
+\frac{1 - \sqrt{1 - 4x}}{2x} &= \sum_{k = 1}^\infty \frac{1}{k} \binom{2k-2}{k - 1} x^{k - 1} \\
+&= \sum_{k = 0}^\infty \frac{1}{k + 1} \binom{2k}{k} x^k
+\end{align*}
+(adding $1$ to each $k$ to get from $k - 1$ to $k$).
+
+We've now found another way to get our Catalan number formula.
+
+:::{#thm-catalan-ogf}
+#### Catalan OGF
+The generating function for the Catalan numbers is
+$$
+C(x) = \frac{1 - \sqrt{1 - 4x}}{2x} = \sum_{k = 0}^\infty \frac{1}{k + 1} \binom{2k}{k} x^k.
 $$
 :::
