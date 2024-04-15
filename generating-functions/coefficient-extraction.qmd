@@ -23,7 +23,7 @@ The second equals sign is obtained either by substituting $n \gets n + k$ or by 
 ### Substituting inside a sum
 Consider a summation like
 $$
-\sum{k = 2}^\infty k(k-1)x^{k - 2}.
+\sum_{k = 2}^\infty k(k-1)x^{k - 2}.
 $$
 If we want to write this as a sum where $x^k$ is the exponent in our summand, then we can either
 
