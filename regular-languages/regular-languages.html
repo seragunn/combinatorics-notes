@@ -387,7 +387,7 @@ L^+ = L + L^2 + L^3 + \cdots.
 \Phi_{L^*} = \frac{1}{1 - \Phi_L} = \frac{1}{1 - (x^{f(1)} + x^{f(2)})} = \frac{1}{1 - x - x^2}.
 \tag{14.1}\]</span></span></p>
 <p>We know that the number of these sequences which sum to <span class="math inline">\(n\)</span> is counted by the Fibonacci sequence, so like we stated <a href="../generating-functions/ogf.html#sec-convergence" class="quarto-xref"><span>Section 10.3.1</span></a>, we have</p>
-<div id="cf0792eb" class="cell" data-execution_count="2">
+<div id="62a5b980" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>taylor(1/(1 - x - x^2), x, 0, 10)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
 \(\displaystyle 89 \, x^{10} + 55 \, x^{9} + 34 \, x^{8} + 21 \, x^{7} + 13 \, x^{6} + 8 \, x^{5} + 5 \, x^{4} + 3 \, x^{3} + 2 \, x^{2} + x + 1\)
@@ -408,7 +408,7 @@ L^+ = L + L^2 + L^3 + \cdots.
 \Phi_L = (1 + x) \cdot \frac{1}{1 - \frac{x^2}{1 - x}} \cdot \frac{1}{1 - x} = \frac{1 + x}{1 - x - x^2}.
 \]</span></p>
 <p>This is similar to <a href="#eq-12-fib-ogf" class="quarto-xref">Equation&nbsp;<span>14.1</span></a> but the numerator shifts the sequence over a step:</p>
-<div id="799f70f6" class="cell" data-execution_count="3">
+<div id="d96dfef1" class="cell" data-execution_count="3">
 <pre class="sage cell-code"><code>taylor((1 + x)/(1 - x - x^2), x, 0, 10)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="3">
 \(\displaystyle 144 \, x^{10} + 89 \, x^{9} + 55 \, x^{8} + 34 \, x^{7} + 21 \, x^{6} + 13 \, x^{5} + 8 \, x^{4} + 5 \, x^{3} + 3 \, x^{2} + 2 \, x + 1\)

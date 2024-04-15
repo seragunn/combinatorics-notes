@@ -509,7 +509,7 @@
     "href": "generating-functions/coefficient-extraction.html#shifts",
     "title": "13  Coefficient Extraction",
     "section": "",
-    "text": "Substituting inside a sum\n\n\n\n\n\nConsider a summation like \\[\n\\sum{k = 2}^\\infty k(k-1)x^{k - 2}.\n\\] If we want to write this as a sum where \\(x^k\\) is the exponent in our summand, then we can either\n\nadd \\(2\\) everywhere we see \\(k\\): \\[\n\\sum_{k + 2 = 2}^\\infty (k + 2)(k + 1)x^{k} = \\sum_{k = 0}^\\infty (k + 2)(k + 1)x^{k},\n\\]\nmake a substitution of \\(n = k - 2\\) and \\(k = n + 2\\) to get \\[\n\\sum_{n + 2 = 2}^\\infty (n + 2)(n + 1)x^{n}.\n\\]\n\nBoth methods are equivalent.\n\n\n\n\n\nTheorem 13.1 (Coefficient Shift) If \\(A(x) = \\sum a_nx^n\\) then \\[\n[x^n]x^kA(x) = [x^{n - k}] A(x) = a_{n - k}.\n\\] “The coefficient of \\(x^n\\) in \\(x^k A(x)\\) is \\(a_{n - k}\\).”",
+    "text": "Substituting inside a sum\n\n\n\n\n\nConsider a summation like \\[\n\\sum_{k = 2}^\\infty k(k-1)x^{k - 2}.\n\\] If we want to write this as a sum where \\(x^k\\) is the exponent in our summand, then we can either\n\nadd \\(2\\) everywhere we see \\(k\\): \\[\n\\sum_{k + 2 = 2}^\\infty (k + 2)(k + 1)x^{k} = \\sum_{k = 0}^\\infty (k + 2)(k + 1)x^{k},\n\\]\nmake a substitution of \\(n = k - 2\\) and \\(k = n + 2\\) to get \\[\n\\sum_{n + 2 = 2}^\\infty (n + 2)(n + 1)x^{n}.\n\\]\n\nBoth methods are equivalent.\n\n\n\n\n\nTheorem 13.1 (Coefficient Shift) If \\(A(x) = \\sum a_nx^n\\) then \\[\n[x^n]x^kA(x) = [x^{n - k}] A(x) = a_{n - k}.\n\\] “The coefficient of \\(x^n\\) in \\(x^k A(x)\\) is \\(a_{n - k}\\).”",
     "crumbs": [
       "Generating Functions",
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Coefficient Extraction</span>"
