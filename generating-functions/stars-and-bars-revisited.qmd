@@ -111,6 +111,18 @@ $$
 
 We will cover how to read the number of solutions from such a generating function in the next section. For now, let's address one last modification.
 
+::: {.callout-note}
+#### General Method
+Let $L_1$ represent the possible number of objects person $1$ can receive. E.g.
+
+* if person $1$ receives $0$ or more, then $L_1 = \{\varepsilon, 1, 11, 111, \dots\}$---with OGF $x^0 + x^1 + x^2 + \cdots = \frac{1}{1 - x}$
+* if person $1$ receives $1$ or more, then $L_1 = \{1, 11, 111, \dots\}$---with OGF $x^1 + x^2 + x^3 + \cdots = \frac{x}{1 - x}$
+* if person $1$ receives $0, 1, 2$, then $L_1 = \{\varepsilon, 1, 11\}$---with OGF $x^0 + x^1 + x^2$
+* if person $1$ receives an even number, then $L_1 = \{\varepsilon, 11, 1111, \dots\}$---with OGF $x^0 + x^2 + x^4 + \cdots = \frac{1}{1 - x^2}$.
+
+Do this for each person and then multiply the OGFs together for the full problem.
+:::
+
 ## Slack variables
 
 Consider the problem

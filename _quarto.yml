@@ -40,6 +40,7 @@ book:
         - generating-functions/multiplication.qmd
         - generating-functions/stars-and-bars-revisited.qmd
         - generating-functions/coefficient-extraction.qmd
+        - generating-functions/generating-function-exercises.qmd
     - part: "Regular Languages"
       chapters:
         - regular-languages/regular-languages.qmd

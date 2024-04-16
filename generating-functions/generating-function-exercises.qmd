@@ -1,0 +1,33 @@
+# Exercises
+
+1. Given that $\displaystyle \frac{1}{1 - ax} = \sum_{n = 0}^\infty a^n x^n$, convert the following into summation notation (in terms of $x^n$ rather than $x^{n + k}$)
+    a) $\dfrac{1}{1 - x} + \dfrac{1}{1 + x}$
+    b) $\dfrac{x^3}{1 + 2x}$
+    c) $\displaystyle \int_{0}^x \frac{1}{1 - t} \; dt = \log\left( \frac{1}{1 - x} \right)$
+    (hint: take the antiderivative/integral term by term)
+    d) $\dfrac{3}{2 - x}$
+    (hint: convert to $\dfrac{a}{1 - bx}$)
+    e) $\dfrac{1 + x}{1 - x^3}$
+    (hint: split the fraction into two fractions)
+
+2. Convert each sequence to a closed form generating function. Use the most obvious choice of form for the general term of the sequence. Sequences start at $n = 0$.
+    a) $2, 2, 2, 2, 2, 2, \dots$
+    b) $0, 1, 0, 1, 0, 1, \dots$
+    c) $1, 0, 1, 0, 1, 0, \dots$
+    d) $0, 1, 2, 3, 4, 5, \dots$ (hint: factor out an $x$ from $\sum nx^n$ so that the terms are $\frac{d}{dx} x^n$, then move the derivative operator outside the summation [but after the $x$ that was factored out])
+    e) $1, 3, 5, 7, 9, 11, \dots$ (hint: use part d)
+
+3. Using the formulas from section @sec-sb-ogf-summary, find
+    a) $\displaystyle \sum_{n = 0}^\infty \binom{n + 2}{2} x^n$
+    b) $\displaystyle \sum_{n = 5}^\infty \binom{n - 1}{4} x^n$
+
+4. Find the indicated coefficients.
+    a) $[x^{10}] \dfrac{1}{1 + 2x}$
+    b) $[x^{20}] \dfrac{1}{(1 - x)^7}$
+    c) $[x^{20}] \dfrac{x^3}{(1 - x)^{10}}$
+    d) $[x^{85}] \dfrac{2x^5}{1 - 3x^5}$
+    (hint: if the sum is $\sum (*) x^{5n + 5}$ then the coefficient of $x^{85}$ occurs where $5n + 5 = 85$)
+
+5. Write down a generating function for the number of ways to make change for $n$ dollars using $1, 5$ and $10$ dollar bills. (Hint: if we are receiving multiples of $\$5$ bills, then the generating function should be $x^0 + x^5 + x^{10} + \cdots$ where the weight function of a bill is its dolar value.)
+
+6. Repeat the previous problem but now suppose we are only allowed to give out a maximum of one $\$5$ bill.
