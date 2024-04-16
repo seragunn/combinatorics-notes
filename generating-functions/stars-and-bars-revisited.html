@@ -268,6 +268,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -282,13 +288,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/finite-automata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
       </ul>
@@ -438,6 +444,26 @@ S - rS &amp;= a \phantom{{}+ar + ar^2 + \cdots + ar^m} - ar^{m + 1}.
 \frac{x^5 - x^{14}}{1 - x} \cdot \left( \frac{x}{1 - x} \right)^{k - 1} = \frac{x^{k - 1}(x^{5} - x^{14})}{(1 - x)^k}.
 \]</span></p>
 <p>We will cover how to read the number of solutions from such a generating function in the next section. For now, let’s address one last modification.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+General Method
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(L_1\)</span> represent the possible number of objects person <span class="math inline">\(1\)</span> can receive. E.g.</p>
+<ul>
+<li>if person <span class="math inline">\(1\)</span> receives <span class="math inline">\(0\)</span> or more, then <span class="math inline">\(L_1 = \{\varepsilon, 1, 11, 111, \dots\}\)</span>—with OGF <span class="math inline">\(x^0 + x^1 + x^2 + \cdots = \frac{1}{1 - x}\)</span></li>
+<li>if person <span class="math inline">\(1\)</span> receives <span class="math inline">\(1\)</span> or more, then <span class="math inline">\(L_1 = \{1, 11, 111, \dots\}\)</span>—with OGF <span class="math inline">\(x^1 + x^2 + x^3 + \cdots = \frac{x}{1 - x}\)</span></li>
+<li>if person <span class="math inline">\(1\)</span> receives <span class="math inline">\(0, 1, 2\)</span>, then <span class="math inline">\(L_1 = \{\varepsilon, 1, 11\}\)</span>—with OGF <span class="math inline">\(x^0 + x^1 + x^2\)</span></li>
+<li>if person <span class="math inline">\(1\)</span> receives an even number, then <span class="math inline">\(L_1 = \{\varepsilon, 11, 1111, \dots\}\)</span>—with OGF <span class="math inline">\(x^0 + x^2 + x^4 + \cdots = \frac{1}{1 - x^2}\)</span>.</li>
+</ul>
+<p>Do this for each person and then multiply the OGFs together for the full problem.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="slack-variables" class="level2" data-number="12.3">

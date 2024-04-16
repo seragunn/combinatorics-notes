@@ -268,6 +268,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -282,13 +288,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/finite-automata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
       </ul>
@@ -383,7 +389,7 @@ window.Quarto = {
 <section id="case-1-disjoint" class="level3" data-number="6.3.1">
 <h3 data-number="6.3.1" class="anchored" data-anchor-id="case-1-disjoint"><span class="header-section-number">6.3.1</span> Case 1: disjoint</h3>
 <p>If <span class="math inline">\(u, v, x, y\)</span> are all distinct, then the two swaps can be done in either order and <span class="math inline">\((uv)(xy) = (xy)(uv)\)</span>.</p>
-<div id="1091c5e7" class="cell" data-execution_count="1">
+<div id="5216dced" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 <figure class="figure">
@@ -400,7 +406,7 @@ window.Quarto = {
 <section id="case-3-larger-number-in-common" class="level3" data-number="6.3.3">
 <h3 data-number="6.3.3" class="anchored" data-anchor-id="case-3-larger-number-in-common"><span class="header-section-number">6.3.3</span> Case 3: larger number in common</h3>
 <p>Consider the product <span class="math inline">\((12)(23) = (123)\)</span> (swap <span class="math inline">\(2,3\)</span> first then <span class="math inline">\(1,2\)</span>)</p>
-<div id="8be1da8a" class="cell" data-execution_count="2">
+<div id="ed854cad" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <figure class="figure">
@@ -410,7 +416,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Compare this with the identity <span class="math inline">\((23)(12)(23) = (13)\)</span> that we worked out in <a href="generators.html" class="quarto-xref"><span>Chapter 5</span></a>:</p>
-<div id="4d7698a8" class="cell" data-execution_count="3">
+<div id="37a32995" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 <figure class="figure">
@@ -460,7 +466,7 @@ window.Quarto = {
 <div id="exm-calculating-parity" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6.2</strong></span> Consider the shuffle <span class="math inline">\(376819254\)</span>. We can write this as <span class="math inline">\((1369485)(27)\)</span> this is a product of a cycle of length <span class="math inline">\(7\)</span> and a cycle of length <span class="math inline">\(2\)</span>. Therefore the sign is <span class="math inline">\((+1)(-1) = -1\)</span>.</p>
 <p>This computation in SageMath:</p>
-<div id="e7f9a043" class="cell" data-execution_count="4">
+<div id="672a079c" class="cell" data-execution_count="4">
 <pre class="sage cell-code"><code>π = Permutation([3,7,6,8,1,9,2,5,4])
 sign(π)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="4">

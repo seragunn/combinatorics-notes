@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Combinatorics Notes - 15&nbsp; Finite Automata</title>
+<title>Combinatorics Notes - 16&nbsp; Finite Automata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -143,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/finite-automata.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Finite Automata</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/finite-automata.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Finite Automata</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -270,6 +270,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -284,13 +290,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/finite-automata.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
       </ul>
@@ -305,17 +311,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#interpreting-a-fsa" id="toc-interpreting-a-fsa" class="nav-link active" data-scroll-target="#interpreting-a-fsa"><span class="header-section-number">15.1</span> Interpreting a FSA</a></li>
-  <li><a href="#a-fsa-for-even-1s" id="toc-a-fsa-for-even-1s" class="nav-link" data-scroll-target="#a-fsa-for-even-1s"><span class="header-section-number">15.2</span> A FSA for even ’1’s</a></li>
+  <li><a href="#interpreting-a-fsa" id="toc-interpreting-a-fsa" class="nav-link active" data-scroll-target="#interpreting-a-fsa"><span class="header-section-number">16.1</span> Interpreting a FSA</a></li>
+  <li><a href="#a-fsa-for-even-1s" id="toc-a-fsa-for-even-1s" class="nav-link" data-scroll-target="#a-fsa-for-even-1s"><span class="header-section-number">16.2</span> A FSA for even ’1’s</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/regular-languages/finite-automata.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/regular-languages/finite-automata.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/finite-automata.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Finite Automata</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/finite-automata.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Finite Automata</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Finite Automata</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Finite Automata</span></h1>
 </div>
 
 
@@ -332,7 +338,7 @@ window.Quarto = {
 </header>
 
 
-<p>As we saw in <a href="regular-languages.html#sec-regular-language-examples" class="quarto-xref"><span>Section 14.3</span></a>, it can be a bit tricky to come up with a regular expression for a language. Often it’s easier to draw what is called a <strong>finite state automaton</strong> (FSA) instead. For instance, for the no <span class="math inline">\(11\)</span>s language, we make states representing the last character seen as we move through the string and if the last character was a <span class="math inline">\(1\)</span> and we see a second <span class="math inline">\(1\)</span>, we know the string should be thrown out.</p>
+<p>As we saw in <a href="regular-languages.html#sec-regular-language-examples" class="quarto-xref"><span>Section 15.3</span></a>, it can be a bit tricky to come up with a regular expression for a language. Often it’s easier to draw what is called a <strong>finite state automaton</strong> (FSA) instead. For instance, for the no <span class="math inline">\(11\)</span>s language, we make states representing the last character seen as we move through the string and if the last character was a <span class="math inline">\(1\)</span> and we see a second <span class="math inline">\(1\)</span>, we know the string should be thrown out.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div id="fig-fibonacci-automaton" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -349,15 +355,15 @@ window.Quarto = {
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fibonacci-automaton-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.1: The Fibonacci automaton
+Figure&nbsp;16.1: The Fibonacci automaton
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<section id="interpreting-a-fsa" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="interpreting-a-fsa"><span class="header-section-number">15.1</span> Interpreting a FSA</h2>
-<p>The way to use a FSA is to input a string one digit at a time, let’s say from left to right. So if we take the string <span class="math inline">\(010011\)</span> and input it into the automaton in <a href="#fig-fibonacci-automaton" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>, we start in state <span class="math inline">\(0\)</span>. The arrow</p>
+<section id="interpreting-a-fsa" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="interpreting-a-fsa"><span class="header-section-number">16.1</span> Interpreting a FSA</h2>
+<p>The way to use a FSA is to input a string one digit at a time, let’s say from left to right. So if we take the string <span class="math inline">\(010011\)</span> and input it into the automaton in <a href="#fig-fibonacci-automaton" class="quarto-xref">Figure&nbsp;<span>16.1</span></a>, we start in state <span class="math inline">\(0\)</span>. The arrow</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div id="fig-start-arrow" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -371,7 +377,7 @@ Figure&nbsp;15.1: The Fibonacci automaton
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-start-arrow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.2: Start arrow
+Figure&nbsp;16.2: Start arrow
 </figcaption>
 </figure>
 </div>
@@ -382,8 +388,8 @@ Figure&nbsp;15.2: Start arrow
 <p>Next we read a <span class="math inline">\(1\)</span> and this tells us to follow the edge labeled <span class="math inline">\(1\)</span> and puts us in state <span class="math inline">\(1\)</span>. Then another <span class="math inline">\(0\)</span> puts us back in state <span class="math inline">\(0\)</span>. Then state <span class="math inline">\(0\)</span> again. Then state <span class="math inline">\(1\)</span>.</p>
 <p>With the last <span class="math inline">\(1\)</span>, we try to follow an edge labeled <span class="math inline">\(1\)</span> out of state <span class="math inline">\(1\)</span>, but there is no such edge. So at this point we fail and that means the string <span class="math inline">\(010011\)</span> is rejected by the automaton.</p>
 </section>
-<section id="a-fsa-for-even-1s" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="a-fsa-for-even-1s"><span class="header-section-number">15.2</span> A FSA for even ’1’s</h2>
+<section id="a-fsa-for-even-1s" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="a-fsa-for-even-1s"><span class="header-section-number">16.2</span> A FSA for even ’1’s</h2>
 <p>To create this automaton, we need one state to represent an even number of <span class="math inline">\(1\)</span>s and one state to represent an odd number of <span class="math inline">\(1\)</span>s. To distinguish between success states and failure states, we will use a thick border on the success states.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -407,7 +413,7 @@ Figure&nbsp;15.2: Start arrow
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-even-1-automaton-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.3: Automaton for an even number of <span class="math inline">\(1\)</span>s
+Figure&nbsp;16.3: Automaton for an even number of <span class="math inline">\(1\)</span>s
 </figcaption>
 </figure>
 </div>
@@ -831,7 +837,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../regular-languages/regular-languages.html" class="pagination-link" aria-label="Regular Languages">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Regular Languages</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Regular Languages</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

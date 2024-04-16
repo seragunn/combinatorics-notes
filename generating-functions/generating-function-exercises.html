@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Combinatorics Notes - 10&nbsp; Generating Functions</title>
+<title>Combinatorics Notes - 14&nbsp; Exercises</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../generating-functions/multiplication.html" rel="next">
-<link href="../generating-functions/weights.html" rel="prev">
+<link href="../regular-languages/regular-languages.html" rel="next">
+<link href="../generating-functions/coefficient-extraction.html" rel="prev">
 <link href="../icon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -141,7 +141,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/ogf.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/generating-function-exercises.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Exercises</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -246,7 +246,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link active">
+  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
   </div>
 </li>
@@ -270,7 +270,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
@@ -305,28 +305,14 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#definition" id="toc-definition" class="nav-link active" data-scroll-target="#definition"><span class="header-section-number">10.1</span> Definition</a></li>
-  <li><a href="#monomials" id="toc-monomials" class="nav-link" data-scroll-target="#monomials"><span class="header-section-number">10.2</span> Monomials</a>
-  <ul class="collapse">
-  <li><a href="#using-generating-functions-to-count" id="toc-using-generating-functions-to-count" class="nav-link" data-scroll-target="#using-generating-functions-to-count"><span class="header-section-number">10.2.1</span> Using generating functions to count</a></li>
-  </ul></li>
-  <li><a href="#sec-geom-series" id="toc-sec-geom-series" class="nav-link" data-scroll-target="#sec-geom-series"><span class="header-section-number">10.3</span> Infinite series</a>
-  <ul class="collapse">
-  <li><a href="#sec-convergence" id="toc-sec-convergence" class="nav-link" data-scroll-target="#sec-convergence"><span class="header-section-number">10.3.1</span> When do we care about convergence?</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/ogf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/ogf.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/ogf.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/generating-function-exercises.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Exercises</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Generating Functions</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Exercises</span></h1>
 </div>
 
 
@@ -343,125 +329,40 @@ window.Quarto = {
 </header>
 
 
-<section id="definition" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="definition"><span class="header-section-number">10.1</span> Definition</h2>
-<p>Let <span class="math inline">\(L\)</span> be a subset of strings. These is also called a <strong>language</strong>. Let <span class="math inline">\(f\)</span> be a weight function. We define the <strong>(ordinary) generating function</strong> of <span class="math inline">\(L\)</span> or <strong>OGF</strong> as</p>
-<p><span class="math display">\[
-\Phi_L(x) = \Phi_L^f(x) = \sum_{s \in L} x^{f(s)}.
-\]</span></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>It is common in mathematical definitions to write something like <span class="math display">\[
-\Phi_L(x) = \Phi_L^f(x) = \cdots.
-\]</span> This means that I am calling attention to the fact that <span class="math inline">\(\Phi\)</span> depends on <span class="math inline">\(f\)</span> but also saying that because <span class="math inline">\(f\)</span> isn’t going to change much, we are going to drop the <span class="math inline">\(f\)</span> from the notation most or all of the time.</p>
-<p>It is also common to call generating functions by other letters, like <span class="math inline">\(A(x)\)</span> but this needs to be introduced first by saying that <span class="math inline">\(A\)</span> is the OGF wheras <span class="math inline">\(\Phi_L\)</span> means this implicitly.</p>
-</div>
-</div>
-<div id="exm-ogf1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10.1</strong></span> Let <span class="math inline">\(L\)</span> be the subset <span class="math inline">\(\{01, 1110, 11, 0, 1, 111000, \varepsilon\}\)</span> of binary strings. Let <span class="math inline">\(f\)</span> be the length weight. The OGF of <span class="math inline">\(L\)</span> is <span class="math display">\[\begin{align*}
-\Phi_L(x) &amp;= x^{f(01)} + x^{f(1110)} + x^{f(11)} + x^{f(0)} + x^{f(1)} + x^{f(111000)} + x^{f(\varepsilon)} \\
-&amp;= x^2 + x^4 + x^2 + x^1 + x^1 + x^6 + x^0 \\
-&amp;= 1 + 2x + 2x^2 + x^4 + x^6
-\end{align*}\]</span></p>
-</div>
-</section>
-<section id="monomials" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="monomials"><span class="header-section-number">10.2</span> Monomials</h2>
-<p>Inside <span class="math inline">\(\Phi_L(x)\)</span>, each monomial <span class="math inline">\(a_nx^n\)</span> (after collecting terms) represents that <span class="math inline">\(L\)</span> has <span class="math inline">\(a_n\)</span> strings where <span class="math inline">\(f\)</span> equals <span class="math inline">\(n\)</span> (e.g.&nbsp;the length equals <span class="math inline">\(n\)</span>).</p>
-<div id="exm-ogf1-cont" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10.2</strong></span> For the language <span class="math inline">\(L\)</span> of <a href="#exm-ogf1" class="quarto-xref">Example&nbsp;<span>10.1</span></a> above, we have for instance, <span class="math inline">\(2\)</span> strings of legnth <span class="math inline">\(1\)</span>, represented by the monomial <span class="math inline">\(2x^1\)</span>. We have <span class="math inline">\(1\)</span> string of length <span class="math inline">\(6\)</span> represented by the monomial <span class="math inline">\(1x^6\)</span>. We have no strings of length <span class="math inline">\(5\)</span>, represented by the lack of a monomial with <span class="math inline">\(x^5\)</span>. We could also say that the coefficient of <span class="math inline">\(x^5\)</span> is <span class="math inline">\(0\)</span>.</p>
-</div>
-<div id="exr-ogf-finite-set" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10.1</strong></span> Let <span class="math inline">\(L\)</span> be the set of all binary strings of length <span class="math inline">\(\le 5\)</span> which have no <span class="math inline">\(11\)</span>.</p>
+<ol type="1">
+<li><p>Given that <span class="math inline">\(\displaystyle \frac{1}{1 - ax} = \sum_{n = 0}^\infty a^n x^n\)</span>, convert the following into summation notation (in terms of <span class="math inline">\(x^n\)</span> rather than <span class="math inline">\(x^{n + k}\)</span>)</p>
 <ol type="a">
-<li>for <span class="math inline">\(n = 0, 1, 2, 3, 4, 5\)</span>, list all the strings with no <span class="math inline">\(11\)</span></li>
-<li>write down the generating function with respect to the length weight</li>
-<li>write down the generating function with respect to the “number of 1s” weight</li>
+<li><span class="math inline">\(\dfrac{1}{1 - x} + \dfrac{1}{1 + x}\)</span></li>
+<li><span class="math inline">\(\dfrac{x^3}{1 + 2x}\)</span></li>
+<li><span class="math inline">\(\displaystyle \int_{0}^x \frac{1}{1 - t} \; dt = \log\left( \frac{1}{1 - x} \right)\)</span> (hint: take the antiderivative/integral term by term)</li>
+<li><span class="math inline">\(\dfrac{3}{2 - x}\)</span> (hint: convert to <span class="math inline">\(\dfrac{a}{1 - bx}\)</span>)</li>
+<li><span class="math inline">\(\dfrac{1 + x}{1 - x^3}\)</span> (hint: split the fraction into two fractions)</li>
+</ol></li>
+<li><p>Convert each sequence to a closed form generating function. Use the most obvious choice of form for the general term of the sequence. Sequences start at <span class="math inline">\(n = 0\)</span>.</p>
+<ol type="a">
+<li><span class="math inline">\(2, 2, 2, 2, 2, 2, \dots\)</span></li>
+<li><span class="math inline">\(0, 1, 0, 1, 0, 1, \dots\)</span></li>
+<li><span class="math inline">\(1, 0, 1, 0, 1, 0, \dots\)</span></li>
+<li><span class="math inline">\(0, 1, 2, 3, 4, 5, \dots\)</span> (hint: factor out an <span class="math inline">\(x\)</span> from <span class="math inline">\(\sum nx^n\)</span> so that the terms are <span class="math inline">\(\frac{d}{dx} x^n\)</span>, then move the derivative operator outside the summation [but after the <span class="math inline">\(x\)</span> that was factored out])</li>
+<li><span class="math inline">\(1, 3, 5, 7, 9, 11, \dots\)</span> (hint: use part d)</li>
+</ol></li>
+<li><p>Using the formulas from section <a href="stars-and-bars-revisited.html#sec-sb-ogf-summary" class="quarto-xref"><span>Section 12.4</span></a>, find</p>
+<ol type="a">
+<li><span class="math inline">\(\displaystyle \sum_{n = 0}^\infty \binom{n + 2}{2} x^n\)</span></li>
+<li><span class="math inline">\(\displaystyle \sum_{n = 5}^\infty \binom{n - 1}{4} x^n\)</span></li>
+</ol></li>
+<li><p>Find the indicated coefficients.</p>
+<ol type="a">
+<li><span class="math inline">\([x^{10}] \dfrac{1}{1 + 2x}\)</span></li>
+<li><span class="math inline">\([x^{20}] \dfrac{1}{(1 - x)^7}\)</span></li>
+<li><span class="math inline">\([x^{20}] \dfrac{x^3}{(1 - x)^{10}}\)</span></li>
+<li><span class="math inline">\([x^{85}] \dfrac{2x^5}{1 - 3x^5}\)</span> (hint: if the sum is <span class="math inline">\(\sum (*) x^{5n + 5}\)</span> then the coefficient of <span class="math inline">\(x^{85}\)</span> occurs where <span class="math inline">\(5n + 5 = 85\)</span>)</li>
+</ol></li>
+<li><p>Write down a generating function for the number of ways to make change for <span class="math inline">\(n\)</span> dollars using <span class="math inline">\(1, 5\)</span> and <span class="math inline">\(10\)</span> dollar bills. (Hint: if we are receiving multiples of <span class="math inline">\(\$5\)</span> bills, then the generating function should be <span class="math inline">\(x^0 + x^5 + x^{10} + \cdots\)</span> where the weight function of a bill is its dolar value.)</p></li>
+<li><p>Repeat the previous problem but now suppose we are only allowed to give out a maximum of one <span class="math inline">\(\$5\)</span> bill.</p></li>
 </ol>
-</div>
-<section id="using-generating-functions-to-count" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="using-generating-functions-to-count"><span class="header-section-number">10.2.1</span> Using generating functions to count</h3>
-<p>The monomials <span class="math inline">\(a_nx^n\)</span> are created by adding up all the words in <span class="math inline">\(L\)</span> of weight <span class="math inline">\(n\)</span>. So another way to describe the generating function is <span id="eq-ogf-grouped-by-weight"><span class="math display">\[
-\Phi_L(x) = \sum_{s \in L} x^{f(s)} = \sum_{n = 0}^\infty \#\{s \in L : f(s) = n\} x^n.
-\tag{10.1}\]</span></span> This means the general strategy for getting an answer from a generating function is to—by some process—write it as as a power series <span class="math inline">\(\sum a_n x^n\)</span> making sure that it’s <span class="math inline">\(x^n\)</span>. Then <span class="math inline">\(a_n\)</span> is the answer to the question: how many strings of weight <span class="math inline">\(n\)</span> are there where (<em>whatever conditions we set</em>).</p>
-<div id="thm-ogf-addition" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 10.1 (Addition Theorem)</strong></span> If <span class="math inline">\(L\)</span> and <span class="math inline">\(L'\)</span> are disjoint, then <span class="math inline">\(\Phi_{L \cup L'}(x) = \Phi_{L}(x) + \Phi_{L'}(x)\)</span>.</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>To say that <span class="math inline">\(L\)</span> and <span class="math inline">\(L'\)</span> are disjoint implies that <span class="math display">\[
-\#\{s \in L \cup L' : f(s) = n\} = \#\{s \in L : f(s) = n\} + \#\{s \in L' : f(s) = n\}.
-\]</span> Substituting this into <a href="#eq-ogf-grouped-by-weight" class="quarto-xref">Equation&nbsp;<span>10.1</span></a> yields <span class="math display">\[\begin{align*}
-\Phi_{L \cup L'}(x) &amp;= \sum_{n = 0}^\infty \#\{s \in L : f(s) = n\} x^n + \sum_{n = 0}^\infty \#\{s \in L' : f(s) = n\} x^n \\
-&amp;= \Phi_{L}(x) + \Phi_{L'}(x).
-\end{align*}\]</span></p>
-</div>
-</section>
-</section>
-<section id="sec-geom-series" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="sec-geom-series"><span class="header-section-number">10.3</span> Infinite series</h2>
-<p>We’ve looked at examples where <span class="math inline">\(L\)</span> is a finite set. In many examples, <span class="math inline">\(L\)</span> will be an infinite set. For instance consider the infinite set of all strings of <span class="math inline">\(0\)</span>s. I.e. <span class="math inline">\(\{\varepsilon, 0, 00, 000, 0000, \dots\}\)</span>. For this language, we have the generating function <span class="math display">\[
-A = 1 + x + x^2 + x^3 + \cdots = \frac{1}{1 - x}.
-\]</span></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Geometric series formula
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>To prove this formula, we take <span class="math inline">\(A\)</span> and multiply everything by <span class="math inline">\(x\)</span> because that creates a lot of similar terms: <span class="math display">\[\begin{align*}
-A  &amp;= 1 + x + x^2 + x^3 + \cdots \\
-xA &amp;= \phantom{1+{}}x + x^2 + x^3 + \cdots \\
-A - xA &amp;= 1
-\end{align*}\]</span> From which we solve for <span class="math inline">\(A = \dfrac{1}{1 - x}\)</span>.</p>
-</div>
-</div>
-</div>
-<div id="exm-bin-string-ogf" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10.3</strong></span> Let <span class="math inline">\(L\)</span> is the language of all binary strings, i.e.&nbsp;<span class="math inline">\(L = \{\varnothing, 0, 1, 00, 01, 10, 11, 000, \dots\}\)</span>. We know that there are <span class="math inline">\(2^n\)</span> binary strings of length <span class="math inline">\(n\)</span> so the OGF of <span class="math inline">\(L\)</span> is <span class="math display">\[
-\Phi_L(x) = \sum_{n = 0}^\infty 2^nx^n = \sum_{n = 0}^\infty (2x)^n = \frac{1}{1 - 2x}.
-\]</span></p>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In a calculus or analysis course, we would want to specify here that <span class="math inline">\(|x| &lt; \frac12\)</span> for this series to converge. In combinatorics, we treat these series <em>purely algebraically</em>. That means as an infinite list of monomials without care whether or not the series converges. People use the term <strong>formal power series</strong> to refer to this concept.</p>
-</div>
-</div>
-<section id="sec-convergence" class="level3" data-number="10.3.1">
-<h3 data-number="10.3.1" class="anchored" data-anchor-id="sec-convergence"><span class="header-section-number">10.3.1</span> When do we care about convergence?</h3>
-<p>For the most part, <em>we don’t</em>. Meaning an infinite series is still valid even if it doesn’t converge other than when <span class="math inline">\(x = 0\)</span>. However, there are arguements using analysis which only apply to convergent power series. For instance, the fact that the series <span class="math display">\[
-1 + x + 2x^2 + 3x^3 + 5x^4 + 8x^5 + \cdots = \frac{1}{1 - x - x^2}
-\]</span> converges for <span class="math inline">\(|x| &lt; \frac{1}{\phi}\)</span> where <span class="math inline">\(\varphi = \frac{1 + \sqrt5}{2}\)</span> is connected to the fact that the Fibonnaci numbers are approximately <span class="math inline">\(c \varphi^n\)</span> for some constant <span class="math inline">\(c\)</span>.</p>
-<div id="exr-compute-fib" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 10.2</strong></span> In fact, one can show that <span class="math display">\[
-\mathrm{Fib}_n = \operatorname{round}\left( \frac{\varphi^n}{\sqrt 5} \right).
-\]</span> Use a calculator or a computer to check this works!</p>
-</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -875,13 +776,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../generating-functions/weights.html" class="pagination-link" aria-label="Weight Functions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Weight Functions</span></span>
+      <a href="../generating-functions/coefficient-extraction.html" class="pagination-link" aria-label="Coefficient Extraction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../generating-functions/multiplication.html" class="pagination-link" aria-label="Multiplication of Generating Functions">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../regular-languages/regular-languages.html" class="pagination-link" aria-label="Regular Languages">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Regular Languages</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -890,4 +791,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/ogf.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/ogf.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/generating-function-exercises.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/generating-function-exercises.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
