@@ -80,11 +80,12 @@ plot(t1 * t2 * t3 * t4 * t5)
 
 So the cycle $(123456) = (12)(23)(34)(45)(56)$. Remember that compositions are read from right to left: e.g. $(f \circ g)(i) = f(g(i))$ means first do $g$ then do $f$.
 
-This kind of decomposition generalizes: you can replace $(123456)$ with any cycle of any length. E.g. $(1456) = (14)(45)(56)$ although one more reminder that products in SageMath are backwards from the function composition standpoint:
+This kind of decomposition generalizes: you can replace $(123456)$ with any cycle of any length. E.g. $(1456) = (14)(45)(56)$:
 
 ```{sage}
-S = SymmetricGroup(6)
-S((5,6)) * S((4,5)) * S((1,4))
+sage.combinat.permutation.Permutations.options(mult='r2l', display='cycle')
+P = Permutation
+P((1,4)) * P((4,5)) * P((5,6))
 ```
 :::
 
