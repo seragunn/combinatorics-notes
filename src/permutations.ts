@@ -28,10 +28,15 @@ class Permutation {
         }
     }
 
-    fromCycles(cycles: number[][], n: number) {
+    fromCycles(cycles: number[][], n: number | null) {
         this.cycles = sortCycles(cycles);
-        this.n = n;
-        this.list = Array.from({ length: n }, (_, i) => i + 1); // [1..n]
+        if (n) {
+            this.n = n;
+        } else {
+            const flattened = new Set(cycles.reduce((acc, val) => acc.concat(val), []));
+            this.n = Math.max(...flattened);
+        }
+        this.list = Array.from({ length: this.n }, (_, i) => i + 1); // [1..n]
         for (const cycle of cycles) {
             if (cycle.length === 1) {
                 continue;
@@ -114,7 +119,7 @@ class Permutation {
     constructor(lst: number[] | number[][] = [], n: number | null = null) {
         if (isList(lst))
             this.fromList(lst);
-        else if (n)
+        else
             this.fromCycles(lst, n);
     }
 }
@@ -141,7 +146,7 @@ function isList(lst: number[] | number[][]): lst is number[] {
 }
 
 function isPermutation(lst: number[]): boolean {
-    const sorted = lst.slice().sort();
+    const sorted = lst.slice().sort((a, b) => a - b);
     for (let i = 0; i < lst.length; i++) {
         if (sorted[i] != i + 1)
             return false;
