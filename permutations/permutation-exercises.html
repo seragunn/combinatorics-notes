@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -69,6 +69,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -329,13 +332,395 @@ window.Quarto = {
 </header>
 
 
+<script src="../js/permutations.js"></script>
+<script>
+    function checkCycles(ans) {
+        return (input) => {
+            const ans_perm = new Permutation(ans);
+            const in_perm = new Permutation().parseCycles(input);
+            return in_perm.equals(ans_perm);
+        }
+    }
+    function checkShuffle(ans) {
+        return (input) => {
+            const ans_perm = new Permutation(ans);
+            const in_perm = new Permutation().parseList(input);
+            return in_perm.equals(ans_perm);
+        }
+    }
+    function checkProductofTranspositions(ans) {
+        return (input) => {
+            const ans_perm = new Permutation(ans);
+            const cycles = readCycles(input);
+            return cycles.every((c) => c.length == 2) && mulCycles(cycles).equals(ans_perm);
+        }
+    }
+</script>
 <ol type="1">
-<li><p>Convert <span class="math inline">\(2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11\)</span> to a product of cycles and draw the associated digraph.</p></li>
-<li><p>Convert <span class="math inline">\((1,8,12)(2,3,6,7,9)(4,10,11)\)</span> to a shuffle of <span class="math inline">\(1,\dots,12\)</span></p></li>
+<li>Convert <span class="math inline">\(2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11\)</span> to a product of cycles and draw the associated digraph.</li>
+</ol>
+<div id="2eeed583" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<script>
+var ID = "bnk0FfGb"
+</script>
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="bnk0FfGb" data-controltype="" onsubmit="return false;">
+  <div class="form-group ">
+    <div class="controls">
+      <div class="form" id="controls_bnk0FfGb" correct="-1" attempts="0">
+        <div style="padding-top: 5px">
+    <br>
+<div class="input-group" aria-label="Input form: Check your work">
+    <input id="bnk0FfGb" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
+</div>
+
+    
+        </div>
+      </div>
+      <div id="bnk0FfGb_message" style="padding-bottom: 15px"></div>
+    </div>
+  </div>
+</form>
+<script>
+document.getElementById('controls_bnk0FfGb').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_bnk0FfGb')
+          var atts = Number(o.getAttribute("attempts"))
+          o.setAttribute("correct",  e.detail.correct);
+          o.setAttribute("attempts", atts + 1)
+      }, true)
+</script>
+
+<script text="text/javascript">
+document.getElementById("bnk0FfGb").addEventListener("change", function() {
+  var correct = (checkCycles([2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11]))(this.value);
+  var msgBox = document.getElementById('bnk0FfGb_message');
+  
+  if(correct) {
+    msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
+    var explanation = document.getElementById("explanation_bnk0FfGb")
+    if (explanation != null) {
+       explanation.style.display = "none";
+    }
+      const correct_answer   = new CustomEvent("quizquestion_answer", {bubbles:true, detail:{correct: 1}});
+  this.dispatchEvent(correct_answer);
+  //typeof correct_answer   != "undefined" && this.dispatchEvent(correct_answer);
+
+  } else {
+    msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Incorrect </span></div>";
+    var explanation = document.getElementById("explanation_bnk0FfGb")
+    if (explanation != null) {
+       explanation.style.display = "block";
+    }
+      const incorrect_answer = new CustomEvent("quizquestion_answer", {bubbles:true, detail:{correct: 0}});
+  this.dispatchEvent(incorrect_answer);
+  //typeof incorrect_answer != "undefined" && this.dispatchEvent(incorrect_answer);
+
+  }
+
+});
+
+</script>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Convert <span class="math inline">\((1,8,12)(2,3,6,7,9)(4,10,11)\)</span> to a shuffle of <span class="math inline">\(1,\dots,12\)</span></li>
+</ol>
+<div id="5d9f6bcf" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="3">
+<script>
+var ID = "iBxqKsxD"
+</script>
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="iBxqKsxD" data-controltype="" onsubmit="return false;">
+  <div class="form-group ">
+    <div class="controls">
+      <div class="form" id="controls_iBxqKsxD" correct="-1" attempts="0">
+        <div style="padding-top: 5px">
+    <br>
+<div class="input-group" aria-label="Input form: Check your work">
+    <input id="iBxqKsxD" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
+</div>
+
+    
+        </div>
+      </div>
+      <div id="iBxqKsxD_message" style="padding-bottom: 15px"></div>
+    </div>
+  </div>
+</form>
+<script>
+document.getElementById('controls_iBxqKsxD').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_iBxqKsxD')
+          var atts = Number(o.getAttribute("attempts"))
+          o.setAttribute("correct",  e.detail.correct);
+          o.setAttribute("attempts", atts + 1)
+      }, true)
+</script>
+
+<script text="text/javascript">
+document.getElementById("iBxqKsxD").addEventListener("change", function() {
+  var correct = (checkShuffle([[1,8,12],[2,3,6,7,9],[4,10,11]]))(this.value);
+  var msgBox = document.getElementById('iBxqKsxD_message');
+  
+  if(correct) {
+    msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
+    var explanation = document.getElementById("explanation_iBxqKsxD")
+    if (explanation != null) {
+       explanation.style.display = "none";
+    }
+      const correct_answer   = new CustomEvent("quizquestion_answer", {bubbles:true, detail:{correct: 1}});
+  this.dispatchEvent(correct_answer);
+  //typeof correct_answer   != "undefined" && this.dispatchEvent(correct_answer);
+
+  } else {
+    msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Incorrect </span></div>";
+    var explanation = document.getElementById("explanation_iBxqKsxD")
+    if (explanation != null) {
+       explanation.style.display = "block";
+    }
+      const incorrect_answer = new CustomEvent("quizquestion_answer", {bubbles:true, detail:{correct: 0}});
+  this.dispatchEvent(incorrect_answer);
+  //typeof incorrect_answer != "undefined" && this.dispatchEvent(incorrect_answer);
+
+  }
+
+});
+
+</script>
+</div>
+</div>
+<ol start="3" type="1">
 <li><p>Show that <span class="math inline">\((12)(23)(34)(23)(12) = (14)\)</span> by drawing the braid diagram.</p></li>
 <li><p>Compute the sign of the permutations in 1. and 2.</p></li>
-<li><p>Write <span class="math inline">\((182635)\)</span> as a product of transpositions.</p></li>
 </ol>
+<div>
+
+</div>
+<div class="quiz-question-side-by-side quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div id="4d1c0106" class="cell quarto-layout-cell" data-execution_count="3" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display no-overflow-x" data-execution_count="4">
+<script>
+var ID = "gRMqnGyf"
+</script>
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="gRMqnGyf" data-controltype="" onsubmit="return false;">
+  <div class="form-group ">
+    <div class="controls">
+      <div class="form" id="controls_gRMqnGyf" correct="-1" attempts="0">
+        <div style="padding-top: 5px">
+    <p>Problem 1:   <select name="select_gRMqnGyf" id="select_gRMqnGyf" aria-label"make="" a="" selection"="">
+     <option value="0" selected="selected">Choose...</option>
+     <option value="1">-1 
+</option>
+     <option value="2">1 
+</option>
+  </select>
+<label for="select_gRMqnGyf" style="left: -100vw; position: absolute;">Make a selection</label>
+ 
+
+    
+        </p></div>
+      </div>
+      <div id="gRMqnGyf_message" style="padding-bottom: 15px"></div>
+    </div>
+  </div>
+</form>
+<script>
+document.getElementById('controls_gRMqnGyf').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_gRMqnGyf')
+          var atts = Number(o.getAttribute("attempts"))
+          o.setAttribute("correct",  e.detail.correct);
+          o.setAttribute("attempts", atts + 1)
+      }, true)
+</script>
+
+<script text="text/javascript">
+      function callback(element, iterator) {
+      element.addEventListener("change", function() {
+          var a = [];
+          var selectors = document.querySelectorAll('[id ^= "select_gRMqnGyf"]');
+          Array.prototype.forEach.call(selectors, function (element, iterator) {
+         a.push(element.value);
+          })
+              var b = ['2'];
+              // https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
+              var correct =  (a.length === b.length && a.find((v,i) => v !== b[i]) === undefined)
+              var msgBox = document.getElementById('gRMqnGyf_message');
+              
+  if(correct) {
+    msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
+    var explanation = document.getElementById("explanation_gRMqnGyf")
+    if (explanation != null) {
+       explanation.style.display = "none";
+    }
+      const correct_answer   = new CustomEvent("quizquestion_answer", {bubbles:true, detail:{correct: 1}});
+  this.dispatchEvent(correct_answer);
+  //typeof correct_answer   != "undefined" && this.dispatchEvent(correct_answer);
+
+  } else {
+    msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Not yet </span></div>";
+    var explanation = document.getElementById("explanation_gRMqnGyf")
+    if (explanation != null) {
+       explanation.style.display = "block";
+    }
+      const incorrect_answer = new CustomEvent("quizquestion_answer", {bubbles:true, detail:{correct: 0}});
+  this.dispatchEvent(incorrect_answer);
+  //typeof incorrect_answer != "undefined" && this.dispatchEvent(incorrect_answer);
+
+  }
+
+      })
+      }
+      Array.prototype.forEach.call(document.querySelectorAll('[id ^= "select_gRMqnGyf"]'), callback);
+
+</script>
+</div>
+</div>
+<div id="9408d589" class="cell quarto-layout-cell" data-execution_count="4" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output cell-output-display no-overflow-x" data-execution_count="5">
+<script>
+var ID = "DuY7uW81"
+</script>
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="DuY7uW81" data-controltype="" onsubmit="return false;">
+  <div class="form-group ">
+    <div class="controls">
+      <div class="form" id="controls_DuY7uW81" correct="-1" attempts="0">
+        <div style="padding-top: 5px">
+    <p>Problem 2:   <select name="select_DuY7uW81" id="select_DuY7uW81" aria-label"make="" a="" selection"="">
+     <option value="0" selected="selected">Choose...</option>
+     <option value="1">1 
+</option>
+     <option value="2">-1 
+</option>
+  </select>
+<label for="select_DuY7uW81" style="left: -100vw; position: absolute;">Make a selection</label>
+ 
+
+    
+        </p></div>
+      </div>
+      <div id="DuY7uW81_message" style="padding-bottom: 15px"></div>
+    </div>
+  </div>
+</form>
+<script>
+document.getElementById('controls_DuY7uW81').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_DuY7uW81')
+          var atts = Number(o.getAttribute("attempts"))
+          o.setAttribute("correct",  e.detail.correct);
+          o.setAttribute("attempts", atts + 1)
+      }, true)
+</script>
+
+<script text="text/javascript">
+      function callback(element, iterator) {
+      element.addEventListener("change", function() {
+          var a = [];
+          var selectors = document.querySelectorAll('[id ^= "select_DuY7uW81"]');
+          Array.prototype.forEach.call(selectors, function (element, iterator) {
+         a.push(element.value);
+          })
+              var b = ['1'];
+              // https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
+              var correct =  (a.length === b.length && a.find((v,i) => v !== b[i]) === undefined)
+              var msgBox = document.getElementById('DuY7uW81_message');
+              
+  if(correct) {
+    msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
+    var explanation = document.getElementById("explanation_DuY7uW81")
+    if (explanation != null) {
+       explanation.style.display = "none";
+    }
+      const correct_answer   = new CustomEvent("quizquestion_answer", {bubbles:true, detail:{correct: 1}});
+  this.dispatchEvent(correct_answer);
+  //typeof correct_answer   != "undefined" && this.dispatchEvent(correct_answer);
+
+  } else {
+    msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Not yet </span></div>";
+    var explanation = document.getElementById("explanation_DuY7uW81")
+    if (explanation != null) {
+       explanation.style.display = "block";
+    }
+      const incorrect_answer = new CustomEvent("quizquestion_answer", {bubbles:true, detail:{correct: 0}});
+  this.dispatchEvent(incorrect_answer);
+  //typeof incorrect_answer != "undefined" && this.dispatchEvent(incorrect_answer);
+
+  }
+
+      })
+      }
+      Array.prototype.forEach.call(document.querySelectorAll('[id ^= "select_DuY7uW81"]'), callback);
+
+</script>
+</div>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>Write <span class="math inline">\((182635)\)</span> as a product of transpositions.</li>
+</ol>
+<div id="292fdace" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<script>
+var ID = "l7iTUIR6"
+</script>
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="l7iTUIR6" data-controltype="" onsubmit="return false;">
+  <div class="form-group ">
+    <div class="controls">
+      <div class="form" id="controls_l7iTUIR6" correct="-1" attempts="0">
+        <div style="padding-top: 5px">
+    <br>
+<div class="input-group" aria-label="Input form: Check your work">
+    <input id="l7iTUIR6" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
+</div>
+
+    
+        </div>
+      </div>
+      <div id="l7iTUIR6_message" style="padding-bottom: 15px"></div>
+    </div>
+  </div>
+</form>
+<script>
+document.getElementById('controls_l7iTUIR6').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_l7iTUIR6')
+          var atts = Number(o.getAttribute("attempts"))
+          o.setAttribute("correct",  e.detail.correct);
+          o.setAttribute("attempts", atts + 1)
+      }, true)
+</script>
+
+<script text="text/javascript">
+document.getElementById("l7iTUIR6").addEventListener("change", function() {
+  var correct = (checkProductofTranspositions([[1,8,2,6,3,5]]))(this.value);
+  var msgBox = document.getElementById('l7iTUIR6_message');
+  
+  if(correct) {
+    msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
+    var explanation = document.getElementById("explanation_l7iTUIR6")
+    if (explanation != null) {
+       explanation.style.display = "none";
+    }
+      const correct_answer   = new CustomEvent("quizquestion_answer", {bubbles:true, detail:{correct: 1}});
+  this.dispatchEvent(correct_answer);
+  //typeof correct_answer   != "undefined" && this.dispatchEvent(correct_answer);
+
+  } else {
+    msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Incorrect </span></div>";
+    var explanation = document.getElementById("explanation_l7iTUIR6")
+    if (explanation != null) {
+       explanation.style.display = "block";
+    }
+      const incorrect_answer = new CustomEvent("quizquestion_answer", {bubbles:true, detail:{correct: 0}});
+  this.dispatchEvent(incorrect_answer);
+  //typeof incorrect_answer != "undefined" && this.dispatchEvent(incorrect_answer);
+
+  }
+
+});
+
+</script>
+</div>
+</div>
 
 
 

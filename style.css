@@ -35,6 +35,20 @@
   padding: 0.4em;
 }
 
+.cell-output:has(input) {
+  margin-top: -3em;
+  margin-bottom: -1em;
+}
+
+.cell-output:has(select) {
+  margin-top: -1em;
+  margin-bottom: -1.5em;
+}
+
+.quiz-question-side-by-side {
+  margin: 0;
+}
+
 .edgeLabel, .nodeLabel {
   color: black !important;
 }

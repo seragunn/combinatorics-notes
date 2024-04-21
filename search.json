@@ -322,7 +322,7 @@
     "href": "permutations/permutation-exercises.html",
     "title": "8  Exercises",
     "section": "",
-    "text": "Convert \\(2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11\\) to a product of cycles and draw the associated digraph.\nConvert \\((1,8,12)(2,3,6,7,9)(4,10,11)\\) to a shuffle of \\(1,\\dots,12\\)\nShow that \\((12)(23)(34)(23)(12) = (14)\\) by drawing the braid diagram.\nCompute the sign of the permutations in 1. and 2.\nWrite \\((182635)\\) as a product of transpositions.",
+    "text": "Convert \\(2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11\\) to a product of cycles and draw the associated digraph.\n\n\n\n\n\n  \n    \n      \n        \n    \n\n    \n\n\n    \n        \n      \n      \n    \n  \n\n\n\n\n\n\n\nConvert \\((1,8,12)(2,3,6,7,9)(4,10,11)\\) to a shuffle of \\(1,\\dots,12\\)\n\n\n\n\n\n  \n    \n      \n        \n    \n\n    \n\n\n    \n        \n      \n      \n    \n  \n\n\n\n\n\n\n\nShow that \\((12)(23)(34)(23)(12) = (14)\\) by drawing the braid diagram.\nCompute the sign of the permutations in 1. and 2.\n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n        \n    Problem 1:   \n     Choose...\n     -1 \n\n     1 \n\n  \nMake a selection\n \n\n    \n        \n      \n      \n    \n  \n\n\n\n\n\n\n\n\n\n\n  \n    \n      \n        \n    Problem 2:   \n     Choose...\n     1 \n\n     -1 \n\n  \nMake a selection\n \n\n    \n        \n      \n      \n    \n  \n\n\n\n\n\n\n\n\n\nWrite \\((182635)\\) as a product of transpositions.",
     "crumbs": [
       "Permutations",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Exercises</span>"
