@@ -1,8 +1,38 @@
+<script src="/js/permutations.js"></script>
+<script>
+    function checkCycles(ans) {
+        return (input) => {
+            const ans_perm = new Permutation(ans);
+            const in_perm = new Permutation().parseCycles(input);
+            return in_perm.equals(ans_perm);
+        }
+    } 
+    function checkShuffle(ans) {
+        return (input) => {
+            const ans_perm = new Permutation(ans);
+            const in_perm = new Permutation().parseList(input);
+            return in_perm.equals(ans_perm);
+        }
+    } 
+</script>
+
 # Exercises
 
 1. Convert $2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11$ to a product of cycles and draw the associated digraph.
 
+```{julia}
+#| echo: false
+using QuizQuestions
+
+scriptq("checkCycles([2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11])", placeholder="Check your work")
+```
+
 2. Convert $(1,8,12)(2,3,6,7,9)(4,10,11)$ to a shuffle of $1,\dots,12$
+
+```{julia}
+#| echo: false
+scriptq("checkShuffle([[1,8,12],[2,3,6,7,9],[4,10,11]])", placeholder="Check your work")
+```
 
 3. Show that $(12)(23)(34)(23)(12) = (14)$ by drawing the braid diagram.
 
