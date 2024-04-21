@@ -45,6 +45,17 @@ scriptq("checkShuffle([[1,8,12],[2,3,6,7,9],[4,10,11]])", placeholder="Check you
 
 4. Compute the sign of the permutations in 1. and 2.
 
+::: {layout-ncol=2 .quiz-question-side-by-side}
+```{julia}
+#| echo: false
+fillblankq("Problem 1: ____", ("1","-1"), 1)
+```
+```{julia}
+#| echo: false
+fillblankq("Problem 2: ____", ("1","-1"), 1)
+```
+:::
+
 5. Write $(182635)$ as a product of transpositions.
 
 ```{julia}
