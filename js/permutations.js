@@ -2,6 +2,9 @@
    SPDX-License-Identifier: GPL-3.0-or-later */
 class Permutation {
     fromList(lst) {
+        if (!isPermutation(lst)) {
+            return;
+        }
         this.n = lst.length;
         this.list = lst.slice();
         this.cycles = [];
@@ -22,15 +25,10 @@ class Permutation {
             }
         }
     }
-    fromCycles(cycles, n) {
+    fromCycles(cycles) {
         this.cycles = sortCycles(cycles);
-        if (n) {
-            this.n = n;
-        }
-        else {
-            const flattened = new Set(cycles.reduce((acc, val) => acc.concat(val), []));
-            this.n = Math.max(...flattened);
-        }
+        const flattened = new Set(cycles.reduce((acc, val) => acc.concat(val), []));
+        this.n = Math.max(...flattened);
         this.list = Array.from({ length: this.n }, (_, i) => i + 1); // [1..n]
         for (const cycle of cycles) {
             if (cycle.length === 1) {
@@ -49,71 +47,42 @@ class Permutation {
     }
     parseList(str) {
         const lst = str.replace(/[^0-9,]/g, '').split(',').map(Number);
-        if (isPermutation(lst))
-            this.fromList(lst);
+        this.fromList(lst);
         return this;
     }
-    parseCycles(str, n = null) {
-        const trimStr = str.replace(/^\s*\(|\)\s*$|\s/g, '');
-        const list = trimStr.replace(/\)\(/g, ',').replace(/[^0-9,]/g, '').split(',').map(Number);
-        n = Math.max(...list, n);
-        if (new Set(list).size != list.length) { // check for duplicates
-            return;
-        }
-        const lists = trimStr.replace(/[^0-9,()]/g, '').split(')(');
-        let cycles = lists.map(l => l.split(',').map(Number));
-        this.fromCycles(cycles, n);
+    parseCycles(str) {
+        const cycles = readCycles(str, true);
+        this.fromCycles(cycles);
         return this;
     }
-    equals(perm) {
-        if (this.n !== perm.n) {
+    equals(y) {
+        if (this.cycles.length !== y.cycles.length) {
             return false;
         }
-        for (let i = 0; i < this.n; i++) {
-            if (this.list[i] !== perm.list[i]) {
+        for (let i = 0; i < this.cycles.length; i++) {
+            if (this.cycles[i].length != y.cycles[i].length) {
                 return false;
+            }
+            for (let j = 0; j < this.cycles[i].length; j++) {
+                if (this.cycles[i][j] !== y.cycles[i][j]) {
+                    return false;
+                }
             }
         }
         return true;
     }
     mul(y) {
-        const n = Math.max(this.n, y.n);
-        let prod = new Permutation();
-        const cycles = y.cycles.concat(this.cycles);
-        let flattened = new Set(cycles.reduce((acc, val) => acc.concat(val), []));
-        let newCycles = [];
-        while (flattened.size) {
-            let first = Math.min(...flattened);
-            let x = first;
-            flattened.delete(first);
-            let newCycle = [first];
-            while (true) {
-                for (const cycle of cycles) {
-                    const i = cycle.indexOf(x);
-                    if (i == -1) {
-                        continue;
-                    }
-                    x = cycle[(i + 1) % cycle.length];
-                }
-                if (x == first) {
-                    break;
-                }
-                newCycle.push(x);
-                flattened.delete(x);
-            }
-            newCycles.push(newCycle);
-        }
-        prod.fromCycles(newCycles, n);
-        return prod;
+        const cycles = this.cycles.concat(y.cycles);
+        return mulCycles(cycles);
     }
-    constructor(lst = [], n = null) {
+    constructor(lst = []) {
         this.n = 0;
         this.list = [];
         this.cycles = [];
         if (isList(lst))
             this.fromList(lst);
         else
-            this.fromCycles(lst, n);
+            this.fromCycles(lst);
     }
 }
 function cmpCycle(c1, c2) {
@@ -130,6 +99,47 @@ function sortCycles(cycles) {
         retCycles.push(right.concat(left));
     }
     return retCycles;
+}
+function mulCycles(cycles) {
+    cycles.reverse();
+    let prod = new Permutation();
+    let flattened = new Set(cycles.reduce((acc, val) => acc.concat(val), []));
+    const n = Math.max(...flattened);
+    let newCycles = [];
+    while (flattened.size) {
+        let first = Math.min(...flattened);
+        let x = first;
+        flattened.delete(first);
+        let newCycle = [first];
+        while (true) {
+            for (const cycle of cycles) {
+                const i = cycle.indexOf(x);
+                if (i == -1) {
+                    continue;
+                }
+                x = cycle[(i + 1) % cycle.length];
+            }
+            if (x == first) {
+                break;
+            }
+            newCycle.push(x);
+            flattened.delete(x);
+        }
+        newCycles.push(newCycle);
+    }
+    prod.fromCycles(newCycles);
+    return prod;
+}
+function readCycles(str, disjoint = false) {
+    const trimStr = str.replace(/^\s*\(|\)\s*$|\s/g, '');
+    const list = trimStr.replace(/\)\(/g, ',').replace(/[^0-9,]/g, '').split(',').map(Number);
+    const n = Math.max(...list);
+    if (disjoint && new Set(list).size != list.length) { // check for duplicates
+        return [];
+    }
+    const lists = trimStr.replace(/[^0-9,()]/g, '').split(')(');
+    const cycles = lists.map(l => l.split(',').map(Number));
+    return cycles;
 }
 function isList(lst) {
     return lst.length == 0 || typeof lst[0] == 'number';
