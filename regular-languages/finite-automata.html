@@ -313,6 +313,13 @@ window.Quarto = {
   <ul>
   <li><a href="#interpreting-a-fsa" id="toc-interpreting-a-fsa" class="nav-link active" data-scroll-target="#interpreting-a-fsa"><span class="header-section-number">16.1</span> Interpreting a FSA</a></li>
   <li><a href="#a-fsa-for-even-1s" id="toc-a-fsa-for-even-1s" class="nav-link" data-scroll-target="#a-fsa-for-even-1s"><span class="header-section-number">16.2</span> A FSA for even ’1’s</a></li>
+  <li><a href="#state-elimination" id="toc-state-elimination" class="nav-link" data-scroll-target="#state-elimination"><span class="header-section-number">16.3</span> State Elimination</a>
+  <ul class="collapse">
+  <li><a href="#sec-one-in-one-out" id="toc-sec-one-in-one-out" class="nav-link" data-scroll-target="#sec-one-in-one-out"><span class="header-section-number">16.3.1</span> One in, one out</a></li>
+  <li><a href="#sec-parallel-edges" id="toc-sec-parallel-edges" class="nav-link" data-scroll-target="#sec-parallel-edges"><span class="header-section-number">16.3.2</span> Parallel edges</a></li>
+  <li><a href="#mutiple-ins-or-outs" id="toc-mutiple-ins-or-outs" class="nav-link" data-scroll-target="#mutiple-ins-or-outs"><span class="header-section-number">16.3.3</span> Mutiple ins or outs</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">16.3.4</span> Example</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/regular-languages/finite-automata.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/regular-languages/finite-automata.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -420,8 +427,241 @@ Figure&nbsp;16.3: Automaton for an even number of <span class="math inline">\(1\
 </div>
 </div>
 <p>These success or failure states are used at the end of reading a string. If we finish in a success state, the string is good. If we finish in a failure state, the string is bad.</p>
+</section>
+<section id="state-elimination" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="state-elimination"><span class="header-section-number">16.3</span> State Elimination</h2>
+<p>Let’s have a look at how to turn a FSA into a regular expression. To do this, we will modify our automata step by step, marking each path by what regular expression goes through each state.</p>
+<section id="sec-one-in-one-out" class="level3" data-number="16.3.1">
+<h3 data-number="16.3.1" class="anchored" data-anchor-id="sec-one-in-one-out"><span class="header-section-number">16.3.1</span> One in, one out</h3>
+<p>For example, a state like</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-pre-state-elimination" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pre-state-elimination-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-pre-state-elimination">stateDiagram
+    direction LR
+
+    [*] --&gt; S : a
+    S --&gt; S : b
+    S --&gt; [*] : c
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pre-state-elimination-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.4: Pre-state elimination
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Can be replaced by</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-post-state-elimination" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-post-state-elimination-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-post-state-elimination">stateDiagram
+    direction LR
+
+    [*] --&gt; [*] : ab*c
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-post-state-elimination-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.5: Post-state elimination
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In order to enter state <span class="math inline">\(S\)</span> we need to see an <span class="math inline">\(a\)</span>, then we can use <span class="math inline">\(b\)</span> as many times as we want, then we need to see a <span class="math inline">\(c\)</span> to leave.</p>
+</section>
+<section id="sec-parallel-edges" class="level3" data-number="16.3.2">
+<h3 data-number="16.3.2" class="anchored" data-anchor-id="sec-parallel-edges"><span class="header-section-number">16.3.2</span> Parallel edges</h3>
+<p>Given two parallel edges, we can combine them using <span class="math inline">\(+\)</span> meaning “or”.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-pre-parallel" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pre-parallel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-pre-parallel">stateDiagram
+    direction LR
+
+    [*] --&gt; [*] : a
+    [*] --&gt; [*] : b
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pre-parallel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.6: Pre-state elimination for parallel edges
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-post-parallel" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-post-parallel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-post-parallel">stateDiagram
+    direction LR
+
+    [*] --&gt; [*] : a + b
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-post-parallel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.7: Post-state elimination for parallel edges
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>This says to get from the first state to the second, we can take either <span class="math inline">\(a\)</span> or <span class="math inline">\(b\)</span>.</p>
+</section>
+<section id="mutiple-ins-or-outs" class="level3" data-number="16.3.3">
+<h3 data-number="16.3.3" class="anchored" data-anchor-id="mutiple-ins-or-outs"><span class="header-section-number">16.3.3</span> Mutiple ins or outs</h3>
+<p>Suppose we have multiple in-edges or out-edges on a state. We can replace the state with a path from each input to each output and record the expression for that path according to <a href="#sec-one-in-one-out" class="quarto-xref"><span>Section 16.3.1</span></a>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-pre-multiple" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pre-multiple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-pre-multiple">stateDiagram
+    direction LR
+
+    I1 --&gt; S : a
+    I2 --&gt; S : b
+    S --&gt; S : c
+    S --&gt; O1 : d
+    S --&gt; O2 : e
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pre-multiple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.8: Pre-state elimination for multiple edges
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-pre-multiple" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pre-multiple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-pre-multiple">stateDiagram
+    direction LR
+
+    I1 --&gt; O1 : ac*d
+    I1 --&gt; O2 : ac*e
+    I2 --&gt; O1 : bc*d
+    I2 --&gt; O2 : bc*e
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pre-multiple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.9: Pre-state elimination for multiple edges
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="example" class="level3" data-number="16.3.4">
+<h3 data-number="16.3.4" class="anchored" data-anchor-id="example"><span class="header-section-number">16.3.4</span> Example</h3>
+<p>Consider the language of trinary strings containing at least one <span class="math inline">\(1\)</span> and one <span class="math inline">\(2\)</span>. Let’s setup states recording whether we’ve yet seen a <span class="math inline">\(1\)</span>, a <span class="math inline">\(2\)</span> or both.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-pre-trinary" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pre-trinary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-pre-trinary">stateDiagram
+    direction LR
+
+    [*] --&gt; 0
+    0 --&gt; 0 : 0
+    0 --&gt; 01 : 1
+    0 --&gt; 02 : 2
+    01 --&gt; 01 : 0,1
+    02 --&gt; 02 : 0,2
+    01 --&gt; 012 : 2
+    02 --&gt; 012 : 1
+    012 --&gt; 012 : 0,1,2
+    012 --&gt; [*]
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pre-trinary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.10: FSA for trinary strings with at least one 1 and one 2
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In order to eliminate every state, we make sure to have a starting and ending node that we can get an answer going from start to finish. There is only one accepting state here, “012”, which can go to the ending node whenever we finish.</p>
+<p>Next, we eliminate states “01” and “02” using <a href="#sec-one-in-one-out" class="quarto-xref"><span>Section 16.3.1</span></a>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-step-trinary" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-step-trinary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-step-trinary">stateDiagram
+    direction LR
+
+    [*] --&gt; 0
+    0 --&gt; 0 : 0
+    0 --&gt; 012 : 1(0+1)*2
+    0 --&gt; 012 : 2(0+1)*1
+    012 --&gt; 012 : 0,1,2
+    012 --&gt; [*]
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-step-trinary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.11: FSA for trinary strings with at least one 1 and one 2, begin state elmination
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Then we use <a href="#sec-parallel-edges" class="quarto-xref"><span>Section 16.3.2</span></a> and finish off with <a href="#sec-one-in-one-out" class="quarto-xref"><span>Section 16.3.1</span></a> to eliminate the remaining states.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-end-trinary" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-end-trinary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-end-trinary">stateDiagram
+    direction LR
+
+    [*] --&gt; [*] : 0*[1(0+1)*2 + 2(0+2)*1](0 + 1 + 2)*0
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-end-trinary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.12: FSA for trinary strings with at least one 1 and one 2, finish state elmination
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>This gives us the regular expression <span class="math display">\[
+0^*[1(0+1)^*2 + 2(0+2)^*1](0+1+2)^*.
+\]</span></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
