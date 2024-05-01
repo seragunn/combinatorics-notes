@@ -7,9 +7,25 @@
             return in_perm.equals(ans_perm);
         }
     }
+    function checkCyclesFromInput(input_id) {
+        return (input) => {
+            const ans = document.getElementById(input_id).value;
+            const ans_perm = new Permutation().parseList(ans);
+            const in_perm = new Permutation().parseCycles(input);
+            return in_perm.equals(ans_perm);
+        }
+    }
     function checkShuffle(ans) {
         return (input) => {
             const ans_perm = new Permutation(ans);
+            const in_perm = new Permutation().parseList(input);
+            return in_perm.equals(ans_perm);
+        }
+    }
+    function checkShuffleFromInput(input_id) {
+        return (input) => {
+            const ans = document.getElementById(input_id).value;
+            const ans_perm = new Permutation().parseCycles(ans);
             const in_perm = new Permutation().parseList(input);
             return in_perm.equals(ans_perm);
         }
@@ -40,6 +56,34 @@ scriptq("checkCycles([2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11])", placeholder="Che
 #| echo: false
 scriptq("checkShuffle([[1,8,12],[2,3,6,7,9],[4,10,11]])", placeholder="Check your work")
 ```
+
+### Additional practice {.unnumbered}
+
+::: panel-tabset
+
+### Shuffle to Cycles
+
+::: {.mx-2}
+<input id="shuffle-input" class="form-control" placeholder="Shuffle">
+:::
+
+```{julia}
+#| echo: false
+scriptq("checkCyclesFromInput('shuffle-input')", placeholder="Check your work")
+```
+
+### Cycles to Shuffles
+
+::: {.mx-2}
+<input id="cycle-input" class="form-control" placeholder="Cycle decomposition">
+:::
+
+```{julia}
+#| echo: false
+scriptq("checkShuffleFromInput('cycle-input')", placeholder="Check your work")
+```
+
+:::
 
 3. Show that $(12)(23)(34)(23)(12) = (14)$ by drawing the braid diagram.
 
