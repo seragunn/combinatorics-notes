@@ -61,3 +61,6 @@ format:
         \usepackage{textalpha}
 
 pdf-engine: pdflatex
+
+execute:
+  freeze: true
