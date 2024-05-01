@@ -53,3 +53,141 @@ stateDiagram
 ```
 
 These success or failure states are used at the end of reading a string. If we finish in a success state, the string is good. If we finish in a failure state, the string is bad.
+
+## State Elimination
+
+Let's have a look at how to turn a FSA into a regular expression. To do this, we will modify our automata step by step, marking each path by what regular expression goes through each state.
+
+### One in, one out {#sec-one-in-one-out}
+For example, a state like
+```{mermaid}
+%%| label: fig-pre-state-elimination
+%%| fig-cap: "Pre-state elimination"
+stateDiagram
+    direction LR
+
+    [*] --> S : a
+    S --> S : b
+    S --> [*] : c
+```
+
+Can be replaced by
+
+```{mermaid}
+%%| label: fig-post-state-elimination
+%%| fig-cap: "Post-state elimination"
+stateDiagram
+    direction LR
+
+    [*] --> [*] : ab*c
+```
+
+In order to enter state $S$ we need to see an $a$, then we can use $b$ as many times as we want, then we need to see a $c$ to leave.
+
+### Parallel edges {#sec-parallel-edges}
+
+Given two parallel edges, we can combine them using $+$ meaning "or".
+
+```{mermaid}
+%%| label: fig-pre-parallel
+%%| fig-cap: "Pre-state elimination for parallel edges"
+stateDiagram
+    direction LR
+
+    [*] --> [*] : a
+    [*] --> [*] : b
+```
+
+```{mermaid}
+%%| label: fig-post-parallel
+%%| fig-cap: "Post-state elimination for parallel edges"
+stateDiagram
+    direction LR
+
+    [*] --> [*] : a + b
+```
+
+This says to get from the first state to the second, we can take either $a$ or $b$.
+
+### Mutiple ins or outs
+Suppose we have multiple in-edges or out-edges on a state. We can replace the state with a path from each input to each output and record the expression for that path according to @sec-one-in-one-out.
+
+```{mermaid}
+%%| label: fig-pre-multiple
+%%| fig-cap: "Pre-state elimination for multiple edges"
+stateDiagram
+    direction LR
+
+    I1 --> S : a
+    I2 --> S : b
+    S --> S : c
+    S --> O1 : d
+    S --> O2 : e
+```
+
+```{mermaid}
+%%| label: fig-pre-multiple
+%%| fig-cap: "Pre-state elimination for multiple edges"
+stateDiagram
+    direction LR
+
+    I1 --> O1 : ac*d
+    I1 --> O2 : ac*e
+    I2 --> O1 : bc*d
+    I2 --> O2 : bc*e
+```
+
+### Example
+
+Consider the language of trinary strings containing at least one $1$ and one $2$. Let's setup states recording whether we've yet seen a $1$, a $2$ or both.
+
+```{mermaid}
+%%| label: fig-pre-trinary
+%%| fig-cap: "FSA for trinary strings with at least one 1 and one 2"
+stateDiagram
+    direction LR
+
+    [*] --> 0
+    0 --> 0 : 0
+    0 --> 01 : 1
+    0 --> 02 : 2
+    01 --> 01 : 0,1
+    02 --> 02 : 0,2
+    01 --> 012 : 2
+    02 --> 012 : 1
+    012 --> 012 : 0,1,2
+    012 --> [*]
+```
+
+In order to eliminate every state, we make sure to have a starting and ending node that we can get an answer going from start to finish. There is only one accepting state here, "012", which can go to the ending node whenever we finish.
+
+Next, we eliminate states "01" and "02" using @sec-one-in-one-out.
+```{mermaid}
+%%| label: fig-step-trinary
+%%| fig-cap: "FSA for trinary strings with at least one 1 and one 2, begin state elmination"
+stateDiagram
+    direction LR
+
+    [*] --> 0
+    0 --> 0 : 0
+    0 --> 012 : 1(0+1)*2
+    0 --> 012 : 2(0+1)*1
+    012 --> 012 : 0,1,2
+    012 --> [*]
+```
+
+Then we use @sec-parallel-edges and finish off with @sec-one-in-one-out to eliminate the remaining states.
+
+```{mermaid}
+%%| label: fig-end-trinary
+%%| fig-cap: "FSA for trinary strings with at least one 1 and one 2, finish state elmination"
+stateDiagram
+    direction LR
+
+    [*] --> [*] : 0*[1(0+1)*2 + 2(0+2)*1](0 + 1 + 2)*0
+```
+
+This gives us the regular expression
+$$
+0^*[1(0+1)^*2 + 2(0+2)^*1](0+1+2)^*.
+$$
