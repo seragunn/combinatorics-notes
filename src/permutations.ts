@@ -86,6 +86,14 @@ class Permutation {
         return mulCycles(cycles);
     }
 
+    sign(): number {
+        let s = 1;
+        for (const cycle of this.cycles) {
+            s *= cycle.length % 2 ? 1 : -1;
+        }
+        return s;
+    }
+
     constructor(lst: number[] | number[][] = []) {
         if (isList(lst))
             this.fromList(lst);
@@ -165,4 +173,13 @@ function isPermutation(lst: number[]): boolean {
             return false;
     }
     return true;
+}
+
+function randomPermutation(n: number): Permutation {
+    let array = Array.from({ length: n }, (_, i) => i + 1);
+    for (let i = n - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return new Permutation(array);
 }

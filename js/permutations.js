@@ -75,6 +75,13 @@ class Permutation {
         const cycles = this.cycles.concat(y.cycles);
         return mulCycles(cycles);
     }
+    sign() {
+        let s = 1;
+        for (const cycle of this.cycles) {
+            s *= cycle.length % 2 ? 1 : -1;
+        }
+        return s;
+    }
     constructor(lst = []) {
         this.n = 0;
         this.list = [];
@@ -151,5 +158,13 @@ function isPermutation(lst) {
             return false;
     }
     return true;
+}
+function randomPermutation(n) {
+    let array = Array.from({ length: n }, (_, i) => i + 1);
+    for (let i = n - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return new Permutation(array);
 }
 //# sourceMappingURL=permutations.js.map
