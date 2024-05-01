@@ -132,7 +132,7 @@ We showed that we can push all the transpositions containing a $1$ to the right 
 Start with $(12)(23)(12)(13)$. Use Case 3 to swap the first and second: $(23)(13)(12)(13)$. Now use Case 4 to swap the second and third: $(23)(23)(13)(13)$. Now cancel using Case 2.
 :::
  
-## Notation/Computation
+## Notation/Computation {#sec-sign-algorithm}
 
 If $\pi$ is a permutation, common notations for its parity or sign are: $\operatorname{sgn} \pi$ and $(-1)^\pi$. We say the sign is $+1$ if it is an even length product and the sign is $-1$ if it is an odd length product.
 

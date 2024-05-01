@@ -1,6 +1,6 @@
 # Visual representations of permutations
 
-## As a collection of cycles
+## As a collection of cycles {#sec-cycle-decomposition}
 
 Let's look at a longer permutation now: $541237896$. As in @sec-function, we can view this as a function where $1$ goes to $5$, $2$ goes to $4$ etc. Following the path of a single number we get a cycle: $1$ goes to $5$ goes to $3$ goes to $1$. Likewise $2$ goes to $4$ goes to $2$. And so on.
 
@@ -42,6 +42,22 @@ Compute the cycle decomposition for $341859672$. You can [verify your answer in 
 :::
 
 Note: as mentioned earlier: SageMath ommits the cycle $(5)$ representing the fixed point $\pi(5) = 5$.
+
+### Multiplying Cycles {#sec-cycle-multiplication}
+
+To multiply cycles, we read from right to left. If our current number appears in the cycle, we shift over to the right (wrapping back to the start if necessary). E.g. $(2, 5)(1, 5, 3)$ would move $1$ to $5$ with the first cycle then from $5$ to $2$ with the second cycle.
+
+You can either do this procedure and produce a shuffle like:
+
+|            $i$ | 1 | 2 | 3 | 4 | 5 |
+|----------------|---|---|---|---|---|
+| $(1, 5, 3)$    | 5 | - | 1 | - | 3 |
+| $(2, 5)$       | 2 | 5 | - | - | - |
+| Answer         | 2 | 5 | 1 | 4 | 3 |
+
+Here a "-" means the value is unchanged at this step.
+
+Or you can combine this with the procedure of @sec-cycle-decomposition and produce a product in cycle form again. Here that is $(1, 2, 5, 3)$ because $1 \to 5 \to 2$ then $2 \to 5$ then $5 \to 3$ then $3 \to 1$.
 
 ## Braids {#sec-braids}
 

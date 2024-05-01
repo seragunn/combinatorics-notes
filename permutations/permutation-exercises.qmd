@@ -75,12 +75,37 @@ using QuizQuestions
 scriptq("checkCycles([2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11])", placeholder="Check your work")
 ```
 
+::: {.callout-tip collapse="true"}
+## Hint
+Reference: @sec-cycle-decomposition
+
+* start with 1
+    * there is a 2 in position 1
+    * there is a 12 in position 2
+    * keep going...x in position 12...until you get back to 1
+* write down the first cycle $(1, 2, 12, \dots)$ (don't repeat the $1$ at the end)
+* do the same procedure with the next number which hasn't been seen so far (i.e. 3)
+* keep going until every number is part of a cycle
+* optionally, throw away cycles of length 1
+:::
+
 2. Convert $(1,8,12)(2,3,6,7,9)(4,10,11)$ to a shuffle of $1,\dots,12$
 
 ```{julia}
 #| echo: false
 scriptq("checkShuffle([[1,8,12],[2,3,6,7,9],[4,10,11]])", placeholder="Check your work")
 ```
+
+::: {.callout-tip collapse="true"}
+## Hint
+Reference: @sec-cycle-multiplication
+
+Since the cycles are disjoint (don't share any numbers), the procedure here is:
+
+* look for each number from 1 to 12
+* write down the number following it in its cycle (e.g. 1 is followed by 8 so we write an 8 in the first position of the shufle, 2 is followed by 3, 3 by 6, etc.)
+* if a number does not appear (i.e. 5), then the perumtation leaves it unchanged and it remains in its starting position (so you should have a 5 in position 5 at the end)
+:::
 
 3. Show that $(12)(23)(34)(23)(12) = (14)$ by drawing the braid diagram.
 
@@ -97,6 +122,13 @@ fillblankq("Problem 2: ____", ("1","-1"), 1)
 ```
 :::
 
+::: {.callout-tip collapse="true"}
+## Hint
+Reference: @sec-sign-algorithm
+
+Regardless of whether the cycles are disjoint or not (here they are), odd cycles are even and even cycles are odd (in terms of number of swaps). So multiply $1$ for each odd length cycle and $-1$ for each even legnth cycle. For example, $(1, 8, 2)$ has an odd legnth (even number of swaps) so we multiply $+1$ for it.
+:::
+
 5. Write $(182635)$ as a product of transpositions.
 
 ```{julia}
@@ -104,6 +136,14 @@ fillblankq("Problem 2: ____", ("1","-1"), 1)
 scriptq("checkProductofTranspositions([[1,8,2,6,3,5]])", placeholder="Check your work")
 ```
 
+::: {.callout-tip collapse="true"}
+## Hint
+Reference: @thm-product-of-transpositions
+
+The rule is like $(a,b,c,d) = (a, b)(b, c)(c, d)$. The transpositions are adjacent pairs.
+:::
+
+::: {.content-visible when-format=html}
 ### Additional practice {.unnumbered}
 
 ::: panel-tabset
@@ -167,3 +207,12 @@ scriptq("checkProductofTranspositionsFromInput('transpositions-input')", placeho
 ```
 
 :::
+:::
+
+<details>
+<summary>Solutions</summary>
+1. `(1, 2, 12, 11)(4, 5)(6, 9)(7, 8)`
+2. `8, 3, 6, 10, 5, 7, 9, 12, 2, 11, 4, 1`
+3. both even (+1)
+5. `(1, 8)(8, 2)(2, 6)(6, 3)(3, 5)`
+</details>
