@@ -406,31 +406,31 @@ window.Quarto = {
 <ol type="1">
 <li>Convert <span class="math inline">\(2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11\)</span> to a product of cycles and draw the associated digraph.</li>
 </ol>
-<div id="04f3b563" class="cell" data-execution_count="1">
+<div id="eb3dd349" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <script>
-var ID = "7O8tQm5H"
+var ID = "SBtPEuZ0"
 </script>
-<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="7O8tQm5H" data-controltype="" onsubmit="return false;">
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="SBtPEuZ0" data-controltype="" onsubmit="return false;">
   <div class="form-group ">
     <div class="controls">
-      <div class="form" id="controls_7O8tQm5H" correct="-1" attempts="0">
+      <div class="form" id="controls_SBtPEuZ0" correct="-1" attempts="0">
         <div style="padding-top: 5px">
     <br>
 <div class="input-group" aria-label="Input form: Check your work">
-    <input id="7O8tQm5H" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
+    <input id="SBtPEuZ0" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
 </div>
 
     
         </div>
       </div>
-      <div id="7O8tQm5H_message" style="padding-bottom: 15px"></div>
+      <div id="SBtPEuZ0_message" style="padding-bottom: 15px"></div>
     </div>
   </div>
 </form>
 <script>
-document.getElementById('controls_7O8tQm5H').addEventListener("quizquestion_answer", (e) => {
-          var o = document.getElementById('controls_7O8tQm5H')
+document.getElementById('controls_SBtPEuZ0').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_SBtPEuZ0')
           var atts = Number(o.getAttribute("attempts"))
           o.setAttribute("correct",  e.detail.correct);
           o.setAttribute("attempts", atts + 1)
@@ -438,13 +438,13 @@ document.getElementById('controls_7O8tQm5H').addEventListener("quizquestion_answ
 </script>
 
 <script text="text/javascript">
-document.getElementById("7O8tQm5H").addEventListener("change",  function() {
+document.getElementById("SBtPEuZ0").addEventListener("change",  function() {
   var correct =  (checkCycles([2, 12, 3, 5, 4, 9, 8, 7, 6, 10, 1, 11]))(this.value);
-  var msgBox = document.getElementById('7O8tQm5H_message');
+  var msgBox = document.getElementById('SBtPEuZ0_message');
   
   if(correct) {
     msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
-    var explanation = document.getElementById("explanation_7O8tQm5H")
+    var explanation = document.getElementById("explanation_SBtPEuZ0")
     if (explanation != null) {
        explanation.style.display = "none";
     }
@@ -454,7 +454,7 @@ document.getElementById("7O8tQm5H").addEventListener("change",  function() {
 
   } else {
     msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Incorrect </span></div>";
-    var explanation = document.getElementById("explanation_7O8tQm5H")
+    var explanation = document.getElementById("explanation_SBtPEuZ0")
     if (explanation != null) {
        explanation.style.display = "block";
     }
@@ -500,31 +500,31 @@ Hint
 <ol start="2" type="1">
 <li>Convert <span class="math inline">\((1,8,12)(2,3,6,7,9)(4,10,11)\)</span> to a shuffle of <span class="math inline">\(1,\dots,12\)</span></li>
 </ol>
-<div id="cc191cc9" class="cell" data-execution_count="2">
+<div id="d911dec6" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="3">
 <script>
-var ID = "a2IxJ996"
+var ID = "FUtimnn4"
 </script>
-<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="a2IxJ996" data-controltype="" onsubmit="return false;">
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="FUtimnn4" data-controltype="" onsubmit="return false;">
   <div class="form-group ">
     <div class="controls">
-      <div class="form" id="controls_a2IxJ996" correct="-1" attempts="0">
+      <div class="form" id="controls_FUtimnn4" correct="-1" attempts="0">
         <div style="padding-top: 5px">
     <br>
 <div class="input-group" aria-label="Input form: Check your work">
-    <input id="a2IxJ996" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
+    <input id="FUtimnn4" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
 </div>
 
     
         </div>
       </div>
-      <div id="a2IxJ996_message" style="padding-bottom: 15px"></div>
+      <div id="FUtimnn4_message" style="padding-bottom: 15px"></div>
     </div>
   </div>
 </form>
 <script>
-document.getElementById('controls_a2IxJ996').addEventListener("quizquestion_answer", (e) => {
-          var o = document.getElementById('controls_a2IxJ996')
+document.getElementById('controls_FUtimnn4').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_FUtimnn4')
           var atts = Number(o.getAttribute("attempts"))
           o.setAttribute("correct",  e.detail.correct);
           o.setAttribute("attempts", atts + 1)
@@ -532,13 +532,13 @@ document.getElementById('controls_a2IxJ996').addEventListener("quizquestion_answ
 </script>
 
 <script text="text/javascript">
-document.getElementById("a2IxJ996").addEventListener("change",  function() {
+document.getElementById("FUtimnn4").addEventListener("change",  function() {
   var correct =  (checkShuffle([[1,8,12],[2,3,6,7,9],[4,10,11]]))(this.value);
-  var msgBox = document.getElementById('a2IxJ996_message');
+  var msgBox = document.getElementById('FUtimnn4_message');
   
   if(correct) {
     msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
-    var explanation = document.getElementById("explanation_a2IxJ996")
+    var explanation = document.getElementById("explanation_FUtimnn4")
     if (explanation != null) {
        explanation.style.display = "none";
     }
@@ -548,7 +548,7 @@ document.getElementById("a2IxJ996").addEventListener("change",  function() {
 
   } else {
     msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Incorrect </span></div>";
-    var explanation = document.getElementById("explanation_a2IxJ996")
+    var explanation = document.getElementById("explanation_FUtimnn4")
     if (explanation != null) {
        explanation.style.display = "block";
     }
@@ -594,36 +594,36 @@ Hint
 </div>
 <div class="quiz-question-side-by-side quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
-<div id="e34d410e" class="cell quarto-layout-cell" data-execution_count="3" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="d8b01f4a" class="cell quarto-layout-cell" data-execution_count="3" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-display no-overflow-x" data-execution_count="4">
 <script>
-var ID = "q4Imbfa3"
+var ID = "3TYQRT1x"
 </script>
-<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="q4Imbfa3" data-controltype="" onsubmit="return false;">
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="3TYQRT1x" data-controltype="" onsubmit="return false;">
   <div class="form-group ">
     <div class="controls">
-      <div class="form" id="controls_q4Imbfa3" correct="-1" attempts="0">
+      <div class="form" id="controls_3TYQRT1x" correct="-1" attempts="0">
         <div style="padding-top: 5px">
-    <p>Problem 1:   <select name="select_q4Imbfa3" id="select_q4Imbfa3" aria-label"make="" a="" selection"="">
+    <p>Problem 1:   <select name="select_3TYQRT1x" id="select_3TYQRT1x" aria-label"make="" a="" selection"="">
      <option value="0" selected="selected">Choose...</option>
-     <option value="1">1 
+     <option value="1">-1 
 </option>
-     <option value="2">-1 
+     <option value="2">1 
 </option>
   </select>
-<label for="select_q4Imbfa3" style="left: -100vw; position: absolute;">Make a selection</label>
+<label for="select_3TYQRT1x" style="left: -100vw; position: absolute;">Make a selection</label>
  
 
     
         </p></div>
       </div>
-      <div id="q4Imbfa3_message" style="padding-bottom: 15px"></div>
+      <div id="3TYQRT1x_message" style="padding-bottom: 15px"></div>
     </div>
   </div>
 </form>
 <script>
-document.getElementById('controls_q4Imbfa3').addEventListener("quizquestion_answer", (e) => {
-          var o = document.getElementById('controls_q4Imbfa3')
+document.getElementById('controls_3TYQRT1x').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_3TYQRT1x')
           var atts = Number(o.getAttribute("attempts"))
           o.setAttribute("correct",  e.detail.correct);
           o.setAttribute("attempts", atts + 1)
@@ -634,18 +634,18 @@ document.getElementById('controls_q4Imbfa3').addEventListener("quizquestion_answ
       function callback(element, iterator) {
       element.addEventListener("change", function() {
           var a = [];
-          var selectors = document.querySelectorAll('[id ^= "select_q4Imbfa3"]');
+          var selectors = document.querySelectorAll('[id ^= "select_3TYQRT1x"]');
           Array.prototype.forEach.call(selectors, function (element, iterator) {
          a.push(element.value);
           })
-              var b = ['1'];
+              var b = ['2'];
               // https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
               var correct =  (a.length === b.length && a.find((v,i) => v !== b[i]) === undefined)
-              var msgBox = document.getElementById('q4Imbfa3_message');
+              var msgBox = document.getElementById('3TYQRT1x_message');
               
   if(correct) {
     msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
-    var explanation = document.getElementById("explanation_q4Imbfa3")
+    var explanation = document.getElementById("explanation_3TYQRT1x")
     if (explanation != null) {
        explanation.style.display = "none";
     }
@@ -655,7 +655,7 @@ document.getElementById('controls_q4Imbfa3').addEventListener("quizquestion_answ
 
   } else {
     msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Not yet </span></div>";
-    var explanation = document.getElementById("explanation_q4Imbfa3")
+    var explanation = document.getElementById("explanation_3TYQRT1x")
     if (explanation != null) {
        explanation.style.display = "block";
     }
@@ -667,41 +667,41 @@ document.getElementById('controls_q4Imbfa3').addEventListener("quizquestion_answ
 
       })
       }
-      Array.prototype.forEach.call(document.querySelectorAll('[id ^= "select_q4Imbfa3"]'), callback);
+      Array.prototype.forEach.call(document.querySelectorAll('[id ^= "select_3TYQRT1x"]'), callback);
 
 </script>
 </div>
 </div>
-<div id="4a059f9a" class="cell quarto-layout-cell" data-execution_count="4" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="97c38f2a" class="cell quarto-layout-cell" data-execution_count="4" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="cell-output cell-output-display no-overflow-x" data-execution_count="5">
 <script>
-var ID = "cLvF24Kf"
+var ID = "tTgIaFHZ"
 </script>
-<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="cLvF24Kf" data-controltype="" onsubmit="return false;">
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="tTgIaFHZ" data-controltype="" onsubmit="return false;">
   <div class="form-group ">
     <div class="controls">
-      <div class="form" id="controls_cLvF24Kf" correct="-1" attempts="0">
+      <div class="form" id="controls_tTgIaFHZ" correct="-1" attempts="0">
         <div style="padding-top: 5px">
-    <p>Problem 2:   <select name="select_cLvF24Kf" id="select_cLvF24Kf" aria-label"make="" a="" selection"="">
+    <p>Problem 2:   <select name="select_tTgIaFHZ" id="select_tTgIaFHZ" aria-label"make="" a="" selection"="">
      <option value="0" selected="selected">Choose...</option>
      <option value="1">1 
 </option>
      <option value="2">-1 
 </option>
   </select>
-<label for="select_cLvF24Kf" style="left: -100vw; position: absolute;">Make a selection</label>
+<label for="select_tTgIaFHZ" style="left: -100vw; position: absolute;">Make a selection</label>
  
 
     
         </p></div>
       </div>
-      <div id="cLvF24Kf_message" style="padding-bottom: 15px"></div>
+      <div id="tTgIaFHZ_message" style="padding-bottom: 15px"></div>
     </div>
   </div>
 </form>
 <script>
-document.getElementById('controls_cLvF24Kf').addEventListener("quizquestion_answer", (e) => {
-          var o = document.getElementById('controls_cLvF24Kf')
+document.getElementById('controls_tTgIaFHZ').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_tTgIaFHZ')
           var atts = Number(o.getAttribute("attempts"))
           o.setAttribute("correct",  e.detail.correct);
           o.setAttribute("attempts", atts + 1)
@@ -712,18 +712,18 @@ document.getElementById('controls_cLvF24Kf').addEventListener("quizquestion_answ
       function callback(element, iterator) {
       element.addEventListener("change", function() {
           var a = [];
-          var selectors = document.querySelectorAll('[id ^= "select_cLvF24Kf"]');
+          var selectors = document.querySelectorAll('[id ^= "select_tTgIaFHZ"]');
           Array.prototype.forEach.call(selectors, function (element, iterator) {
          a.push(element.value);
           })
               var b = ['1'];
               // https://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
               var correct =  (a.length === b.length && a.find((v,i) => v !== b[i]) === undefined)
-              var msgBox = document.getElementById('cLvF24Kf_message');
+              var msgBox = document.getElementById('tTgIaFHZ_message');
               
   if(correct) {
     msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
-    var explanation = document.getElementById("explanation_cLvF24Kf")
+    var explanation = document.getElementById("explanation_tTgIaFHZ")
     if (explanation != null) {
        explanation.style.display = "none";
     }
@@ -733,7 +733,7 @@ document.getElementById('controls_cLvF24Kf').addEventListener("quizquestion_answ
 
   } else {
     msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Not yet </span></div>";
-    var explanation = document.getElementById("explanation_cLvF24Kf")
+    var explanation = document.getElementById("explanation_tTgIaFHZ")
     if (explanation != null) {
        explanation.style.display = "block";
     }
@@ -745,7 +745,7 @@ document.getElementById('controls_cLvF24Kf').addEventListener("quizquestion_answ
 
       })
       }
-      Array.prototype.forEach.call(document.querySelectorAll('[id ^= "select_cLvF24Kf"]'), callback);
+      Array.prototype.forEach.call(document.querySelectorAll('[id ^= "select_tTgIaFHZ"]'), callback);
 
 </script>
 </div>
@@ -772,31 +772,31 @@ Hint
 <ol start="5" type="1">
 <li>Write <span class="math inline">\((182635)\)</span> as a product of transpositions.</li>
 </ol>
-<div id="dbc65616" class="cell" data-execution_count="5">
+<div id="2f3afca0" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="6">
 <script>
-var ID = "81StMa0Y"
+var ID = "9GvMbl2f"
 </script>
-<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="81StMa0Y" data-controltype="" onsubmit="return false;">
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="9GvMbl2f" data-controltype="" onsubmit="return false;">
   <div class="form-group ">
     <div class="controls">
-      <div class="form" id="controls_81StMa0Y" correct="-1" attempts="0">
+      <div class="form" id="controls_9GvMbl2f" correct="-1" attempts="0">
         <div style="padding-top: 5px">
     <br>
 <div class="input-group" aria-label="Input form: Check your work">
-    <input id="81StMa0Y" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
+    <input id="9GvMbl2f" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
 </div>
 
     
         </div>
       </div>
-      <div id="81StMa0Y_message" style="padding-bottom: 15px"></div>
+      <div id="9GvMbl2f_message" style="padding-bottom: 15px"></div>
     </div>
   </div>
 </form>
 <script>
-document.getElementById('controls_81StMa0Y').addEventListener("quizquestion_answer", (e) => {
-          var o = document.getElementById('controls_81StMa0Y')
+document.getElementById('controls_9GvMbl2f').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_9GvMbl2f')
           var atts = Number(o.getAttribute("attempts"))
           o.setAttribute("correct",  e.detail.correct);
           o.setAttribute("attempts", atts + 1)
@@ -804,13 +804,13 @@ document.getElementById('controls_81StMa0Y').addEventListener("quizquestion_answ
 </script>
 
 <script text="text/javascript">
-document.getElementById("81StMa0Y").addEventListener("change",  function() {
+document.getElementById("9GvMbl2f").addEventListener("change",  function() {
   var correct =  (checkProductofTranspositions([[1,8,2,6,3,5]]))(this.value);
-  var msgBox = document.getElementById('81StMa0Y_message');
+  var msgBox = document.getElementById('9GvMbl2f_message');
   
   if(correct) {
     msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
-    var explanation = document.getElementById("explanation_81StMa0Y")
+    var explanation = document.getElementById("explanation_9GvMbl2f")
     if (explanation != null) {
        explanation.style.display = "none";
     }
@@ -820,7 +820,7 @@ document.getElementById("81StMa0Y").addEventListener("change",  function() {
 
   } else {
     msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Incorrect </span></div>";
-    var explanation = document.getElementById("explanation_81StMa0Y")
+    var explanation = document.getElementById("explanation_9GvMbl2f")
     if (explanation != null) {
        explanation.style.display = "block";
     }
@@ -861,31 +861,31 @@ Hint
 <div class="mx-2">
 <p><label for="n-shuffle">n:</label> <input type="number" id="n-shuffle" value="10"> <input type="button" id="shuffle-randomize" value="Randomize" onclick="fillRandomShuffle('shuffle-input', document.getElementById('n-shuffle').value)"> <br><br> <input id="shuffle-input" class="form-control" placeholder="Shuffle"></p>
 </div>
-<div id="7810176c" class="cell" data-execution_count="6">
+<div id="b192774a" class="cell" data-execution_count="6">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <script>
-var ID = "dgBkwudb"
+var ID = "8GJ0lcBy"
 </script>
-<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="dgBkwudb" data-controltype="" onsubmit="return false;">
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="8GJ0lcBy" data-controltype="" onsubmit="return false;">
   <div class="form-group ">
     <div class="controls">
-      <div class="form" id="controls_dgBkwudb" correct="-1" attempts="0">
+      <div class="form" id="controls_8GJ0lcBy" correct="-1" attempts="0">
         <div style="padding-top: 5px">
     <br>
 <div class="input-group" aria-label="Input form: Check your work">
-    <input id="dgBkwudb" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
+    <input id="8GJ0lcBy" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
 </div>
 
     
         </div>
       </div>
-      <div id="dgBkwudb_message" style="padding-bottom: 15px"></div>
+      <div id="8GJ0lcBy_message" style="padding-bottom: 15px"></div>
     </div>
   </div>
 </form>
 <script>
-document.getElementById('controls_dgBkwudb').addEventListener("quizquestion_answer", (e) => {
-          var o = document.getElementById('controls_dgBkwudb')
+document.getElementById('controls_8GJ0lcBy').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_8GJ0lcBy')
           var atts = Number(o.getAttribute("attempts"))
           o.setAttribute("correct",  e.detail.correct);
           o.setAttribute("attempts", atts + 1)
@@ -893,13 +893,13 @@ document.getElementById('controls_dgBkwudb').addEventListener("quizquestion_answ
 </script>
 
 <script text="text/javascript">
-document.getElementById("dgBkwudb").addEventListener("change",  function() {
+document.getElementById("8GJ0lcBy").addEventListener("change",  function() {
   var correct =  (checkCyclesFromInput('shuffle-input'))(this.value);
-  var msgBox = document.getElementById('dgBkwudb_message');
+  var msgBox = document.getElementById('8GJ0lcBy_message');
   
   if(correct) {
     msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
-    var explanation = document.getElementById("explanation_dgBkwudb")
+    var explanation = document.getElementById("explanation_8GJ0lcBy")
     if (explanation != null) {
        explanation.style.display = "none";
     }
@@ -909,7 +909,7 @@ document.getElementById("dgBkwudb").addEventListener("change",  function() {
 
   } else {
     msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Incorrect </span></div>";
-    var explanation = document.getElementById("explanation_dgBkwudb")
+    var explanation = document.getElementById("explanation_8GJ0lcBy")
     if (explanation != null) {
        explanation.style.display = "block";
     }
@@ -929,31 +929,31 @@ document.getElementById("dgBkwudb").addEventListener("change",  function() {
 <div class="mx-2">
 <p><label for="n-cycle">n:</label> <input type="number" id="n-cycle" value="10"> <input type="button" id="cycle-randomize" value="Randomize" onclick="fillRandomCycles('cycle-input', document.getElementById('n-cycle').value)"> <br><br> <input id="cycle-input" class="form-control" placeholder="Cycle decomposition"></p>
 </div>
-<div id="7cbbf02f" class="cell" data-execution_count="7">
+<div id="1e93fc56" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="8">
 <script>
-var ID = "QFNH6wPj"
+var ID = "d9fBLtk1"
 </script>
-<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="QFNH6wPj" data-controltype="" onsubmit="return false;">
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="d9fBLtk1" data-controltype="" onsubmit="return false;">
   <div class="form-group ">
     <div class="controls">
-      <div class="form" id="controls_QFNH6wPj" correct="-1" attempts="0">
+      <div class="form" id="controls_d9fBLtk1" correct="-1" attempts="0">
         <div style="padding-top: 5px">
     <br>
 <div class="input-group" aria-label="Input form: Check your work">
-    <input id="QFNH6wPj" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
+    <input id="d9fBLtk1" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
 </div>
 
     
         </div>
       </div>
-      <div id="QFNH6wPj_message" style="padding-bottom: 15px"></div>
+      <div id="d9fBLtk1_message" style="padding-bottom: 15px"></div>
     </div>
   </div>
 </form>
 <script>
-document.getElementById('controls_QFNH6wPj').addEventListener("quizquestion_answer", (e) => {
-          var o = document.getElementById('controls_QFNH6wPj')
+document.getElementById('controls_d9fBLtk1').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_d9fBLtk1')
           var atts = Number(o.getAttribute("attempts"))
           o.setAttribute("correct",  e.detail.correct);
           o.setAttribute("attempts", atts + 1)
@@ -961,13 +961,13 @@ document.getElementById('controls_QFNH6wPj').addEventListener("quizquestion_answ
 </script>
 
 <script text="text/javascript">
-document.getElementById("QFNH6wPj").addEventListener("change",  function() {
+document.getElementById("d9fBLtk1").addEventListener("change",  function() {
   var correct =  (checkShuffleFromInput('cycle-input'))(this.value);
-  var msgBox = document.getElementById('QFNH6wPj_message');
+  var msgBox = document.getElementById('d9fBLtk1_message');
   
   if(correct) {
     msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
-    var explanation = document.getElementById("explanation_QFNH6wPj")
+    var explanation = document.getElementById("explanation_d9fBLtk1")
     if (explanation != null) {
        explanation.style.display = "none";
     }
@@ -977,7 +977,7 @@ document.getElementById("QFNH6wPj").addEventListener("change",  function() {
 
   } else {
     msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Incorrect </span></div>";
-    var explanation = document.getElementById("explanation_QFNH6wPj")
+    var explanation = document.getElementById("explanation_d9fBLtk1")
     if (explanation != null) {
        explanation.style.display = "block";
     }
@@ -997,31 +997,31 @@ document.getElementById("QFNH6wPj").addEventListener("change",  function() {
 <div class="mx-2">
 <p><label for="n-sign">n:</label> <input type="number" id="n-sign" value="10"> <input type="button" id="sign-randomize" value="Randomize" onclick="fillRandomCycles('sign-input', document.getElementById('n-sign').value)"> <br><br> <input id="sign-input" class="form-control" placeholder="Cycle decomposition"></p>
 </div>
-<div id="7486fbf8" class="cell" data-execution_count="8">
+<div id="b4345740" class="cell" data-execution_count="8">
 <div class="cell-output cell-output-display" data-execution_count="9">
 <script>
-var ID = "2gPPvf8a"
+var ID = "meDu8Cds"
 </script>
-<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="2gPPvf8a" data-controltype="" onsubmit="return false;">
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="meDu8Cds" data-controltype="" onsubmit="return false;">
   <div class="form-group ">
     <div class="controls">
-      <div class="form" id="controls_2gPPvf8a" correct="-1" attempts="0">
+      <div class="form" id="controls_meDu8Cds" correct="-1" attempts="0">
         <div style="padding-top: 5px">
     <br>
 <div class="input-group" aria-label="Input form: Check your work">
-    <input id="2gPPvf8a" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
+    <input id="meDu8Cds" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
 </div>
 
     
         </div>
       </div>
-      <div id="2gPPvf8a_message" style="padding-bottom: 15px"></div>
+      <div id="meDu8Cds_message" style="padding-bottom: 15px"></div>
     </div>
   </div>
 </form>
 <script>
-document.getElementById('controls_2gPPvf8a').addEventListener("quizquestion_answer", (e) => {
-          var o = document.getElementById('controls_2gPPvf8a')
+document.getElementById('controls_meDu8Cds').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_meDu8Cds')
           var atts = Number(o.getAttribute("attempts"))
           o.setAttribute("correct",  e.detail.correct);
           o.setAttribute("attempts", atts + 1)
@@ -1029,13 +1029,13 @@ document.getElementById('controls_2gPPvf8a').addEventListener("quizquestion_answ
 </script>
 
 <script text="text/javascript">
-document.getElementById("2gPPvf8a").addEventListener("change",  function() {
+document.getElementById("meDu8Cds").addEventListener("change",  function() {
   var correct =  (checkSignFromInput('sign-input'))(this.value);
-  var msgBox = document.getElementById('2gPPvf8a_message');
+  var msgBox = document.getElementById('meDu8Cds_message');
   
   if(correct) {
     msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
-    var explanation = document.getElementById("explanation_2gPPvf8a")
+    var explanation = document.getElementById("explanation_meDu8Cds")
     if (explanation != null) {
        explanation.style.display = "none";
     }
@@ -1045,7 +1045,7 @@ document.getElementById("2gPPvf8a").addEventListener("change",  function() {
 
   } else {
     msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Incorrect </span></div>";
-    var explanation = document.getElementById("explanation_2gPPvf8a")
+    var explanation = document.getElementById("explanation_meDu8Cds")
     if (explanation != null) {
        explanation.style.display = "block";
     }
@@ -1065,31 +1065,31 @@ document.getElementById("2gPPvf8a").addEventListener("change",  function() {
 <div class="mx-2">
 <p><label for="n-transpositions">n:</label> <input type="number" id="n-transpositions" value="10"> <input type="button" id="transpositions-randomize" value="Randomize" onclick="fillRandomCycles('transpositions-input', document.getElementById('n-transpositions').value)"> <br><br> <input id="transpositions-input" class="form-control" placeholder="Cycle decomposition"></p>
 </div>
-<div id="165b0abd" class="cell" data-execution_count="9">
+<div id="b758637a" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-display" data-execution_count="10">
 <script>
-var ID = "wEYXkGxu"
+var ID = "IzPPr9oh"
 </script>
-<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="wEYXkGxu" data-controltype="" onsubmit="return false;">
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="IzPPr9oh" data-controltype="" onsubmit="return false;">
   <div class="form-group ">
     <div class="controls">
-      <div class="form" id="controls_wEYXkGxu" correct="-1" attempts="0">
+      <div class="form" id="controls_IzPPr9oh" correct="-1" attempts="0">
         <div style="padding-top: 5px">
     <br>
 <div class="input-group" aria-label="Input form: Check your work">
-    <input id="wEYXkGxu" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
+    <input id="IzPPr9oh" type="text" class="form-control" placeholder="Check your work" aria-label="Check your work">
 </div>
 
     
         </div>
       </div>
-      <div id="wEYXkGxu_message" style="padding-bottom: 15px"></div>
+      <div id="IzPPr9oh_message" style="padding-bottom: 15px"></div>
     </div>
   </div>
 </form>
 <script>
-document.getElementById('controls_wEYXkGxu').addEventListener("quizquestion_answer", (e) => {
-          var o = document.getElementById('controls_wEYXkGxu')
+document.getElementById('controls_IzPPr9oh').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_IzPPr9oh')
           var atts = Number(o.getAttribute("attempts"))
           o.setAttribute("correct",  e.detail.correct);
           o.setAttribute("attempts", atts + 1)
@@ -1097,13 +1097,13 @@ document.getElementById('controls_wEYXkGxu').addEventListener("quizquestion_answ
 </script>
 
 <script text="text/javascript">
-document.getElementById("wEYXkGxu").addEventListener("change",  function() {
+document.getElementById("IzPPr9oh").addEventListener("change",  function() {
   var correct =  (checkProductofTranspositionsFromInput('transpositions-input'))(this.value);
-  var msgBox = document.getElementById('wEYXkGxu_message');
+  var msgBox = document.getElementById('IzPPr9oh_message');
   
   if(correct) {
     msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
-    var explanation = document.getElementById("explanation_wEYXkGxu")
+    var explanation = document.getElementById("explanation_IzPPr9oh")
     if (explanation != null) {
        explanation.style.display = "none";
     }
@@ -1113,7 +1113,7 @@ document.getElementById("wEYXkGxu").addEventListener("change",  function() {
 
   } else {
     msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Incorrect </span></div>";
-    var explanation = document.getElementById("explanation_wEYXkGxu")
+    var explanation = document.getElementById("explanation_IzPPr9oh")
     if (explanation != null) {
        explanation.style.display = "block";
     }
