@@ -170,3 +170,12 @@ f_{n + 2}
 $$
 
 So the Fibonacci numbers and in fact, all of these linear recurrence relations, can be computed via matrix multiplication. This has the immediate advantage that we can use the identity $A^{2n} = (A^n)^2$ to cut down our number of steps quite significantly. I.e. we have an algorithm where if $n$ has $k$ bits in binary, then the algorithm takes $\mathcal O(k) = \mathcal O(\log_2 n)$ matrix multiplications.
+
+::: {.callout-tip}
+The Sage commands for this look like
+```{sage}
+C = CFiniteSequences(ZZ)
+Fib = C.from_recurrence([1, 1], [0, 1])
+Fib.closed_form()
+```
+:::
