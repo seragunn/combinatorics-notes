@@ -1,0 +1,11 @@
+{
+  "hash": "bcfb42d9cc7751ea646d8815cb8a61c8",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "# Putting Everything Together\n\nWe've done some examples where we take a description and create a finite state automaton. We've done state elimination to create regular expressions. So let's look one last time at how to turn these regular expressions into formulae.\n\n## Trinary Example\n\nIn @sec-trinary-FSA, we had the regular expression\n$$\n0^*[1(0 + 1)^*2 + 2(0 + 2)^*1](0 + 1 + 2)^*.\n$$\n\nNow we could break this into sublanguages like $L_0 = \\{0\\}$ and $\\Phi_{L_0} = x^{f(0)} = x^1$ but we can streamline this a bit.\n\n1. Take your regular expression.\n2. Replace each character like $0, 1, 2$ with $x^{f(0)}, x^{f(1)}, x^{f(2)}$. If we're weighting by length these should all just be $x$.\n3. Replace $A^*$ by $\\frac{1}{1 - A}$.\n\nLet's illustrate:\n\\begin{align*}\n&\\phantom{{}={}}\\; 0^*[1(0 + 1)^*2 + 2(0 + 2)^*1](0 + 1 + 2)^* \\\\\n&\\mapsto x^*[x(x + x)^*x + x(x + x)^*x](x + x + x)^* \\\\\n&= x^*[2x^2(2x)^*](3x)^* \\\\\n&= \\frac{1}{1 - x}\\frac{2x^2}{1 - 2x}\\frac{1}{1 - 3x} \\\\\n&= \\frac{2x^2}{(1 - x)(1 -  2x)(1 - 3x)}.\n\\end{align*}\n\n### Getting a formula\nOn it's face, it's hard to tell what the taylor series is for this function. So we first ask Sage to give us a partial fraction decomposition.\n\n::: {.cell execution_count=1}\n``` {.sage .cell-code}\nA = 2x^2 / ((1 - x)*(1 - 2x)*(1 - 3x))\n```\n:::\n\n\nSage typically puts the $x$'s first but it's more useful to us to write this as\n\n",
+    "supporting": [
+      "putting-it-together_files/figure-pdf"
+    ],
+    "filters": []
+  }
+}

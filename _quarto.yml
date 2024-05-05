@@ -45,6 +45,7 @@ book:
       chapters:
         - regular-languages/regular-languages.qmd
         - regular-languages/finite-automata.qmd
+        - regular-languages/putting-it-together.qmd
 
 format:
   html:

@@ -109,7 +109,7 @@ stateDiagram
 
 This says to get from the first state to the second, we can take either $a$ or $b$.
 
-### Mutiple ins or outs
+### Mutiple ins or outs {#sec-multiple-ins-outs}
 Suppose we have multiple in-edges or out-edges on a state. We can replace the state with a path from each input to each output and record the expression for that path according to @sec-one-in-one-out.
 
 ```{mermaid}
@@ -137,7 +137,7 @@ stateDiagram
     I2 --> O2 : bc*e
 ```
 
-### Example
+### Trinary Example {#sec-trinary-FSA}
 
 Consider the language of trinary strings containing at least one $1$ and one $2$. Let's setup states recording whether we've yet seen a $1$, a $2$ or both.
 
@@ -190,4 +190,63 @@ stateDiagram
 This gives us the regular expression
 $$
 0^*[1(0+1)^*2 + 2(0+2)^*1](0+1+2)^*.
+$$
+
+## Fibonacci Example {#sec-fibonacci-FSA}
+
+Consider the language of binary strings with no "11." We can make an automata with three states: a good state where we can take anything, a state representing that we've last seen a "1" and one which represents that we've seen two "1"s in a row.
+
+```{mermaid}
+%%| label: fig-fibonacci
+%%| fig-cap: "FSA for binary strings with no 11"
+stateDiagram
+    direction LR
+
+    [*] --> 0
+    0 --> 0 : 0
+    0 --> 1 : 1
+    1 --> 0 : 0
+    1 --> 11 : 1
+    11 --> 11 : 0, 1
+    0 --> [*] : ε
+    1 --> [*] : ε
+```
+
+As before, we have a start and end state represented by just circles.
+
+So first, we can eliminate the state for "11" since going there will never lead to a valid string.
+
+```{mermaid}
+%%| label: fig-fibonacci-no-sink
+%%| fig-cap: "FSA for binary strings with no 11, no sink state"
+stateDiagram
+    direction LR
+
+    [*] --> 0
+    0 --> 0 : 0
+    0 --> 1 : 1
+    1 --> 0 : 0
+    0 --> [*] : ε
+    1 --> [*] : ε
+```
+
+The easiest state to eliminate here is state "1" because it has the fewest number of arrows and no loops. There is one path into state "1" and two out. So following @sec-multiple-ins-outs, we replace these with the path $1\varepsilon = 1$ from state "0" to the end and with the path $10$ from $0$ back to itself.
+
+```{mermaid}
+%%| label: fig-fibonacci-eliminate-1
+%%| fig-cap: "FSA for binary strings with no 11, eliminate state 1"
+stateDiagram
+    direction LR
+
+    [*] --> 0
+    0 --> 0 : 0
+    0 --> 0 : 10
+    0 --> [*] : 1
+    0 --> [*] : ε
+```
+
+We now have some parallel loops and parallel edges, which we can add together to get a loop of $0 + 10$ and an edge of $\varepsilon + 1$.
+So the regular expression we come to is
+$$
+(0 + 10)^*(\varepsilon + 1).
 $$
