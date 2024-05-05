@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Combinatorics Notes - 2&nbsp; Euler’s Totient Function</title>
+<title>Combinatorics Notes - 17&nbsp; Putting Everything Together</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,15 +23,14 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../permutations/permutations.html" rel="next">
-<link href="../inclusion-exclusion/inclusion-exclusion.html" rel="prev">
+<link href="../regular-languages/finite-automata.html" rel="prev">
 <link href="../icon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -69,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -141,7 +143,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inclusion-exclusion/inclusion-exclusion.html">Inclusion-Exclusion</a></li><li class="breadcrumb-item"><a href="../inclusion-exclusion/totient.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/putting-it-together.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -176,7 +178,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link active">
+  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
   </div>
 </li>
@@ -299,7 +301,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../regular-languages/putting-it-together.html" class="sidebar-item-text sidebar-link">
+  <a href="../regular-languages/putting-it-together.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
   </div>
 </li>
@@ -315,18 +317,23 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-totient-function" id="toc-the-totient-function" class="nav-link active" data-scroll-target="#the-totient-function"><span class="header-section-number">2.1</span> The totient function</a></li>
-  <li><a href="#applying-inclusionexclusion" id="toc-applying-inclusionexclusion" class="nav-link" data-scroll-target="#applying-inclusionexclusion"><span class="header-section-number">2.2</span> Applying Inclusion/Exclusion</a></li>
-  <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up"><span class="header-section-number">2.3</span> Wrapping up</a></li>
+  <li><a href="#trinary-example" id="toc-trinary-example" class="nav-link active" data-scroll-target="#trinary-example"><span class="header-section-number">17.1</span> Trinary Example</a>
+  <ul class="collapse">
+  <li><a href="#getting-a-formula" id="toc-getting-a-formula" class="nav-link" data-scroll-target="#getting-a-formula"><span class="header-section-number">17.1.1</span> Getting a formula</a></li>
+  </ul></li>
+  <li><a href="#fibonacci-example" id="toc-fibonacci-example" class="nav-link" data-scroll-target="#fibonacci-example"><span class="header-section-number">17.2</span> Fibonacci Example</a></li>
+  <li><a href="#more-examples" id="toc-more-examples" class="nav-link" data-scroll-target="#more-examples"><span class="header-section-number">17.3</span> More Examples</a></li>
+  <li><a href="#general-result" id="toc-general-result" class="nav-link" data-scroll-target="#general-result"><span class="header-section-number">17.4</span> General Result</a></li>
+  <li><a href="#epilogue" id="toc-epilogue" class="nav-link" data-scroll-target="#epilogue"><span class="header-section-number">17.5</span> Epilogue</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/inclusion-exclusion/totient.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/inclusion-exclusion/totient.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/regular-languages/putting-it-together.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/regular-languages/putting-it-together.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inclusion-exclusion/inclusion-exclusion.html">Inclusion-Exclusion</a></li><li class="breadcrumb-item"><a href="../inclusion-exclusion/totient.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/putting-it-together.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></h1>
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></h1>
 </div>
 
 
@@ -343,88 +350,171 @@ window.Quarto = {
 </header>
 
 
-<p>Consider the number system of the integers mod <span class="math inline">\(n\)</span>. This means we group the numbers based on whether they have the same remainder when divided by <span class="math inline">\(n\)</span>. For example, <span class="math inline">\(3 \cdot 7 \equiv 1 \pmod {10}\)</span> because both <span class="math inline">\(21\)</span> and <span class="math inline">\(1\)</span> have the same remainder when divided by <span class="math inline">\(10\)</span>.</p>
-<p>This number system works a lot like the inteegers. We have addition, subtraction and multiplication. The question is: when can we divide? For example, is it possible to solve <span class="math inline">\(2x \equiv 3 \pmod{10}\)</span> for <span class="math inline">\(x\)</span>? I.e. is there a way to move the <span class="math inline">\(2\)</span> to the other side of the equation? The answer is no, because <span class="math inline">\(2x\)</span> will never have a remainder of <span class="math inline">\(3\)</span>.</p>
-<p>What about <span class="math inline">\(7x \equiv 3 \pmod{10}\)</span>? This is trickier. Let’s look at our multiples of <span class="math inline">\(7\)</span>: <span class="math display">\[
-0, 7, 14, 21, 28, 35, 42, 49, 56, 63
-\]</span> Ok so we see that <span class="math inline">\(7 \cdot 9 \equiv 3 \pmod {10}\)</span>.</p>
-<p>The next theorem gives the criterion for when we can “divide both sides by <span class="math inline">\(a\)</span>.”</p>
-<div id="thm-modular-inverses" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2.1</strong></span> We can solve the equation <span class="math inline">\(ax \equiv b \pmod{n}\)</span> for any <span class="math inline">\(b\)</span> if and only if <span class="math inline">\(\gcd(a, n) = 1\)</span>.</p>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>First, suppose <span class="math inline">\(\gcd(a, n) \neq 1\)</span> and call this gcd <span class="math inline">\(d\)</span>. Consider the equation <span class="math inline">\(ax \equiv 1 \pmod{n}\)</span>. This means that <span class="math inline">\(ax\)</span> has a remainder of <span class="math inline">\(1\)</span> when divided by <span class="math inline">\(n\)</span> or in other words <span class="math inline">\(ax\)</span> is <span class="math inline">\(1\)</span> more than a multiple of <span class="math inline">\(n\)</span>: <span class="math inline">\(ax = qn + 1\)</span>. Now, <span class="math inline">\(d\)</span> is a divisor of both <span class="math inline">\(a\)</span> and <span class="math inline">\(n\)</span> by definition, which means <span class="math inline">\(ax - qn\)</span> should be a multiple of <span class="math inline">\(d\)</span>. But <span class="math inline">\(ax - qn = 1\)</span> and we said <span class="math inline">\(d \neq 1\)</span>, that is impossible. So <span class="math inline">\(ax \equiv 1 \pmod{n}\)</span> has no solution.</p>
-<p>Next, suppose <span class="math inline">\(\gcd(a, n) = 1\)</span>. By Theorem 3.9 of the Keller/Trotter book, also known as Bézout’s theorem, we can find integers <span class="math inline">\(u\)</span> and <span class="math inline">\(v\)</span> such that <span class="math inline">\(au + nv = \gcd(a, n) = 1\)</span>. If we rearrange, we get <span class="math inline">\(au = 1 - nv\)</span>. So <span class="math inline">\(au\)</span> and <span class="math inline">\(1\)</span> differ by a multiple of <span class="math inline">\(n\)</span>.</p>
-<p>Let’s apply this to our equation: take the equation <span class="math inline">\(ax \equiv b \pmod n\)</span> and multiply by <span class="math inline">\(u\)</span> to get <span class="math display">\[
-aux = (1 - nv)x \equiv bu \pmod n
-\]</span> Since <span class="math inline">\((1 - nv)x\)</span> and <span class="math inline">\(x\)</span> differ by a multiple of <span class="math inline">\(n\)</span>, they share the same remainder. Thus our solution is <span class="math inline">\(x \equiv bu \pmod n\)</span>.</p>
-</div>
-<div id="exm-modular-inverse" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2.1</strong></span> Let’s follow the steps to solve <span class="math inline">\(7x \equiv 3 \pmod 10\)</span>. First, we do Euclid’s algorithm to find the gcd of <span class="math inline">\(7\)</span> and <span class="math inline">\(10\)</span>.</p>
-<p><span class="math display">\[\begin{align*}
-10 &amp;= 7 + 3 \\
-7 &amp;= 2 \cdot 3 + 1
+<p>We’ve done some examples where we take a description and create a finite state automaton. We’ve done state elimination to create regular expressions. So let’s look one last time at how to turn these regular expressions into formulae.</p>
+<section id="trinary-example" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="trinary-example"><span class="header-section-number">17.1</span> Trinary Example</h2>
+<p>In <a href="finite-automata.html#sec-trinary-FSA" class="quarto-xref"><span>Section 16.3.4</span></a>, we had the regular expression <span class="math display">\[
+0^*[1(0 + 1)^*2 + 2(0 + 2)^*1](0 + 1 + 2)^*.
+\]</span></p>
+<p>Now we could break this into sublanguages like <span class="math inline">\(L_0 = \{0\}\)</span> and <span class="math inline">\(\Phi_{L_0} = x^{f(0)} = x^1\)</span> but we can streamline this a bit.</p>
+<ol type="1">
+<li>Take your regular expression.</li>
+<li>Replace each character like <span class="math inline">\(0, 1, 2\)</span> with <span class="math inline">\(x^{f(0)}, x^{f(1)}, x^{f(2)}\)</span>. If we’re weighting by length these should all just be <span class="math inline">\(x\)</span>.</li>
+<li>Replace <span class="math inline">\(A^*\)</span> by <span class="math inline">\(\frac{1}{1 - A}\)</span>.</li>
+</ol>
+<p>Let’s illustrate: <span class="math display">\[\begin{align*}
+&amp;\phantom{{}={}}\; 0^*[1(0 + 1)^*2 + 2(0 + 2)^*1](0 + 1 + 2)^* \\
+&amp;\mapsto x^*[x(x + x)^*x + x(x + x)^*x](x + x + x)^* \\
+&amp;= x^*[2x^2(2x)^*](3x)^* \\
+&amp;= \frac{1}{1 - x}\frac{2x^2}{1 - 2x}\frac{1}{1 - 3x} \\
+&amp;= \frac{2x^2}{(1 - x)(1 -  2x)(1 - 3x)}.
 \end{align*}\]</span></p>
-<p>To get Bézout’s identity: we solve each equation for the remainder term and then substitute the bigger remainder into the next equation: <span class="math display">\[\begin{align*}
-3 &amp;= 10 - 7 \\
-1 &amp;= 7 - 2 \cdot 3 = 7 - 2 \cdot (10 - 7) = 3 \cdot 7 - 2 \cdot 10.
-\end{align*}\]</span></p>
-<p>So <span class="math inline">\(3\)</span> is our <span class="math inline">\(u\)</span>. Multiply both sides of <span class="math inline">\(7x \equiv 3 \pmod {10}\)</span> by <span class="math inline">\(3\)</span> and we get <span class="math display">\[\begin{align*}
-3 \cdot 7 x &amp;\equiv 3 \cdot 3 \pmod{10} \\
-1 \cdot x &amp;\equiv 9 \pmod{10}
-\end{align*}\]</span></p>
+<section id="getting-a-formula" class="level3" data-number="17.1.1">
+<h3 data-number="17.1.1" class="anchored" data-anchor-id="getting-a-formula"><span class="header-section-number">17.1.1</span> Getting a formula</h3>
+<p>On it’s face, it’s hard to tell what the taylor series is for this function. So we first ask Sage to give us a partial fraction decomposition.</p>
+<div id="4f418b24" class="cell" data-execution_count="1">
+<pre class="sage cell-code"><code>%display latex
+A = 2x^2 / ((1 - x)*(1 - 2x)*(1 - 3x))
+A.partial_fraction()</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="1">
+\(\displaystyle -\frac{1}{3 \, x - 1} + \frac{2}{2 \, x - 1} - \frac{1}{x - 1}\)
 </div>
-<section id="the-totient-function" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="the-totient-function"><span class="header-section-number">2.1</span> The totient function</h2>
-<p>Numbers where <span class="math inline">\(\gcd(a, n) = 1\)</span> are called “coprime to <span class="math inline">\(n\)</span>.” They show up often when talking about modular arithmetic. We have a function, <span class="math inline">\(\phi(n)\)</span> called “Euler’s totient function” which counts the number of integers less than <span class="math inline">\(n\)</span> which are coprime to <span class="math inline">\(n\)</span>. For example, <span class="math inline">\(\phi(10) = 4\)</span> counting <span class="math inline">\(1, 3, 7, 9\)</span>.</p>
-<p>Euler gave the following formula for <span class="math inline">\(\phi(n)\)</span> in terms of the prime factors <span class="math inline">\(p\)</span> of <span class="math inline">\(n\)</span>: <span class="math display">\[
-\phi(n) = n \cdot \prod_{\substack{p \mid n \\ p \text{ prime}}} \left(1 - \frac1p \right)
-\]</span> Here <span class="math inline">\(p \mid n\)</span> means <span class="math inline">\(p\)</span> divides <span class="math inline">\(n\)</span> or <span class="math inline">\(p\)</span> is a factor of <span class="math inline">\(n\)</span>.</p>
-<p>This is the form we will prove in a minute, but let us also rewrite this formula in maybe a more helpful way. Say <span class="math inline">\(n = p_1^{k_1} \cdots p_r^{k_r}\)</span> is the prime factorization of <span class="math inline">\(n\)</span>. Then</p>
+</div>
+<p>Sage typically puts the <span class="math inline">\(x\)</span>’s first but it’s more useful to us to write this as <span class="math display">\[
+\frac{1}{1 - 3x} - \frac{2}{1 - 2x} + \frac{1}{1 - x}.
+\]</span></p>
+<p>We use the important identity <span class="math inline">\(\frac{1}{1 - ax} = \sum a^n x^n\)</span> to convert this to <span class="math display">\[
+\sum_{n = 0}^\infty 3^n x^n - 2 \sum_{n = 0}^{\infty} 2^n x^n + \sum_{n = 0}^\infty x^n = \sum_{n = 0}^\infty (3^n - 2 \cdot 2^n + 1) x^n.
+\]</span></p>
+<p>Conclusion: there are <span class="math inline">\(3^n - 2 \cdot 2^n + 1\)</span> trinary strings of length <span class="math inline">\(n\)</span> with at least one <span class="math inline">\(1\)</span> and one <span class="math inline">\(2\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We can also obtain this answer by Inclusion/Exclusion. Let <span class="math inline">\(X\)</span> denote the set of all trinary strings of length <span class="math inline">\(n\)</span>. Let <span class="math inline">\(A\)</span> be strings with no <span class="math inline">\(1\)</span> and let <span class="math inline">\(B\)</span> be strings with no <span class="math inline">\(2\)</span>. Then <span class="math inline">\(|X| = 3^n\)</span> and <span class="math inline">\(|A| = |B| = 2^n\)</span> since each represents strings with two choices of character.</p>
+<p>We want <span class="math inline">\(|X| - |A \cup B| = |X| - |A| - |B| + |A \cap B|\)</span> using the formula we had in <a href="../inclusion-exclusion/inclusion-exclusion.html#sec-avoiding" class="quarto-xref"><span>Section 1.4</span></a>. So <span class="math inline">\(3^n - 2^n - 2^n + 1\)</span> which matches what we have using generating functions.</p>
+</div>
+</div>
+<p>We’re beginning to see how generating functions tie together our material on binomial coefficients, strings, inclusion/exclusion and also recurrence relations.</p>
+</section>
+</section>
+<section id="fibonacci-example" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="fibonacci-example"><span class="header-section-number">17.2</span> Fibonacci Example</h2>
+<p>At the end of <a href="finite-automata.html#sec-fibonacci-FSA" class="quarto-xref"><span>Section 16.4</span></a>, we had the regular expression <span class="math inline">\((0 + 10)^*(\varepsilon + 1)\)</span>. We repeat our method to turn this into a generating function. First, we should point out that <span class="math inline">\(\varepsilon\)</span> will become <span class="math inline">\(x^{f(\varepsilon)} = x^0 = 1\)</span>. So <span class="math display">\[
+(x + x^2)^*(1 + x) = \frac{1 + x}{1 - x - x^2}.
+\]</span></p>
+<p>Partial fractions don’t help us out here. At least…not easily.</p>
+<p>On the other hand, we know that the Fibonacci numbers satisfy the recurrence <span class="math inline">\(f_n = f_{n - 1} + f_{n - 2}\)</span>. To make the connection clearer, let us write this as</p>
 <p><span class="math display">\[
-\phi(n) = p_1^{k_1} \cdots p_r^{k_r} \cdot \left( 1 - \frac1{p_1} \right) \cdots \left( 1 - \frac1{p_r} \right).
-\]</span> Now look at each pair of factors involving <span class="math inline">\(p_i\)</span>: <span class="math display">\[
-p_i^{k_i} \left( 1 - \frac1{p_i} \right) = p_i^{k_i} \left( \frac{p_i - 1}{p_i} \right) = p_i^{k_i - 1}(p_i - 1).
+f_n - f_{n - 1} - f_{n - 2}.
 \]</span></p>
-<p>Putting that together, we get <span class="math display">\[
-\phi(n) = p_1^{k_1 - 1}(p_1 - 1) \cdots p_r^{k_r - 1}(p_r - 1).
-\]</span></p>
-<div id="exm-calculating-totient" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2.2</strong></span> For <span class="math inline">\(n = 18 = 2 \cdot 3^2\)</span> we have <span class="math display">\[
-\phi(12) = 2^0(2 - 1)3^1(3 - 1) = 6.
-\]</span> You can double check this by listing all the numbers coprime to <span class="math inline">\(18\)</span>.</p>
-</div>
 </section>
-<section id="applying-inclusionexclusion" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="applying-inclusionexclusion"><span class="header-section-number">2.2</span> Applying Inclusion/Exclusion</h2>
-<p>For each of the primes <span class="math inline">\(p_i\)</span> which are factors of <span class="math inline">\(n\)</span>. Consider the property <span class="math inline">\(P_i\)</span> which says that <span class="math inline">\(a\)</span> is divisible by <span class="math inline">\(p_i\)</span>. As we’ve been doing, for a subset of these primes, we want to count the number of <span class="math inline">\(a\)</span> in <span class="math inline">\(0,\dots,n-1\)</span> which are divisible by at least those primes in <span class="math inline">\(S\)</span>.</p>
-<div id="lem-number-of-multiples" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 2.1</strong></span> Let <span class="math inline">\(m\)</span> be a divisor of <span class="math inline">\(n\)</span>. The number of integers <span class="math inline">\(a &lt; n\)</span> which are a multiple of <span class="math inline">\(m\)</span> is <span class="math inline">\(n / m\)</span>.</p>
+<section id="more-examples" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="more-examples"><span class="header-section-number">17.3</span> More Examples</h2>
+<p>Consider the sequence generated by <span class="math inline">\(a_0 = 0, a_1 = 0, a_2 = 1\)</span> and <span class="math inline">\(a_n + 4a_{n - 1} - 2a_{n - 2} + 5a_{n - 3}\)</span> for <span class="math inline">\(n \ge 3\)</span>.</p>
+<p>We can compute a generating function <span class="math inline">\(\sum a_n x^n\)</span> in Sage <a href="https://doc.sagemath.org/html/en/reference/combinat/sage/rings/cfinite_sequence.html#sage-rings-cfinite-sequence">using the following commands</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Per the Sage documentation, the coefficients are given in ascending order (from <span class="math inline">\(n - 3\)</span> to <span class="math inline">\(n - 2\)</span> to <span class="math inline">\(n - 1\)</span>): <span class="math display">\[
+a_{n + 3} = -5 a_n + 2 a_{n + 1} - 4 a_{n + 2}.
+\]</span></p>
+</div>
+</div>
+<div id="cfb6ec1d" class="cell" data-execution_count="2">
+<pre class="sage cell-code"><code>C = CFiniteSequences(ZZ) # sequences over the integers
+C.from_recurrence([-5, 2, -4], [0, 0, 1]).ogf()</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="2">
+\(\displaystyle \frac{x^{2}}{5x^{3} - 2x^{2} + 4x + 1}\)
+</div>
+</div>
+<p>The numerator is hard to predict as it depends on the initial values as well as the recurrence. But pay attention to that denominator: <span class="math display">\[
+1 + 4x - 2x^2 + 5x^3
+\]</span></p>
+<p>These coefficients match our recurrence!</p>
+</section>
+<section id="general-result" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="general-result"><span class="header-section-number">17.4</span> General Result</h2>
+<p>Suppose a Taylor series <span class="math inline">\(\sum a_n x^n\)</span> can be written as a rational function <span class="math inline">\(P(x)/Q(x)\)</span> where:</p>
+<ol type="1">
+<li><span class="math inline">\(\deg P &lt; \deg Q\)</span></li>
+<li><span class="math inline">\(Q(x) = c_0 + c_1x + c_2x^2 + \dots + c_kx^k\)</span> (degree <span class="math inline">\(k\)</span>)</li>
+</ol>
+<p>Then the coefficients <span class="math inline">\(a_n\)</span> satisfy the recurrence relation</p>
+<p><span class="math display">\[
+c_0 a_n + c_1 a_{n - 1} + c_2 a_{n - 2} + \dots + c_k a_{n - k} = 0, \text{ for } n \ge k
+\]</span></p>
+<p>(And the reverse holds as well!)</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The condition that <span class="math inline">\(\deg P &lt; \deg Q\)</span> isn’t crucial to this. It takes care of a few things. First, if <span class="math inline">\(\deg P \ge \deg Q\)</span> we could do long division to simplify.</p>
+<p>Second, if we have something like <span class="math inline">\(x/ (1 - x) = -1 + 1/(1 - x)\)</span>, then the recurrence relation we get from the denominator is <span class="math inline">\(a_n = a_{n - 1}\)</span> but if we write down this Taylor series, the coefficients are <span class="math inline">\(0, 1, 1, 1, 1, \dots\)</span>. So the recurence relation <span class="math inline">\(a_n = a_{n - 1}\)</span> only holds if <span class="math inline">\(n \ge 2\)</span>.</p>
+<p>The big takeaway here is: making <span class="math inline">\(\deg P \ge \deg Q\)</span> alters the initial terms and the recurrence relation takes longer to kick in.</p>
+</div>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Let’s look at an example first. Suppose <span class="math inline">\(n = 100\)</span> and <span class="math inline">\(m = 5\)</span>. Then we list the numbers from <span class="math inline">\(0,\dots,99\)</span> and write the list mod <span class="math inline">\(5\)</span>. That is: <span class="math display">\[
-0,1,2,3,4,0,1,2,3,4,0,1,2,3,4,\dots,0,1,2,3,4.
-\]</span> Because <span class="math inline">\(n - 1\)</span> is one less than <span class="math inline">\(n\)</span>, our last number has a remainder of one less than <span class="math inline">\(5\)</span>. So we see every number <span class="math inline">\(0, 1, 2, 3, 4\)</span> exactly the same number of times. Since there are <span class="math inline">\(5\)</span> possible remainders, we much see every remainder <span class="math inline">\(100/5 = 20\)</span> times. This includes a remainder of <span class="math inline">\(0\)</span>.</p>
-<p>This pattern works generally: we repeat remainders of <span class="math inline">\(0, \dots, m - 1\)</span> and we end on <span class="math inline">\(m - 1\)</span> because <span class="math inline">\(n - 1\)</span> is one less than a multiple of <span class="math inline">\(m\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(A = \sum a_n x^n = P(x) / Q(x)\)</span>. Multiplying both sides by <span class="math inline">\(Q(x)\)</span> we should find that <span class="math inline">\(AQ = P\)</span> (a polynomial). So <span class="math display">\[\begin{align*}
+AQ &amp;= (c_0 + c_1x + \dots + c_kx^k) \sum a_n x^n \\
+&amp;= c_0 \sum a_n x^n + c_1 \sum a_nx^{n + 1} + \dots + c_k \sum a_n x^{n + k} \\
+&amp;= c_0 \sum a_n x^n + c_1 \sum a_{n - 1}x^n + \dots + c_k \sum a_{n - k} x^n.
+\end{align*}\]</span></p>
+<p>Now this is supposed to be a polynomial. And it is, if and only if the coefficients are <span class="math inline">\(0\)</span> for <span class="math inline">\(n\)</span> bigger than <span class="math inline">\(\deg P\)</span> and in particular if <span class="math inline">\(n \ge k = \deg Q\)</span>. So for <span class="math inline">\(n \ge k\)</span>, we have <span class="math display">\[
+c_0 a_n + c_1 a_{n - 1} + \dots + c_k a_{n - k}.
+\]</span></p>
+<p>And the steps here are reversible: if we satisfy this recurrence then <span class="math inline">\(AQ\)</span> is a polynomial of degree less than <span class="math inline">\(k\)</span>.</p>
 </div>
-<p>So putting this into our inclusion-exclusion notation, if <span class="math inline">\(S = \{i_1, \dots, i_k\}\)</span>, then <span class="math display">\[
-N_\ge(S) = \frac{n}{p_{i_1} \dots p_{i_k}}.
-\]</span></p>
 </section>
-<section id="wrapping-up" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="wrapping-up"><span class="header-section-number">2.3</span> Wrapping up</h2>
-<p>By Inclusion/Exclusion, the number of whole numbers <span class="math inline">\(a &lt; n\)</span> not divisible by any <span class="math inline">\(p_i\)</span> is <span class="math display">\[
-N_\ge(\varnothing) - \sum_i N_\ge(i) + \sum_{i &lt; j} N_\ge(i, j) - \cdots
-\]</span> and that is <span class="math display">\[
-n - \sum_i \frac{n}{p_i} + \sum_{i &lt; j} \frac{n}{p_ip_j} - \cdots = n \left( 1 - \sum_i \frac{1}{p_i} + \sum_{i &lt; j} \frac{1}{p_ip_j} - \cdots \right).
+<section id="epilogue" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="epilogue"><span class="header-section-number">17.5</span> Epilogue</h2>
+<p>When our generating function comes apart nicely into partial fractions, we can use the identity <span class="math inline">\(\frac{1}{1 - ax} = \sum a^n x^n\)</span> to extract the coefficient of <span class="math inline">\(a^n\)</span>. More generally, we can handle generating functions like <span class="math inline">\(1 / (1 - ax)^k\)</span> using the formulas of <a href="../generating-functions/stars-and-bars-revisited.html#sec-sb-ogf-summary" class="quarto-xref"><span>Section 12.4</span></a>.</p>
+<p>For something like <span class="math inline">\(x / (1 - x - x^2)\)</span>, partial fractions <em>can</em> be used to obtain <span class="math display">\[
+\frac{x}{1 - x - x^2} = \frac1{\sqrt5} \left( \frac{1}{1 - \phi x} - \frac{1}{1 - \psi x} \right); \text{ where } \phi, \psi = \frac{1 \pm \sqrt 5}{2}.
 \]</span></p>
-<p>We should be able to factor a <span class="math inline">\((1 - 1/p_1)\)</span> out of this so let’s work at giving that a go by separating terms including <span class="math inline">\(p_1\)</span> from those that don’t: <span class="math display">\[\begin{align*}
-&amp;1 - {\color{orange} \sum_i \frac{1}{p_i}} + {\color{red} \sum_{i &lt; j} \frac{1}{p_ip_j}} - \cdots \\
-&amp;\qquad = 1 - {\color{orange}\frac1{p_1} - \sum_{1 &lt; i} \frac{1}{p_i}} + {\color{red}\frac1{p_1} \sum_{1 &lt; j} \frac{1}{p_j} + \sum_{1 &lt; i &lt; j} \frac1{p_ip_j}} - \cdots \\
-&amp;\qquad = \left(1 - {\color{orange} \frac1{p_1}} \right) - \left({\color{orange}\frac1{p_1}\sum_{1 &lt; i} \frac{1}{p_i}} - {\color{red} \frac1{p_1} \sum_{1 &lt; j} \frac{1}{p_j} }\right) + \left({\color{red}\sum_{1 &lt; i &lt; j} \frac1{p_ip_j}} - \frac1{p_1} \sum_{1 &lt; i &lt; j} \frac1{p_ip_j} \right) - \cdots \\
-&amp;\qquad = \left( 1 - \frac1{p_1} \right) \left( 1 - \sum_{1 &lt; i} \frac{1}{p_i} + \sum_{1 &lt; i &lt; j} \frac{1}{p_ip_j} - \cdots \right).
-\end{align*}\]</span> Note: in the second term in the second to last line, the sum over all <span class="math inline">\(j &gt; 2\)</span> is the same as the sum over all <span class="math inline">\(i &gt; 2\)</span> just with a different name given to the variable.</p>
-<p>So we are able to factor out <span class="math inline">\((1 - 1/p_1)\)</span> to get a similar expression with one fewer primes. Similarly, we can factor out <span class="math inline">\((1 - 1/p_2)\)</span> and so on until there are no more primes. This gives us Euler’s product representation for the totient function.</p>
+<p>With the resulting formula <span class="math display">\[
+f_n = \frac{1}{\sqrt 5}(\phi^n -  \psi^n).
+\]</span> Known as <em>Binet’s formula</em> which we saw a version of in <a href="../generating-functions/ogf.html#sec-convergence" class="quarto-xref"><span>Section 10.3.1</span></a>. This formula is super cool but computationally leaves a lot to be desired as multiplying large decimal numbers together can be quite expensive.</p>
+<p>The fastest way to compute the Fibonacci sequence comes right from the recurrence definition. With a little bit of linear algebra, we can turn that linear recurrence into <span class="math display">\[
+\begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 1
+\end{pmatrix}
+\begin{pmatrix}
+f_n \\
+f_{n + 1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 f_n + f_{n + 1} \\
+f_n + f_{n + 1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+f_{n + 1} \\
+f_{n + 2}
+\end{pmatrix}.
+\]</span></p>
+<p>So the Fibonacci numbers and in fact, all of these linear recurrence relations, can be computed via matrix multiplication. This has the immediate advantage that we can use the identity <span class="math inline">\(A^{2n} = (A^n)^2\)</span> to cut down our number of steps quite significantly. I.e. we have an algorithm where if <span class="math inline">\(n\)</span> has <span class="math inline">\(k\)</span> bits in binary, then the algorithm takes <span class="math inline">\(\mathcal O(k) = \mathcal O(\log_2 n)\)</span> matrix multiplications.</p>
 
 
 </section>
@@ -841,14 +931,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../inclusion-exclusion/inclusion-exclusion.html" class="pagination-link" aria-label="Inclusion/Exclusion">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span>
+      <a href="../regular-languages/finite-automata.html" class="pagination-link" aria-label="Finite Automata">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Finite Automata</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../permutations/permutations.html" class="pagination-link" aria-label="Permutations">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Permutations</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -856,4 +943,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/inclusion-exclusion/totient.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/inclusion-exclusion/totient.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/regular-languages/putting-it-together.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/regular-languages/putting-it-together.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

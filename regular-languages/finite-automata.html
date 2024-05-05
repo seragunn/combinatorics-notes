@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../regular-languages/putting-it-together.html" rel="next">
 <link href="../regular-languages/regular-languages.html" rel="prev">
 <link href="../icon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js"></script>
@@ -299,6 +300,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regular-languages/putting-it-together.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -317,9 +324,10 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#sec-one-in-one-out" id="toc-sec-one-in-one-out" class="nav-link" data-scroll-target="#sec-one-in-one-out"><span class="header-section-number">16.3.1</span> One in, one out</a></li>
   <li><a href="#sec-parallel-edges" id="toc-sec-parallel-edges" class="nav-link" data-scroll-target="#sec-parallel-edges"><span class="header-section-number">16.3.2</span> Parallel edges</a></li>
-  <li><a href="#mutiple-ins-or-outs" id="toc-mutiple-ins-or-outs" class="nav-link" data-scroll-target="#mutiple-ins-or-outs"><span class="header-section-number">16.3.3</span> Mutiple ins or outs</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">16.3.4</span> Example</a></li>
+  <li><a href="#sec-multiple-ins-outs" id="toc-sec-multiple-ins-outs" class="nav-link" data-scroll-target="#sec-multiple-ins-outs"><span class="header-section-number">16.3.3</span> Mutiple ins or outs</a></li>
+  <li><a href="#sec-trinary-FSA" id="toc-sec-trinary-FSA" class="nav-link" data-scroll-target="#sec-trinary-FSA"><span class="header-section-number">16.3.4</span> Trinary Example</a></li>
   </ul></li>
+  <li><a href="#sec-fibonacci-FSA" id="toc-sec-fibonacci-FSA" class="nav-link" data-scroll-target="#sec-fibonacci-FSA"><span class="header-section-number">16.4</span> Fibonacci Example</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/regular-languages/finite-automata.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/regular-languages/finite-automata.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
@@ -525,8 +533,8 @@ Figure&nbsp;16.7: Post-state elimination for parallel edges
 </div>
 <p>This says to get from the first state to the second, we can take either <span class="math inline">\(a\)</span> or <span class="math inline">\(b\)</span>.</p>
 </section>
-<section id="mutiple-ins-or-outs" class="level3" data-number="16.3.3">
-<h3 data-number="16.3.3" class="anchored" data-anchor-id="mutiple-ins-or-outs"><span class="header-section-number">16.3.3</span> Mutiple ins or outs</h3>
+<section id="sec-multiple-ins-outs" class="level3" data-number="16.3.3">
+<h3 data-number="16.3.3" class="anchored" data-anchor-id="sec-multiple-ins-outs"><span class="header-section-number">16.3.3</span> Mutiple ins or outs</h3>
 <p>Suppose we have multiple in-edges or out-edges on a state. We can replace the state with a path from each input to each output and record the expression for that path according to <a href="#sec-one-in-one-out" class="quarto-xref"><span>Section 16.3.1</span></a>.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -576,8 +584,8 @@ Figure&nbsp;16.9: Pre-state elimination for multiple edges
 </div>
 </div>
 </section>
-<section id="example" class="level3" data-number="16.3.4">
-<h3 data-number="16.3.4" class="anchored" data-anchor-id="example"><span class="header-section-number">16.3.4</span> Example</h3>
+<section id="sec-trinary-FSA" class="level3" data-number="16.3.4">
+<h3 data-number="16.3.4" class="anchored" data-anchor-id="sec-trinary-FSA"><span class="header-section-number">16.3.4</span> Trinary Example</h3>
 <p>Consider the language of trinary strings containing at least one <span class="math inline">\(1\)</span> and one <span class="math inline">\(2\)</span>. Let’s setup states recording whether we’ve yet seen a <span class="math inline">\(1\)</span>, a <span class="math inline">\(2\)</span> or both.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
@@ -659,9 +667,95 @@ Figure&nbsp;16.12: FSA for trinary strings with at least one 1 and one 2, finish
 <p>This gives us the regular expression <span class="math display">\[
 0^*[1(0+1)^*2 + 2(0+2)^*1](0+1+2)^*.
 \]</span></p>
-
-
 </section>
+</section>
+<section id="sec-fibonacci-FSA" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="sec-fibonacci-FSA"><span class="header-section-number">16.4</span> Fibonacci Example</h2>
+<p>Consider the language of binary strings with no “11.” We can make an automata with three states: a good state where we can take anything, a state representing that we’ve last seen a “1” and one which represents that we’ve seen two “1”s in a row.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-fibonacci" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fibonacci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-fibonacci">stateDiagram
+    direction LR
+
+    [*] --&gt; 0
+    0 --&gt; 0 : 0
+    0 --&gt; 1 : 1
+    1 --&gt; 0 : 0
+    1 --&gt; 11 : 1
+    11 --&gt; 11 : 0, 1
+    0 --&gt; [*] : ε
+    1 --&gt; [*] : ε
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fibonacci-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.13: FSA for binary strings with no 11
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>As before, we have a start and end state represented by just circles.</p>
+<p>So first, we can eliminate the state for “11” since going there will never lead to a valid string.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-fibonacci-no-sink" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fibonacci-no-sink-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-fibonacci-no-sink">stateDiagram
+    direction LR
+
+    [*] --&gt; 0
+    0 --&gt; 0 : 0
+    0 --&gt; 1 : 1
+    1 --&gt; 0 : 0
+    0 --&gt; [*] : ε
+    1 --&gt; [*] : ε
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fibonacci-no-sink-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.14: FSA for binary strings with no 11, no sink state
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The easiest state to eliminate here is state “1” because it has the fewest number of arrows and no loops. There is one path into state “1” and two out. So following <a href="#sec-multiple-ins-outs" class="quarto-xref"><span>Section 16.3.3</span></a>, we replace these with the path <span class="math inline">\(1\varepsilon = 1\)</span> from state “0” to the end and with the path <span class="math inline">\(10\)</span> from <span class="math inline">\(0\)</span> back to itself.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-fibonacci-eliminate-1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-fibonacci-eliminate-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-fibonacci-eliminate-1">stateDiagram
+    direction LR
+
+    [*] --&gt; 0
+    0 --&gt; 0 : 0
+    0 --&gt; 0 : 10
+    0 --&gt; [*] : 1
+    0 --&gt; [*] : ε
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-fibonacci-eliminate-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;16.15: FSA for binary strings with no 11, eliminate state 1
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We now have some parallel loops and parallel edges, which we can add together to get a loop of <span class="math inline">\(0 + 10\)</span> and an edge of <span class="math inline">\(\varepsilon + 1\)</span>. So the regular expression we come to is <span class="math display">\[
+(0 + 10)^*(\varepsilon + 1).
+\]</span></p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1081,6 +1175,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../regular-languages/putting-it-together.html" class="pagination-link" aria-label="Putting Everything Together">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
