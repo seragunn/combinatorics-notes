@@ -372,7 +372,7 @@ window.Quarto = {
 <section id="getting-a-formula" class="level3" data-number="17.1.1">
 <h3 data-number="17.1.1" class="anchored" data-anchor-id="getting-a-formula"><span class="header-section-number">17.1.1</span> Getting a formula</h3>
 <p>On it’s face, it’s hard to tell what the taylor series is for this function. So we first ask Sage to give us a partial fraction decomposition.</p>
-<div id="4f418b24" class="cell" data-execution_count="1">
+<div id="a25c9470" class="cell" data-execution_count="1">
 <pre class="sage cell-code"><code>%display latex
 A = 2x^2 / ((1 - x)*(1 - 2x)*(1 - 3x))
 A.partial_fraction()</code></pre>
@@ -434,7 +434,7 @@ a_{n + 3} = -5 a_n + 2 a_{n + 1} - 4 a_{n + 2}.
 \]</span></p>
 </div>
 </div>
-<div id="cfb6ec1d" class="cell" data-execution_count="2">
+<div id="4abd5002" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>C = CFiniteSequences(ZZ) # sequences over the integers
 C.from_recurrence([-5, 2, -4], [0, 0, 1]).ogf()</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -515,6 +515,27 @@ f_{n + 2}
 \end{pmatrix}.
 \]</span></p>
 <p>So the Fibonacci numbers and in fact, all of these linear recurrence relations, can be computed via matrix multiplication. This has the immediate advantage that we can use the identity <span class="math inline">\(A^{2n} = (A^n)^2\)</span> to cut down our number of steps quite significantly. I.e. we have an algorithm where if <span class="math inline">\(n\)</span> has <span class="math inline">\(k\)</span> bits in binary, then the algorithm takes <span class="math inline">\(\mathcal O(k) = \mathcal O(\log_2 n)\)</span> matrix multiplications.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Sage commands for this look like</p>
+<div id="83dc2a87" class="cell" data-execution_count="3">
+<pre class="sage cell-code"><code>C = CFiniteSequences(ZZ)
+Fib = C.from_recurrence([1, 1], [0, 1])
+Fib.closed_form()</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="3">
+\(\displaystyle \sqrt{\frac{1}{5}} {\left(\frac{1}{2} \, \sqrt{5} + \frac{1}{2}\right)}^{n} - \sqrt{\frac{1}{5}} {\left(-\frac{1}{2} \, \sqrt{5} + \frac{1}{2}\right)}^{n}\)
+</div>
+</div>
+</div>
+</div>
 
 
 </section>
