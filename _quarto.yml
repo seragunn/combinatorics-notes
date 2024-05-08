@@ -21,6 +21,7 @@ book:
         href: https://www.appliedcombinatorics.org/book/app-comb.html
   chapters:
     - index.qmd
+    - preface.qmd
     - part: "Inclusion-Exclusion"
       chapters:
         - inclusion-exclusion/inclusion-exclusion.qmd
