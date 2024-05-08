@@ -14,5 +14,20 @@ A sample sylabus is (KT is Keller and Trotter's book)
 5. KT-7 and Inclusion-Exclusion from these notes for supplementary proofs
 6. Permutations from these notes
 7. KT-12, 13, 14 on graph algorithms (Prim/Kruskal, Dijkstra, Ford-Fulkerson/Edmonds-Karp)
-8. Generating Functions from these notes
+8. Generating Functions from these notes (instead of KT-8)
 9. Regular Languages from these notes
+
+Here is a rough overview of how these notes tie into the Keller/Trotter book.
+
+```{mermaid}
+flowchart
+    KT2-Foundations --> KT7-Inclusion/Exclusion
+    KT2-Foundations --> Permutations
+    KT2-Foundations --> GeneratingFunctions
+    KT7-Inclusion/Exclusion <--> Inclusion/Exclusion
+    GeneratingFunctions --> RegularLanguages
+    KT5-Graphs --> Permutations
+    KT5-Graphs --> RegularLanguages
+```
+
+Inclusion/Exclusion makes a very brief appearance @nte-IE-OGF but is otherwise separate in these notes.
