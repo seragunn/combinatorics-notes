@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Combinatorics Notes - 16&nbsp; Regular Languages</title>
+<title>Combinatorics Notes - 19&nbsp; Exercises</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,15 +23,14 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../regular-languages/finite-automata.html" rel="next">
-<link href="../generating-functions/generating-function-exercises.html" rel="prev">
+<link href="../regular-languages/putting-it-together.html" rel="prev">
 <link href="../icon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -69,9 +68,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -144,7 +140,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Regular Languages</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/regular-languages-exercises.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Exercises</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -296,7 +292,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link active">
+  <a href="../regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
   </div>
 </li>
@@ -314,7 +310,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../regular-languages/regular-languages-exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../regular-languages/regular-languages-exercises.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
@@ -326,30 +322,14 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#kleene-star" id="toc-kleene-star" class="nav-link active" data-scroll-target="#kleene-star"><span class="header-section-number">16.1</span> Kleene Star</a>
-  <ul class="collapse">
-  <li><a href="#kleene-plus" id="toc-kleene-plus" class="nav-link" data-scroll-target="#kleene-plus"><span class="header-section-number">16.1.1</span> Kleene Plus</a></li>
-  </ul></li>
-  <li><a href="#relation-to-generating-functions" id="toc-relation-to-generating-functions" class="nav-link" data-scroll-target="#relation-to-generating-functions"><span class="header-section-number">16.2</span> Relation to Generating Functions</a></li>
-  <li><a href="#sec-regular-language-examples" id="toc-sec-regular-language-examples" class="nav-link" data-scroll-target="#sec-regular-language-examples"><span class="header-section-number">16.3</span> Examples</a>
-  <ul class="collapse">
-  <li><a href="#avoiding-11" id="toc-avoiding-11" class="nav-link" data-scroll-target="#avoiding-11"><span class="header-section-number">16.3.1</span> Avoiding ‘11’</a></li>
-  </ul></li>
-  <li><a href="#even-number-of-1s" id="toc-even-number-of-1s" class="nav-link" data-scroll-target="#even-number-of-1s"><span class="header-section-number">16.4</span> Even number of 1s</a></li>
-  <li><a href="#regular-languages" id="toc-regular-languages" class="nav-link" data-scroll-target="#regular-languages"><span class="header-section-number">16.5</span> Regular Languages</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/regular-languages/regular-languages.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/regular-languages/regular-languages.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Regular Languages</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/regular-languages-exercises.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Exercises</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Regular Languages</span></h1>
+<h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Exercises</span></h1>
 </div>
 
 
@@ -366,127 +346,103 @@ window.Quarto = {
 </header>
 
 
-<p>At this point we’ve seen numerous examples where a language is composed of a sequence of blocks.</p>
-<ul>
-<li>A binary string is a sequence of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s</li>
-<li>A Dyck path is a sequence of smaller paths, shifted properly</li>
-<li>A tiling of a <span class="math inline">\(2 \times n\)</span> grid using dominoes is a sequence of verticle dominoes or pairs of horizontal dominoes</li>
-<li>Equivalently: we looked at sequences of <span class="math inline">\(1\)</span>s and <span class="math inline">\(2\)</span>s which sum to <span class="math inline">\(n\)</span>; both give the Fibonacci numbers</li>
-<li>Binary strings with no <span class="math inline">\(11\)</span>—also counted by the Fibonacci numbers—can be broken into sequences of blocks although the blocks are more complex than the previous example</li>
-</ul>
-<section id="kleene-star" class="level2" data-number="16.1">
-<h2 data-number="16.1" class="anchored" data-anchor-id="kleene-star"><span class="header-section-number">16.1</span> Kleene Star</h2>
-<p>Let <span class="math inline">\(L\)</span> be a language that does not contain the empty string (for reasons of unique representation). The language which repeats <span class="math inline">\(L\)</span> in a sequence is called the Kleene star of <span class="math inline">\(L\)</span>, denoted <span class="math inline">\(L^*\)</span>. An element of <span class="math inline">\(L^*\)</span> is some finite sequence <span class="math display">\[
-u_1 u_2 \cdots u_k, \text{ where } u_i \in L.
-\]</span> Another name for such a sequence of length <span class="math inline">\(k\)</span> is <span class="math inline">\(L^k\)</span> (concatenating <span class="math inline">\(k\)</span> strings from <span class="math inline">\(L\)</span>). Thus, <span class="math display">\[
-L^* = L^0 \cup L^1 \cup L^2 \cup L^3 \cup \cdots.
-\]</span> It’s also common notation to write these unions with a <span class="math inline">\(+\)</span> sign to mean “or” (with a heavy implication that we want this to be disjoint). Also note that <span class="math inline">\(L^0 = \{\varepsilon\}\)</span> because concatenating <span class="math inline">\(0\)</span> strings yields an empty string. So we have <span class="math display">\[
-L^* = \varepsilon + L + L^2 + L^3 + \cdots.
-\]</span></p>
-<section id="kleene-plus" class="level3" data-number="16.1.1">
-<h3 data-number="16.1.1" class="anchored" data-anchor-id="kleene-plus"><span class="header-section-number">16.1.1</span> Kleene Plus</h3>
-<p>A related construction considers only the sequences of positive length. This is called the Kleene plus operator and it is defined by <span class="math display">\[
-L^+ = L + L^2 + L^3 + \cdots.
-\]</span></p>
-</section>
-</section>
-<section id="relation-to-generating-functions" class="level2" data-number="16.2">
-<h2 data-number="16.2" class="anchored" data-anchor-id="relation-to-generating-functions"><span class="header-section-number">16.2</span> Relation to Generating Functions</h2>
-<p><a href="../generating-functions/ogf.html#thm-ogf-addition" class="quarto-xref">Theorem&nbsp;<span>11.1</span></a> and <a href="../generating-functions/multiplication.html#thm-ogf-multiplication" class="quarto-xref">Theorem&nbsp;<span>12.1</span></a> imply the following theorem.</p>
-<div id="thm-ogf-kleene" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 16.1 (Kleene star and plus)</strong></span> Provided the sets <span class="math inline">\(L^0, L^1, L^2, \dots\)</span> are <em>disjoint</em>, <span class="math display">\[\begin{align*}
-\Phi_{L^*} &amp;= \Phi_{L^0} + \Phi_{L^1} + \Phi_{L^2} + \Phi_{L^3} + \cdots \\
-&amp;= \Phi_L^0 + \Phi_L^1 + \Phi_L^2 + \Phi_L^3 + \cdots \\
-&amp;= \frac{1}{1 - \Phi_L}.
-\end{align*}\]</span> Similarly, <span class="math display">\[\begin{align*}
-\Phi_{L^+} &amp;= \Phi_L^1 + \Phi_L^2 + \Phi_L^3 + \cdots \\
-&amp;= \frac{\Phi_L}{1 - \Phi_L}.
-\end{align*}\]</span></p>
-</div>
-</section>
-<section id="sec-regular-language-examples" class="level2" data-number="16.3">
-<h2 data-number="16.3" class="anchored" data-anchor-id="sec-regular-language-examples"><span class="header-section-number">16.3</span> Examples</h2>
-<p>Consider our sequences of <span class="math inline">\(1\)</span>s and <span class="math inline">\(2\)</span>s which gave us the Fibonacci sequence. Here, unlike many previous examples, we don’t want to weight sequences by length but rather by sum (we’re looking for sequences whose sum is <span class="math inline">\(n\)</span> not whose length is <span class="math inline">\(n\)</span>). So let <span class="math inline">\(f\)</span> denote the sum of a sequence, e.g.&nbsp;<span class="math inline">\(f(122) = 1 + 2 + 2 = 5\)</span>.</p>
-<p>Let <span class="math inline">\(L = \{1, 2\}\)</span>. Then <span class="math inline">\(L^*\)</span> represents all sequences of <span class="math inline">\(1\)</span>s and <span class="math inline">\(2\)</span>s. By theorem <a href="#thm-ogf-kleene" class="quarto-xref">Theorem&nbsp;<span>16.1</span></a>, we have <span id="eq-12-fib-ogf"><span class="math display">\[
-\Phi_{L^*} = \frac{1}{1 - \Phi_L} = \frac{1}{1 - (x^{f(1)} + x^{f(2)})} = \frac{1}{1 - x - x^2}.
-\tag{16.1}\]</span></span></p>
-<p>We know that the number of these sequences which sum to <span class="math inline">\(n\)</span> is counted by the Fibonacci sequence, so like we stated <a href="../generating-functions/ogf.html#sec-convergence" class="quarto-xref"><span>Section 11.3.1</span></a>, we have</p>
-<div id="1e25f522" class="cell" data-execution_count="2">
-<pre class="sage cell-code"><code>taylor(1/(1 - x - x^2), x, 0, 10)</code></pre>
-<div class="cell-output cell-output-display" data-execution_count="2">
-\(\displaystyle 89 \, x^{10} + 55 \, x^{9} + 34 \, x^{8} + 21 \, x^{7} + 13 \, x^{6} + 8 \, x^{5} + 5 \, x^{4} + 3 \, x^{3} + 2 \, x^{2} + x + 1\)
-</div>
-</div>
-<section id="avoiding-11" class="level3" data-number="16.3.1">
-<h3 data-number="16.3.1" class="anchored" data-anchor-id="avoiding-11"><span class="header-section-number">16.3.1</span> Avoiding ‘11’</h3>
-<p>If we want to avoid <span class="math inline">\(11\)</span> we need to make sure that everyone <span class="math inline">\(1\)</span> has at least one <span class="math inline">\(0\)</span> next to it. We can do this with the language <span class="math inline">\(0^+1\)</span> which guarantees a zero on the left. Taking sequences of these, we get <span class="math inline">\((0^+1)^*\)</span>.</p>
-<p>We’re getting close to the description. We also need to allow a potential initial <span class="math inline">\(1\)</span> in case because that’s the place in the string which might have <span class="math inline">\(0\)</span>s only on the right. So <span class="math inline">\((\varepsilon + 1)(0^+1)^*\)</span>. Lastly, we can have as many zeros as we want after the last <span class="math inline">\(1\)</span> so <span class="math inline">\(L = (\varepsilon + 1)(0^+1)^*0^*\)</span>.</p>
-<p>Here we’re weighting by legnth again, so</p>
-<ul>
-<li><span class="math inline">\(\Phi_{\varepsilon + 1} = x^0 + x^1\)</span></li>
-<li><span class="math inline">\(\Phi_{0^+1} = \frac{x}{1 - x} \cdot x = \frac{x^2}{1 - x}\)</span></li>
-<li><span class="math inline">\(\Phi_{(0^+1)^*} = \frac{1}{1 - \frac{x^2}{1 - x}}\)</span></li>
-<li><span class="math inline">\(\Phi_{0^*} = \frac{1}{1 - x}\)</span></li>
-</ul>
-<p>Putting that all together, we have <span class="math display">\[
-\Phi_L = (1 + x) \cdot \frac{1}{1 - \frac{x^2}{1 - x}} \cdot \frac{1}{1 - x} = \frac{1 + x}{1 - x - x^2}.
-\]</span></p>
-<p>This is similar to <a href="#eq-12-fib-ogf" class="quarto-xref">Equation&nbsp;<span>16.1</span></a> but the numerator shifts the sequence over a step:</p>
-<div id="d07946de" class="cell" data-execution_count="3">
-<pre class="sage cell-code"><code>taylor((1 + x)/(1 - x - x^2), x, 0, 10)</code></pre>
-<div class="cell-output cell-output-display" data-execution_count="3">
-\(\displaystyle 144 \, x^{10} + 89 \, x^{9} + 55 \, x^{8} + 34 \, x^{7} + 21 \, x^{6} + 13 \, x^{5} + 8 \, x^{4} + 5 \, x^{3} + 3 \, x^{2} + 2 \, x + 1\)
-</div>
-</div>
-</section>
-</section>
-<section id="even-number-of-1s" class="level2" data-number="16.4">
-<h2 data-number="16.4" class="anchored" data-anchor-id="even-number-of-1s"><span class="header-section-number">16.4</span> Even number of 1s</h2>
-<p>Heuristically, half of all binary strings should have an even number of <span class="math inline">\(1\)</span>s and half should have an odd number. We’ll prove this using generating functions.</p>
-<p>For a start, the language of binary strings can be written as <span class="math inline">\((0 + 1)^*\)</span> (sequences of <span class="math inline">\(0\)</span>s or <span class="math inline">\(1\)</span>s). If we want to guarantee that every <span class="math inline">\(1\)</span> is partnered with a second <span class="math inline">\(1\)</span> later on, then we can modify this to <span class="math inline">\(L = (0 + 10^*1)^*\)</span>. Now we compute <span class="math display">\[
-\Phi_{10^*1} = x \cdot \frac{1}{1 - x} \cdot x = \frac{x^2}{1 - x}.
-\]</span> So therefore, <span class="math display">\[\begin{align*}
-\Phi_L &amp;= \frac{1}{1 - (x + \frac{x^2}{1 - x})} \\
-&amp;= \frac{1 - x}{(1 - x) - x(1 - x) - x^2} \\
-&amp;= \frac{1 - x}{1 - 2x} \\
-&amp;= \frac{1}{1 - 2x} - \frac{x}{1 - 2x} \\
-&amp;= \sum_{n = 0}^\infty 2^n x^n - \sum_{n = 0}^\infty 2^{n} x^{n + 1} \\
-&amp;= \sum_{n = 0}^\infty 2^n x^n - \sum_{n = 1}^\infty 2^{n - 1} x^{n}.
-\end{align*}\]</span></p>
-<p>And that means that the number of such strings is <span class="math display">\[
-\begin{cases}
-2^n - 2^{n - 1} = 2^{n - 1} &amp; \text{if } n \ge 1 \\
-1 &amp; \text{if } n = 0
-\end{cases}.
-\]</span></p>
-</section>
-<section id="regular-languages" class="level2" data-number="16.5">
-<h2 data-number="16.5" class="anchored" data-anchor-id="regular-languages"><span class="header-section-number">16.5</span> Regular Languages</h2>
-<p>We describe <strong>regular languages</strong> inductively:</p>
-<ul>
-<li>a finite language is regular</li>
-<li>if <span class="math inline">\(L, L'\)</span> are regular then so is <span class="math inline">\(L + L'\)</span></li>
-<li>if <span class="math inline">\(L, L'\)</span> are regular then so is <span class="math inline">\(LL'\)</span></li>
-<li>if <span class="math inline">\(L, L'\)</span> are regular then so are <span class="math inline">\(L^*\)</span> and <span class="math inline">\(L^+\)</span></li>
-</ul>
-<p>That is, a regular language is everything you can create out of a finite description using unions, concatenations, Kleene stars and pluses, and letters from the alphabet.</p>
-<p>Such a description using these operations is known as a <strong>regular expression</strong>. This concept is closely related to regular expressions in computer programming although computer programming includes many more operations such as the <code>?</code> operator where <span class="math inline">\(L? = \varepsilon + L\)</span>.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage"});</script>
+<ol type="1">
+<li>Consider the language <span class="math inline">\(L = 0^*(11)^*\)</span>.
+<ol type="a">
+<li>List all words in <span class="math inline">\(L\)</span> of length <span class="math inline">\(\le 6\)</span>.</li>
+<li>Let <span class="math inline">\(a_n\)</span> be the number of words in <span class="math inline">\(L\)</span> of length <span class="math inline">\(n\)</span>. Using part a, guess a formula for <span class="math inline">\(a_n\)</span> (which may depend on whether <span class="math inline">\(n\)</span> is even or odd).</li>
+<li>Can you prove your formula?</li>
+</ol></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Hint
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Some regular expression operators in computer programming allow one to create languages which are not regular. For instance, backreferences allow one to ask whether a previous part of the string has been repeated. So computer programming regular expressions exceeds what formal language regular expressions can describe. <a href="https://en.wikipedia.org/wiki/Regular_expression#Patterns_for_non-regular_languages">See Wikipedia for more info.</a></p>
+<p>In words: <span class="math inline">\(L\)</span> describes languages with some number of <span class="math inline">\(0\)</span>s followed by an even number of <span class="math inline">\(1\)</span>s. So for instance, if <span class="math inline">\(n = 9\)</span>, the possible number of <span class="math inline">\(1\)</span>s is <span class="math inline">\(0, 2, 4, 6, 8\)</span> and there would be <span class="math inline">\(5\)</span> possible strings. The formula should look something like <span class="math inline">\(n/2\)</span> or <span class="math inline">\((n + 1)/2\)</span>.</p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Consider a tiling problem where we tile a <span class="math inline">\(2 \times n\)</span> grid using horizontal or vertical dominos (<span class="math inline">\(1 \times 2\)</span> or <span class="math inline">\(2 \times 1\)</span>) or a <span class="math inline">\(2 \times 2\)</span> square. Let <span class="math inline">\(\Sigma = \{V, H, S\}\)</span> where <span class="math inline">\(V\)</span> represents a vertical domino, <span class="math inline">\(H\)</span> represents a horizontal domino, and <span class="math inline">\(S\)</span> represents a square. A tiling can be described by the language <span class="math inline">\(L = \Sigma^*\)</span>.
+<ol type="a">
+<li>Let <span class="math inline">\(f\)</span> be the weight function describing the width. So <span class="math inline">\(f(V) = 1, f(H) = f(S) = 2\)</span>. What is the gerating function for <span class="math inline">\(\Sigma\)</span>?</li>
+<li>What is the generating function for <span class="math inline">\(L = \Sigma^*\)</span>?</li>
+<li>Using SageMath’s Taylor series method, compute the number of such tilings of a <span class="math inline">\(2 \times 10\)</span> grid. Note: you have to write <code>2*x</code> rather than <code>2x</code> in SageMath.</li>
+<li>Using our techniques from recursion, what is a recursive formula for the number of tilings <span class="math inline">\(t_n\)</span>? Compare this to the denominator of your OGF like in <a href="putting-it-together.html#sec-OGF-to-recursive-formula" class="quarto-xref"><span>Section 18.4</span></a>.</li>
+</ol></li>
+</ol>
+<div class="sage">
+<script type="text/x-sage">
+%display latex
+OGF = 1/(1 - 2*x) # Modify this as appropriate
+OGF.taylor(x, 0, 10) # Taylor series in x, centered at x = 0, of order 10
+  </script>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The generating function of <span class="math inline">\(\Sigma\)</span> is <span class="math display">\[
+\Phi_\Sigma = \sum_{w \in \Sigma} x^{f(w)} = x^{f(V)} + x^{f(H)} + x^{f(S)}.
+\]</span> For b. use <a href="regular-languages.html#thm-ogf-kleene" class="quarto-xref">Theorem&nbsp;<span>16.1</span></a>.</p>
+<p>For d.&nbsp;use the fact that a tiling of length <span class="math inline">\(n\)</span> is either: * a tiling of length <span class="math inline">\(n - 1\)</span> followed by a vertical domino, * a tiling of length <span class="math inline">\(n - 2\)</span> followed by either a pair of horizontal dominoes or a square (so <span class="math inline">\(2\)</span> options).</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Draw a finite automata for:
+<ol type="a">
+<li>the language <span class="math inline">\(0^*(11)^*\)</span></li>
+<li>the language <span class="math inline">\((0 + 11)^*\)</span></li>
+</ol></li>
+</ol>
+<p>The automata in these notes were drawn using the <a href="https://mermaid.js.org/">Mermaid Javascript library</a>. You may wish to copy the following code to <a href="https://mermaid.live/">mermaid.live</a> and modify it to create the FSA you need.</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    direction LR
+    classDef accept stroke-width:5px
+    [*] --&gt; 0
+    0 --&gt; 0 : 0
+    0 --&gt; 1 : 1
+    1 --&gt; 11 : 1
+    11 --&gt; 11 : 1
+
+    class 0, 11 accept</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The FSA for part a should require only slight modification of the sample Mermaid diagram. Likewise, part b should require only slight modification from part a.</p>
+</div>
 </div>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -900,14 +856,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../generating-functions/generating-function-exercises.html" class="pagination-link" aria-label="Exercises">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Exercises</span></span>
+      <a href="../regular-languages/putting-it-together.html" class="pagination-link" aria-label="Putting Everything Together">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../regular-languages/finite-automata.html" class="pagination-link" aria-label="Finite Automata">
-        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Finite Automata</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -915,4 +868,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/regular-languages/regular-languages.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/regular-languages/regular-languages.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/regular-languages/regular-languages-exercises.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/regular-languages/regular-languages-exercises.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

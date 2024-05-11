@@ -2,7 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/index.html</loc>
-    <lastmod>2024-04-19T21:50:24.612Z</lastmod>
+    <lastmod>2024-05-11T04:29:20.093Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trevorgunn.github.io/combinatorics-notes/preface.html</loc>
+    <lastmod>2024-05-11T04:29:20.093Z</lastmod>
   </url>
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/inclusion-exclusion/inclusion-exclusion.html</loc>
@@ -18,7 +22,7 @@
   </url>
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/permutations/visual.html</loc>
-    <lastmod>2024-05-01T03:21:52.737Z</lastmod>
+    <lastmod>2024-05-08T22:10:36.557Z</lastmod>
   </url>
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/permutations/generators.html</loc>
@@ -34,7 +38,7 @@
   </url>
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/permutations/permutation-exercises.html</loc>
-    <lastmod>2024-05-01T04:06:06.996Z</lastmod>
+    <lastmod>2024-05-11T04:36:18.741Z</lastmod>
   </url>
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/generating-functions/weights.html</loc>
@@ -70,10 +74,14 @@
   </url>
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/regular-languages/putting-it-together.html</loc>
-    <lastmod>2024-05-05T21:52:25.261Z</lastmod>
+    <lastmod>2024-05-11T04:35:55.445Z</lastmod>
+  </url>
+  <url>
+    <loc>https://trevorgunn.github.io/combinatorics-notes/regular-languages/regular-languages-exercises.html</loc>
+    <lastmod>2024-05-11T04:25:16.832Z</lastmod>
   </url>
   <url>
     <loc>https://trevorgunn.github.io/combinatorics-notes/Combinatorics-Notes.pdf</loc>
-    <lastmod>2024-05-06T02:19:50.239Z</lastmod>
+    <lastmod>2024-05-11T04:45:21.106Z</lastmod>
   </url>
 </urlset>
