@@ -386,7 +386,7 @@ Hint
 %display latex
 OGF = 1/(1 - 2*x) # Modify this as appropriate
 OGF.taylor(x, 0, 10) # Taylor series in x, centered at x = 0, of order 10
-  </script>
+</script>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -438,6 +438,64 @@ Hint
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The FSA for part a should require only slight modification of the sample Mermaid diagram. Likewise, part b should require only slight modification from part a.</p>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>Take the FSA from the previous question and perform state eliminitation to check if you recover the regular expression you started with. Remember to add in a termination state before you start eliminating.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Use the <span class="math inline">\(ab^*c\)</span> formula described in <a href="finite-automata.html#sec-one-in-one-out" class="quarto-xref"><span>Section 17.3.1</span></a> on each path <span class="math inline">\(A \to S \to B\)</span> to eliminate <span class="math inline">\(S\)</span>.</p>
+</div>
+</div>
+</div>
+<ol start="5" type="1">
+<li>In <a href="https://www.appliedcombinatorics.org/book/s_genfunction_exponential.html#example-60">Example 8.18</a> of Keller and Trotter’s book, they show using exponential generating functions that the number of ternary strings with an even number of <span class="math inline">\(0\)</span>s is <span class="math inline">\((3^n + 1)/2\)</span>. In this exercise, we will get this answer using ordinary generating functions.
+<ol type="a">
+<li>Draw a FSA for this language (you can do it in two states, not including the start and end).</li>
+<li>Perform state elimination to obtain a regular expression.</li>
+<li>Convert that regular expression to an OGF.</li>
+<li>Using SageMath, find a partial fraction decomposition for the OGF.</li>
+<li>Verify that the Taylor series is <span class="math inline">\(\sum \frac{3^n + 1}{2} x^n\)</span>.</li>
+</ol></li>
+</ol>
+<div class="sage">
+<script type="text/x-sage">
+%display latex
+OGF = 1/(1 - 2*x - 3*x^2) # Modify this as appropriate
+OGF.partial_fraction()
+</script>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>The start state will represent an even number of <span class="math inline">\(0\)</span>s seen so far and another state will represent an odd number.</li>
+<li>Eliminate the odd state using the elimination rule: <code>in(loop)*out</code>.</li>
+<li>Replace <span class="math inline">\(0, 1, 2\)</span> by <span class="math inline">\(x^1\)</span> since each of those characters has length <span class="math inline">\(1\)</span>.</li>
+<li>Don’t forget to use <code>2*x</code> rather than <code>2x</code>.</li>
+<li>Use the formula <span class="math inline">\(\frac{a}{1 - r} = \sum ar^n\)</span>.</li>
+</ol>
 </div>
 </div>
 </div>
