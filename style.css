@@ -62,3 +62,23 @@
 .sagecell_fullScreen {
   visibility: hidden;
 }
+
+.CodeMirror {
+  border-radius: 0.25rem;
+  border: 1px solid #DDD !important;
+}
+
+.sagecell_evalButton {
+  border-radius: 0.25rem;
+  border: 1px solid #DDD;
+}
+
+.sagecell_evalButton:before {
+  content: '\25BA ';
+  color: #22b24c;
+}
+
+.sagecell_permalink {
+  visibility: hidden;
+  height: 0;
+}
