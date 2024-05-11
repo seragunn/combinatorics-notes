@@ -1,0 +1,68 @@
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage"});</script>
+
+# Exercises
+
+1. Consider the language $L = 0^*(11)^*$.
+    a) List all words in $L$ of length $\le 6$.
+    b) Let $a_n$ be the number of words in $L$ of length $n$. Using part a, guess a formula for $a_n$ (which may depend on whether $n$ is even or odd).
+    c) Can you prove your formula?
+
+
+::: {.callout-tip collapse="true"}
+## Hint
+In words: $L$ describes languages with some number of $0$s followed by an even number of $1$s. So for instance, if $n = 9$, the possible number of $1$s is $0, 2, 4, 6, 8$ and there would be $5$ possible strings. The formula should look something like $n/2$ or $(n + 1)/2$.
+:::
+
+2. Consider a tiling problem where we tile a $2 \times n$ grid using horizontal or vertical dominos ($1 \times 2$ or $2 \times 1$) or a $2 \times 2$ square. Let $\Sigma = \{V, H, S\}$ where $V$ represents a vertical domino, $H$ represents a horizontal domino, and $S$ represents a square. A tiling can be described by the language $L = \Sigma^*$.
+    a) Let $f$ be the weight function describing the width. So $f(V) = 1, f(H) = f(S) = 2$. What is the gerating function for $\Sigma$?
+    b) What is the generating function for $L = \Sigma^*$?
+    c) Using SageMath's Taylor series method, compute the number of such tilings of a $2 \times 10$ grid. Note: you have to write `2*x` rather than `2x` in SageMath.
+    d) Using our techniques from recursion, what is a recursive formula for the number of tilings $t_n$? Compare this to the denominator of your OGF like in @sec-OGF-to-recursive-formula.
+
+<div class="sage">
+  <script type="text/x-sage">
+%display latex
+OGF = 1/(1 - 2*x) # Modify this as appropriate
+OGF.taylor(x, 0, 10) # Taylor series in x, centered at x = 0, of order 10
+  </script>
+</div>
+
+::: {.callout-tip collapse="true"}
+## Hint
+The generating function of $\Sigma$ is
+$$
+\Phi_\Sigma = \sum_{w \in \Sigma} x^{f(w)} = x^{f(V)} + x^{f(H)} + x^{f(S)}.
+$$
+For b. use @thm-ogf-kleene.
+
+For d. use the fact that a tiling of length $n$ is either:
+* a tiling of length $n - 1$ followed by a vertical domino,
+* a tiling of length $n - 2$ followed by either a pair of horizontal dominoes or a square (so $2$ options).
+:::
+
+3. Draw a finite automata for:
+    a) the language $0^*(11)^*$
+    b) the language $(0 + 11)^*$
+
+The automata in these notes were drawn using the [Mermaid Javascript library](https://mermaid.js.org/). You may wish to copy the following code to [mermaid.live](https://mermaid.live/) and modify it to create the FSA you need.
+
+```mermaid
+stateDiagram-v2
+    direction LR
+    classDef accept stroke-width:5px
+    [*] --> 0
+    0 --> 0 : 0
+    0 --> 1 : 1
+    1 --> 11 : 1
+    11 --> 11 : 1
+
+    class 0, 11 accept
+```
+
+::: {.callout-tip collapse="true"}
+## Hint
+The FSA for part a should require only slight modification of the sample Mermaid diagram. Likewise, part b should require only slight modification from part a.
+:::
+
+

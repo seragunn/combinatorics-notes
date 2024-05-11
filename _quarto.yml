@@ -46,6 +46,7 @@ book:
         - regular-languages/regular-languages.qmd
         - regular-languages/finite-automata.qmd
         - regular-languages/putting-it-together.qmd
+        - regular-languages/regular-languages-exercises.qmd
 
 format:
   html:

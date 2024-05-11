@@ -93,7 +93,7 @@ $$
 
 These coefficients match our recurrence!
 
-## General Result
+## General Result {#sec-OGF-to-recursive-formula}
 
 Suppose a Taylor series $\sum a_n x^n$ can be written as a rational function $P(x)/Q(x)$ where:
 
