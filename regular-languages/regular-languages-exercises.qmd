@@ -21,11 +21,11 @@ In words: $L$ describes languages with some number of $0$s followed by an even n
     d) Using our techniques from recursion, what is a recursive formula for the number of tilings $t_n$? Compare this to the denominator of your OGF like in @sec-OGF-to-recursive-formula.
 
 <div class="sage">
-  <script type="text/x-sage">
+<script type="text/x-sage">
 %display latex
 OGF = 1/(1 - 2*x) # Modify this as appropriate
 OGF.taylor(x, 0, 10) # Taylor series in x, centered at x = 0, of order 10
-  </script>
+</script>
 </div>
 
 ::: {.callout-tip collapse="true"}
@@ -65,4 +65,33 @@ stateDiagram-v2
 The FSA for part a should require only slight modification of the sample Mermaid diagram. Likewise, part b should require only slight modification from part a.
 :::
 
+4. Take the FSA from the previous question and perform state eliminitation to check if you recover the regular expression you started with. Remember to add in a termination state before you start eliminating.
 
+::: {.callout-tip collapse="true"}
+## Hint
+Use the $ab^*c$ formula described in @sec-one-in-one-out on each path $A \to S \to B$ to eliminate $S$.
+:::
+
+5. In [Example 8.18](https://www.appliedcombinatorics.org/book/s_genfunction_exponential.html#example-60) of Keller and Trotter's book, they show using exponential generating functions that the number of ternary strings with an even number of $0$s is $(3^n + 1)/2$. In this exercise, we will get this answer using ordinary generating functions.
+    a) Draw a FSA for this language (you can do it in two states, not including the start and end).
+    b) Perform state elimination to obtain a regular expression.
+    c) Convert that regular expression to an OGF.
+    d) Using SageMath, find a partial fraction decomposition for the OGF.
+    e) Verify that the Taylor series is $\sum \frac{3^n + 1}{2} x^n$.
+
+<div class="sage">
+<script type="text/x-sage">
+%display latex
+OGF = 1/(1 - 2*x - 3*x^2) # Modify this as appropriate
+OGF.partial_fraction()
+</script>
+</div>
+
+::: {.callout-tip collapse="true"}
+## Hint
+a) The start state will represent an even number of $0$s seen so far and another state will represent an odd number.
+b) Eliminate the odd state using the elimination rule: `in(loop)*out`.
+c) Replace $0, 1, 2$ by $x^1$ since each of those characters has length $1$.
+d) Don't forget to use `2*x` rather than `2x`.
+e) Use the formula $\frac{a}{1 - r} = \sum ar^n$.
+:::
