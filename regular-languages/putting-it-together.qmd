@@ -45,7 +45,7 @@ $$
 
 Conclusion: there are $3^n - 2 \cdot 2^n + 1$ trinary strings of length $n$ with at least one $1$ and one $2$.
 
-::: {.callout-note}
+::: {#nte-IE-OGF .callout-note}
 We can also obtain this answer by Inclusion/Exclusion. Let $X$ denote the set of all trinary strings of length $n$. Let $A$ be strings with no $1$ and let $B$ be strings with no $2$. Then $|X| = 3^n$ and $|A| = |B| = 2^n$ since each represents strings with two choices of character.
 
 We want $|X| - |A \cup B| = |X| - |A| - |B| + |A \cap B|$ using the formula we had in @sec-avoiding. So $3^n - 2^n - 2^n + 1$ which matches what we have using generating functions.
