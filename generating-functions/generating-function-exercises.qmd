@@ -14,10 +14,7 @@
             const elt = document.getElementById(geo_id);
             const a = elt.getAttribute("a");
             const r = elt.getAttribute("r");
-            const a_re = (a == 1 ? "" : a + "\\s*\\*?\\s*")
-            const ratio_re = (r == 1 ? "" : (r > 0 ? r + "\\^n" : "\\(" + r + "\\)\\^n"));
-            const re = new RegExp(a == 1 && r == 1 ? "^\\s*1\\s*$" : "^\\s*" + a_re + ratio_re + "\\s*$");
-            return re.test(input);
+            return geoRe(a, r).test(input);
         }
     }
 </script>
