@@ -14,7 +14,33 @@
             const elt = document.getElementById(geo_id);
             const a = elt.getAttribute("a");
             const r = elt.getAttribute("r");
-            return geoRe(a, r).test(input);
+            return geoRE(a, r).test(input);
+        }
+    }
+    function fillRandomSeq(id, max_a, max_an, max_r, max_rn) {
+        let elt = document.getElementById(id);
+        const [a, an, r, rn] = [ randsigned(max_a), randint(0, max_an), randsigned(max_r), randint(1, max_rn)];
+        elt.setAttribute("a", a);
+        elt.setAttribute("an", an);
+        elt.setAttribute("r", r);
+        elt.setAttribute("rn", rn);
+        elt.innerText = "\\[" + seq(a, an, r, rn) + "\\dots \\]";
+        MathJax.typeset();
+    }
+    function checkLT(seq_id) {
+        return (input) => {
+            const elt = document.getElementById(seq_id);
+            const a = elt.getAttribute("a");
+            const an = elt.getAttribute("an");
+            return monomialRE(a, an).test(input);
+        }
+    }
+    function checkRatio(seq_id) {
+        return (input) => {
+            const elt = document.getElementById(seq_id);
+            const r = elt.getAttribute("r");
+            const rn = elt.getAttribute("rn");
+            return monomialRE(r, rn).test(input);
         }
     }
 </script>
@@ -110,12 +136,10 @@ Similar to problem 5. but now there are only $0$ or $1$ choices for the $5 bill.
 
 ### Function to Series
 
-::: {.mx-2}
 <input type="button" id="geo-randomize" value="Randomize" onclick="fillRandomGeo('geo-text', 6, 6)">
 Fill in the blank:
 <p id="geo-text" a="2" r="3">\\[ \\frac{2}{1 - 3x} \\]</p>
 is equal to $\displaystyle \sum_{n = 0}^\infty (\cdots) x^n$.
-:::
 
 ```{julia}
 #| echo: false
@@ -123,6 +147,25 @@ using QuizQuestions
 
 scriptq("checkGeo('geo-text')")
 ```
+
+### Sequence to Function
+
+<input type="button" id="seq-randomize" value="Randomize" onclick="fillRandomSeq('seq-text', 6, 3, 6, 3)">
+What is the leading term and common ratio for the generating function whose coefficients are:
+<p id="seq-text" a="2" r="-1" an="0" rn="1">\\[ 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, \\dots ? \\]</p>
+
+::: {layout-ncol=2 .quiz-question-side-by-side}
+```{julia}
+#| echo: false
+scriptq("checkLT('seq-text')", placeholder="Leading Term")
+```
+```{julia}
+#| echo: false
+scriptq("checkRatio('seq-text')", placeholder="Common Ratio")
+```
+:::
+
+Hint: the leading term and common ratio might depend on $x$ after you turn the sequence into $a_0 + a_1x + a_2x^2 + a_3x^3 + \cdots$.
 :::
 :::
 
