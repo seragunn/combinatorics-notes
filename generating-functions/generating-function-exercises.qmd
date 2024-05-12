@@ -1,3 +1,27 @@
+<script src="/js/ogf.js"></script>
+<script>
+    function fillRandomGeo(id, max_a, max_r) {
+        let elt = document.getElementById(id);
+        const a = randsigned(max_a);
+        const r = randsigned(max_r);
+        elt.setAttribute("a", a);
+        elt.setAttribute("r", r);
+        elt.innerText = "\\[" + geo(a, r) + "\\]";
+        MathJax.typeset();
+    }
+    function checkGeo(geo_id) {
+        return (input) => {
+            const elt = document.getElementById(geo_id);
+            const a = elt.getAttribute("a");
+            const r = elt.getAttribute("r");
+            const a_re = (a == 1 ? "" : a + "\\s*\\*?\\s*")
+            const ratio_re = r > 0 ? r + "\\^n" : "\\(" + r + "\\)\\^n";
+            const re = new RegExp("^\\s*" + a_re + ratio_re + "\\s*$");
+            return re.test(input);
+        }
+    }
+</script>
+
 # Exercises
 
 1. Given that $\displaystyle \frac{1}{1 - ax} = \sum_{n = 0}^\infty a^n x^n$, convert the following into summation notation (in terms of $x^n$ rather than $x^{n + k}$)
@@ -80,6 +104,29 @@ You should get geometric series for each bill value.
 ::: {.callout-tip collapse="true"}
 ## Hint
 Similar to problem 5. but now there are only $0$ or $1$ choices for the $5 bill. So $1 + x^5$ is the generating function for that denomination.
+:::
+
+::: {.content-visible when-format=html}
+### Additional practice {.unnumbered}
+
+::: panel-tabset
+
+### Function to Series
+
+::: {.mx-2}
+<input type="button" id="geo-randomize" value="Randomize" onclick="fillRandomGeo('geo-text', 6, 6)">
+Fill in the blank:
+<p id="geo-text" a="2" r="3">\\[ \\frac{2}{1 - 3x} \\]</p>
+is equal to $\displaystyle \sum_{n = 0}^\infty (\cdots) x^n$.
+:::
+
+```{julia}
+#| echo: false
+using QuizQuestions
+
+scriptq("checkGeo('geo-text')")
+```
+:::
 :::
 
 <details>
