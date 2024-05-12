@@ -379,8 +379,8 @@ window.Quarto = {
             const a = elt.getAttribute("a");
             const r = elt.getAttribute("r");
             const a_re = (a == 1 ? "" : a + "\\s*\\*?\\s*")
-            const ratio_re = r > 0 ? r + "\\^n" : "\\(" + r + "\\)\\^n";
-            const re = new RegExp("^\\s*" + a_re + ratio_re + "\\s*$");
+            const ratio_re = (r == 1 ? "" : (r > 0 ? r + "\\^n" : "\\(" + r + "\\)\\^n"));
+            const re = new RegExp(a == 1 && r == 1 ? "^\\s*1\\s*$" : "^\\s*" + a_re + ratio_re + "\\s*$");
             return re.test(input);
         }
     }
@@ -557,31 +557,31 @@ Hint
 </p>
 <p>is equal to <span class="math inline">\(\displaystyle \sum_{n = 0}^\infty (\cdots) x^n\)</span>.</p>
 </div>
-<div id="e365da71" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div id="f91f06af" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <script>
-var ID = "K4OwCpeN"
+var ID = "qmJu01oj"
 </script>
-<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="K4OwCpeN" data-controltype="" onsubmit="return false;">
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="qmJu01oj" data-controltype="" onsubmit="return false;">
   <div class="form-group ">
     <div class="controls">
-      <div class="form" id="controls_K4OwCpeN" correct="-1" attempts="0">
+      <div class="form" id="controls_qmJu01oj" correct="-1" attempts="0">
         <div style="padding-top: 5px">
     <br>
 <div class="input-group" aria-label="Input form: Text answer">
-    <input id="K4OwCpeN" type="text" class="form-control" placeholder="Text answer" aria-label="Text answer">
+    <input id="qmJu01oj" type="text" class="form-control" placeholder="Text answer" aria-label="Text answer">
 </div>
 
     
         </div>
       </div>
-      <div id="K4OwCpeN_message" style="padding-bottom: 15px"></div>
+      <div id="qmJu01oj_message" style="padding-bottom: 15px"></div>
     </div>
   </div>
 </form>
 <script>
-document.getElementById('controls_K4OwCpeN').addEventListener("quizquestion_answer", (e) => {
-          var o = document.getElementById('controls_K4OwCpeN')
+document.getElementById('controls_qmJu01oj').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_qmJu01oj')
           var atts = Number(o.getAttribute("attempts"))
           o.setAttribute("correct",  e.detail.correct);
           o.setAttribute("attempts", atts + 1)
@@ -589,13 +589,13 @@ document.getElementById('controls_K4OwCpeN').addEventListener("quizquestion_answ
 </script>
 
 <script text="text/javascript">
-document.getElementById("K4OwCpeN").addEventListener("change", function() {
+document.getElementById("qmJu01oj").addEventListener("change", function() {
   var correct = (checkGeo('geo-text'))(this.value);
-  var msgBox = document.getElementById('K4OwCpeN_message');
+  var msgBox = document.getElementById('qmJu01oj_message');
   
   if(correct) {
     msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
-    var explanation = document.getElementById("explanation_K4OwCpeN")
+    var explanation = document.getElementById("explanation_qmJu01oj")
     if (explanation != null) {
        explanation.style.display = "none";
     }
@@ -605,7 +605,7 @@ document.getElementById("K4OwCpeN").addEventListener("change", function() {
 
   } else {
     msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Incorrect </span></div>";
-    var explanation = document.getElementById("explanation_K4OwCpeN")
+    var explanation = document.getElementById("explanation_qmJu01oj")
     if (explanation != null) {
        explanation.style.display = "block";
     }
