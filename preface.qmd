@@ -28,6 +28,7 @@ flowchart
     GeneratingFunctions --> RegularLanguages
     KT5-Graphs --> Permutations
     KT5-Graphs --> RegularLanguages
+    LinearAlgebra -.. Transfer Matrix Method ..-> RegularLanguages
 ```
 
 Inclusion/Exclusion makes a very brief appearance @nte-IE-OGF but is otherwise separate in these notes.

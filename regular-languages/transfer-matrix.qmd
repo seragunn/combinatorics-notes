@@ -1,0 +1,81 @@
+# Transfer Matrix Method
+
+Let $D$ be a directed graph on the vertices $1, \dots, n$. The **adjacency matrix** of $D$ is the matrix $A = A(D)$ where
+$$
+A_{ij} = \begin{cases}
+1 & \text{if } i \to j \text{ is a directed edge}, \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+These adjacency matrices allow for loop edges $i \to i$ and can be made to allow for parallel edges if we let $A_{ij}$ be the number of parallel edges from $i \to j$.
+
+## Example
+
+Consider the graph
+```{dot}
+//| label: fig-digraph
+//| fig-cap: A digraph on 1,2,3 with edges 12, 13, 22, 31, 32
+//| fig-width: 3
+//| fig-height: 2
+digraph {
+    layout=neato
+    node [shape=circle] { 1 2 3 }
+    1 -> {2 3}
+    2 -> 2
+    3 -> {1 2}
+}
+```
+
+The adjacency matrix of this digraph is
+$$
+A ={}
+\begin{array}{c c}
+& \begin{array}{@{} c c c @{}} 1 & 2 & 3 \end{array} \\
+\begin{array}{c} 1 \\ 2 \\ 3 \end{array} \hspace{-1em} &
+\begin{pmatrix}
+0 & 1 & 1 \\
+0 & 1 & 0 \\
+1 & 1 & 0
+\end{pmatrix} \\
+\mbox{}
+\end{array}
+$$ {#eq-adj-matrix}
+
+For instance, row $1$ says that vertex $1$ has edges $1 \to 2$ and $1 \to 3$.
+
+## Matrix Multiplication
+
+In linear algebra, we define the product of two matrices $A$ and $B$ by
+$$
+(AB)_{ij} = \sum_t A_{it} B_{tj}.
+$$
+
+Visually, this means we take the $i$-th row of $A$ and take the dot product with the $j$-th row of $B$. For instance, if $A$ is the adjacency matrix in @eq-adj-matrix, then
+$$
+A_{12} = \begin{pmatrix} 0 & 1 & 1 \end{pmatrix} \cdot \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = 0 \cdot 1 + 1 \cdot 1 + 1 \cdot 1 = 2.
+$$
+
+This product has a combinatorial meaning:
+$$
+(A^2)_{ij} = \sum_t A_{it}A_{tj} = \sum_t \begin{cases}
+1 & \text{if } i \to t \to j \text{ are edges}, \\
+0 & \text{else}.
+\end{cases}
+$$
+
+In other words: **$A^2$ gives the number of walks of length $2$.**
+
+::: {#thm-matrix-mult-walks}
+If $A$ is the adjacency matrix for some digraph $D$, then $(A^n)_{ij}$ is the number of walks of length $n$ from $i$ to $j$.
+:::
+
+::: {.proof}
+We prove this by induction. First, the base case: if $n = 1$ then $(A^1)_{ij} = A_{ij}$ is by definition the number of walks (single edges) from $i$ to $j$.
+
+For the inductive step, we assume that (for every $i$ and $j$) $(A^{n - 1})_{ij}$ counts the number of walks from $i$ to $j$ of length $n - 1$. Then
+$$
+(A^n)_{ij} = (A^{n - 1}A)_{ij} = \sum_t (A^{n-1})_{it}A_{tj}.
+$$
+Here, the first factor, $(A^{n-1})_{it}$ counts the number of walks from $i$ to $t$ of length $n - 1$ and $A_{tj}$ is the number of edges from $t$ to $j$. So the whole term $(A^{n-1})_{it}A_{tj}$ counts the number of walks from $i$ to $t$ to $j$. So this is every walk of length $n$ from $i$ to $j$.
+:::
