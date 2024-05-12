@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -69,6 +69,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -311,8 +314,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../regular-languages/transfer-matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../regular-languages/regular-languages-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -323,7 +332,13 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#additional-practice" id="toc-additional-practice" class="nav-link active" data-scroll-target="#additional-practice">Additional practice</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/generating-function-exercises.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/generating-function-exercises.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -347,6 +362,29 @@ window.Quarto = {
 </header>
 
 
+<script src="../js/ogf.js"></script>
+<script>
+    function fillRandomGeo(id, max_a, max_r) {
+        let elt = document.getElementById(id);
+        const a = randsigned(max_a);
+        const r = randsigned(max_r);
+        elt.setAttribute("a", a);
+        elt.setAttribute("r", r);
+        elt.innerText = "\\[" + geo(a, r) + "\\]";
+        MathJax.typeset();
+    }
+    function checkGeo(geo_id) {
+        return (input) => {
+            const elt = document.getElementById(geo_id);
+            const a = elt.getAttribute("a");
+            const r = elt.getAttribute("r");
+            const a_re = (a == 1 ? "" : a + "\\s*\\*?\\s*")
+            const ratio_re = r > 0 ? r + "\\^n" : "\\(" + r + "\\)\\^n";
+            const re = new RegExp("^\\s*" + a_re + ratio_re + "\\s*$");
+            return re.test(input);
+        }
+    }
+</script>
 <ol type="1">
 <li>Given that <span class="math inline">\(\displaystyle \frac{1}{1 - ax} = \sum_{n = 0}^\infty a^n x^n\)</span>, convert the following into summation notation (in terms of <span class="math inline">\(x^n\)</span> rather than <span class="math inline">\(x^{n + k}\)</span>)
 <ol type="a">
@@ -506,6 +544,85 @@ Hint
 </div>
 </div>
 </div>
+<section id="additional-practice" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="additional-practice">Additional practice</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Function to Series</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="mx-2">
+<input type="button" id="geo-randomize" value="Randomize" onclick="fillRandomGeo('geo-text', 6, 6)"> Fill in the blank:
+<p id="geo-text" a="2" r="3">
+\[ \frac{2}{1 - 3x} \]
+</p>
+<p>is equal to <span class="math inline">\(\displaystyle \sum_{n = 0}^\infty (\cdots) x^n\)</span>.</p>
+</div>
+<div id="e365da71" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="26">
+<script>
+var ID = "K4OwCpeN"
+</script>
+<form class="mx-2 my-3 mw-100" name="WeaveQuestion" data-id="K4OwCpeN" data-controltype="" onsubmit="return false;">
+  <div class="form-group ">
+    <div class="controls">
+      <div class="form" id="controls_K4OwCpeN" correct="-1" attempts="0">
+        <div style="padding-top: 5px">
+    <br>
+<div class="input-group" aria-label="Input form: Text answer">
+    <input id="K4OwCpeN" type="text" class="form-control" placeholder="Text answer" aria-label="Text answer">
+</div>
+
+    
+        </div>
+      </div>
+      <div id="K4OwCpeN_message" style="padding-bottom: 15px"></div>
+    </div>
+  </div>
+</form>
+<script>
+document.getElementById('controls_K4OwCpeN').addEventListener("quizquestion_answer", (e) => {
+          var o = document.getElementById('controls_K4OwCpeN')
+          var atts = Number(o.getAttribute("attempts"))
+          o.setAttribute("correct",  e.detail.correct);
+          o.setAttribute("attempts", atts + 1)
+      }, true)
+</script>
+
+<script text="text/javascript">
+document.getElementById("K4OwCpeN").addEventListener("change", function() {
+  var correct = (checkGeo('geo-text'))(this.value);
+  var msgBox = document.getElementById('K4OwCpeN_message');
+  
+  if(correct) {
+    msgBox.innerHTML = "<div class='pluto-output admonition note alert alert-success'><span> 👍&nbsp; Correct </span></div>";
+    var explanation = document.getElementById("explanation_K4OwCpeN")
+    if (explanation != null) {
+       explanation.style.display = "none";
+    }
+      const correct_answer   = new CustomEvent("quizquestion_answer", {bubbles:true, detail:{correct: 1}});
+  this.dispatchEvent(correct_answer);
+  //typeof correct_answer   != "undefined" && this.dispatchEvent(correct_answer);
+
+  } else {
+    msgBox.innerHTML = "<div class='pluto-output admonition alert alert-danger'><span>👎&nbsp; Incorrect </span></div>";
+    var explanation = document.getElementById("explanation_K4OwCpeN")
+    if (explanation != null) {
+       explanation.style.display = "block";
+    }
+      const incorrect_answer = new CustomEvent("quizquestion_answer", {bubbles:true, detail:{correct: 0}});
+  this.dispatchEvent(incorrect_answer);
+  //typeof incorrect_answer != "undefined" && this.dispatchEvent(incorrect_answer);
+
+  }
+
+});
+
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
 <details>
 <summary>
 Solutions
@@ -541,6 +658,7 @@ Solutions
 </details>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -969,4 +1087,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/generating-function-exercises.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/generating-function-exercises.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/generating-functions/generating-function-exercises.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/generating-functions/generating-function-exercises.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

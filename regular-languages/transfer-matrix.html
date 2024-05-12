@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Combinatorics Notes - 7&nbsp; Sign of a Permutation</title>
+<title>Combinatorics Notes - 19&nbsp; Transfer Matrix Method</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../permutations/inversions.html" rel="next">
-<link href="../permutations/generators.html" rel="prev">
+<link href="../regular-languages/regular-languages-exercises.html" rel="next">
+<link href="../regular-languages/putting-it-together.html" rel="prev">
 <link href="../icon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -141,7 +141,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../permutations/permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="../permutations/sign.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/transfer-matrix.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -217,7 +217,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link active">
+  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
   </div>
 </li>
@@ -311,7 +311,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../regular-languages/transfer-matrix.html" class="sidebar-item-text sidebar-link">
+  <a href="../regular-languages/transfer-matrix.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span></a>
   </div>
 </li>
@@ -333,26 +333,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#step-1-reducing-to-the-identity" id="toc-step-1-reducing-to-the-identity" class="nav-link active" data-scroll-target="#step-1-reducing-to-the-identity"><span class="header-section-number">7.1</span> Step 1: reducing to the identity</a></li>
-  <li><a href="#step-2-setting-up-the-induction-hypothesis" id="toc-step-2-setting-up-the-induction-hypothesis" class="nav-link" data-scroll-target="#step-2-setting-up-the-induction-hypothesis"><span class="header-section-number">7.2</span> Step 2: setting up the induction hypothesis</a></li>
-  <li><a href="#step-3-reorganizing-the-product" id="toc-step-3-reorganizing-the-product" class="nav-link" data-scroll-target="#step-3-reorganizing-the-product"><span class="header-section-number">7.3</span> Step 3: reorganizing the product</a>
-  <ul class="collapse">
-  <li><a href="#case-1-disjoint" id="toc-case-1-disjoint" class="nav-link" data-scroll-target="#case-1-disjoint"><span class="header-section-number">7.3.1</span> Case 1: disjoint</a></li>
-  <li><a href="#case-2-two-numbers-in-common" id="toc-case-2-two-numbers-in-common" class="nav-link" data-scroll-target="#case-2-two-numbers-in-common"><span class="header-section-number">7.3.2</span> Case 2: two numbers in common</a></li>
-  <li><a href="#case-3-larger-number-in-common" id="toc-case-3-larger-number-in-common" class="nav-link" data-scroll-target="#case-3-larger-number-in-common"><span class="header-section-number">7.3.3</span> Case 3: larger number in common</a></li>
-  <li><a href="#case-4-smaller-number-in-common" id="toc-case-4-smaller-number-in-common" class="nav-link" data-scroll-target="#case-4-smaller-number-in-common"><span class="header-section-number">7.3.4</span> Case 4: smaller number in common</a></li>
-  </ul></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">7.4</span> Summary</a></li>
-  <li><a href="#sec-sign-algorithm" id="toc-sec-sign-algorithm" class="nav-link" data-scroll-target="#sec-sign-algorithm"><span class="header-section-number">7.5</span> Notation/Computation</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link active" data-scroll-target="#example"><span class="header-section-number">19.1</span> Example</a></li>
+  <li><a href="#matrix-multiplication" id="toc-matrix-multiplication" class="nav-link" data-scroll-target="#matrix-multiplication"><span class="header-section-number">19.2</span> Matrix Multiplication</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/permutations/sign.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/permutations/sign.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/regular-languages/transfer-matrix.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/regular-languages/transfer-matrix.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../permutations/permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="../permutations/sign.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/transfer-matrix.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-sign" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></h1>
+<h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></h1>
 </div>
 
 
@@ -369,134 +360,122 @@ window.Quarto = {
 </header>
 
 
-<p>We established in <a href="visual.html#thm-product-of-transpositions" class="quarto-xref">Theorem&nbsp;<span>5.1</span></a> that every permutation can be written as a product of transpositions. But more than that, in all our examples, the number of transpositions required to perform a shuffle was always consistently odd or consistently even. For instance, <span class="math inline">\((13) = (12)(23)(12)\)</span> has an odd number of transpositions on both sides.</p>
-<p>If we look at <a href="generators.html#sec-all-relations" class="quarto-xref"><span>Section 6.4</span></a>, we said that every possible way to manipulate a permutation can be reduced to three rules, each of which preserves the parity (odd or even) of the number of transpositions.</p>
-<p>In case you were unsatisfied with relying on the fact that every relation reduces to the three given relations, we will present two different proofs that the parity is always consistent: one here, one in the next section.</p>
-<p>For a visualization of this proof, see <a href="https://www.youtube.com/watch?v=p6kCYbKIMak">https://www.youtube.com/watch?v=p6kCYbKIMak</a> starting at 13:50.</p>
-<section id="step-1-reducing-to-the-identity" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="step-1-reducing-to-the-identity"><span class="header-section-number">7.1</span> Step 1: reducing to the identity</h2>
-<p>Suppose we have two different ways to write a given permutation as a product of transpositions:</p>
-<p><span class="math display">\[
-\pi = \tau_1 \tau_2 \dots \tau_m = \tau_1' \tau_2' \dots \tau_n'.
+<p>Let <span class="math inline">\(D\)</span> be a directed graph on the vertices <span class="math inline">\(1, \dots, n\)</span>. The <strong>adjacency matrix</strong> of <span class="math inline">\(D\)</span> is the matrix <span class="math inline">\(A = A(D)\)</span> where <span class="math display">\[
+A_{ij} = \begin{cases}
+1 &amp; \text{if } i \to j \text{ is a directed edge}, \\
+0 &amp; \text{otherwise}
+\end{cases}
 \]</span></p>
-<p>(Here the letter <span class="math inline">\(\tau\)</span> means any transposition, not just for adjacent elements.)</p>
-<p>Our goal is to show that <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> have the same pairty (both are odd or both are even). Notice that if we multiply both sides by <span class="math inline">\(\tau_1\)</span>, we get</p>
-<p><span class="math display">\[
-\tau_1 \cdot \tau_1 \tau_2 \dots \tau_m = \tau_1 \cdot \tau_1' \tau_2' \dots \tau_n'
-\]</span></p>
-<p>but <span class="math inline">\(\tau_1 \cdot \tau_1\)</span> means swap the same pair twice, and doing this twice is the same as not doing it at all. Therefore the <span class="math inline">\(\tau_1 \cdot \tau_1\)</span> cancels and we are left with</p>
-<p><span class="math display">\[
-\tau_2 \dots \tau_m = \tau_1 \cdot \tau_1' \tau_2' \dots \tau_n'.
-\]</span></p>
-<p>Keep doing this from left to right until we have</p>
-<p><span class="math display">\[
-1 = \tau_m \dots \tau_2 \tau_1 \tau_1' \tau_2' \dots \tau_n'.
-\]</span></p>
-<p>So saying “<span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> have the same parity” is equivalent to saying “<span class="math inline">\(1\)</span> cannot be written as an odd number of transpositions.”</p>
-</section>
-<section id="step-2-setting-up-the-induction-hypothesis" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="step-2-setting-up-the-induction-hypothesis"><span class="header-section-number">7.2</span> Step 2: setting up the induction hypothesis</h2>
-<p>Let’s introduce some letters now for our transpositions. Say</p>
-<p><span id="eq-identity-product-of-transpositions"><span class="math display">\[
-1 = (a_1b_1)(a_2b_2) \cdots (a_kb_k)
-\tag{7.1}\]</span></span></p>
-<p>where <span class="math inline">\(a_i \neq b_i\)</span> for all <span class="math inline">\(i\)</span> (we’re always swapping two different things).</p>
-<p>We know that <span class="math inline">\(k\)</span> isn’t <span class="math inline">\(1\)</span> since a single transposition is not the same as the identity. So look now at <span class="math inline">\(k \ge 2\)</span>. We will show that we can always rewrite this product using <span class="math inline">\(k - 2\)</span> transpositions.</p>
-<p>There are a couple ways to phrase this next part of the proof. First, we could say: take as an inductive hypothesis that for all <span class="math inline">\(k' &lt; k\)</span> if the identity is written as a product of <span class="math inline">\(k'\)</span> transpositions then <span class="math inline">\(k'\)</span> is even. In this way, going from <span class="math inline">\(k\)</span> to <span class="math inline">\(k' = k - 2\)</span> we know that <span class="math inline">\(k - 2\)</span> is even and hence so is <span class="math inline">\(k\)</span>.</p>
-<p>Another way we could say this: we are always reducing by <span class="math inline">\(2\)</span> every time so <span class="math inline">\(k - 2 - 2 - 2 - \dots\)</span> will either end up at <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> and we know it can’t end up at <span class="math inline">\(1\)</span>.</p>
-</section>
-<section id="step-3-reorganizing-the-product" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="step-3-reorganizing-the-product"><span class="header-section-number">7.3</span> Step 3: reorganizing the product</h2>
-<p>Look back at <a href="#eq-identity-product-of-transpositions" class="quarto-xref">Equation&nbsp;<span>7.1</span></a>. Since <span class="math inline">\((ab) = (ba)\)</span>, to keep things consistent, we will assume that <span class="math inline">\(a_i &lt; b_i\)</span> always. Let <span class="math inline">\(a\)</span> be the smallest number appearing in any transposition. E.g. for <span class="math inline">\((23)(34)(23)(24)\)</span> we have <span class="math inline">\(a = 2\)</span>.</p>
-<p>We will slide all the the transpositions with an <span class="math inline">\(a\)</span> in them to the right (towards the beginning of the composition). Now we can’t just move things without changing the product so we have to be strategic.</p>
-<p>Let’s say we have in the middle of our expression <span class="math inline">\((uv)(xy)\)</span> where <span class="math inline">\(u = a\)</span> and <span class="math inline">\(x \neq a\)</span> and so we want to move <span class="math inline">\((uv)\)</span> to the right of <span class="math inline">\((xy)\)</span>.</p>
-<section id="case-1-disjoint" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="case-1-disjoint"><span class="header-section-number">7.3.1</span> Case 1: disjoint</h3>
-<p>If <span class="math inline">\(u, v, x, y\)</span> are all distinct, then the two swaps can be done in either order and <span class="math inline">\((uv)(xy) = (xy)(uv)\)</span>.</p>
-<div id="09d467d1" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display" data-execution_count="1">
+<p>These adjacency matrices allow for loop edges <span class="math inline">\(i \to i\)</span> and can be made to allow for parallel edges if we let <span class="math inline">\(A_{ij}\)</span> be the number of parallel edges from <span class="math inline">\(i \to j\)</span>.</p>
+<section id="example" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="example"><span class="header-section-number">19.1</span> Example</h2>
+<p>Consider the graph</p>
+<div class="cell" data-fig-width="3" data-fig-height="2" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-digraph" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-digraph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
-<figure class="figure">
-<p><img src="sign_files/figure-html/cell-2-output-1.png" class="img-fluid figure-img"></p>
+<svg width="288" height="192" viewbox="0.00 0.00 134.21 106.41" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 102.41)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-102.41 130.21,-102.41 130.21,4 -4,4"></polygon>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="black" cx="18" cy="-79.93" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="18" y="-75.73" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="black" cx="90.21" cy="-80.41" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="90.21" y="-76.21" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- 1&#45;&gt;2 -->
+<g id="edge1" class="edge">
+<title>1-&gt;2</title>
+<path fill="none" stroke="black" d="M36.22,-80.05C44,-80.1 53.27,-80.17 61.91,-80.22"></path>
+<polygon fill="black" stroke="black" points="61.97,-83.72 71.99,-80.29 62.01,-76.72 61.97,-83.72"></polygon>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="black" cx="54.59" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="54.59" y="-13.8" font-family="Times,serif" font-size="14.00">3</text>
+</g>
+<!-- 1&#45;&gt;3 -->
+<g id="edge2" class="edge">
+<title>1-&gt;3</title>
+<path fill="none" stroke="black" d="M31.7,-68.23C36.57,-61.67 41.84,-53.26 46.18,-45.18"></path>
+<polygon fill="black" stroke="black" points="49.44,-46.5 50.79,-35.99 43.18,-43.36 49.44,-46.5"></polygon>
+</g>
+<!-- 2&#45;&gt;2 -->
+<g id="edge3" class="edge">
+<title>2-&gt;2</title>
+<path fill="none" stroke="black" d="M107.24,-86.79C117.06,-88.09 126.21,-85.96 126.21,-80.41 126.21,-76.94 122.64,-74.8 117.56,-74.01"></path>
+<polygon fill="black" stroke="black" points="117.24,-70.51 107.24,-74.03 117.25,-77.51 117.24,-70.51"></polygon>
+</g>
+<!-- 3&#45;&gt;1 -->
+<g id="edge4" class="edge">
+<title>3-&gt;1</title>
+<path fill="none" stroke="black" d="M40.89,-29.71C36.02,-36.26 30.76,-44.68 26.41,-52.75"></path>
+<polygon fill="black" stroke="black" points="23.15,-51.43 21.8,-61.94 29.41,-54.57 23.15,-51.43"></polygon>
+</g>
+<!-- 3&#45;&gt;2 -->
+<g id="edge5" class="edge">
+<title>3-&gt;2</title>
+<path fill="none" stroke="black" d="M63.58,-33.75C67.35,-40.35 71.82,-48.19 76.01,-55.53"></path>
+<polygon fill="black" stroke="black" points="73.1,-57.5 81.1,-64.45 79.18,-54.03 73.1,-57.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-digraph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.1: A digraph on 1,2,3 with edges 12, 13, 22, 31, 32
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
+<p>The adjacency matrix of this digraph is <span id="eq-adj-matrix"><span class="math display">\[
+A ={}
+\begin{array}{c c}
+&amp; \begin{array}{@{} c c c @{}} 1 &amp; 2 &amp; 3 \end{array} \\
+\begin{array}{c} 1 \\ 2 \\ 3 \end{array} \hspace{-1em} &amp;
+\begin{pmatrix}
+0 &amp; 1 &amp; 1 \\
+0 &amp; 1 &amp; 0 \\
+1 &amp; 1 &amp; 0
+\end{pmatrix} \\
+\mbox{}
+\end{array}
+\tag{19.1}\]</span></span></p>
+<p>For instance, row <span class="math inline">\(1\)</span> says that vertex <span class="math inline">\(1\)</span> has edges <span class="math inline">\(1 \to 2\)</span> and <span class="math inline">\(1 \to 3\)</span>.</p>
 </section>
-<section id="case-2-two-numbers-in-common" class="level3" data-number="7.3.2">
-<h3 data-number="7.3.2" class="anchored" data-anchor-id="case-2-two-numbers-in-common"><span class="header-section-number">7.3.2</span> Case 2: two numbers in common</h3>
-<p>If <span class="math inline">\((uv) = (xy)\)</span> then <span class="math inline">\((uv)(xy) = (uv)^2 = 1\)</span> and we have reduced the number of transpositions by <span class="math inline">\(2\)</span> as we said we would.</p>
-</section>
-<section id="case-3-larger-number-in-common" class="level3" data-number="7.3.3">
-<h3 data-number="7.3.3" class="anchored" data-anchor-id="case-3-larger-number-in-common"><span class="header-section-number">7.3.3</span> Case 3: larger number in common</h3>
-<p>Consider the product <span class="math inline">\((12)(23) = (123)\)</span> (swap <span class="math inline">\(2,3\)</span> first then <span class="math inline">\(1,2\)</span>)</p>
-<div id="2e9f44d8" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-display" data-execution_count="2">
-<div>
-<figure class="figure">
-<p><img src="sign_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Compare this with the identity <span class="math inline">\((23)(12)(23) = (13)\)</span> that we worked out in <a href="generators.html" class="quarto-xref"><span>Chapter 6</span></a>:</p>
-<div id="42c1b59f" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div>
-<figure class="figure">
-<p><img src="sign_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Multiply both sides on the left by <span class="math inline">\((23)\)</span> and simplify using <span class="math inline">\((23)(23) = 1\)</span> to get <span class="math inline">\((12)(23) = (23)(13)\)</span>.</p>
-<p>In this way, the smallest number is always moving to the right. The rule is <span class="math inline">\((uv)(xy) = (xy)(uv')\)</span> where <span class="math inline">\(v'\)</span> is the number in <span class="math inline">\((xy)\)</span> which wasn’t in common.</p>
-<div id="exr-diagram-for-swap" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.1</strong></span> Work out the diagrams to show that <span class="math inline">\((12)(23) = (23)(13)\)</span>. (I would show you in SageMath, but the software doesn’t draw <span class="math inline">\((13)\)</span> very well.)</p>
-</div>
-</section>
-<section id="case-4-smaller-number-in-common" class="level3" data-number="7.3.4">
-<h3 data-number="7.3.4" class="anchored" data-anchor-id="case-4-smaller-number-in-common"><span class="header-section-number">7.3.4</span> Case 4: smaller number in common</h3>
-<p>Using the previous case, we move all the terms having <span class="math inline">\(u = a\)</span> to the right. So now we have a bunch of terms <span class="math inline">\((av_1)(av_2) \dots (av_r)\)</span> in the right of our product. We know we have at least two pairs because if we swap <span class="math inline">\(a\)</span> out of position, something later on has to swap it back into position.</p>
-<p>Also, if any of the adjacent pairs are equal, we can cancel them as in Case 2. Otherwise, we do something similar to Case 3 where</p>
-<p><span class="math display">\[
-(12)(23)(12) = (13) \implies (12)(23) = (13)(12)
+<section id="matrix-multiplication" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="matrix-multiplication"><span class="header-section-number">19.2</span> Matrix Multiplication</h2>
+<p>In linear algebra, we define the product of two matrices <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> by <span class="math display">\[
+(AB)_{ij} = \sum_t A_{it} B_{tj}.
 \]</span></p>
-<p>by multiplying on the right by <span class="math inline">\((12)\)</span></p>
-<p>The feature of this identity is that we have one fewer <span class="math inline">\(1\)</span>’s, or more generally, one fewer <span class="math inline">\(a\)</span>’s. And we can keep doing this until we are left with either a single <span class="math inline">\(a\)</span> (impossible) or we eventually find a pair that cancels.</p>
-<div id="exr-diagram-for-swap" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.2</strong></span> Draw the diagram for this identity.</p>
+<p>Visually, this means we take the <span class="math inline">\(i\)</span>-th row of <span class="math inline">\(A\)</span> and take the dot product with the <span class="math inline">\(j\)</span>-th row of <span class="math inline">\(B\)</span>. For instance, if <span class="math inline">\(A\)</span> is the adjacency matrix in <a href="#eq-adj-matrix" class="quarto-xref">Equation&nbsp;<span>19.1</span></a>, then <span class="math display">\[
+A_{12} = \begin{pmatrix} 0 &amp; 1 &amp; 1 \end{pmatrix} \cdot \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = 0 \cdot 1 + 1 \cdot 1 + 1 \cdot 1 = 2.
+\]</span></p>
+<p>This product has a combinatorial meaning: <span class="math display">\[
+(A^2)_{ij} = \sum_t A_{it}A_{tj} = \sum_t \begin{cases}
+1 &amp; \text{if } i \to t \to j \text{ are edges}, \\
+0 &amp; \text{else}.
+\end{cases}
+\]</span></p>
+<p>In other words: <strong><span class="math inline">\(A^2\)</span> gives the number of walks of length <span class="math inline">\(2\)</span>.</strong></p>
+<div id="thm-matrix-mult-walks" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 19.1</strong></span> If <span class="math inline">\(A\)</span> is the adjacency matrix for some digraph <span class="math inline">\(D\)</span>, then <span class="math inline">\((A^n)_{ij}\)</span> is the number of walks of length <span class="math inline">\(n\)</span> from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span>.</p>
 </div>
-</section>
-</section>
-<section id="summary" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">7.4</span> Summary</h2>
-<p>We showed that we can push all the transpositions containing a <span class="math inline">\(1\)</span> to the right and then moving those transpositions past each other until we had fewer and fewer <span class="math inline">\(1\)</span>’s and eventuall there must be a pair with both numbers in common because we can’t just move <span class="math inline">\(1\)</span> a single time in our sequence of transpositions.</p>
-<div id="exm-reorganizing" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7.1</strong></span> Start with <span class="math inline">\((12)(23)(12)(13)\)</span>. Use Case 3 to swap the first and second: <span class="math inline">\((23)(13)(12)(13)\)</span>. Now use Case 4 to swap the second and third: <span class="math inline">\((23)(23)(13)(13)\)</span>. Now cancel using Case 2.</p>
-</div>
-</section>
-<section id="sec-sign-algorithm" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="sec-sign-algorithm"><span class="header-section-number">7.5</span> Notation/Computation</h2>
-<p>If <span class="math inline">\(\pi\)</span> is a permutation, common notations for its parity or sign are: <span class="math inline">\(\operatorname{sgn} \pi\)</span> and <span class="math inline">\((-1)^\pi\)</span>. We say the sign is <span class="math inline">\(+1\)</span> if it is an even length product and the sign is <span class="math inline">\(-1\)</span> if it is an odd length product.</p>
-<p>We have the identity <span class="math inline">\(\operatorname{sgn}(\pi_1 \pi_2) = \operatorname{sgn}\pi_1 \operatorname{sgn} \pi_2\)</span> because, for example, multiplying two odd length products creates an even length product (<span class="math inline">\((-1) \cdot (-1) = +1\)</span>)</p>
-<p>One way to compute this is by decomposing <span class="math inline">\(\pi\)</span> into cycles. We saw in <a href="visual.html#thm-product-of-transpositions" class="quarto-xref">Theorem&nbsp;<span>5.1</span></a> how to write cycles in terms of transpositions: <span class="math inline">\((12345) = (12)(23)(34)(45)\)</span>. The observation here is that odd length cycles become an even length product of transpositions and vice versa.</p>
-<p>So the algorithm is:</p>
-<ol type="1">
-<li>Convert the permutation into a product of cycles.</li>
-<li>Write a <span class="math inline">\(+1\)</span> if the cycle has an odd length and a <span class="math inline">\(-1\)</span> if it has an even length.</li>
-<li>Multiply those numbers together to find the sign.</li>
-</ol>
-<div id="exm-calculating-parity" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7.2</strong></span> Consider the shuffle <span class="math inline">\(376819254\)</span>. We can write this as <span class="math inline">\((1369485)(27)\)</span> this is a product of a cycle of length <span class="math inline">\(7\)</span> and a cycle of length <span class="math inline">\(2\)</span>. Therefore the sign is <span class="math inline">\((+1)(-1) = -1\)</span>.</p>
-<p>This computation in SageMath:</p>
-<div id="8d69d7ec" class="cell" data-execution_count="4">
-<pre class="sage cell-code"><code>π = Permutation([3,7,6,8,1,9,2,5,4])
-sign(π)</code></pre>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>-1</code></pre>
-</div>
-</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>We prove this by induction. First, the base case: if <span class="math inline">\(n = 1\)</span> then <span class="math inline">\((A^1)_{ij} = A_{ij}\)</span> is by definition the number of walks (single edges) from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span>.</p>
+<p>For the inductive step, we assume that (for every <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>) <span class="math inline">\((A^{n - 1})_{ij}\)</span> counts the number of walks from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span> of length <span class="math inline">\(n - 1\)</span>. Then <span class="math display">\[
+(A^n)_{ij} = (A^{n - 1}A)_{ij} = \sum_t (A^{n-1})_{it}A_{tj}.
+\]</span> Here, the first factor, <span class="math inline">\((A^{n-1})_{it}\)</span> counts the number of walks from <span class="math inline">\(i\)</span> to <span class="math inline">\(t\)</span> of length <span class="math inline">\(n - 1\)</span> and <span class="math inline">\(A_{tj}\)</span> is the number of edges from <span class="math inline">\(t\)</span> to <span class="math inline">\(j\)</span>. So the whole term <span class="math inline">\((A^{n-1})_{it}A_{tj}\)</span> counts the number of walks from <span class="math inline">\(i\)</span> to <span class="math inline">\(t\)</span> to <span class="math inline">\(j\)</span>. So this is every walk of length <span class="math inline">\(n\)</span> from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span>.</p>
 </div>
 
 
@@ -914,13 +893,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../permutations/generators.html" class="pagination-link" aria-label="Generators">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Generators</span></span>
+      <a href="../regular-languages/putting-it-together.html" class="pagination-link" aria-label="Putting Everything Together">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../permutations/inversions.html" class="pagination-link" aria-label="Inversions">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Inversions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../regular-languages/regular-languages-exercises.html" class="pagination-link" aria-label="Exercises">
+        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Exercises</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -929,4 +908,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/permutations/sign.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/permutations/sign.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/trevorgunn/combinatorics-notes/edit/main/regular-languages/transfer-matrix.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/trevorgunn/combinatorics-notes/blob/main/regular-languages/transfer-matrix.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
