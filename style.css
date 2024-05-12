@@ -49,6 +49,21 @@
   margin: 0;
 }
 
+[type="button"] {
+  background-color: #f7f7f7;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+[type="button"]:hover {
+  background-color: #DDD;
+}
+
+[type="button"]:active {
+  background-color: #CCC;
+}
+
 .edgeLabel, .nodeLabel {
   color: black !important;
 }
@@ -66,11 +81,6 @@
 .CodeMirror {
   border-radius: 0.25rem;
   border: 1px solid #DDD !important;
-}
-
-.sagecell_evalButton {
-  border-radius: 0.25rem;
-  border: 1px solid #DDD;
 }
 
 .sagecell_evalButton:before {
