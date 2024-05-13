@@ -340,7 +340,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#getting-a-formula" id="toc-getting-a-formula" class="nav-link" data-scroll-target="#getting-a-formula"><span class="header-section-number">18.1.1</span> Getting a formula</a></li>
   </ul></li>
-  <li><a href="#fibonacci-example" id="toc-fibonacci-example" class="nav-link" data-scroll-target="#fibonacci-example"><span class="header-section-number">18.2</span> Fibonacci Example</a></li>
+  <li><a href="#sec-fib-put-together" id="toc-sec-fib-put-together" class="nav-link" data-scroll-target="#sec-fib-put-together"><span class="header-section-number">18.2</span> Fibonacci Example</a></li>
   <li><a href="#more-examples" id="toc-more-examples" class="nav-link" data-scroll-target="#more-examples"><span class="header-section-number">18.3</span> More Examples</a></li>
   <li><a href="#sec-OGF-to-recursive-formula" id="toc-sec-OGF-to-recursive-formula" class="nav-link" data-scroll-target="#sec-OGF-to-recursive-formula"><span class="header-section-number">18.4</span> General Result</a></li>
   <li><a href="#epilogue" id="toc-epilogue" class="nav-link" data-scroll-target="#epilogue"><span class="header-section-number">18.5</span> Epilogue</a></li>
@@ -391,7 +391,7 @@ window.Quarto = {
 <section id="getting-a-formula" class="level3" data-number="18.1.1">
 <h3 data-number="18.1.1" class="anchored" data-anchor-id="getting-a-formula"><span class="header-section-number">18.1.1</span> Getting a formula</h3>
 <p>On it’s face, it’s hard to tell what the taylor series is for this function. So we first ask Sage to give us a partial fraction decomposition.</p>
-<div id="28127503" class="cell" data-execution_count="1">
+<div id="bb2659cf" class="cell" data-execution_count="1">
 <pre class="sage cell-code"><code>%display latex
 A = 2x^2 / ((1 - x)*(1 - 2x)*(1 - 3x))
 A.partial_fraction()</code></pre>
@@ -423,8 +423,8 @@ Note&nbsp;18.1
 <p>We’re beginning to see how generating functions tie together our material on binomial coefficients, strings, inclusion/exclusion and also recurrence relations.</p>
 </section>
 </section>
-<section id="fibonacci-example" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="fibonacci-example"><span class="header-section-number">18.2</span> Fibonacci Example</h2>
+<section id="sec-fib-put-together" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="sec-fib-put-together"><span class="header-section-number">18.2</span> Fibonacci Example</h2>
 <p>At the end of <a href="finite-automata.html#sec-fibonacci-FSA" class="quarto-xref"><span>Section 17.4</span></a>, we had the regular expression <span class="math inline">\((0 + 10)^*(\varepsilon + 1)\)</span>. We repeat our method to turn this into a generating function. First, we should point out that <span class="math inline">\(\varepsilon\)</span> will become <span class="math inline">\(x^{f(\varepsilon)} = x^0 = 1\)</span>. So <span class="math display">\[
 (x + x^2)^*(1 + x) = \frac{1 + x}{1 - x - x^2}.
 \]</span></p>
@@ -453,7 +453,7 @@ a_{n + 3} = -5 a_n + 2 a_{n + 1} - 4 a_{n + 2}.
 \]</span></p>
 </div>
 </div>
-<div id="c8de56c5" class="cell" data-execution_count="2">
+<div id="19ce2265" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>C = CFiniteSequences(ZZ) # sequences over the integers
 C.from_recurrence([-5, 2, -4], [0, 0, 1]).ogf()</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -545,7 +545,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>The Sage commands for this look like</p>
-<div id="e524490f" class="cell" data-execution_count="3">
+<div id="77b066c5" class="cell" data-execution_count="3">
 <pre class="sage cell-code"><code>C = CFiniteSequences(ZZ)
 Fib = C.from_recurrence([1, 1], [0, 1])
 Fib.closed_form()</code></pre>
