@@ -30,7 +30,7 @@ We can use SageMath to check our work:
 
 ## Parity of the number of inversions
 
-Inversions as a concept have a few uses in combinatorics. Relavent to us now is that the number of inversions has the same parity as the permutation. To show this, we will consider how a single transposition affects this parity. But since the total number can go up or down, let us define a quantity which we can analyze to describe the parity.
+Inversions as a concept have a few uses in combinatorics. Relevant to us now is that the number of inversions has the same parity as the permutation. To show this, we will consider how a single transposition affects this parity. But since the total number can go up or down, let us define a quantity which we can analyze to describe the parity.
 
 For the identity permutation, define
 $$

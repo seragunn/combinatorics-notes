@@ -4,7 +4,7 @@ At this point we've seen numerous examples where a language is composed of a seq
 
 * A binary string is a sequence of $0$s and $1$s
 * A Dyck path is a sequence of smaller paths, shifted properly
-* A tiling of a $2 \times n$ grid using dominoes is a sequence of verticle dominoes or pairs of horizontal dominoes
+* A tiling of a $2 \times n$ grid using dominoes is a sequence of vertical dominoes or pairs of horizontal dominoes
 * Equivalently: we looked at sequences of $1$s and $2$s which sum to $n$; both give the Fibonacci numbers
 * Binary strings with no $11$---also counted by the Fibonacci numbers---can be broken into sequences of blocks although the blocks are more complex than the previous example
 
@@ -70,7 +70,7 @@ If we want to avoid $11$ we need to make sure that everyone $1$ has at least one
 
 We're getting close to the description. We also need to allow a potential initial $1$ in case because that's the place in the string which might have $0$s only on the right. So $(\varepsilon + 1)(0^+1)^*$. Lastly, we can have as many zeros as we want after the last $1$ so $L = (\varepsilon + 1)(0^+1)^*0^*$.
 
-Here we're weighting by legnth again, so
+Here we're weighting by length again, so
 
 * $\Phi_{\varepsilon + 1} = x^0 + x^1$
 * $\Phi_{0^+1} = \frac{x}{1 - x} \cdot x = \frac{x^2}{1 - x}$
@@ -125,5 +125,5 @@ That is, a regular language is everything you can create out of a finite descrip
 Such a description using these operations is known as a **regular expression**. This concept is closely related to regular expressions in computer programming although computer programming includes many more operations such as the `?` operator where $L? = \varepsilon + L$.
 
 ::: {.callout-note}
-Some regular expression operators in computer programming allow one to create languages which are not regular. For instance, backreferences allow one to ask whether a previous part of the string has been repeated. So computer programming regular expressions exceeds what formal language regular expressions can describe. [See Wikipedia for more info.](https://en.wikipedia.org/wiki/Regular_expression#Patterns_for_non-regular_languages)
+Some regular expression operators in computer programming allow one to create languages which are not regular. For instance, back-references allow one to ask whether a previous part of the string has been repeated. So computer programming regular expressions exceeds what formal language regular expressions can describe. [See Wikipedia for more info.](https://en.wikipedia.org/wiki/Regular_expression#Patterns_for_non-regular_languages)
 :::

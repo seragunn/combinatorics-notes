@@ -114,7 +114,7 @@ c) First use the shift formula from @thm-shift-coefficient to write it as $[x^{1
 d) The sum is $\sum 2 \cdot 3^n x^{5n + 5}$
 :::
 
-5. Write down a generating function for the number of ways to make change for $n$ dollars using $1, 5$ and $10$ dollar bills. (Hint: if we are receiving multiples of $\$5$ bills, then the generating function should be $x^0 + x^5 + x^{10} + \cdots$ where the weight function of a bill is its dolar value.)
+5. Write down a generating function for the number of ways to make change for $n$ dollars using $1, 5$ and $10$ dollar bills. (Hint: if we are receiving multiples of $\$5$ bills, then the generating function should be $x^0 + x^5 + x^{10} + \cdots$ where the weight function of a bill is its dollar value.)
 
 ::: {.callout-tip collapse="true"}
 ## Hint

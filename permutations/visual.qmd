@@ -18,7 +18,7 @@ set_random_seed(53657261)
 
 ### Notation
 
-The cycle $1 \to 5 \to 3 \to 1$ can be written as $(153)$. In general, $(a_1,\dots,a_n)$ represents the cycle $a_1 \to a_2 \to \dots \to a_n \to a_1$. We often ommit the commas when every number is a single digit.
+The cycle $1 \to 5 \to 3 \to 1$ can be written as $(153)$. In general, $(a_1,\dots,a_n)$ represents the cycle $a_1 \to a_2 \to \dots \to a_n \to a_1$. We often omit the commas when every number is a single digit.
 
 Here is how to compute the cycles in SageMath:
 
@@ -28,7 +28,7 @@ Here is how to compute the cycles in SageMath:
 
 The answer is given as a product (i.e. composition) of cycles.
 
-Elements which do not go anywhere---also called *fixed-points*---are represented by cycles of length $1$ E.g. $(123)(4)$ represents the two cycles $1 \to 2 \to 3 \to 1$ and $4 \to 4$. We often ommit length $1$ cycles from the notation so $(123)(4) = (123)$ as a permutation of $1,2,3,4$.
+Elements which do not go anywhere---also called *fixed-points*---are represented by cycles of length $1$ E.g. $(123)(4)$ represents the two cycles $1 \to 2 \to 3 \to 1$ and $4 \to 4$. We often omit length $1$ cycles from the notation so $(123)(4) = (123)$ as a permutation of $1,2,3,4$.
 
 ::: {#exr-cycle-decomposition}
 ###
@@ -41,7 +41,7 @@ Compute the cycle decomposition for $341859672$. You can [verify your answer in 
 ```
 :::
 
-Note: as mentioned earlier: SageMath ommits the cycle $(5)$ representing the fixed point $\pi(5) = 5$.
+Note: as mentioned earlier: SageMath omits the cycle $(5)$ representing the fixed point $\pi(5) = 5$.
 
 ### Multiplying Cycles {#sec-cycle-multiplication}
 

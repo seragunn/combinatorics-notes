@@ -2,7 +2,7 @@
 
 Consider the number system of the integers mod $n$. This means we group the numbers based on whether they have the same remainder when divided by $n$. For example, $3 \cdot 7 \equiv 1 \pmod {10}$ because both $21$ and $1$ have the same remainder when divided by $10$.
 
-This number system works a lot like the inteegers. We have addition, subtraction and multiplication. The question is: when can we divide? For example, is it possible to solve $2x \equiv 3 \pmod{10}$ for $x$? I.e. is there a way to move the $2$ to the other side of the equation? The answer is no, because $2x$ will never have a remainder of $3$.
+This number system works a lot like the integers. We have addition, subtraction and multiplication. The question is: when can we divide? For example, is it possible to solve $2x \equiv 3 \pmod{10}$ for $x$? I.e. is there a way to move the $2$ to the other side of the equation? The answer is no, because $2x$ will never have a remainder of $3$.
 
 What about $7x \equiv 3 \pmod{10}$? This is trickier. Let's look at our multiples of $7$:
 $$

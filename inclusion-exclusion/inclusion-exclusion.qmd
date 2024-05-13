@@ -31,7 +31,7 @@ Items in $A \cap B \cap C$ are added in $3 - 3 + 1 = 1$ times.
 
 Suppose we are looking at a union of $n$ sets: $A_1 \cup \dots \cup A_n$. Consider an element $x$ belonging exactly to $A_1, \dots, A_m$ and no other sets. If we do the same procedure of adding $|A_1| + \dots + |A_n|$ then we are counting $x$ a total of $m$ times. Then, when we subtract all the pairwise intersections, $|A_i \cap A_j|$, we are subtracting from the count of $x$ a total of $\binom{m}{2}$ because there are $\binom{m}{2}$ ways to choose two indices $\{i, j\} \subset \{1, \dots, m\}$.
 
-Thus, if we alternate: adding in single sets, subtracting pairs of intersections, adding tripples, subtracting quadruples, etc. we are counting $x$ a total of
+Thus, if we alternate: adding in single sets, subtracting pairs of intersections, adding triples, subtracting quadruples, etc. we are counting $x$ a total of
 
 $$
 \binom{m}1 - \binom{m}2 + \binom{m}3 -  \binom{m}4 + \cdots

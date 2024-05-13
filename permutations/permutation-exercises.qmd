@@ -103,8 +103,8 @@ Reference: @sec-cycle-multiplication
 Since the cycles are disjoint (don't share any numbers), the procedure here is:
 
 * look for each number from 1 to 12
-* write down the number following it in its cycle (e.g. 1 is followed by 8 so we write an 8 in the first position of the shufle, 2 is followed by 3, 3 by 6, etc.)
-* if a number does not appear (i.e. 5), then the perumtation leaves it unchanged and it remains in its starting position (so you should have a 5 in position 5 at the end)
+* write down the number following it in its cycle (e.g. 1 is followed by 8 so we write an 8 in the first position of the shuffle, 2 is followed by 3, 3 by 6, etc.)
+* if a number does not appear (i.e. 5), then the permutation leaves it unchanged and it remains in its starting position (so you should have a 5 in position 5 at the end)
 :::
 
 3. Show that $(12)(23)(34)(23)(12) = (14)$ by drawing the braid diagram.
@@ -126,7 +126,7 @@ fillblankq("Problem 2: ____", ("1","-1"), 1)
 ## Hint
 Reference: @sec-sign-algorithm
 
-Regardless of whether the cycles are disjoint or not (here they are), odd cycles are even and even cycles are odd (in terms of number of swaps). So multiply $1$ for each odd length cycle and $-1$ for each even legnth cycle. For example, $(1, 8, 2)$ has an odd legnth (even number of swaps) so we multiply $+1$ for it.
+Regardless of whether the cycles are disjoint or not (here they are), odd cycles are even and even cycles are odd (in terms of number of swaps). So multiply $1$ for each odd length cycle and $-1$ for each even length cycle. For example, $(1, 8, 2)$ has an odd length (even number of swaps) so we multiply $+1$ for it.
 :::
 
 5. Write $(182635)$ as a product of transpositions.

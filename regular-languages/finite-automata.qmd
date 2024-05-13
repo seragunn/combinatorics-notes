@@ -109,7 +109,7 @@ stateDiagram
 
 This says to get from the first state to the second, we can take either $a$ or $b$.
 
-### Mutiple ins or outs {#sec-multiple-ins-outs}
+### Multiple ins or outs {#sec-multiple-ins-outs}
 Suppose we have multiple in-edges or out-edges on a state. We can replace the state with a path from each input to each output and record the expression for that path according to @sec-one-in-one-out.
 
 ```{mermaid}
@@ -164,7 +164,7 @@ In order to eliminate every state, we make sure to have a starting and ending no
 Next, we eliminate states "01" and "02" using @sec-one-in-one-out.
 ```{mermaid}
 %%| label: fig-step-trinary
-%%| fig-cap: "FSA for trinary strings with at least one 1 and one 2, begin state elmination"
+%%| fig-cap: "FSA for trinary strings with at least one 1 and one 2, begin state elimination"
 stateDiagram
     direction LR
 
@@ -180,7 +180,7 @@ Then we use @sec-parallel-edges and finish off with @sec-one-in-one-out to elimi
 
 ```{mermaid}
 %%| label: fig-end-trinary
-%%| fig-cap: "FSA for trinary strings with at least one 1 and one 2, finish state elmination"
+%%| fig-cap: "FSA for trinary strings with at least one 1 and one 2, finish state elimination"
 stateDiagram
     direction LR
 

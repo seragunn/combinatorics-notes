@@ -15,7 +15,7 @@ In words: $L$ describes languages with some number of $0$s followed by an even n
 :::
 
 2. Consider a tiling problem where we tile a $2 \times n$ grid using horizontal or vertical dominos ($1 \times 2$ or $2 \times 1$) or a $2 \times 2$ square. Let $\Sigma = \{V, H, S\}$ where $V$ represents a vertical domino, $H$ represents a horizontal domino, and $S$ represents a square. A tiling can be described by the language $L = \Sigma^*$.
-    a) Let $f$ be the weight function describing the width. So $f(V) = 1, f(H) = f(S) = 2$. What is the gerating function for $\Sigma$?
+    a) Let $f$ be the weight function describing the width. So $f(V) = 1, f(H) = f(S) = 2$. What is the generating function for $\Sigma$?
     b) What is the generating function for $L = \Sigma^*$?
     c) Using SageMath's Taylor series method, compute the number of such tilings of a $2 \times 10$ grid. Note: you have to write `2*x` rather than `2x` in SageMath.
     d) Using our techniques from recursion, what is a recursive formula for the number of tilings $t_n$? Compare this to the denominator of your OGF like in @sec-OGF-to-recursive-formula.
@@ -65,7 +65,7 @@ stateDiagram-v2
 The FSA for part a should require only slight modification of the sample Mermaid diagram. Likewise, part b should require only slight modification from part a.
 :::
 
-4. Take the FSA from the previous question and perform state eliminitation to check if you recover the regular expression you started with. Remember to add in a termination state before you start eliminating.
+4. Take the FSA from the previous question and perform state elimination to check if you recover the regular expression you started with. Remember to add in a termination state before you start eliminating.
 
 ::: {.callout-tip collapse="true"}
 ## Hint

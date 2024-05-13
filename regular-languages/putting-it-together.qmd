@@ -111,7 +111,7 @@ $$
 ::: {.callout-note}
 The condition that $\deg P < \deg Q$ isn't crucial to this. It takes care of a few things. First, if $\deg P \ge \deg Q$ we could do long division to simplify.
 
-Second, if we have something like $x/ (1 - x) = -1 + 1/(1 - x)$, then the recurrence relation we get from the denominator is $a_n = a_{n - 1}$ but if we write down this Taylor series, the coefficients are $0, 1, 1, 1, 1, \dots$. So the recurence relation $a_n = a_{n - 1}$ only holds if $n \ge 2$.
+Second, if we have something like $x/ (1 - x) = -1 + 1/(1 - x)$, then the recurrence relation we get from the denominator is $a_n = a_{n - 1}$ but if we write down this Taylor series, the coefficients are $0, 1, 1, 1, 1, \dots$. So the recurrence relation $a_n = a_{n - 1}$ only holds if $n \ge 2$.
 
 The big takeaway here is: making $\deg P \ge \deg Q$ alters the initial terms and the recurrence relation takes longer to kick in.
 :::

@@ -18,7 +18,7 @@ $$
 
 (Here the letter $\tau$ means any transposition, not just for adjacent elements.)
 
-Our goal is to show that $m$ and $n$ have the same pairty (both are odd or both are even). Notice that if we multiply both sides by $\tau_1$, we get
+Our goal is to show that $m$ and $n$ have the same parity (both are odd or both are even). Notice that if we multiply both sides by $\tau_1$, we get
 
 $$
 \tau_1 \cdot \tau_1 \tau_2 \dots \tau_m = \tau_1 \cdot \tau_1' \tau_2' \dots \tau_n'
@@ -125,7 +125,7 @@ Draw the diagram for this identity.
 
 ## Summary
 
-We showed that we can push all the transpositions containing a $1$ to the right and then moving those transpositions past each other until we had fewer and fewer $1$'s and eventuall there must be a pair with both numbers in common because we can't just move $1$ a single time in our sequence of transpositions.
+We showed that we can push all the transpositions containing a $1$ to the right and then moving those transpositions past each other until we had fewer and fewer $1$'s and eventually there must be a pair with both numbers in common because we can't just move $1$ a single time in our sequence of transpositions.
 
 ::: {#exm-reorganizing}
 ###
