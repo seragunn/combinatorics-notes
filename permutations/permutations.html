@@ -453,7 +453,7 @@ n \cdot (n - 1) \cdot (n - 2) \cdots 2 \cdot 1, \text{ denoted } n!.
 <ol type="1">
 <li>Write the two functions as tables.</li>
 <li>Reorder the columns of the outermost function in the composition to align with the output of the innermost function.</li>
-<li>Stack the tables on top of eachother.</li>
+<li>Stack the tables on top of each other.</li>
 </ol>
 <p>E.g. Take <span class="math inline">\(\pi_2\)</span> to be the function represented by the shuffle <span class="math inline">\(53214\)</span> and take <span class="math inline">\(\pi_1\)</span> to be represented by the shuffle <span class="math inline">\(13254\)</span>. So as a table</p>
 <table class="table">
@@ -535,8 +535,8 @@ n \cdot (n - 1) \cdot (n - 2) \cdots 2 \cdot 1, \text{ denoted } n!.
 <p>The bottom row is <span class="math inline">\(\pi_1 \circ \pi_2\)</span>.</p>
 <div id="exr-compute-product" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.1</strong></span> Compute this in the other order: <span class="math inline">\(\pi_2 \circ \pi_1\)</span>. <em>Observe that the order matters.</em></p>
-<p>Note: in some sources (e.g.&nbsp;books, software), compositions are witten as a product in the reverse order. Sometimes there is an option provided to reverse the multiplication order. Here are those computations in the <a href="https://sagecell.sagemath.org/">SageMath</a> computer algebra system.</p>
-<div id="2a0348e4" class="cell" data-execution_count="1">
+<p>Note: in some sources (e.g.&nbsp;books, software), compositions are written as a product in the reverse order. Sometimes there is an option provided to reverse the multiplication order. Here are those computations in the <a href="https://sagecell.sagemath.org/">SageMath</a> computer algebra system.</p>
+<div id="bbe90ec7" class="cell" data-execution_count="1">
 <pre class="sage cell-code"><code>sage.combinat.permutation.Permutations.options(mult='r2l')
 π1 = Permutation([1,3,2,5,4])
 π2 = Permutation([5,3,2,1,4])
@@ -545,7 +545,7 @@ n \cdot (n - 1) \cdot (n - 2) \cdots 2 \cdot 1, \text{ denoted } n!.
 <pre><code>[4, 2, 3, 1, 5]</code></pre>
 </div>
 </div>
-<div id="4fd109e3" class="cell" data-execution_count="2">
+<div id="14ccbe29" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>π2 * π1</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>[5, 2, 3, 4, 1]</code></pre>

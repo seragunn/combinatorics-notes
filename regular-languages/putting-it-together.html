@@ -391,7 +391,7 @@ window.Quarto = {
 <section id="getting-a-formula" class="level3" data-number="18.1.1">
 <h3 data-number="18.1.1" class="anchored" data-anchor-id="getting-a-formula"><span class="header-section-number">18.1.1</span> Getting a formula</h3>
 <p>On it’s face, it’s hard to tell what the taylor series is for this function. So we first ask Sage to give us a partial fraction decomposition.</p>
-<div id="71778114" class="cell" data-execution_count="1">
+<div id="28127503" class="cell" data-execution_count="1">
 <pre class="sage cell-code"><code>%display latex
 A = 2x^2 / ((1 - x)*(1 - 2x)*(1 - 3x))
 A.partial_fraction()</code></pre>
@@ -453,7 +453,7 @@ a_{n + 3} = -5 a_n + 2 a_{n + 1} - 4 a_{n + 2}.
 \]</span></p>
 </div>
 </div>
-<div id="3d94389c" class="cell" data-execution_count="2">
+<div id="c8de56c5" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>C = CFiniteSequences(ZZ) # sequences over the integers
 C.from_recurrence([-5, 2, -4], [0, 0, 1]).ogf()</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -488,7 +488,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p>The condition that <span class="math inline">\(\deg P &lt; \deg Q\)</span> isn’t crucial to this. It takes care of a few things. First, if <span class="math inline">\(\deg P \ge \deg Q\)</span> we could do long division to simplify.</p>
-<p>Second, if we have something like <span class="math inline">\(x/ (1 - x) = -1 + 1/(1 - x)\)</span>, then the recurrence relation we get from the denominator is <span class="math inline">\(a_n = a_{n - 1}\)</span> but if we write down this Taylor series, the coefficients are <span class="math inline">\(0, 1, 1, 1, 1, \dots\)</span>. So the recurence relation <span class="math inline">\(a_n = a_{n - 1}\)</span> only holds if <span class="math inline">\(n \ge 2\)</span>.</p>
+<p>Second, if we have something like <span class="math inline">\(x/ (1 - x) = -1 + 1/(1 - x)\)</span>, then the recurrence relation we get from the denominator is <span class="math inline">\(a_n = a_{n - 1}\)</span> but if we write down this Taylor series, the coefficients are <span class="math inline">\(0, 1, 1, 1, 1, \dots\)</span>. So the recurrence relation <span class="math inline">\(a_n = a_{n - 1}\)</span> only holds if <span class="math inline">\(n \ge 2\)</span>.</p>
 <p>The big takeaway here is: making <span class="math inline">\(\deg P \ge \deg Q\)</span> alters the initial terms and the recurrence relation takes longer to kick in.</p>
 </div>
 </div>
@@ -545,7 +545,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>The Sage commands for this look like</p>
-<div id="2d20e89b" class="cell" data-execution_count="3">
+<div id="e524490f" class="cell" data-execution_count="3">
 <pre class="sage cell-code"><code>C = CFiniteSequences(ZZ)
 Fib = C.from_recurrence([1, 1], [0, 1])
 Fib.closed_form()</code></pre>

@@ -376,7 +376,7 @@ window.Quarto = {
 <ul>
 <li>A binary string is a sequence of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s</li>
 <li>A Dyck path is a sequence of smaller paths, shifted properly</li>
-<li>A tiling of a <span class="math inline">\(2 \times n\)</span> grid using dominoes is a sequence of verticle dominoes or pairs of horizontal dominoes</li>
+<li>A tiling of a <span class="math inline">\(2 \times n\)</span> grid using dominoes is a sequence of vertical dominoes or pairs of horizontal dominoes</li>
 <li>Equivalently: we looked at sequences of <span class="math inline">\(1\)</span>s and <span class="math inline">\(2\)</span>s which sum to <span class="math inline">\(n\)</span>; both give the Fibonacci numbers</li>
 <li>Binary strings with no <span class="math inline">\(11\)</span>—also counted by the Fibonacci numbers—can be broken into sequences of blocks although the blocks are more complex than the previous example</li>
 </ul>
@@ -417,7 +417,7 @@ L^+ = L + L^2 + L^3 + \cdots.
 \Phi_{L^*} = \frac{1}{1 - \Phi_L} = \frac{1}{1 - (x^{f(1)} + x^{f(2)})} = \frac{1}{1 - x - x^2}.
 \tag{16.1}\]</span></span></p>
 <p>We know that the number of these sequences which sum to <span class="math inline">\(n\)</span> is counted by the Fibonacci sequence, so like we stated <a href="../generating-functions/ogf.html#sec-convergence" class="quarto-xref"><span>Section 11.3.1</span></a>, we have</p>
-<div id="1e25f522" class="cell" data-execution_count="2">
+<div id="c49f18d9" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>taylor(1/(1 - x - x^2), x, 0, 10)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
 \(\displaystyle 89 \, x^{10} + 55 \, x^{9} + 34 \, x^{8} + 21 \, x^{7} + 13 \, x^{6} + 8 \, x^{5} + 5 \, x^{4} + 3 \, x^{3} + 2 \, x^{2} + x + 1\)
@@ -427,7 +427,7 @@ L^+ = L + L^2 + L^3 + \cdots.
 <h3 data-number="16.3.1" class="anchored" data-anchor-id="avoiding-11"><span class="header-section-number">16.3.1</span> Avoiding ‘11’</h3>
 <p>If we want to avoid <span class="math inline">\(11\)</span> we need to make sure that everyone <span class="math inline">\(1\)</span> has at least one <span class="math inline">\(0\)</span> next to it. We can do this with the language <span class="math inline">\(0^+1\)</span> which guarantees a zero on the left. Taking sequences of these, we get <span class="math inline">\((0^+1)^*\)</span>.</p>
 <p>We’re getting close to the description. We also need to allow a potential initial <span class="math inline">\(1\)</span> in case because that’s the place in the string which might have <span class="math inline">\(0\)</span>s only on the right. So <span class="math inline">\((\varepsilon + 1)(0^+1)^*\)</span>. Lastly, we can have as many zeros as we want after the last <span class="math inline">\(1\)</span> so <span class="math inline">\(L = (\varepsilon + 1)(0^+1)^*0^*\)</span>.</p>
-<p>Here we’re weighting by legnth again, so</p>
+<p>Here we’re weighting by length again, so</p>
 <ul>
 <li><span class="math inline">\(\Phi_{\varepsilon + 1} = x^0 + x^1\)</span></li>
 <li><span class="math inline">\(\Phi_{0^+1} = \frac{x}{1 - x} \cdot x = \frac{x^2}{1 - x}\)</span></li>
@@ -438,7 +438,7 @@ L^+ = L + L^2 + L^3 + \cdots.
 \Phi_L = (1 + x) \cdot \frac{1}{1 - \frac{x^2}{1 - x}} \cdot \frac{1}{1 - x} = \frac{1 + x}{1 - x - x^2}.
 \]</span></p>
 <p>This is similar to <a href="#eq-12-fib-ogf" class="quarto-xref">Equation&nbsp;<span>16.1</span></a> but the numerator shifts the sequence over a step:</p>
-<div id="d07946de" class="cell" data-execution_count="3">
+<div id="6ba32f7e" class="cell" data-execution_count="3">
 <pre class="sage cell-code"><code>taylor((1 + x)/(1 - x - x^2), x, 0, 10)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="3">
 \(\displaystyle 144 \, x^{10} + 89 \, x^{9} + 55 \, x^{8} + 34 \, x^{7} + 21 \, x^{6} + 13 \, x^{5} + 8 \, x^{4} + 5 \, x^{3} + 3 \, x^{2} + 2 \, x + 1\)
@@ -487,7 +487,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Some regular expression operators in computer programming allow one to create languages which are not regular. For instance, backreferences allow one to ask whether a previous part of the string has been repeated. So computer programming regular expressions exceeds what formal language regular expressions can describe. <a href="https://en.wikipedia.org/wiki/Regular_expression#Patterns_for_non-regular_languages">See Wikipedia for more info.</a></p>
+<p>Some regular expression operators in computer programming allow one to create languages which are not regular. For instance, back-references allow one to ask whether a previous part of the string has been repeated. So computer programming regular expressions exceeds what formal language regular expressions can describe. <a href="https://en.wikipedia.org/wiki/Regular_expression#Patterns_for_non-regular_languages">See Wikipedia for more info.</a></p>
 </div>
 </div>
 

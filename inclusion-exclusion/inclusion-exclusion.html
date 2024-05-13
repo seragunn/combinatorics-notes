@@ -393,7 +393,7 @@ window.Quarto = {
 <section id="sec-binomials-and-IE" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="sec-binomials-and-IE"><span class="header-section-number">2.3</span> Binomial coefficients and I/E</h2>
 <p>Suppose we are looking at a union of <span class="math inline">\(n\)</span> sets: <span class="math inline">\(A_1 \cup \dots \cup A_n\)</span>. Consider an element <span class="math inline">\(x\)</span> belonging exactly to <span class="math inline">\(A_1, \dots, A_m\)</span> and no other sets. If we do the same procedure of adding <span class="math inline">\(|A_1| + \dots + |A_n|\)</span> then we are counting <span class="math inline">\(x\)</span> a total of <span class="math inline">\(m\)</span> times. Then, when we subtract all the pairwise intersections, <span class="math inline">\(|A_i \cap A_j|\)</span>, we are subtracting from the count of <span class="math inline">\(x\)</span> a total of <span class="math inline">\(\binom{m}{2}\)</span> because there are <span class="math inline">\(\binom{m}{2}\)</span> ways to choose two indices <span class="math inline">\(\{i, j\} \subset \{1, \dots, m\}\)</span>.</p>
-<p>Thus, if we alternate: adding in single sets, subtracting pairs of intersections, adding tripples, subtracting quadruples, etc. we are counting <span class="math inline">\(x\)</span> a total of</p>
+<p>Thus, if we alternate: adding in single sets, subtracting pairs of intersections, adding triples, subtracting quadruples, etc. we are counting <span class="math inline">\(x\)</span> a total of</p>
 <p><span id="eq-IE-alternating-sum"><span class="math display">\[
 \binom{m}1 - \binom{m}2 + \binom{m}3 -  \binom{m}4 + \cdots
 \tag{2.1}\]</span></span> times.</p>
