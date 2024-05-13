@@ -136,7 +136,7 @@ Similar to problem 5. but now there are only $0$ or $1$ choices for the $5 bill.
 
 ### Function to Series
 
-<input type="button" id="geo-randomize" value="Randomize" onclick="fillRandomGeo('geo-text', 6, 6)">
+<input type="button" id="geo-randomize" value="Randomize" onclick="fillRandomGeo('geo-text', 6, 6)" class="randomize_button flush" style="float: right">
 Fill in the blank:
 <p id="geo-text" a="2" r="3">\\[ \\frac{2}{1 - 3x} \\]</p>
 is equal to $\displaystyle \sum_{n = 0}^\infty (\cdots) x^n$.
@@ -150,7 +150,7 @@ scriptq("checkGeo('geo-text')")
 
 ### Sequence to Function
 
-<input type="button" id="seq-randomize" value="Randomize" onclick="fillRandomSeq('seq-text', 6, 3, 6, 3)">
+<input type="button" id="seq-randomize" value="Randomize" onclick="fillRandomSeq('seq-text', 6, 3, 6, 3)" class="randomize_button" style="float: right">
 What is the leading term and common ratio for the generating function whose coefficients are:
 <p id="seq-text" a="2" r="-1" an="0" rn="1">\\[ 2, -2, 2, -2, 2, -2, 2, -2, 2, -2, \\dots ? \\]</p>
 

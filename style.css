@@ -49,19 +49,25 @@
   margin: 0;
 }
 
-[type="button"] {
-  background-color: #f7f7f7;
+.randomize_button, .sagecell_evalButton {
+  background-color: #EEE;
   border: none;
   padding: 0.25rem 0.75rem;
   border-radius: 0.25rem;
 }
 
-[type="button"]:hover {
+.randomize_button:hover, .sagecell_evalButton:hover {
   background-color: #DDD;
 }
 
-[type="button"]:active {
-  background-color: #CCC;
+.randomize_button:active, .sagecell_evalButton:active {
+  background-color: #BBB;
+}
+
+select, [type="number"] {
+  border: 1px solid #DDD;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.75rem;
 }
 
 .edgeLabel, .nodeLabel {

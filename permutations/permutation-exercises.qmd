@@ -153,7 +153,7 @@ The rule is like $(a,b,c,d) = (a, b)(b, c)(c, d)$. The transpositions are adjace
 ::: {.mx-2}
 <label for="n-shuffle">n:</label>
 <input type="number" id="n-shuffle" value="10">
-<input type="button" id="shuffle-randomize" value="Randomize" onclick="fillRandomShuffle('shuffle-input', document.getElementById('n-shuffle').value)">
+<input type="button" id="shuffle-randomize" value="Randomize" onclick="fillRandomShuffle('shuffle-input', document.getElementById('n-shuffle').value)" class="randomize_button">
 <br><br>
 <input id="shuffle-input" class="form-control" placeholder="Shuffle">
 :::
@@ -168,7 +168,7 @@ scriptq("checkCyclesFromInput('shuffle-input')", placeholder="Check your work")
 ::: {.mx-2}
 <label for="n-cycle">n:</label>
 <input type="number" id="n-cycle" value="10">
-<input type="button" id="cycle-randomize" value="Randomize" onclick="fillRandomCycles('cycle-input', document.getElementById('n-cycle').value)">
+<input type="button" id="cycle-randomize" value="Randomize" onclick="fillRandomCycles('cycle-input', document.getElementById('n-cycle').value)" class="randomize_button">
 <br><br>
 <input id="cycle-input" class="form-control" placeholder="Cycle decomposition">
 :::
@@ -182,7 +182,7 @@ scriptq("checkShuffleFromInput('cycle-input')", placeholder="Check your work")
 ::: {.mx-2}
 <label for="n-sign">n:</label>
 <input type="number" id="n-sign" value="10">
-<input type="button" id="sign-randomize" value="Randomize" onclick="fillRandomCycles('sign-input', document.getElementById('n-sign').value)">
+<input type="button" id="sign-randomize" value="Randomize" onclick="fillRandomCycles('sign-input', document.getElementById('n-sign').value)" class="randomize_button">
 <br><br>
 <input id="sign-input" class="form-control" placeholder="Cycle decomposition">
 :::
@@ -196,7 +196,7 @@ scriptq("checkSignFromInput('sign-input')", placeholder="Check your work")
 ::: {.mx-2}
 <label for="n-transpositions">n:</label>
 <input type="number" id="n-transpositions" value="10">
-<input type="button" id="transpositions-randomize" value="Randomize" onclick="fillRandomCycles('transpositions-input', document.getElementById('n-transpositions').value)">
+<input type="button" id="transpositions-randomize" value="Randomize" onclick="fillRandomCycles('transpositions-input', document.getElementById('n-transpositions').value)" class="randomize_button">
 <br><br>
 <input id="transpositions-input" class="form-control" placeholder="Cycle decomposition">
 :::
