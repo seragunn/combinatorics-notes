@@ -495,7 +495,7 @@ A_{12} = \begin{pmatrix} 0 &amp; 1 &amp; 1 \end{pmatrix} \cdot \begin{pmatrix} 1
 <section id="example-1" class="level3" data-number="19.2.1">
 <h3 data-number="19.2.1" class="anchored" data-anchor-id="example-1"><span class="header-section-number">19.2.1</span> Example</h3>
 <p>For the digraph in <a href="#fig-digraph" class="quarto-xref">Figure&nbsp;<span>19.1</span></a>, how many walks are there of length <span class="math inline">\(3\)</span> from vertex <span class="math inline">\(1\)</span> to vertex <span class="math inline">\(2\)</span>? We can do <span class="math inline">\(1,2,2,2\)</span>; or <span class="math inline">\(1,3,2,2\)</span>; or <span class="math inline">\(1,3,1,2\)</span>. So there are <span class="math inline">\(3\)</span> walks of length <span class="math inline">\(3\)</span>. Therefore, we expect that <span class="math inline">\(A^3\)</span> will have a <span class="math inline">\(3\)</span> in row <span class="math inline">\(1\)</span>, column <span class="math inline">\(2\)</span>. Let’s use SageMath to check this.</p>
-<div id="76a3daec" class="cell" data-execution_count="1">
+<div id="a5385848" class="cell" data-execution_count="1">
 <pre class="sage cell-code"><code>%display latex
 A = Matrix([[0, 1, 1], [0, 1, 0], [1, 1, 0]])
 A^3</code></pre>
@@ -519,7 +519,7 @@ M &amp;= A^0x^0 + A^1x^1 + A^2x^2 + A^3x^3 + \cdots \\
 \end{align*}\]</span></p>
 <p>Where we use a similar formula as our geometric series, <span class="math inline">\(\frac{1}{1-ax}\)</span>, except <span class="math inline">\(a\)</span> is now a matrix.</p>
 <p>For the digraph in <a href="#fig-digraph" class="quarto-xref">Figure&nbsp;<span>19.1</span></a>, this generating function is</p>
-<div id="93eda963" class="cell" data-execution_count="2">
+<div id="7050d2d2" class="cell" data-execution_count="2">
 <pre class="sage cell-code"><code>M = (identity_matrix(3) - A*x)^-1
 M.simplify_rational()</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="2">
@@ -574,7 +574,7 @@ A = \begin{pmatrix}
 \end{pmatrix}
 \]</span></p>
 <p>Then compute <span class="math inline">\(M = (I - A)^{-1}\)</span></p>
-<div id="032cd1ef" class="cell" data-execution_count="3">
+<div id="4352cc50" class="cell" data-execution_count="3">
 <pre class="sage cell-code"><code>A = Matrix([[1, 1], [1, 0]])
 I = identity_matrix(2)
 M = (I - A*x)^-1
@@ -593,13 +593,13 @@ OGF.simplify_rational()</code></pre>
 A^{-1} = \frac{1}{\det A} \operatorname{Adj}(A)
 \]</span> where the adjugate matrix <span class="math inline">\(\operatorname{Adj}(A)\)</span> has entries given by determinants of <span class="math inline">\(A\)</span> deleting one row and one column. :::</p>
 <p>What’s important to us here is that the denominator is <span class="math inline">\(\det A\)</span>. So the denominator of our generating functions is <span class="math display">\[
-\det(I - A*x)
+\det(I - Ax)
 \]</span></p>
 <p>This is related to the characteristic polynomial but with the coefficients reversed.</p>
 <section id="example-2" class="level3" data-number="19.5.1">
 <h3 data-number="19.5.1" class="anchored" data-anchor-id="example-2"><span class="header-section-number">19.5.1</span> Example</h3>
 <p>For our Fibonacci FSA in <a href="#fig-fibonacci-simple" class="quarto-xref">Figure&nbsp;<span>19.2</span></a>, the denominator is</p>
-<div id="065268df" class="cell" data-execution_count="4">
+<div id="8a564bec" class="cell" data-execution_count="4">
 <pre class="sage cell-code"><code>det(I - A*x)</code></pre>
 <div class="cell-output cell-output-display" data-execution_count="4">
 \(\displaystyle -x^{2} - x + 1\)
@@ -622,7 +622,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In <a href="#sec-transfer-ogf" class="quarto-xref"><span>Section 19.3</span></a>, we saw that some of the denominators were <span class="math inline">\(1 - x^2 = (1 - x)(1 + x)\)</span> and some were <span class="math inline">\(1 - x\)</span> and some were <span class="math inline">\((1 - x)^2\)</span>. The denominator we calculate using <span class="math inline">\(\det(I - A*x)\)</span> is <span class="math inline">\((1 - x)^2(1 + x) = 1 - x - x^2 + x^3\)</span> leading to the recurrence <span class="math inline">\(a_n - a_{n - 1} - a_{n - 2} + a_{n - 3}\)</span>.</p>
+<p>In <a href="#sec-transfer-ogf" class="quarto-xref"><span>Section 19.3</span></a>, we saw that some of the denominators were <span class="math inline">\(1 - x^2 = (1 - x)(1 + x)\)</span> and some were <span class="math inline">\(1 - x\)</span> and some were <span class="math inline">\((1 - x)^2\)</span>. The denominator we calculate using <span class="math inline">\(\det(I - Ax)\)</span> is <span class="math inline">\((1 - x)^2(1 + x) = 1 - x - x^2 + x^3\)</span> leading to the recurrence <span class="math inline">\(a_n - a_{n - 1} - a_{n - 2} + a_{n - 3}\)</span>.</p>
 <p>All of the quantities will satisfy the longer recurrence but they also individually satisfy a shorter recurrence which may be different from their siblings.</p>
 </div>
 </div>
