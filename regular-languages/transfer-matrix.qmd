@@ -178,7 +178,7 @@ where the adjugate matrix $\operatorname{Adj}(A)$ has entries given by determina
 
 What's important to us here is that the denominator is $\det A$. So the denominator of our generating functions is
 $$
-\det(I - A*x)
+\det(I - Ax)
 $$
 
 This is related to the characteristic polynomial but with the coefficients reversed.
@@ -200,7 +200,7 @@ a_n & - a_{n - 1} & - a_{n - 2} & = 0
 $$
 
 ::: {.callout-note}
-In @sec-transfer-ogf, we saw that some of the denominators were $1 - x^2 = (1 - x)(1 + x)$ and some were $1 - x$ and some were $(1 - x)^2$. The denominator we calculate using $\det(I - A*x)$ is $(1 - x)^2(1 + x) = 1 - x - x^2 + x^3$ leading to the recurrence $a_n - a_{n - 1} - a_{n - 2} + a_{n - 3}$.
+In @sec-transfer-ogf, we saw that some of the denominators were $1 - x^2 = (1 - x)(1 + x)$ and some were $1 - x$ and some were $(1 - x)^2$. The denominator we calculate using $\det(I - Ax)$ is $(1 - x)^2(1 + x) = 1 - x - x^2 + x^3$ leading to the recurrence $a_n - a_{n - 1} - a_{n - 2} + a_{n - 3}$.
 
 All of the quantities will satisfy the longer recurrence but they also individually satisfy a shorter recurrence which may be different from their siblings.
 :::
