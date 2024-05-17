@@ -3,18 +3,78 @@
 
 # Exercises
 
-1. Consider the language $L = 0^*(11)^*$.
+1. For each of the automata below, eliminate the state "E" by:
+    a) first identify all the arrows pointing into "E" and out of "E"
+    b) replace each path $A \xrightarrow{u} E \xrightarrow{v} B$ by $A \xrightarrow{ul^*v} B$ where $l$ is the loop at "E".
+
+```{mermaid}
+%%| label: fig-exercise-1a
+%%| fig-cap: "FSA for exercise 1"
+stateDiagram
+    direction LR
+
+    [*] --> E
+    E --> A : 0
+    E --> B : 1
+    A --> A : 0
+    B --> A : 1
+```
+
+```{mermaid}
+%%| label: fig-exercise-1b
+%%| fig-cap: "FSA for exercise 1"
+stateDiagram
+    direction LR
+
+    [*] --> A
+    A --> A : 0
+    A --> E : 1
+    E --> E : 0
+    E --> B : 1
+    B --> E : 1
+    B --> [*]
+```
+
+
+```{mermaid}
+%%| label: fig-exercise-1c
+%%| fig-cap: "FSA for exercise 1"
+stateDiagram
+    direction LR
+
+    [*] --> A
+    A --> E : 0
+    B --> E : 0
+    A --> B : 1
+    E --> E : 1
+    E --> A : 0
+```
+
+2. Write the described language using $+, \cdot$ (concatenation) and $^*$ (Kleene star or plus)
+    a) $\{\varepsilon, 0, 1, 11, 111, 1111, \cdots\}$
+    b) Strings of $0$s with at least two $0$s
+    c) Strings of $0$s with an even number of $0$s
+    d) Strings of $0$s with an odd number of $0$s
+
+::: {.callout-tip collapse="true"}
+## Hint
+a) How does this compare to $\{\varepsilon, 1, 11, 111, 1111, \dots\} = 1^*$?
+b) Set the two $0$s aside first (compare to $a^+ = aa^*$)
+c) Think in terms of repeating $00$
+d) Combine ideas from b. and c.
+:::
+
+3. Consider the language $L = 0^*(11)^*$.
     a) List all words in $L$ of length $\le 6$.
     b) Let $a_n$ be the number of words in $L$ of length $n$. Using part a, guess a formula for $a_n$ (which may depend on whether $n$ is even or odd).
     c) Can you prove your formula?
-
 
 ::: {.callout-tip collapse="true"}
 ## Hint
 In words: $L$ describes languages with some number of $0$s followed by an even number of $1$s. So for instance, if $n = 9$, the possible number of $1$s is $0, 2, 4, 6, 8$ and there would be $5$ possible strings. The formula should look something like $n/2$ or $(n + 1)/2$.
 :::
 
-2. Consider a tiling problem where we tile a $2 \times n$ grid using horizontal or vertical dominos ($1 \times 2$ or $2 \times 1$) or a $2 \times 2$ square. Let $\Sigma = \{V, H, S\}$ where $V$ represents a vertical domino, $H$ represents a horizontal domino, and $S$ represents a square. A tiling can be described by the language $L = \Sigma^*$.
+4. Consider a tiling problem where we tile a $2 \times n$ grid using horizontal or vertical dominos ($1 \times 2$ or $2 \times 1$) or a $2 \times 2$ square. Let $\Sigma = \{V, H, S\}$ where $V$ represents a vertical domino, $H$ represents a horizontal domino, and $S$ represents a square. A tiling can be described by the language $L = \Sigma^*$.
     a) Let $f$ be the weight function describing the width. So $f(V) = 1, f(H) = f(S) = 2$. What is the generating function for $\Sigma$?
     b) What is the generating function for $L = \Sigma^*$?
     c) Using SageMath's Taylor series method, compute the number of such tilings of a $2 \times 10$ grid. Note: you have to write `2*x` rather than `2x` in SageMath.
@@ -41,7 +101,7 @@ For d. use the fact that a tiling of length $n$ is either:
 * a tiling of length $n - 2$ followed by either a pair of horizontal dominoes or a square (so $2$ options).
 :::
 
-3. Draw a finite automata for:
+5. Draw a finite automata for:
     a) the language $0^*(11)^*$
     b) the language $(0 + 11)^*$
 
@@ -65,14 +125,14 @@ stateDiagram-v2
 The FSA for part a should require only slight modification of the sample Mermaid diagram. Likewise, part b should require only slight modification from part a.
 :::
 
-4. Take the FSA from the previous question and perform state elimination to check if you recover the regular expression you started with. Remember to add in a termination state before you start eliminating.
+6. Take the FSA from the previous question and perform state elimination to check if you recover the regular expression you started with. Remember to add in a termination state before you start eliminating.
 
 ::: {.callout-tip collapse="true"}
 ## Hint
 Use the $ab^*c$ formula described in @sec-one-in-one-out on each path $A \to S \to B$ to eliminate $S$.
 :::
 
-5. In [Example 8.18](https://www.appliedcombinatorics.org/book/s_genfunction_exponential.html#example-60) of Keller and Trotter's book, they show using exponential generating functions that the number of ternary strings with an even number of $0$s is $(3^n + 1)/2$. In this exercise, we will get this answer using ordinary generating functions.
+7. In [Example 8.18](https://www.appliedcombinatorics.org/book/s_genfunction_exponential.html#example-60) of Keller and Trotter's book, they show using exponential generating functions that the number of ternary strings with an even number of $0$s is $(3^n + 1)/2$. In this exercise, we will get this answer using ordinary generating functions.
     a) Draw a FSA for this language (you can do it in two states, not including the start and end).
     b) Perform state elimination to obtain a regular expression.
     c) Convert that regular expression to an OGF.
