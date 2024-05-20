@@ -156,7 +156,7 @@ d) Don't forget to use `2*x` rather than `2x`.
 e) Use the formula $\frac{a}{1 - r} = \sum ar^n$.
 :::
 
-<details>
+<details open>
 <summary>Solutions</summary>
 
 1. 
