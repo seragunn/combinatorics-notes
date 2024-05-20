@@ -155,3 +155,79 @@ c) Replace $0, 1, 2$ by $x^1$ since each of those characters has length $1$.
 d) Don't forget to use `2*x` rather than `2x`.
 e) Use the formula $\frac{a}{1 - r} = \sum ar^n$.
 :::
+
+<details>
+<summary>Solutions</summary>
+
+1. 
+
+::: {layout-ncol="2"}
+```{mermaid}
+stateDiagram
+    direction LR
+
+    [*] --> E
+    E --> A : 0
+    E --> B : 1
+```
+
+```{mermaid}
+stateDiagram
+    direction LR
+
+    [*] --> A : 0
+    [*] --> B : 1
+    A --> A : 0
+    B --> A : 1
+```
+
+```{mermaid}
+stateDiagram
+    direction LR
+
+    A --> E : 1
+    E --> E : 0
+    E --> Bout : 1
+    Bin --> E : 1
+```
+
+
+```{mermaid}
+stateDiagram
+    direction LR
+
+    [*] --> A
+    A --> A : 0
+    A --> B : 10*1
+    B --> B : 10*1
+    B --> [*]
+```
+
+```{mermaid}
+stateDiagram
+    direction LR
+
+    Ain --> E : 0
+    B --> E : 0
+    E --> E : 1
+    E --> Aout : 0
+```
+
+```{mermaid}
+stateDiagram
+    direction LR
+
+    [*] --> A
+    A --> A : 01*0
+    B --> A : 01*0
+    A --> B : 1
+```
+:::
+
+2. 
+    a) $0 + 1^*$
+    b) $000^*$ or $00^+$
+    c) $(00)^*$
+    d) $0(00)^*$
+
+</details>
