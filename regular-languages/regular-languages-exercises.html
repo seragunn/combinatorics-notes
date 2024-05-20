@@ -620,6 +620,141 @@ Hint
 </div>
 </div>
 </div>
+<details>
+<summary>
+Solutions
+</summary>
+<ol type="1">
+<li></li>
+</ol>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">stateDiagram
+    direction LR
+
+    [*] --&gt; E
+    E --&gt; A : 0
+    E --&gt; B : 1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">stateDiagram
+    direction LR
+
+    [*] --&gt; A : 0
+    [*] --&gt; B : 1
+    A --&gt; A : 0
+    B --&gt; A : 1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">stateDiagram
+    direction LR
+
+    A --&gt; E : 1
+    E --&gt; E : 0
+    E --&gt; Bout : 1
+    Bin --&gt; E : 1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">stateDiagram
+    direction LR
+
+    [*] --&gt; A
+    A --&gt; A : 0
+    A --&gt; B : 10*1
+    B --&gt; B : 10*1
+    B --&gt; [*]
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">stateDiagram
+    direction LR
+
+    Ain --&gt; E : 0
+    B --&gt; E : 0
+    E --&gt; E : 1
+    E --&gt; Aout : 0
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">stateDiagram
+    direction LR
+
+    [*] --&gt; A
+    A --&gt; A : 01*0
+    B --&gt; A : 01*0
+    A --&gt; B : 1
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li><ol type="a">
+<li><span class="math inline">\(0 + 1^*\)</span></li>
+<li><span class="math inline">\(000^*\)</span> or <span class="math inline">\(00^+\)</span></li>
+<li><span class="math inline">\((00)^*\)</span></li>
+<li><span class="math inline">\(0(00)^*\)</span></li>
+</ol></li>
+</ol>
+</details>
 
 
 
