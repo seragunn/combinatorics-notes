@@ -1,1 +1,1 @@
-Sitemap: https://trevorgunn.github.io/combinatorics-notes/sitemap.xml
+Sitemap: https://seragunn.github.io/combinatorics-notes/sitemap.xml
