@@ -1,4 +1,4 @@
-/* Copyright © 2024, Trevor Gunn
+/* Copyright © 2024, Sera Gunn
    SPDX-License-Identifier: GPL-3.0-or-later */
 
 function randint(min: number, max: number): number {

@@ -3,10 +3,10 @@ project:
 
 book:
   title: "Combinatorics Notes"
-  author: "Trevor Gunn"
+  author: "Sera Gunn"
   date: today
-  repo-url: https://github.com/trevorgunn/combinatorics-notes/
-  site-url: https://trevorgunn.github.io/combinatorics-notes/
+  repo-url: https://github.com/seragunn/combinatorics-notes/
+  site-url: https://seragunn.github.io/combinatorics-notes/
   repo-actions: [edit, issue, source]
   downloads: [pdf]
   favicon: icon.svg
@@ -16,7 +16,7 @@ book:
     background: "#222"
     left:
       - text: Home
-        href: https://trevorgunn.github.io/
+        href: https://seragunn.github.io/
       - text: Applied Combinatorics
         href: https://www.appliedcombinatorics.org/book/app-comb.html
   chapters:
