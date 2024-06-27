@@ -1,100 +1,105 @@
 .theorem {
-  margin: 1em 0;
-  border: 1px solid #dee2e6;
-  border-left: 5px solid #FDE; 
-  border-radius: 0.25rem;
+    margin: 1em 0;
+    border: 1px solid #dee2e6;
+    border-left: 5px solid #fde;
+    border-radius: 0.25rem;
 }
 
 .theorem > p {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  padding-top: 0.2rem;
-  font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.2rem;
+    font-size: 0.9rem;
 }
 
 .theorem > .display:last-child {
-  margin-bottom: -2em;
+    margin-bottom: -2em;
 }
 
 .proof {
-  position: relative;
+    position: relative;
 }
 
 .proof::after {
-  content: "∎";
-  font-size: 150%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+    content: "∎";
+    font-size: 150%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 
 .cell-code {
-  background-color: rgba(233,236,239,.65);
-  border: 1px solid rgba(233,236,239,.65);
-  border-radius: 0.25rem;
-  padding: 0.4em;
+    background-color: rgba(233, 236, 239, 0.65);
+    border: 1px solid rgba(233, 236, 239, 0.65);
+    border-radius: 0.25rem;
+    padding: 0.4em;
 }
 
 .cell-output:has(input) {
-  margin-top: -3em;
-  margin-bottom: -1em;
+    margin-top: -3em;
+    margin-bottom: -1em;
 }
 
 .cell-output:has(select) {
-  margin-top: -1em;
-  margin-bottom: -1.5em;
+    margin-top: -1em;
+    margin-bottom: -1.5em;
 }
 
 .quiz-question-side-by-side {
-  margin: 0;
+    margin: 0;
 }
 
-.randomize_button, .sagecell_evalButton {
-  background-color: #EEE;
-  border: none;
-  padding: 0.25rem 0.75rem;
-  border-radius: 0.25rem;
+.randomize_button,
+.sagecell_evalButton {
+    background-color: #eee;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
 }
 
-.randomize_button:hover, .sagecell_evalButton:hover {
-  background-color: #DDD;
+.randomize_button:hover,
+.sagecell_evalButton:hover {
+    background-color: #ddd;
 }
 
-.randomize_button:active, .sagecell_evalButton:active {
-  background-color: #BBB;
+.randomize_button:active,
+.sagecell_evalButton:active {
+    background-color: #bbb;
 }
 
-select, [type="number"] {
-  border: 1px solid #DDD;
-  border-radius: 0.25rem;
-  padding: 0.25rem 0.75rem;
+select,
+[type="number"] {
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.75rem;
 }
 
-.edgeLabel, .nodeLabel {
-  color: black !important;
+.edgeLabel,
+.nodeLabel {
+    color: black !important;
 }
 
 @media (min-width: 768px) {
-  footer:has(.d-sm-block) {
-    display: none;
-  }
+    footer:has(.d-sm-block) {
+        display: none;
+    }
 }
 
 .sagecell_fullScreen {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 .CodeMirror {
-  border-radius: 0.25rem;
-  border: 1px solid #DDD !important;
+    border-radius: 0.25rem;
+    border: 1px solid #ddd !important;
 }
 
 .sagecell_evalButton:before {
-  content: '\23F5 ';
-  color: #22b24c;
+    content: "\23F5 ";
+    color: #22b24c;
 }
 
 .sagecell_permalink {
-  visibility: hidden;
-  height: 0;
+    visibility: hidden;
+    height: 0;
 }
