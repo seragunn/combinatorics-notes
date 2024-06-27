@@ -19,7 +19,7 @@ class Permutation {
             }
             let first = i;
             let cycle = [i];
-            let next: number
+            let next: number;
             [lst[first - 1], next] = [0, lst[first - 1]];
             while (next !== first) {
                 cycle.push(next);
@@ -53,7 +53,10 @@ class Permutation {
     }
 
     parseList(str: string): this {
-        const lst = str.replace(/[^0-9,]/g, '').split(',').map(Number);
+        const lst = str
+            .replace(/[^0-9,]/g, "")
+            .split(",")
+            .map(Number);
         this.fromList(lst);
         return this;
     }
@@ -95,10 +98,8 @@ class Permutation {
     }
 
     constructor(lst: number[] | number[][] = []) {
-        if (isList(lst))
-            this.fromList(lst);
-        else
-            this.fromCycles(lst);
+        if (isList(lst)) this.fromList(lst);
+        else this.fromCycles(lst);
     }
 }
 
@@ -108,7 +109,7 @@ function cmpCycle(c1: number[], c2: number[]): number {
 
 function sortCycles(cycles: number[][]): number[][] {
     const newCycles = cycles.filter((cycle) => cycle.length > 1).sort(cmpCycle);
-    let retCycles = []
+    let retCycles = [];
     for (const cycle of newCycles) {
         const m = Math.min(...cycle);
         const j = cycle.findIndex((x) => x === m);
@@ -123,7 +124,6 @@ function mulCycles(cycles: number[][]): Permutation {
     cycles.reverse();
     let prod = new Permutation();
     let flattened = new Set(cycles.reduce((acc, val) => acc.concat(val), []));
-    const n = Math.max(...flattened);
     let newCycles = [];
     while (flattened.size) {
         let first = Math.min(...flattened);
@@ -151,26 +151,29 @@ function mulCycles(cycles: number[][]): Permutation {
 }
 
 function readCycles(str: string, disjoint: boolean = false): number[][] {
-    const trimStr = str.replace(/^\s*\(|\)\s*$|\s/g, '');
-    const list = trimStr.replace(/\)\(/g, ',').replace(/[^0-9,]/g, '').split(',').map(Number);
-    const n = Math.max(...list);
-    if (disjoint && new Set(list).size != list.length) { // check for duplicates
+    const trimStr = str.replace(/^\s*\(|\)\s*$|\s/g, "");
+    const list = trimStr
+        .replace(/\)\(/g, ",")
+        .replace(/[^0-9,]/g, "")
+        .split(",")
+        .map(Number);
+    if (disjoint && new Set(list).size != list.length) {
+        // check for duplicates
         return [];
     }
-    const lists = trimStr.replace(/[^0-9,()]/g, '').split(')(');
-    const cycles = lists.map(l => l.split(',').map(Number));
+    const lists = trimStr.replace(/[^0-9,()]/g, "").split(")(");
+    const cycles = lists.map((l) => l.split(",").map(Number));
     return cycles;
 }
 
 function isList(lst: number[] | number[][]): lst is number[] {
-    return lst.length == 0 || typeof lst[0] == 'number';
+    return lst.length == 0 || typeof lst[0] == "number";
 }
 
 function isPermutation(lst: number[]): boolean {
     const sorted = lst.slice().sort((a, b) => a - b);
     for (let i = 0; i < lst.length; i++) {
-        if (sorted[i] != i + 1)
-            return false;
+        if (sorted[i] != i + 1) return false;
     }
     return true;
 }

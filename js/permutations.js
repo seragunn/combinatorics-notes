@@ -46,7 +46,10 @@ class Permutation {
         }
     }
     parseList(str) {
-        const lst = str.replace(/[^0-9,]/g, '').split(',').map(Number);
+        const lst = str
+            .replace(/[^0-9,]/g, "")
+            .split(",")
+            .map(Number);
         this.fromList(lst);
         return this;
     }
@@ -111,7 +114,6 @@ function mulCycles(cycles) {
     cycles.reverse();
     let prod = new Permutation();
     let flattened = new Set(cycles.reduce((acc, val) => acc.concat(val), []));
-    const n = Math.max(...flattened);
     let newCycles = [];
     while (flattened.size) {
         let first = Math.min(...flattened);
@@ -138,18 +140,22 @@ function mulCycles(cycles) {
     return prod;
 }
 function readCycles(str, disjoint = false) {
-    const trimStr = str.replace(/^\s*\(|\)\s*$|\s/g, '');
-    const list = trimStr.replace(/\)\(/g, ',').replace(/[^0-9,]/g, '').split(',').map(Number);
-    const n = Math.max(...list);
-    if (disjoint && new Set(list).size != list.length) { // check for duplicates
+    const trimStr = str.replace(/^\s*\(|\)\s*$|\s/g, "");
+    const list = trimStr
+        .replace(/\)\(/g, ",")
+        .replace(/[^0-9,]/g, "")
+        .split(",")
+        .map(Number);
+    if (disjoint && new Set(list).size != list.length) {
+        // check for duplicates
         return [];
     }
-    const lists = trimStr.replace(/[^0-9,()]/g, '').split(')(');
-    const cycles = lists.map(l => l.split(',').map(Number));
+    const lists = trimStr.replace(/[^0-9,()]/g, "").split(")(");
+    const cycles = lists.map((l) => l.split(",").map(Number));
     return cycles;
 }
 function isList(lst) {
-    return lst.length == 0 || typeof lst[0] == 'number';
+    return lst.length == 0 || typeof lst[0] == "number";
 }
 function isPermutation(lst) {
     const sorted = lst.slice().sort((a, b) => a - b);
