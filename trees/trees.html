@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.17">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Trees – Combinatorics Notes</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../inclusion-exclusion/inclusion-exclusion.html" rel="next">
+<link href="../preface.html" rel="prev">
+<link href="../icon.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ce4278342a015d016477ed09bce942c5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-e8796d56305374f5a7ae7e14870c7d8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Combinatorics Notes</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://seragunn.github.io/"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.appliedcombinatorics.org/book/app-comb.html"> 
+<span class="menu-text">Applied Combinatorics</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/seragunn/combinatorics-notes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../Combinatorics-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../trees/trees.html">Trees</a></li><li class="breadcrumb-item"><a href="../trees/trees.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Trees</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Trees</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../trees/trees.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Trees</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Inclusion-Exclusion</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Permutations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../permutations/permutations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../permutations/visual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../permutations/generators.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../permutations/inversions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Generating Functions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Weight Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Regular Languages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regular-languages/finite-automata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regular-languages/putting-it-together.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regular-languages/transfer-matrix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regular-languages/regular-languages-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#properties-of-graphs-and-trees" id="toc-properties-of-graphs-and-trees" class="nav-link active" data-scroll-target="#properties-of-graphs-and-trees"><span class="header-section-number">2.1</span> Properties of Graphs and Trees</a>
+  <ul class="collapse">
+  <li><a href="#double-counting" id="toc-double-counting" class="nav-link" data-scroll-target="#double-counting"><span class="header-section-number">2.1.1</span> Double Counting</a></li>
+  </ul></li>
+  <li><a href="#leaf-vertices" id="toc-leaf-vertices" class="nav-link" data-scroll-target="#leaf-vertices"><span class="header-section-number">2.2</span> Leaf Vertices</a>
+  <ul class="collapse">
+  <li><a href="#every-tree-has-at-least-one-leaf" id="toc-every-tree-has-at-least-one-leaf" class="nav-link" data-scroll-target="#every-tree-has-at-least-one-leaf"><span class="header-section-number">2.2.1</span> Every tree has at least one leaf</a></li>
+  <li><a href="#counting-leaves" id="toc-counting-leaves" class="nav-link" data-scroll-target="#counting-leaves"><span class="header-section-number">2.2.2</span> Counting Leaves</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/trees/trees.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/trees/trees.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../trees/trees.html">Trees</a></li><li class="breadcrumb-item"><a href="../trees/trees.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Trees</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Trees</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="def-graph" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.1</strong></span> A <strong>graph</strong> consists of a set of vertices <span class="math inline">\(V\)</span> and a set of edges <span class="math inline">\(E\)</span>. Each edge is an unordered pair <span class="math inline">\(\{v, w\}\)</span> representing a connection between the vertices <span class="math inline">\(v\)</span> and <span class="math inline">\(w\)</span>.</p>
+</div>
+<p>Consider the graph where the set of vertices are <span class="math inline">\(V = \{1, 2, 3, 4, 5\}\)</span> and the edges are <span class="math inline">\(\{1,2\}, \{2,3\}, \{3,4\}, \{4,1\}\)</span> and <span class="math inline">\(\{1,5\}\)</span>. Graphs such of these are more easily depicted as pictures. We try as much as possible to talk about the picture rather than sets of numbers.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 165.65 199.21" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 195.21)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-195.21 161.65,-195.21 161.65,4 -4,4"></polygon>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="black" cx="95.05" cy="-112.8" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="95.05" y="-108.6" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="black" cx="105.81" cy="-34.55" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="105.81" y="-30.35" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- 1&#45;&#45;2 -->
+<g id="edge1" class="edge">
+<title>1--2</title>
+<path fill="none" stroke="black" d="M97.55,-94.65C99.29,-82.01 101.59,-65.22 103.33,-52.6"></path>
+</g>
+<!-- 5 -->
+<g id="node5" class="node">
+<title>5</title>
+<ellipse fill="none" stroke="black" cx="139.65" cy="-173.21" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="139.65" y="-169.01" font-family="Times,serif" font-size="14.00">5</text>
+</g>
+<!-- 1&#45;&#45;5 -->
+<g id="edge5" class="edge">
+<title>1--5</title>
+<path fill="none" stroke="black" d="M105.85,-127.42C112.86,-136.92 121.96,-149.25 128.95,-158.72"></path>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="black" cx="28.87" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="28.87" y="-13.8" font-family="Times,serif" font-size="14.00">3</text>
+</g>
+<!-- 2&#45;&#45;3 -->
+<g id="edge2" class="edge">
+<title>2--3</title>
+<path fill="none" stroke="black" d="M87.97,-30.71C75.54,-28.04 59.03,-24.49 46.62,-21.82"></path>
+</g>
+<!-- 4 -->
+<g id="node4" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="black" cx="18" cy="-96.03" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="18" y="-91.83" font-family="Times,serif" font-size="14.00">4</text>
+</g>
+<!-- 3&#45;&#45;4 -->
+<g id="edge3" class="edge">
+<title>3--4</title>
+<path fill="none" stroke="black" d="M26.35,-36.1C24.59,-48.7 22.26,-65.44 20.51,-78.03"></path>
+</g>
+<!-- 4&#45;&#45;1 -->
+<g id="edge4" class="edge">
+<title>4--1</title>
+<path fill="none" stroke="black" d="M35.87,-99.92C48.32,-102.63 64.85,-106.23 77.28,-108.93"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p><figcaption> A graph consisting of 4 vertices in a cycle and a fifth vertex branching off</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>Per the definition, a graph is <strong>labelled</strong> (usually the vertices are <span class="math inline">\(1, \dots, n\)</span>). Graph theory has a lot of applications and theory has a lot of applications and results in which these labels play no role and so we also have simplified pictures where we do not write down the vertex number (however they still exist in the background).</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 133.25 166.81" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 162.81)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-162.81 129.25,-162.81 129.25,4 -4,4"></polygon>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="black" stroke="black" cx="78.85" cy="-96.6" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="black" stroke="black" cx="89.61" cy="-18.35" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 1&#45;&#45;2 -->
+<g id="edge1" class="edge">
+<title>1--2</title>
+<path fill="none" stroke="black" d="M79.12,-94.67C80.61,-83.84 87.89,-30.87 89.36,-20.22"></path>
+</g>
+<!-- 5 -->
+<g id="node5" class="node">
+<title>5</title>
+<ellipse fill="black" stroke="black" cx="123.45" cy="-157.01" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 1&#45;&#45;5 -->
+<g id="edge5" class="edge">
+<title>1--5</title>
+<path fill="none" stroke="black" d="M79.95,-98.09C86.07,-106.38 115.79,-146.64 122.22,-155.34"></path>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="black" stroke="black" cx="12.67" cy="-1.8" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 2&#45;&#45;3 -->
+<g id="edge2" class="edge">
+<title>2--3</title>
+<path fill="none" stroke="black" d="M87.71,-17.94C77.07,-15.65 24.98,-4.45 14.5,-2.19"></path>
+</g>
+<!-- 4 -->
+<g id="node4" class="node">
+<title>4</title>
+<ellipse fill="black" stroke="black" cx="1.8" cy="-79.83" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 3&#45;&#45;4 -->
+<g id="edge3" class="edge">
+<title>3--4</title>
+<path fill="none" stroke="black" d="M12.4,-3.73C10.9,-14.52 3.54,-67.35 2.06,-77.96"></path>
+</g>
+<!-- 4&#45;&#45;1 -->
+<g id="edge4" class="edge">
+<title>4--1</title>
+<path fill="none" stroke="black" d="M3.7,-80.24C14.36,-82.56 66.53,-93.92 77.01,-96.2"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p><figcaption> The same graph but without labels</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<div id="def-tree" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.2</strong></span> A <strong>tree</strong> is a special type of graph which satisfies two additional properties: 1. the graph must be <strong>connected</strong>. We will give a mathematical definition for this later, but for now, this is a picture of what a <strong>disconnected</strong> graph is:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 217.31 143.78" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 139.78)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-139.78 213.31,-139.78 213.31,4 -4,4"></polygon>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="black" stroke="black" cx="113.8" cy="-66.84" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="black" stroke="black" cx="207.51" cy="-69.06" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 1&#45;&#45;2 -->
+<g id="edge1" class="edge">
+<title>1--2</title>
+<path fill="none" stroke="black" d="M115.76,-66.88C127.95,-67.17 193.4,-68.73 205.56,-69.02"></path>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="black" stroke="black" cx="164.21" cy="-29.8" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 2&#45;&#45;3 -->
+<g id="edge2" class="edge">
+<title>2--3</title>
+<path fill="none" stroke="black" d="M206.07,-67.76C199.49,-61.8 172.38,-37.21 165.7,-31.15"></path>
+</g>
+<!-- 4 -->
+<g id="node4" class="node">
+<title>4</title>
+<ellipse fill="black" stroke="black" cx="137.54" cy="-119.99" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 3&#45;&#45;4 -->
+<g id="edge3" class="edge">
+<title>3--4</title>
+<path fill="none" stroke="black" d="M163.66,-31.68C160.19,-43.42 141.56,-106.41 138.09,-118.12"></path>
+</g>
+<!-- 4&#45;&#45;1 -->
+<g id="edge4" class="edge">
+<title>4--1</title>
+<path fill="none" stroke="black" d="M136.75,-118.22C133.14,-110.15 118.28,-76.86 114.62,-68.67"></path>
+</g>
+<!-- 5 -->
+<g id="node5" class="node">
+<title>5</title>
+<ellipse fill="black" stroke="black" cx="1.8" cy="-53.6" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 6 -->
+<g id="node6" class="node">
+<title>6</title>
+<ellipse fill="black" stroke="black" cx="77.99" cy="-63.14" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 5&#45;&#45;6 -->
+<g id="edge5" class="edge">
+<title>5--6</title>
+<path fill="none" stroke="black" d="M3.68,-53.84C14.22,-55.16 65.8,-61.62 76.17,-62.91"></path>
+</g>
+<!-- 7 -->
+<g id="node7" class="node">
+<title>7</title>
+<ellipse fill="black" stroke="black" cx="124.11" cy="-1.8" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 6&#45;&#45;7 -->
+<g id="edge6" class="edge">
+<title>6--7</title>
+<path fill="none" stroke="black" d="M79.13,-61.62C85.45,-53.21 116.19,-12.33 122.84,-3.49"></path>
+</g>
+<!-- 8 -->
+<g id="node8" class="node">
+<title>8</title>
+<ellipse fill="black" stroke="black" cx="107.51" cy="-133.98" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 6&#45;&#45;8 -->
+<g id="edge7" class="edge">
+<title>6--8</title>
+<path fill="none" stroke="black" d="M78.72,-64.89C82.8,-74.69 102.79,-122.65 106.81,-132.29"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p><figcaption> A disconnected graph consisting of two components</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<ol start="2" type="1">
+<li>the graph cannot have any cycles. Again, we will just use pictures right now:</li>
+</ol>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 249.95 264.25" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 260.25)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-260.25 245.95,-260.25 245.95,4 -4,4"></polygon>
+<!-- a1 -->
+<g id="node1" class="node">
+<title>a1</title>
+<ellipse fill="black" stroke="black" cx="53.94" cy="-41.06" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- a2 -->
+<g id="node2" class="node">
+<title>a2</title>
+<ellipse fill="black" stroke="black" cx="53.94" cy="-103.58" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- a1&#45;&#45;a2 -->
+<g id="edge1" class="edge">
+<title>a1--a2</title>
+<path fill="none" stroke="black" d="M53.94,-42.86C53.94,-51.83 53.94,-91.59 53.94,-101.39"></path>
+</g>
+<!-- a3 -->
+<g id="node3" class="node">
+<title>a3</title>
+<ellipse fill="black" stroke="black" cx="108.09" cy="-72.32" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- a2&#45;&#45;a3 -->
+<g id="edge2" class="edge">
+<title>a2--a3</title>
+<path fill="none" stroke="black" d="M55.75,-102.54C63.97,-97.79 97.88,-78.22 106.23,-73.4"></path>
+</g>
+<!-- a3&#45;&#45;a1 -->
+<g id="edge3" class="edge">
+<title>a3--a1</title>
+<path fill="none" stroke="black" d="M106.29,-71.28C98.07,-66.53 64.16,-46.96 55.81,-42.14"></path>
+</g>
+<!-- b1 -->
+<g id="node4" class="node">
+<title>b1</title>
+<ellipse fill="black" stroke="black" cx="49.99" cy="-158.19" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- b2 -->
+<g id="node5" class="node">
+<title>b2</title>
+<ellipse fill="black" stroke="black" cx="1.86" cy="-206.32" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- b1&#45;&#45;b2 -->
+<g id="edge4" class="edge">
+<title>b1--b2</title>
+<path fill="none" stroke="black" d="M48.39,-159.79C40.95,-167.23 9.86,-198.33 3.15,-205.04"></path>
+</g>
+<!-- b3 -->
+<g id="node6" class="node">
+<title>b3</title>
+<ellipse fill="black" stroke="black" cx="49.99" cy="-254.45" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- b2&#45;&#45;b3 -->
+<g id="edge5" class="edge">
+<title>b2--b3</title>
+<path fill="none" stroke="black" d="M3.47,-207.92C10.9,-215.36 42,-246.45 48.71,-253.17"></path>
+</g>
+<!-- b4 -->
+<g id="node7" class="node">
+<title>b4</title>
+<ellipse fill="black" stroke="black" cx="98.12" cy="-206.32" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- b3&#45;&#45;b4 -->
+<g id="edge6" class="edge">
+<title>b3--b4</title>
+<path fill="none" stroke="black" d="M51.59,-252.85C59.03,-245.41 90.13,-214.31 96.84,-207.6"></path>
+</g>
+<!-- b4&#45;&#45;b1 -->
+<g id="edge7" class="edge">
+<title>b4--b1</title>
+<path fill="none" stroke="black" d="M96.52,-204.72C89.08,-197.28 57.99,-166.19 51.27,-159.47"></path>
+</g>
+<!-- c1 -->
+<g id="node8" class="node">
+<title>c1</title>
+<ellipse fill="black" stroke="black" cx="198.58" cy="-132.1" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- c2 -->
+<g id="node9" class="node">
+<title>c2</title>
+<ellipse fill="black" stroke="black" cx="131.32" cy="-153.96" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- c1&#45;&#45;c2 -->
+<g id="edge8" class="edge">
+<title>c1--c2</title>
+<path fill="none" stroke="black" d="M196.64,-132.74C186.82,-135.93 142.68,-150.27 133.14,-153.37"></path>
+</g>
+<!-- c3 -->
+<g id="node10" class="node">
+<title>c3</title>
+<ellipse fill="black" stroke="black" cx="131.32" cy="-224.68" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- c2&#45;&#45;c3 -->
+<g id="edge9" class="edge">
+<title>c2--c3</title>
+<path fill="none" stroke="black" d="M131.32,-156C131.32,-166.33 131.32,-212.74 131.32,-222.77"></path>
+</g>
+<!-- c4 -->
+<g id="node11" class="node">
+<title>c4</title>
+<ellipse fill="black" stroke="black" cx="198.58" cy="-246.54" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- c3&#45;&#45;c4 -->
+<g id="edge10" class="edge">
+<title>c3--c4</title>
+<path fill="none" stroke="black" d="M133.26,-225.31C143.08,-228.5 187.22,-242.85 196.76,-245.95"></path>
+</g>
+<!-- c5 -->
+<g id="node12" class="node">
+<title>c5</title>
+<ellipse fill="black" stroke="black" cx="240.15" cy="-189.32" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- c4&#45;&#45;c5 -->
+<g id="edge11" class="edge">
+<title>c4--c5</title>
+<path fill="none" stroke="black" d="M199.97,-244.63C206.39,-235.79 233.25,-198.82 239.05,-190.84"></path>
+</g>
+<!-- c5&#45;&#45;c1 -->
+<g id="edge12" class="edge">
+<title>c5--c1</title>
+<path fill="none" stroke="black" d="M238.77,-187.42C232.35,-178.58 205.49,-141.61 199.69,-133.63"></path>
+</g>
+<!-- d1 -->
+<g id="node13" class="node">
+<title>d1</title>
+<ellipse fill="black" stroke="black" cx="110.09" cy="-1.8" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- d2 -->
+<g id="node14" class="node">
+<title>d2</title>
+<ellipse fill="black" stroke="black" cx="37.9" cy="-1.8" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- d1&#45;&#45;d2 -->
+<g id="edge13" class="edge">
+<title>d1--d2</title>
+<path fill="none" stroke="black" d="M108.01,-1.8C97.46,-1.8 50.09,-1.8 39.85,-1.8"></path>
+</g>
+<!-- d3 -->
+<g id="node15" class="node">
+<title>d3</title>
+<ellipse fill="black" stroke="black" cx="1.8" cy="-64.32" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- d2&#45;&#45;d3 -->
+<g id="edge14" class="edge">
+<title>d2--d3</title>
+<path fill="none" stroke="black" d="M36.85,-3.6C31.58,-12.73 7.9,-53.76 2.78,-62.63"></path>
+</g>
+<!-- d4 -->
+<g id="node16" class="node">
+<title>d4</title>
+<ellipse fill="black" stroke="black" cx="37.9" cy="-126.84" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- d3&#45;&#45;d4 -->
+<g id="edge15" class="edge">
+<title>d3--d4</title>
+<path fill="none" stroke="black" d="M2.84,-66.12C8.11,-75.25 31.8,-116.28 36.92,-125.15"></path>
+</g>
+<!-- d5 -->
+<g id="node17" class="node">
+<title>d5</title>
+<ellipse fill="black" stroke="black" cx="110.09" cy="-126.84" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- d4&#45;&#45;d5 -->
+<g id="edge16" class="edge">
+<title>d4--d5</title>
+<path fill="none" stroke="black" d="M39.98,-126.84C50.52,-126.84 97.9,-126.84 108.13,-126.84"></path>
+</g>
+<!-- d6 -->
+<g id="node18" class="node">
+<title>d6</title>
+<ellipse fill="black" stroke="black" cx="146.19" cy="-64.32" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- d5&#45;&#45;d6 -->
+<g id="edge17" class="edge">
+<title>d5--d6</title>
+<path fill="none" stroke="black" d="M111.13,-125.04C116.4,-115.91 140.09,-74.88 145.21,-66.01"></path>
+</g>
+<!-- d6&#45;&#45;d1 -->
+<g id="edge18" class="edge">
+<title>d6--d1</title>
+<path fill="none" stroke="black" d="M145.14,-62.52C139.87,-53.39 116.18,-12.36 111.07,-3.49"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p><figcaption> Various Cycles</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<p>Trees are common structures in a lot of computer science applications. For instance, filetrees are examples of trees.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 333.57 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>filesystem</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-256 329.57,-256 329.57,4 -4,4"></polygon>
+<!-- Documents -->
+<g id="node1" class="node">
+<title>Documents</title>
+<polygon fill="none" stroke="black" points="296.79,-252 293.79,-256 272.79,-256 269.79,-252 217.25,-252 217.25,-216 296.79,-216 296.79,-252"></polygon>
+<text text-anchor="middle" x="257.02" y="-229.8" font-family="Times,serif" font-size="14.00">Documents</text>
+</g>
+<!-- School -->
+<g id="node2" class="node">
+<title>School</title>
+<polygon fill="none" stroke="black" points="246.41,-180 243.41,-184 222.41,-184 219.41,-180 191.63,-180 191.63,-144 246.41,-144 246.41,-180"></polygon>
+<text text-anchor="middle" x="219.02" y="-157.8" font-family="Times,serif" font-size="14.00">School</text>
+</g>
+<!-- Documents&#45;&gt;School -->
+<g id="edge1" class="edge">
+<title>Documents-&gt;School</title>
+<path fill="none" stroke="black" d="M247.63,-215.7C243.25,-207.64 237.96,-197.89 233.12,-188.98"></path>
+<polygon fill="black" stroke="black" points="236.15,-187.22 228.3,-180.1 230,-190.56 236.15,-187.22"></polygon>
+</g>
+<!-- Projects -->
+<g id="node3" class="node">
+<title>Projects</title>
+<polygon fill="none" stroke="black" points="325.62,-180 322.62,-184 301.62,-184 298.62,-180 264.42,-180 264.42,-144 325.62,-144 325.62,-180"></polygon>
+<text text-anchor="middle" x="295.02" y="-157.8" font-family="Times,serif" font-size="14.00">Projects</text>
+</g>
+<!-- Documents&#45;&gt;Projects -->
+<g id="edge2" class="edge">
+<title>Documents-&gt;Projects</title>
+<path fill="none" stroke="black" d="M266.41,-215.7C270.78,-207.64 276.08,-197.89 280.91,-188.98"></path>
+<polygon fill="black" stroke="black" points="284.04,-190.56 285.73,-180.1 277.89,-187.22 284.04,-190.56"></polygon>
+</g>
+<!-- Math -->
+<g id="node4" class="node">
+<title>Math</title>
+<polygon fill="none" stroke="black" points="171.02,-108 168.02,-112 147.02,-112 144.02,-108 117.02,-108 117.02,-72 171.02,-72 171.02,-108"></polygon>
+<text text-anchor="middle" x="144.02" y="-85.8" font-family="Times,serif" font-size="14.00">Math</text>
+</g>
+<!-- School&#45;&gt;Math -->
+<g id="edge3" class="edge">
+<title>School-&gt;Math</title>
+<path fill="none" stroke="black" d="M200.48,-143.7C191.22,-135.05 179.86,-124.45 169.76,-115.03"></path>
+<polygon fill="black" stroke="black" points="172.04,-112.37 162.35,-108.1 167.27,-117.49 172.04,-112.37"></polygon>
+</g>
+<!-- Science -->
+<g id="node5" class="node">
+<title>Science</title>
+<polygon fill="none" stroke="black" points="248.55,-108 245.55,-112 224.55,-112 221.55,-108 189.49,-108 189.49,-72 248.55,-72 248.55,-108"></polygon>
+<text text-anchor="middle" x="219.02" y="-85.8" font-family="Times,serif" font-size="14.00">Science</text>
+</g>
+<!-- School&#45;&gt;Science -->
+<g id="edge4" class="edge">
+<title>School-&gt;Science</title>
+<path fill="none" stroke="black" d="M219.02,-143.7C219.02,-135.98 219.02,-126.71 219.02,-118.11"></path>
+<polygon fill="black" stroke="black" points="222.52,-118.1 219.02,-108.1 215.52,-118.1 222.52,-118.1"></polygon>
+</g>
+<!-- History -->
+<g id="node6" class="node">
+<title>History</title>
+<polygon fill="none" stroke="black" points="325.02,-108 322.02,-112 301.02,-112 298.02,-108 267.02,-108 267.02,-72 325.02,-72 325.02,-108"></polygon>
+<text text-anchor="middle" x="296.02" y="-85.8" font-family="Times,serif" font-size="14.00">History</text>
+</g>
+<!-- School&#45;&gt;History -->
+<g id="edge5" class="edge">
+<title>School-&gt;History</title>
+<path fill="none" stroke="black" d="M238.05,-143.7C247.56,-135.05 259.23,-124.45 269.59,-115.03"></path>
+<polygon fill="black" stroke="black" points="272.16,-117.42 277.2,-108.1 267.45,-112.24 272.16,-117.42"></polygon>
+</g>
+<!-- MathFile1 -->
+<g id="node7" class="node">
+<title>MathFile1</title>
+<polygon fill="none" stroke="black" points="78.06,-36 -0.02,-36 -0.02,0 84.06,0 84.06,-30 78.06,-36"></polygon>
+<polyline fill="none" stroke="black" points="78.06,-36 78.06,-30 "></polyline>
+<polyline fill="none" stroke="black" points="84.06,-30 78.06,-30 "></polyline>
+<text text-anchor="middle" x="42.02" y="-13.8" font-family="Times,serif" font-size="14.00">HW_1.docx</text>
+</g>
+<!-- Math&#45;&gt;MathFile1 -->
+<g id="edge6" class="edge">
+<title>Math-&gt;MathFile1</title>
+<path fill="none" stroke="black" d="M119.07,-71.88C105.98,-62.89 89.76,-51.76 75.58,-42.03"></path>
+<polygon fill="black" stroke="black" points="77.29,-38.96 67.07,-36.19 73.33,-44.73 77.29,-38.96"></polygon>
+</g>
+<!-- MathFile2 -->
+<g id="node8" class="node">
+<title>MathFile2</title>
+<polygon fill="none" stroke="black" points="180.06,-36 101.98,-36 101.98,0 186.06,0 186.06,-30 180.06,-36"></polygon>
+<polyline fill="none" stroke="black" points="180.06,-36 180.06,-30 "></polyline>
+<polyline fill="none" stroke="black" points="186.06,-30 180.06,-30 "></polyline>
+<text text-anchor="middle" x="144.02" y="-13.8" font-family="Times,serif" font-size="14.00">HW_2.docx</text>
+</g>
+<!-- Math&#45;&gt;MathFile2 -->
+<g id="edge7" class="edge">
+<title>Math-&gt;MathFile2</title>
+<path fill="none" stroke="black" d="M144.02,-71.7C144.02,-63.98 144.02,-54.71 144.02,-46.11"></path>
+<polygon fill="black" stroke="black" points="147.52,-46.1 144.02,-36.1 140.52,-46.1 147.52,-46.1"></polygon>
+</g>
+<!-- MathFile3 -->
+<g id="node9" class="node">
+<title>MathFile3</title>
+<polygon fill="none" stroke="black" points="282.06,-36 203.98,-36 203.98,0 288.06,0 288.06,-30 282.06,-36"></polygon>
+<polyline fill="none" stroke="black" points="282.06,-36 282.06,-30 "></polyline>
+<polyline fill="none" stroke="black" points="288.06,-30 282.06,-30 "></polyline>
+<text text-anchor="middle" x="246.02" y="-13.8" font-family="Times,serif" font-size="14.00">HW_3.docx</text>
+</g>
+<!-- Math&#45;&gt;MathFile3 -->
+<g id="edge8" class="edge">
+<title>Math-&gt;MathFile3</title>
+<path fill="none" stroke="black" d="M168.97,-71.88C182.06,-62.89 198.28,-51.76 212.46,-42.03"></path>
+<polygon fill="black" stroke="black" points="214.71,-44.73 220.97,-36.19 210.75,-38.96 214.71,-44.73"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Many applications have a hierarchical picture to tree but this visual hierarchy is not part of our base definition (although we can always add a hierarchy on top of the definition). Here is that same tree but without the hierarchy as part of the picture</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 509.23 351.58" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 347.58)">
+<title>filesystem</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-347.58 505.23,-347.58 505.23,4 -4,4"></polygon>
+<!-- Documents -->
+<g id="node1" class="node">
+<title>Documents</title>
+<ellipse fill="none" stroke="black" cx="149.17" cy="-207.5" rx="55.04" ry="18"></ellipse>
+<text text-anchor="middle" x="149.17" y="-203.3" font-family="Times,serif" font-size="14.00">Documents</text>
+</g>
+<!-- School -->
+<g id="node2" class="node">
+<title>School</title>
+<ellipse fill="none" stroke="black" cx="265.06" cy="-216.61" rx="37.72" ry="18"></ellipse>
+<text text-anchor="middle" x="265.06" y="-212.41" font-family="Times,serif" font-size="14.00">School</text>
+</g>
+<!-- Documents&#45;&#45;School -->
+<g id="edge1" class="edge">
+<title>Documents--School</title>
+<path fill="none" stroke="black" d="M202.71,-211.71C211.13,-212.37 219.67,-213.04 227.63,-213.67"></path>
+</g>
+<!-- Projects -->
+<g id="node3" class="node">
+<title>Projects</title>
+<ellipse fill="none" stroke="black" cx="42.15" cy="-209.81" rx="42.3" ry="18"></ellipse>
+<text text-anchor="middle" x="42.15" y="-205.61" font-family="Times,serif" font-size="14.00">Projects</text>
+</g>
+<!-- Documents&#45;&#45;Projects -->
+<g id="edge2" class="edge">
+<title>Documents--Projects</title>
+<path fill="none" stroke="black" d="M94.09,-208.69C90.81,-208.76 87.54,-208.83 84.33,-208.9"></path>
+</g>
+<!-- Math -->
+<g id="node4" class="node">
+<title>Math</title>
+<ellipse fill="none" stroke="black" cx="328.75" cy="-114.85" rx="31.34" ry="18"></ellipse>
+<text text-anchor="middle" x="328.75" y="-110.65" font-family="Times,serif" font-size="14.00">Math</text>
+</g>
+<!-- School&#45;&#45;Math -->
+<g id="edge3" class="edge">
+<title>School--Math</title>
+<path fill="none" stroke="black" d="M275.86,-199.35C287.65,-180.52 306.39,-150.58 318.11,-131.85"></path>
+</g>
+<!-- Science -->
+<g id="node5" class="node">
+<title>Science</title>
+<ellipse fill="none" stroke="black" cx="346.32" cy="-299.73" rx="41.13" ry="18"></ellipse>
+<text text-anchor="middle" x="346.32" y="-295.53" font-family="Times,serif" font-size="14.00">Science</text>
+</g>
+<!-- School&#45;&#45;Science -->
+<g id="edge4" class="edge">
+<title>School--Science</title>
+<path fill="none" stroke="black" d="M281.11,-233.03C295.27,-247.51 315.79,-268.51 330.02,-283.06"></path>
+</g>
+<!-- History -->
+<g id="node6" class="node">
+<title>History</title>
+<ellipse fill="none" stroke="black" cx="236.19" cy="-325.58" rx="40.01" ry="18"></ellipse>
+<text text-anchor="middle" x="236.19" y="-321.38" font-family="Times,serif" font-size="14.00">History</text>
+</g>
+<!-- School&#45;&#45;History -->
+<g id="edge5" class="edge">
+<title>School--History</title>
+<path fill="none" stroke="black" d="M260.29,-234.61C254.94,-254.8 246.32,-287.36 240.96,-307.56"></path>
+</g>
+<!-- MathFile1 -->
+<g id="node7" class="node">
+<title>MathFile1</title>
+<ellipse fill="none" stroke="black" cx="265.82" cy="-18" rx="57.94" ry="18"></ellipse>
+<text text-anchor="middle" x="265.82" y="-13.8" font-family="Times,serif" font-size="14.00">HW_1.docx</text>
+</g>
+<!-- Math&#45;&#45;MathFile1 -->
+<g id="edge6" class="edge">
+<title>Math--MathFile1</title>
+<path fill="none" stroke="black" d="M317.79,-97.98C306.45,-80.53 288.82,-53.39 277.3,-35.66"></path>
+</g>
+<!-- MathFile2 -->
+<g id="node8" class="node">
+<title>MathFile2</title>
+<ellipse fill="none" stroke="black" cx="443.27" cy="-135.07" rx="57.94" ry="18"></ellipse>
+<text text-anchor="middle" x="443.27" y="-130.87" font-family="Times,serif" font-size="14.00">HW_2.docx</text>
+</g>
+<!-- Math&#45;&#45;MathFile2 -->
+<g id="edge7" class="edge">
+<title>Math--MathFile2</title>
+<path fill="none" stroke="black" d="M358.84,-120.16C369.18,-121.99 381.05,-124.09 392.57,-126.12"></path>
+</g>
+<!-- MathFile3 -->
+<g id="node9" class="node">
+<title>MathFile3</title>
+<ellipse fill="none" stroke="black" cx="389.76" cy="-21.01" rx="57.94" ry="18"></ellipse>
+<text text-anchor="middle" x="389.76" y="-16.81" font-family="Times,serif" font-size="14.00">HW_3.docx</text>
+</g>
+<!-- Math&#45;&#45;MathFile3 -->
+<g id="edge8" class="edge">
+<title>Math--MathFile3</title>
+<path fill="none" stroke="black" d="M339.94,-97.64C350.81,-80.92 367.24,-55.65 378.23,-38.75"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<section id="properties-of-graphs-and-trees" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="properties-of-graphs-and-trees"><span class="header-section-number">2.1</span> Properties of Graphs and Trees</h2>
+<p>The first property is called the <em>handshaking lemma</em> or <em>degree sum formula</em>.</p>
+<div id="def-degree" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2.3</strong></span> The <strong>degree</strong> of a vertex, <span class="math inline">\(\deg(v)\)</span> is the number of other vertices <span class="math inline">\(w\)</span> for which there is an edge between <span class="math inline">\(v\)</span> and <span class="math inline">\(w\)</span>. For instance, the vertex a below has a degree of 3 because it is connected to 3 other vertices: b, d, e.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 115.51 255.44" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 251.44)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-251.44 111.51,-251.44 111.51,4 -4,4"></polygon>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<ellipse fill="none" stroke="black" cx="58.08" cy="-163.47" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="58.08" y="-159.27" font-family="Times,serif" font-size="14.00">a</text>
+</g>
+<!-- b -->
+<g id="node2" class="node">
+<title>b</title>
+<ellipse fill="none" stroke="black" cx="64.5" cy="-90.32" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="64.5" y="-86.12" font-family="Times,serif" font-size="14.00">b</text>
+</g>
+<!-- a&#45;&#45;b -->
+<g id="edge1" class="edge">
+<title>a--b</title>
+<path fill="none" stroke="black" d="M59.67,-145.39C60.66,-134.13 61.92,-119.71 62.91,-108.45"></path>
+</g>
+<!-- d -->
+<g id="node4" class="node">
+<title>d</title>
+<ellipse fill="none" stroke="black" cx="18" cy="-224.57" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="18" y="-220.37" font-family="Times,serif" font-size="14.00">d</text>
+</g>
+<!-- a&#45;&#45;d -->
+<g id="edge3" class="edge">
+<title>a--d</title>
+<path fill="none" stroke="black" d="M48.17,-178.57C42.05,-187.9 34.22,-199.84 28.07,-209.21"></path>
+</g>
+<!-- c -->
+<g id="node3" class="node">
+<title>c</title>
+<ellipse fill="none" stroke="black" cx="66.53" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="66.53" y="-13.8" font-family="Times,serif" font-size="14.00">c</text>
+</g>
+<!-- b&#45;&#45;c -->
+<g id="edge2" class="edge">
+<title>b--c</title>
+<path fill="none" stroke="black" d="M65.01,-72.07C65.32,-61.02 65.72,-46.99 66.03,-35.99"></path>
+</g>
+<!-- e -->
+<g id="node5" class="node">
+<title>e</title>
+<ellipse fill="none" stroke="black" cx="89.51" cy="-229.44" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="89.51" y="-225.24" font-family="Times,serif" font-size="14.00">e</text>
+</g>
+<!-- d&#45;&#45;e -->
+<g id="edge4" class="edge">
+<title>d--e</title>
+<path fill="none" stroke="black" d="M36.05,-225.8C46.8,-226.53 60.42,-227.46 71.22,-228.19"></path>
+</g>
+<!-- e&#45;&#45;a -->
+<g id="edge5" class="edge">
+<title>e--a</title>
+<path fill="none" stroke="black" d="M81.74,-213.13C76.94,-203.06 70.8,-190.17 65.98,-180.05"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p><figcaption> The vertex a has a degree of 3</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<section id="double-counting" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="double-counting"><span class="header-section-number">2.1.1</span> Double Counting</h3>
+<p>An important idea in combinatorics is <em>double counting</em> where we count the same thing in two different ways. For instance, in the above graph we can count the edges just by looking at the picture (5 edges). Or…we can go vertex by vertex and count the edges at that vertex: a has 3, b has 2, c has 1, d and e both have 2. This gives 10 total. If we think carefully about what is going on here, this second method of vertex-by-vertex counts every edge twice. For instance the edge between a and b contributes both to the count for a and for b. This idea is called the <em>handshaking lemma</em> or <em>degree-sum formula</em>.</p>
+<div id="thm-handshaking-lemma" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.1</strong></span> If we go vertex by vertex and add up the number of edges at that vertex (i.e.&nbsp;the <em>degree</em>) every edge is counted exactly twice.</p>
+<p><span class="math display">\[
+\sum \deg(v) = 2|E|.
+\]</span></p>
+</div>
+</section>
+</section>
+<section id="leaf-vertices" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="leaf-vertices"><span class="header-section-number">2.2</span> Leaf Vertices</h2>
+<p>In developing a developing an understanding of all the properties that trees have, one foundational fact is that every tree with at least two vertices has a <strong>leaf vertex</strong> where a leaf vertex is a vertex with degree 1.</p>
+<div id="ex-file-leaves">
+<p>In a filesystem, any file is a leaf where its unique edge is the edge connecting it to the parent folder. Additionally, any empty folder (that is not the topmost folder) is also a leaf.</p>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 179.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-256 175,-256 175,4 -4,4"></polygon>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="black" cx="72" cy="-234" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="72" y="-229.8" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="black" cx="45" cy="-162" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="45" y="-157.8" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- 1&#45;&#45;2 -->
+<g id="edge1" class="edge">
+<title>1--2</title>
+<path fill="none" stroke="black" d="M65.74,-216.76C61.38,-205.46 55.58,-190.44 51.23,-179.15"></path>
+</g>
+<!-- 5 -->
+<g id="node5" class="node">
+<title>5</title>
+<ellipse fill="none" stroke="black" cx="99" cy="-162" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="99" y="-157.8" font-family="Times,serif" font-size="14.00">5</text>
+</g>
+<!-- 1&#45;&#45;5 -->
+<g id="edge4" class="edge">
+<title>1--5</title>
+<path fill="none" stroke="black" d="M78.26,-216.76C82.62,-205.46 88.42,-190.44 92.77,-179.15"></path>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="black" cx="45" cy="-90" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="45" y="-85.8" font-family="Times,serif" font-size="14.00">3</text>
+</g>
+<!-- 2&#45;&#45;3 -->
+<g id="edge2" class="edge">
+<title>2--3</title>
+<path fill="none" stroke="black" d="M45,-143.7C45,-132.85 45,-118.92 45,-108.1"></path>
+</g>
+<!-- 4 -->
+<g id="node4" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="black" cx="18" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="18" y="-13.8" font-family="Times,serif" font-size="14.00">4</text>
+</g>
+<!-- 3&#45;&#45;4 -->
+<g id="edge3" class="edge">
+<title>3--4</title>
+<path fill="none" stroke="black" d="M38.74,-72.76C34.38,-61.46 28.58,-46.44 24.23,-35.15"></path>
+</g>
+<!-- 7 -->
+<g id="node7" class="node">
+<title>7</title>
+<ellipse fill="none" stroke="black" cx="72" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="72" y="-13.8" font-family="Times,serif" font-size="14.00">7</text>
+</g>
+<!-- 3&#45;&#45;7 -->
+<g id="edge6" class="edge">
+<title>3--7</title>
+<path fill="none" stroke="black" d="M51.26,-72.76C55.62,-61.46 61.42,-46.44 65.77,-35.15"></path>
+</g>
+<!-- 6 -->
+<g id="node6" class="node">
+<title>6</title>
+<ellipse fill="none" stroke="black" cx="99" cy="-90" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00">6</text>
+</g>
+<!-- 5&#45;&#45;6 -->
+<g id="edge5" class="edge">
+<title>5--6</title>
+<path fill="none" stroke="black" d="M99,-143.7C99,-132.85 99,-118.92 99,-108.1"></path>
+</g>
+<!-- 8 -->
+<g id="node8" class="node">
+<title>8</title>
+<ellipse fill="none" stroke="black" cx="153" cy="-90" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="153" y="-85.8" font-family="Times,serif" font-size="14.00">8</text>
+</g>
+<!-- 5&#45;&#45;8 -->
+<g id="edge7" class="edge">
+<title>5--8</title>
+<path fill="none" stroke="black" d="M109.67,-147.17C119.14,-134.9 132.89,-117.06 142.35,-104.8"></path>
+</g>
+<!-- 9 -->
+<g id="node9" class="node">
+<title>9</title>
+<ellipse fill="none" stroke="black" cx="153" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="153" y="-13.8" font-family="Times,serif" font-size="14.00">9</text>
+</g>
+<!-- 8&#45;&#45;9 -->
+<g id="edge8" class="edge">
+<title>8--9</title>
+<path fill="none" stroke="black" d="M153,-71.7C153,-60.85 153,-46.92 153,-36.1"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p><figcaption> In this tree, vertices 4, 6, 7, 9 are leaves</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>I want to take a moment here also to point out that the tree is the data of which vertices are connected and in particular lengths and directions of edges are not part of the data. So we could draw the tree with the vertices placed elsewhere and it will still be the same tree with the same leaves.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 459.69 261.29" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 257.29)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-257.29 455.69,-257.29 455.69,4 -4,4"></polygon>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="black" cx="227.25" cy="-131.4" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="227.25" y="-127.2" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="black" cx="155.19" cy="-109.79" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="155.19" y="-105.59" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- 1&#45;&#45;2 -->
+<g id="edge1" class="edge">
+<title>1--2</title>
+<path fill="none" stroke="black" d="M209.8,-126.17C198.47,-122.77 183.77,-118.36 172.47,-114.97"></path>
+</g>
+<!-- 5 -->
+<g id="node5" class="node">
+<title>5</title>
+<ellipse fill="none" stroke="black" cx="301.29" cy="-156.85" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="301.29" y="-152.65" font-family="Times,serif" font-size="14.00">5</text>
+</g>
+<!-- 1&#45;&#45;5 -->
+<g id="edge4" class="edge">
+<title>1--5</title>
+<path fill="none" stroke="black" d="M244.42,-137.31C256.38,-141.42 272.27,-146.88 284.21,-150.98"></path>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="black" cx="80.19" cy="-90.62" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="80.19" y="-86.42" font-family="Times,serif" font-size="14.00">3</text>
+</g>
+<!-- 2&#45;&#45;3 -->
+<g id="edge2" class="edge">
+<title>2--3</title>
+<path fill="none" stroke="black" d="M137.41,-105.25C125.46,-102.19 109.76,-98.18 97.83,-95.13"></path>
+</g>
+<!-- 4 -->
+<g id="node4" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="black" cx="18" cy="-139.24" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="18" y="-135.04" font-family="Times,serif" font-size="14.00">4</text>
+</g>
+<!-- 3&#45;&#45;4 -->
+<g id="edge3" class="edge">
+<title>3--4</title>
+<path fill="none" stroke="black" d="M65.77,-101.9C55.72,-109.75 42.38,-120.18 32.35,-128.03"></path>
+</g>
+<!-- 7 -->
+<g id="node7" class="node">
+<title>7</title>
+<ellipse fill="none" stroke="black" cx="49.32" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="49.32" y="-13.8" font-family="Times,serif" font-size="14.00">7</text>
+</g>
+<!-- 3&#45;&#45;7 -->
+<g id="edge6" class="edge">
+<title>3--7</title>
+<path fill="none" stroke="black" d="M73.03,-73.78C68.04,-62.05 61.42,-46.46 56.44,-34.75"></path>
+</g>
+<!-- 6 -->
+<g id="node6" class="node">
+<title>6</title>
+<ellipse fill="none" stroke="black" cx="318.36" cy="-235.29" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="318.36" y="-231.09" font-family="Times,serif" font-size="14.00">6</text>
+</g>
+<!-- 5&#45;&#45;6 -->
+<g id="edge5" class="edge">
+<title>5--6</title>
+<path fill="none" stroke="black" d="M305.16,-174.65C307.96,-187.49 311.71,-204.74 314.5,-217.56"></path>
+</g>
+<!-- 8 -->
+<g id="node8" class="node">
+<title>8</title>
+<ellipse fill="none" stroke="black" cx="367.54" cy="-113.99" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="367.54" y="-109.79" font-family="Times,serif" font-size="14.00">8</text>
+</g>
+<!-- 5&#45;&#45;8 -->
+<g id="edge7" class="edge">
+<title>5--8</title>
+<path fill="none" stroke="black" d="M316.66,-146.91C327.36,-139.99 341.57,-130.79 352.26,-123.87"></path>
+</g>
+<!-- 9 -->
+<g id="node9" class="node">
+<title>9</title>
+<ellipse fill="none" stroke="black" cx="433.69" cy="-80.09" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="433.69" y="-75.89" font-family="Times,serif" font-size="14.00">9</text>
+</g>
+<!-- 8&#45;&#45;9 -->
+<g id="edge8" class="edge">
+<title>8--9</title>
+<path fill="none" stroke="black" d="M383.89,-105.61C394.15,-100.35 407.31,-93.61 417.53,-88.38"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p><figcaption> The same tree with a different drawing</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<section id="every-tree-has-at-least-one-leaf" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="every-tree-has-at-least-one-leaf"><span class="header-section-number">2.2.1</span> Every tree has at least one leaf</h3>
+<p>It is a fact that every tree with 2 or more vertices has at least one (in fact at least two) leaf vertex. We will discuss the why of this (the proof) in a couple levels of formality.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The reason we say here “2 or more vertices” is because if we have only a single vertex that vertex would have no edges (degree 0) and would not be a leaf because a leaf needs to have exactly one edge.</p>
+</div>
+</div>
+<section id="informal-proof" class="level4" data-number="2.2.1.1">
+<h4 data-number="2.2.1.1" class="anchored" data-anchor-id="informal-proof"><span class="header-section-number">2.2.1.1</span> Informal proof</h4>
+<p>Lets pick any vertex, maybe vertex 1. We have two possibilities 1. this vertex is a leaf (and we have what we were looking for) 2. this vertex has at least two neighbours and in the picture we will call those 2 and 3</p>
+<div class="cell" data-fig-width="3" data-fig-height="1" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="288" height="96" viewbox="0.00 0.00 260.00 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-40 256,-40 256,4 -4,4"></polygon>
+<!-- 2 -->
+<g id="node1" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="black" cx="18" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="18" y="-13.8" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- 1 -->
+<g id="node2" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="black" cx="126" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="126" y="-13.8" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- 2&#45;&#45;1 -->
+<g id="edge1" class="edge">
+<title>2--1</title>
+<path fill="none" stroke="black" d="M36.32,-18C56.3,-18 88.08,-18 107.95,-18"></path>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="black" cx="234" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="234" y="-13.8" font-family="Times,serif" font-size="14.00">3</text>
+</g>
+<!-- 1&#45;&#45;3 -->
+<g id="edge2" class="edge">
+<title>1--3</title>
+<path fill="none" stroke="black" d="M144.32,-18C164.3,-18 196.08,-18 215.95,-18"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Now repeat this reasoning: either 2 or 3 are leaves or they too have a new neighbour other than 1.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Important point
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All of these new neighbours are distinct (e.g.&nbsp;the new neighbour for 2 is not the same as the new neighbour for 3). If lets say the new neighbour for 2 and 3 were the same well then that would create a cycle (not allowed)</p>
+<div class="cell" data-fig-width="3" data-fig-height="3" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="288" height="288" viewbox="0.00 0.00 181.51 181.51" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 177.51)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-177.51 177.51,-177.51 177.51,4 -4,4"></polygon>
+<!-- 4 -->
+<g id="node1" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="black" cx="86.75" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="86.75" y="-13.8" font-family="Times,serif" font-size="14.00">4</text>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="black" cx="18" cy="-86.75" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="18" y="-82.55" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- 4&#45;&#45;2 -->
+<g id="edge1" class="edge">
+<title>4--2</title>
+<path fill="none" stroke="black" d="M73.82,-30.93C61.53,-43.22 43.15,-61.61 30.87,-73.88"></path>
+</g>
+<!-- 1 -->
+<g id="node3" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="black" cx="86.75" cy="-155.51" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="86.75" y="-151.31" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- 2&#45;&#45;1 -->
+<g id="edge2" class="edge">
+<title>2--1</title>
+<path fill="none" stroke="black" d="M30.93,-99.69C43.22,-111.98 61.61,-130.36 73.88,-142.64"></path>
+</g>
+<!-- 3 -->
+<g id="node4" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="black" cx="155.51" cy="-86.75" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="155.51" y="-82.55" font-family="Times,serif" font-size="14.00">3</text>
+</g>
+<!-- 1&#45;&#45;3 -->
+<g id="edge3" class="edge">
+<title>1--3</title>
+<path fill="none" stroke="black" d="M99.69,-142.58C111.98,-130.29 130.36,-111.9 142.64,-99.63"></path>
+</g>
+<!-- 3&#45;&#45;4 -->
+<g id="edge4" class="edge">
+<title>3--4</title>
+<path fill="none" stroke="black" d="M142.58,-73.82C130.29,-61.53 111.9,-43.15 99.63,-30.87"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>So as long as we never hit a leaf vertex we can always find more vertices. But there are only a finite amount of vertices so we cannot continue this indefinitely. At some point we have to find a leaf vertex (and in fact, one on each side).</p>
+</section>
+<section id="induction" class="level4" data-number="2.2.1.2">
+<h4 data-number="2.2.1.2" class="anchored" data-anchor-id="induction"><span class="header-section-number">2.2.1.2</span> Induction</h4>
+<p>This idea of “just keep going and eventually we have to stop because there was only a finite number” has a name. It is known as the <strong>principle of mathematical induction</strong>. Suppose we show two things: 1. the minimal sized case(s) have a property 2. any big case can be made into a smaller case then we are done because any case can be made smaller and smaller until we eventually find what we are looking for and the process stops because everything is finite.</p>
+<p>In terms of trees, the minimal case is a tree consisting of a pair of vertices and a single edge. Each vertex here is a leaf edge.</p>
+<div class="cell" data-fig-width="3" data-fig-height="1" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="288" height="96" viewbox="0.00 0.00 87.20 11.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 7.6)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-7.6 83.2,-7.6 83.2,4 -4,4"></polygon>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<ellipse fill="black" stroke="black" cx="1.8" cy="-1.8" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- b -->
+<g id="node2" class="node">
+<title>b</title>
+<ellipse fill="black" stroke="black" cx="77.4" cy="-1.8" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- a&#45;&#45;b -->
+<g id="edge1" class="edge">
+<title>a--b</title>
+<path fill="none" stroke="black" d="M3.67,-1.8C14.13,-1.8 65.31,-1.8 75.6,-1.8"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p><figcaption> Minimal tree with 2 vertices</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>Now suppose we have a larger, more complex tree. Focus on a single edge somewhere in the tree, let us call its endpoints a and b.</p>
+<div class="cell" data-fig-height="2" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="192" viewbox="0.00 0.00 229.34 109.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 105.6)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-105.6 225.34,-105.6 225.34,4 -4,4"></polygon>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<ellipse fill="none" stroke="black" cx="75.14" cy="-50.8" rx="17.57" ry="17.57"></ellipse>
+<text text-anchor="middle" x="75.14" y="-46.6" font-family="Times,serif" font-size="14.00">a</text>
+</g>
+<!-- b -->
+<g id="node2" class="node">
+<title>b</title>
+<ellipse fill="none" stroke="black" cx="146.21" cy="-50.8" rx="17.57" ry="17.57"></ellipse>
+<text text-anchor="middle" x="146.21" y="-46.6" font-family="Times,serif" font-size="14.00">b</text>
+</g>
+<!-- a&#45;&#45;b -->
+<g id="edge4" class="edge">
+<title>a--b</title>
+<path fill="none" stroke="black" d="M92.86,-50.8C103.72,-50.8 117.81,-50.8 128.64,-50.8"></path>
+</g>
+<!-- 4 -->
+<g id="node6" class="node">
+<title>4</title>
+<ellipse fill="black" stroke="black" cx="210.54" cy="-70.8" rx="10.8" ry="10.8"></ellipse>
+</g>
+<!-- b&#45;&#45;4 -->
+<g id="edge5" class="edge">
+<title>b--4</title>
+<path fill="none" stroke="black" d="M163.26,-55.95C174.95,-59.7 190.38,-64.65 200.13,-67.78"></path>
+</g>
+<!-- 5 -->
+<g id="node7" class="node">
+<title>5</title>
+<ellipse fill="black" stroke="black" cx="210.54" cy="-30.8" rx="10.8" ry="10.8"></ellipse>
+</g>
+<!-- b&#45;&#45;5 -->
+<g id="edge6" class="edge">
+<title>b--5</title>
+<path fill="none" stroke="black" d="M163.26,-45.65C174.95,-41.9 190.38,-36.95 200.13,-33.82"></path>
+</g>
+<!-- 1 -->
+<g id="node3" class="node">
+<title>1</title>
+<ellipse fill="black" stroke="black" cx="10.8" cy="-90.8" rx="10.8" ry="10.8"></ellipse>
+</g>
+<!-- 1&#45;&#45;a -->
+<g id="edge1" class="edge">
+<title>1--a</title>
+<path fill="none" stroke="black" d="M20.21,-85.41C30.31,-78.92 47.43,-67.94 59.67,-60.08"></path>
+</g>
+<!-- 2 -->
+<g id="node4" class="node">
+<title>2</title>
+<ellipse fill="black" stroke="black" cx="10.8" cy="-50.8" rx="10.8" ry="10.8"></ellipse>
+</g>
+<!-- 2&#45;&#45;a -->
+<g id="edge2" class="edge">
+<title>2--a</title>
+<path fill="none" stroke="black" d="M21.82,-50.8C31.45,-50.8 46.2,-50.8 57.58,-50.8"></path>
+</g>
+<!-- 3 -->
+<g id="node5" class="node">
+<title>3</title>
+<ellipse fill="black" stroke="black" cx="10.8" cy="-10.8" rx="10.8" ry="10.8"></ellipse>
+</g>
+<!-- 3&#45;&#45;a -->
+<g id="edge3" class="edge">
+<title>3--a</title>
+<path fill="none" stroke="black" d="M20.21,-16.19C30.31,-22.68 47.43,-33.66 59.67,-41.52"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p><figcaption> Larger tree focusing on the edge ab</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>If neither a nor b are leaves then we smush the two vertices together merging the entire edge into single vertex which we will label “ab.” This process is known as <strong>edge contraction</strong>.</p>
+<div class="cell" data-fig-height="2" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="192" viewbox="0.00 0.00 163.50 109.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 105.6)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-105.6 159.5,-105.6 159.5,4 -4,4"></polygon>
+<!-- ab -->
+<g id="node1" class="node">
+<title>ab</title>
+<ellipse fill="none" stroke="black" cx="77.75" cy="-50.8" rx="20.3" ry="18"></ellipse>
+<text text-anchor="middle" x="77.75" y="-46.6" font-family="Times,serif" font-size="14.00">ab</text>
+</g>
+<!-- 4 -->
+<g id="node5" class="node">
+<title>4</title>
+<ellipse fill="black" stroke="black" cx="144.7" cy="-70.8" rx="10.8" ry="10.8"></ellipse>
+</g>
+<!-- ab&#45;&#45;4 -->
+<g id="edge4" class="edge">
+<title>ab--4</title>
+<path fill="none" stroke="black" d="M97.19,-56.48C109.19,-60.17 124.36,-64.84 134.05,-67.83"></path>
+</g>
+<!-- 5 -->
+<g id="node6" class="node">
+<title>5</title>
+<ellipse fill="black" stroke="black" cx="144.7" cy="-30.8" rx="10.8" ry="10.8"></ellipse>
+</g>
+<!-- ab&#45;&#45;5 -->
+<g id="edge5" class="edge">
+<title>ab--5</title>
+<path fill="none" stroke="black" d="M97.19,-45.12C109.19,-41.43 124.36,-36.76 134.05,-33.77"></path>
+</g>
+<!-- 1 -->
+<g id="node2" class="node">
+<title>1</title>
+<ellipse fill="black" stroke="black" cx="10.8" cy="-90.8" rx="10.8" ry="10.8"></ellipse>
+</g>
+<!-- 1&#45;&#45;ab -->
+<g id="edge1" class="edge">
+<title>1--ab</title>
+<path fill="none" stroke="black" d="M20.29,-85.57C30.54,-79.26 47.98,-68.52 60.78,-60.64"></path>
+</g>
+<!-- 2 -->
+<g id="node3" class="node">
+<title>2</title>
+<ellipse fill="black" stroke="black" cx="10.8" cy="-50.8" rx="10.8" ry="10.8"></ellipse>
+</g>
+<!-- 2&#45;&#45;ab -->
+<g id="edge2" class="edge">
+<title>2--ab</title>
+<path fill="none" stroke="black" d="M21.66,-50.8C31.1,-50.8 45.6,-50.8 57.36,-50.8"></path>
+</g>
+<!-- 3 -->
+<g id="node4" class="node">
+<title>3</title>
+<ellipse fill="black" stroke="black" cx="10.8" cy="-10.8" rx="10.8" ry="10.8"></ellipse>
+</g>
+<!-- 3&#45;&#45;ab -->
+<g id="edge3" class="edge">
+<title>3--ab</title>
+<path fill="none" stroke="black" d="M20.29,-16.03C30.54,-22.34 47.98,-33.08 60.78,-40.96"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p><figcaption> Contracting the edge.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>By contracting the edge we create a smaller graph with one fewer vertex and one fewer edge.</p>
+<p>This process may be carried out again and again. Choose a new edge, either we find a leaf vertex or we contract. Because we cannot contract indefinitely we say now “by induction” there must be a leaf vertex.</p>
+</section>
+<section id="a-little-bit-more-formal" class="level4" data-number="2.2.1.3">
+<h4 data-number="2.2.1.3" class="anchored" data-anchor-id="a-little-bit-more-formal"><span class="header-section-number">2.2.1.3</span> A little bit more formal</h4>
+<p>Going the next step, induction is often thought about as “going up” rather than “going down.” We worded the last argument as creating smaller and smaller graphs but another way to say that is</p>
+<ol type="1">
+<li>Every tree with two vertices (there is only one such tree) has a leaf vertex</li>
+<li>Every tree with three vertices may be smushed (contracted) to a tree with two vertices thus every tree with three vertices has a leaf vertex.</li>
+<li>Every tree with four vertices may be contracted to a tree with three vertices so every tree with four vertices has a leaf vertex</li>
+<li>(Induction is where we observe in formal terms that this pattern extends to all whole numbers)</li>
+<li>Every tree with <span class="math inline">\(n + 1\)</span> vertices has a leaf vertex because (in the step before) every tree with <span class="math inline">\(n\)</span> vertices has a leaf vertex (because every tree with <span class="math inline">\(n - 1\)</span> vertices has a leaf vertex because every tree with <span class="math inline">\(n - 2\)</span> vertices has a leaf vertex…)</li>
+</ol>
+<p>Induction is revisited in Keller and Trotter’s book, <a href="https://appliedcombinatorics.org/book/ch_induction.html">chapter 3</a>.</p>
+</section>
+</section>
+<section id="counting-leaves" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="counting-leaves"><span class="header-section-number">2.2.2</span> Counting Leaves</h3>
+<p>Actually, before we go any further we need another fact</p>
+<div id="thm-vertex-edge-relation" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.2</strong></span> For any tree, there is always exactly one more vertex than edge. I.e. <span class="math inline">\(|V| = |E| + 1\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Have a look at what we did in the previous section for induction.</p>
+<ol type="1">
+<li>A tree with 1 vertex has 0 edges</li>
+<li>A tree with 2 vertices has 1 edge</li>
+<li>A tree with 3 vertices has 2 edges</li>
+<li>A tree with <span class="math inline">\(n + 1\)</span> vertices may be smushed into a tree with <span class="math inline">\(n\)</span> vertices. This contraction process removes 1 vertex and 1 edge so the property of “<span class="math inline">\(|V| = |E| + 1\)</span>” is preserved.</li>
+</ol>
+<p>So by induction all trees have <span class="math inline">\(|V| = |E| + 1\)</span>.</p>
+</div>
+<p>Where the last few sections were about induction, this one will show some ideas for enumeration (i.e.&nbsp;counting stuff). Going all the way back up to the Handshake Lemma <a href="#thm-handshaking-lemma" class="quarto-xref">Theorem&nbsp;<span>2.1</span></a> let us break up that formula a bit in a way that lets us count leaf vertices.</p>
+<p>To that end, let <span class="math inline">\(n_d\)</span> be the number of vertices of degree <span class="math inline">\(d\)</span>. So <span class="math inline">\(n_1\)</span> is the number of vertices of degree 1 (leaf vertices).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A common trick in combinatorics is if we have a function like <span class="math inline">\(\deg\)</span> and we want to count where <span class="math inline">\(\deg = 1\)</span> then we also count where <span class="math inline">\(\deg = 2, \deg = 3, \dots\)</span> and then later isolate <span class="math inline">\(\deg = 1\)</span>.</p>
+</div>
+</div>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 424.36 290.47" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 286.47)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-286.47 420.36,-286.47 420.36,4 -4,4"></polygon>
+<!-- 1 -->
+<g id="node1" class="node">
+<title>1</title>
+<ellipse fill="black" stroke="black" cx="202.63" cy="-144.24" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 2 -->
+<g id="node2" class="node">
+<title>2</title>
+<ellipse fill="black" stroke="black" cx="148.23" cy="-81.79" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 1&#45;&#45;2 -->
+<g id="edge1" class="edge">
+<title>1--2</title>
+<path fill="none" stroke="black" d="M201.29,-142.7C193.82,-134.13 157.57,-92.51 149.72,-83.51"></path>
+</g>
+<!-- 5 -->
+<g id="node5" class="node">
+<title>5</title>
+<ellipse fill="black" stroke="black" cx="260.04" cy="-200.96" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 1&#45;&#45;5 -->
+<g id="edge4" class="edge">
+<title>1--5</title>
+<path fill="none" stroke="black" d="M204.05,-145.64C211.92,-153.42 250.18,-191.22 258.46,-199.4"></path>
+</g>
+<!-- 3 -->
+<g id="node3" class="node">
+<title>3</title>
+<ellipse fill="black" stroke="black" cx="64.79" cy="-97.95" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 2&#45;&#45;3 -->
+<g id="edge2" class="edge">
+<title>2--3</title>
+<path fill="none" stroke="black" d="M146.16,-82.19C134.62,-84.43 78.14,-95.37 66.78,-97.57"></path>
+</g>
+<!-- 10 -->
+<g id="node10" class="node">
+<title>10</title>
+<ellipse fill="black" stroke="black" cx="204.61" cy="-21.82" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 2&#45;&#45;10 -->
+<g id="edge9" class="edge">
+<title>2--10</title>
+<path fill="none" stroke="black" d="M149.62,-80.31C157.35,-72.09 194.93,-32.12 203.06,-23.48"></path>
+</g>
+<!-- 11 -->
+<g id="node11" class="node">
+<title>11</title>
+<ellipse fill="black" stroke="black" cx="134.24" cy="-1.8" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 2&#45;&#45;11 -->
+<g id="edge10" class="edge">
+<title>2--11</title>
+<path fill="none" stroke="black" d="M147.88,-79.82C145.95,-68.75 136.47,-14.59 134.57,-3.71"></path>
+</g>
+<!-- 4 -->
+<g id="node4" class="node">
+<title>4</title>
+<ellipse fill="black" stroke="black" cx="8.98" cy="-154.86" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 3&#45;&#45;4 -->
+<g id="edge3" class="edge">
+<title>3--4</title>
+<path fill="none" stroke="black" d="M63.41,-99.36C55.76,-107.16 18.57,-145.09 10.52,-153.29"></path>
+</g>
+<!-- 7 -->
+<g id="node7" class="node">
+<title>7</title>
+<ellipse fill="black" stroke="black" cx="1.8" cy="-47.33" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 3&#45;&#45;7 -->
+<g id="edge6" class="edge">
+<title>3--7</title>
+<path fill="none" stroke="black" d="M63.24,-96.7C54.6,-89.76 12.61,-56.02 3.53,-48.72"></path>
+</g>
+<!-- 6 -->
+<g id="node6" class="node">
+<title>6</title>
+<ellipse fill="black" stroke="black" cx="245.66" cy="-280.67" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 5&#45;&#45;6 -->
+<g id="edge5" class="edge">
+<title>5--6</title>
+<path fill="none" stroke="black" d="M259.68,-202.93C257.69,-213.96 247.96,-267.92 246,-278.77"></path>
+</g>
+<!-- 8 -->
+<g id="node8" class="node">
+<title>8</title>
+<ellipse fill="black" stroke="black" cx="339.85" cy="-198.69" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 5&#45;&#45;8 -->
+<g id="edge7" class="edge">
+<title>5--8</title>
+<path fill="none" stroke="black" d="M262.01,-200.9C273.05,-200.59 327.09,-199.05 337.95,-198.74"></path>
+</g>
+<!-- 9 -->
+<g id="node9" class="node">
+<title>9</title>
+<ellipse fill="black" stroke="black" cx="414.56" cy="-204.03" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 8&#45;&#45;9 -->
+<g id="edge8" class="edge">
+<title>8--9</title>
+<path fill="none" stroke="black" d="M341.7,-198.82C351.94,-199.55 401.74,-203.11 412.51,-203.88"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>In this tree, we have <span class="math inline">\(n_1 = 6, n_2 = 2, n_3 = 2, n_4 = 1\)</span>. The degree sum is</p>
+<p><span class="math display">\[\begin{align*}
+\sum \deg(v) &amp;= 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 3 + 3 + 4 \\
+&amp;= 1 \cdot 6 + 2 \cdot 2 + 3 \cdot 2 + 4 \cdot 1 \\
+&amp;= 1n_1 + 2n_2 + 3n_3 + 4n_4 = 2|E| = 20
+\end{align*}\]</span></p>
+<p>So separating the degree sum into <span class="math inline">\(n_1, n_2, \dots\)</span> we get <span class="math display">\[
+\sum_v \deg(v) = \sum_d d n_d = 2|E|.
+\]</span> Spelled out: <span class="math display">\[
+n_1 + 2n_2 + 3n_3 + 4n_4 + \cdots = 2|E|.
+\]</span></p>
+<p>Now let us look at a similar sum: <span class="math display">\[
+n_1 + n_2 + n_3 + n_4 + \cdots
+\]</span> So that is the number of vertices of degree 1, degree 2, degree 3, … well that is every vertex so this sum is <span class="math inline">\(|V|\)</span>. Or, as we learned in <a href="#thm-vertex-edge-relation" class="quarto-xref">Theorem&nbsp;<span>2.2</span></a>, <span class="math inline">\(|V| = |E| + 1\)</span>.</p>
+<p>So we have two identities: <span class="math display">\[\begin{align*}
+n_1 + 2n_2 + 3n_3 + 4n_4 + \cdots &amp;= 2|E| \\
+n_1 + \phantom{2}n_2 + \phantom{3}n_3 + \phantom{4}n_4 + \cdots &amp;= |E| + 1.
+\end{align*}\]</span> Subtract twice the second from the first and we have <span class="math display">\[
+-n_1 + \phantom{n_2} + n_3 + 2n_4 + \dots = -2.
+\]</span></p>
+<p>Almost done! Lastly move the <span class="math inline">\(-n_1\)</span> to the right and the <span class="math inline">\(-2\)</span> to the left and we get our main result for this section.</p>
+<div id="thm-counting-leaves" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2.3</strong></span> In any tree (with at least two vertices), the number of leaves is <span class="math display">\[
+n_1 = 2 + n_3 + 2n_4 + 3n_5 + 4n_6 + \cdots
+\]</span></p>
+</div>
+<p>This tells us a few interesting things all at once!</p>
+<div id="cor-leaves-at-least-2" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 2.1</strong></span> Every tree with at least two vertices has at least two leaves: <span class="math inline">\(n_1 \ge 2\)</span>.</p>
+</div>
+<div id="cor-higher-degree-leaves" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 2.2</strong></span> Moreover, for every vertex of degree 3 there is an additional leaf. For every vertex of degree 4 there are 2 additional leaves and so on.</p>
+</div>
+<p>We can look at this last result in another way: take a vertex (let’s say of degree 4) and follow the 4 edges until they lead to leaves. So this degree 4 vertex gives 4 leaves at least (more if there are other branches to follow).</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="672" height="480" viewbox="0.00 0.00 421.52 345.92" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 341.92)">
+<title>G</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-341.92 417.52,-341.92 417.52,4 -4,4"></polygon>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<ellipse fill="black" stroke="black" cx="184.92" cy="-153" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 1 -->
+<g id="node2" class="node">
+<title>1</title>
+<ellipse fill="black" stroke="black" cx="260.52" cy="-153" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- a&#45;&#45;1 -->
+<g id="edge1" class="edge">
+<title>a--1</title>
+<path fill="none" stroke="black" d="M186.79,-153C197.25,-153 248.43,-153 258.72,-153"></path>
+</g>
+<!-- 2 -->
+<g id="node3" class="node">
+<title>2</title>
+<ellipse fill="black" stroke="black" cx="156.87" cy="-262.87" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- a&#45;&#45;2 -->
+<g id="edge2" class="edge">
+<title>a--2</title>
+<path fill="none" stroke="black" d="M184.44,-154.91C181.03,-168.24 160.82,-247.41 157.37,-260.92"></path>
+</g>
+<!-- 3 -->
+<g id="node4" class="node">
+<title>3</title>
+<ellipse fill="black" stroke="black" cx="75.05" cy="-124.94" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- a&#45;&#45;3 -->
+<g id="edge3" class="edge">
+<title>a--3</title>
+<path fill="none" stroke="black" d="M183.02,-152.51C169.68,-149.11 90.52,-128.89 77.01,-125.44"></path>
+</g>
+<!-- 4 -->
+<g id="node5" class="node">
+<title>4</title>
+<ellipse fill="black" stroke="black" cx="184.92" cy="-1.8" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- a&#45;&#45;4 -->
+<g id="edge4" class="edge">
+<title>a--4</title>
+<path fill="none" stroke="black" d="M184.92,-150.86C184.92,-133.78 184.92,-19.62 184.92,-3.65"></path>
+</g>
+<!-- 5 -->
+<g id="node6" class="node">
+<title>5</title>
+<ellipse fill="black" stroke="black" cx="336.12" cy="-153" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 1&#45;&#45;5 -->
+<g id="edge5" class="edge">
+<title>1--5</title>
+<path fill="none" stroke="black" d="M262.39,-153C272.85,-153 324.03,-153 334.32,-153"></path>
+</g>
+<!-- 7 -->
+<g id="node8" class="node">
+<title>7</title>
+<ellipse fill="black" stroke="black" cx="138.17" cy="-336.12" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 2&#45;&#45;7 -->
+<g id="edge7" class="edge">
+<title>2--7</title>
+<path fill="none" stroke="black" d="M156.41,-264.69C153.82,-274.82 141.16,-324.41 138.61,-334.38"></path>
+</g>
+<!-- 8 -->
+<g id="node9" class="node">
+<title>8</title>
+<ellipse fill="black" stroke="black" cx="1.8" cy="-106.24" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 3&#45;&#45;8 -->
+<g id="edge8" class="edge">
+<title>3--8</title>
+<path fill="none" stroke="black" d="M73.24,-124.48C63.1,-121.89 13.52,-109.23 3.55,-106.69"></path>
+</g>
+<!-- 6 -->
+<g id="node7" class="node">
+<title>6</title>
+<ellipse fill="black" stroke="black" cx="411.72" cy="-153" rx="1.8" ry="1.8"></ellipse>
+</g>
+<!-- 5&#45;&#45;6 -->
+<g id="edge6" class="edge">
+<title>5--6</title>
+<path fill="none" stroke="black" d="M337.99,-153C348.45,-153 399.63,-153 409.92,-153"></path>
+</g>
+</g>
+</svg>
+</div>
+<p></p><figcaption> a degree 4 vertex leading to four leaves</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/seragunn\.github\.io\/combinatorics-notes\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../preface.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../inclusion-exclusion/inclusion-exclusion.html" class="pagination-link" aria-label="Inclusion/Exclusion">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/trees/trees.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/trees/trees.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>

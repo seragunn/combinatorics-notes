@@ -2,43 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/index.html</loc>
-    <lastmod>2024-05-20T23:31:45.690Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.304Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/preface.html</loc>
-    <lastmod>2024-05-20T23:31:45.690Z</lastmod>
+    <lastmod>2026-01-25T03:31:42.072Z</lastmod>
+  </url>
+  <url>
+    <loc>https://seragunn.github.io/combinatorics-notes/trees/trees.html</loc>
+    <lastmod>2026-01-25T03:31:03.943Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/inclusion-exclusion/inclusion-exclusion.html</loc>
-    <lastmod>2024-05-20T23:31:45.686Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.304Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/inclusion-exclusion/totient.html</loc>
-    <lastmod>2024-05-20T23:31:45.686Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.304Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/permutations/permutations.html</loc>
-    <lastmod>2024-05-20T23:31:45.690Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.310Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/permutations/visual.html</loc>
-    <lastmod>2024-05-20T23:31:45.690Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.310Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/permutations/generators.html</loc>
-    <lastmod>2024-05-20T23:31:45.690Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.307Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/permutations/sign.html</loc>
-    <lastmod>2024-05-20T23:31:45.690Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.310Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/permutations/inversions.html</loc>
-    <lastmod>2024-05-20T23:31:45.690Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.310Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/permutations/permutation-exercises.html</loc>
-    <lastmod>2024-05-20T23:31:45.690Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.310Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/generating-functions/weights.html</loc>
@@ -62,30 +66,30 @@
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/generating-functions/generating-function-exercises.html</loc>
-    <lastmod>2024-05-20T23:31:45.683Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.300Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/regular-languages/regular-languages.html</loc>
-    <lastmod>2024-05-20T23:31:45.693Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.317Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/regular-languages/finite-automata.html</loc>
-    <lastmod>2024-05-20T23:31:45.693Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.314Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/regular-languages/putting-it-together.html</loc>
-    <lastmod>2024-05-20T23:31:45.693Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.314Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/regular-languages/transfer-matrix.html</loc>
-    <lastmod>2024-05-20T23:31:45.693Z</lastmod>
+    <lastmod>2026-01-25T02:10:26.466Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/regular-languages/regular-languages-exercises.html</loc>
-    <lastmod>2024-05-20T23:31:45.693Z</lastmod>
+    <lastmod>2024-06-18T03:22:58.314Z</lastmod>
   </url>
   <url>
     <loc>https://seragunn.github.io/combinatorics-notes/Combinatorics-Notes.pdf</loc>
-    <lastmod>2024-06-10T16:51:58.040Z</lastmod>
+    <lastmod>2026-01-25T03:33:48.947Z</lastmod>
   </url>
 </urlset>
