@@ -1,0 +1,413 @@
+# Trees
+
+::: {#def-graph}
+A **graph** consists of a set of vertices $V$ and a set of edges $E$. Each edge is an unordered pair $\{v, w\}$ representing a connection between the vertices $v$ and $w$.
+:::
+
+Consider the graph where the set of vertices are $V = \{1, 2, 3, 4, 5\}$ and the edges are $\{1,2\}, \{2,3\}, \{3,4\}, \{4,1\}$ and $\{1,5\}$. Graphs such of these are more easily depicted as pictures. We try as much as possible to talk about the picture rather than sets of numbers.
+
+```{dot}
+//| fig-cap: "A graph consisting of 4 vertices in a cycle and a fifth vertex branching off"
+graph G {
+    layout=neato
+    node [shape="circle"]
+
+    1 -- 2 -- 3 -- 4 -- 1 -- 5;
+}
+```
+
+Per the definition, a graph is **labelled** (usually the vertices are $1, \dots, n$). Graph theory has a lot of applications and theory has a lot of applications and results in which these labels play no role and so we also have simplified pictures where we do not write down the vertex number (however they still exist in the background).
+
+```{dot}
+//| fig-cap: "The same graph but without labels"
+graph G {
+    layout=neato
+    node [shape="point"]
+
+    1 -- 2 -- 3 -- 4 -- 1 -- 5;
+}
+```
+
+::: {#def-tree}
+A **tree** is a special type of graph which satisfies two additional properties:
+1. the graph must be **connected**. We will give a mathematical definition for this later, but for now, this is a picture of what a **disconnected** graph is:
+```{dot}
+//| fig-cap: "A disconnected graph consisting of two components"
+graph G {
+    layout=neato
+    node [shape="point"]
+    1 -- 2 -- 3 -- 4 -- 1
+
+    5 -- 6 -- 7
+    6 -- 8
+}
+```
+2. the graph cannot have any cycles. Again, we will just use pictures right now:
+```{dot}
+//| fig-cap: "Various Cycles"
+graph G {
+    layout=circo
+    node [shape="point"]
+    a1 -- a2 -- a3 -- a1
+    b1 -- b2 -- b3 -- b4 -- b1
+    c1 -- c2 -- c3 -- c4 -- c5 -- c1
+    d1 -- d2 -- d3 -- d4 -- d5 -- d6 -- d1
+}
+```
+:::
+
+Trees are common structures in a lot of computer science applications. For instance, filetrees are examples of trees.
+
+```{dot}
+digraph filesystem {
+    node [shape=folder];
+    
+    Documents [label="Documents"];
+    School [label="School"];
+    Projects [label="Projects"];
+    Math [label="Math"];
+    Science [label="Science"];
+    History [label="History"];
+    
+    // The math files
+    node [shape=note]
+    MathFile1 [label="HW_1.docx"];
+    MathFile2 [label="HW_2.docx"];
+    MathFile3 [label="HW_3.docx"];
+
+    // Hierarchical structure
+    Documents -> School;
+    Documents -> Projects;
+    School -> Math;
+    School -> Science;
+    School -> History;
+    Math -> MathFile1;
+    Math -> MathFile2;
+    Math -> MathFile3;
+}
+```
+
+Many applications have a hierarchical picture to tree but this visual hierarchy is not part of our base definition (although we can always add a hierarchy on top of the definition). Here is that same tree but without the hierarchy as part of the picture
+
+```{dot}
+graph filesystem {
+    layout=neato
+    overlap="scalexy"
+    
+    Documents [label="Documents"];
+    School [label="School"];
+    Projects [label="Projects"];
+    Math [label="Math"];
+    Science [label="Science"];
+    History [label="History"];
+    
+    // The math files
+    MathFile1 [label="HW_1.docx"];
+    MathFile2 [label="HW_2.docx"];
+    MathFile3 [label="HW_3.docx"];
+
+    // Hierarchical structure
+    Documents -- School;
+    Documents -- Projects;
+    School -- Math;
+    School -- Science;
+    School -- History;
+    Math -- MathFile1;
+    Math -- MathFile2;
+    Math -- MathFile3;
+}
+```
+
+## Properties of Graphs and Trees
+
+The first property is called the *handshaking lemma* or *degree sum formula*.
+
+::: {#def-degree}
+The **degree** of a vertex, $\deg(v)$ is the number of other vertices $w$ for which there is an edge between $v$ and $w$. For instance, the vertex a below has a degree of 3 because it is connected to 3 other vertices: b, d, e.
+```{dot}
+//| fig-cap: "The vertex a has a degree of 3"
+graph G {
+    layout=neato
+    node [shape=circle]
+    a -- b -- c
+    a -- d -- e -- a
+}
+```
+:::
+
+### Double Counting
+
+An important idea in combinatorics is *double counting* where we count the same
+thing in two different ways. For instance, in the above graph we can count the
+edges just by looking at the picture (5 edges). Or...we can go vertex by vertex
+and count the edges at that vertex: a has 3, b has 2, c has 1, d and e both
+have 2. This gives 10 total. If we think carefully about what is going on here,
+this second method of vertex-by-vertex counts every edge twice. For instance
+the edge between a and b contributes both to the count for a and for b. This
+idea is called the *handshaking lemma* or *degree-sum formula*.
+
+::: {#thm-handshaking-lemma}
+If we go vertex by vertex and add up the number of edges at that vertex (i.e. the *degree*) every edge is counted exactly twice.
+
+$$
+\sum \deg(v) = 2|E|.
+$$
+:::
+
+## Leaf Vertices
+
+In developing a developing an understanding of all the properties that trees have, one foundational fact is that every tree with at least two vertices has a **leaf vertex** where a leaf vertex is a vertex with degree 1.
+
+::: {#ex-file-leaves}
+In a filesystem, any file is a leaf where its unique edge is the edge connecting it to the parent folder. Additionally, any empty folder (that is not the topmost folder) is also a leaf.
+:::
+
+```{dot}
+//| fig-cap: "In this tree, vertices 4, 6, 7, 9 are leaves"
+graph G {
+    node [shape=circle]
+    1 -- 2 -- 3 -- 4
+    1 -- 5 -- 6
+    3 -- 7
+    5 -- 8 -- 9
+}
+```
+
+I want to take a moment here also to point out that the tree is the data of which vertices are connected and in particular lengths and directions of edges are not part of the data. So we could draw the tree with the vertices placed elsewhere and it will still be the same tree with the same leaves.
+
+```{dot}
+//| fig-cap: "The same tree with a different drawing"
+graph G {
+    layout=neato
+    node [shape=circle]
+    1 -- 2 -- 3 -- 4
+    1 -- 5 -- 6
+    3 -- 7
+    5 -- 8 -- 9
+}
+```
+
+### Every tree has at least one leaf
+
+It is a fact that every tree with 2 or more vertices has at least one (in fact at least two) leaf vertex. We will discuss the why of this (the proof) in a couple levels of formality.
+
+::: {.callout-note}
+The reason we say here "2 or more vertices" is because if we have only a single vertex that vertex would have no edges (degree 0) and would not be a leaf because a leaf needs to have exactly one edge.
+:::
+
+#### Informal proof
+
+Lets pick any vertex, maybe vertex 1. We have two possibilities
+1. this vertex is a leaf (and we have what we were looking for)
+2. this vertex has at least two neighbours and in the picture we will call those 2 and 3
+
+```{dot}
+//| fig-width: 3
+//| fig-height: 1
+graph G {
+    layout=circo
+    node [shape=circle]
+    2 -- 1 -- 3
+}
+```
+
+Now repeat this reasoning: either 2 or 3 are leaves or they too have a new neighbour other than 1.
+
+::: {.callout-note}
+## Important point
+All of these new neighbours are distinct (e.g. the new neighbour for 2 is not the same as the new neighbour for 3). If lets say the new neighbour for 2 and 3 were the same well then that would create a cycle (not allowed)
+
+```{dot}
+//| fig-width: 3
+//| fig-height: 3
+graph G {
+    layout=circo
+    node [shape=circle]
+    4 -- 2 -- 1 -- 3 -- 4
+}
+```
+:::
+
+So as long as we never hit a leaf vertex we can always find more vertices. But there are only a finite amount of vertices so we cannot continue this indefinitely. At some point we have to find a leaf vertex (and in fact, one on each side).
+
+#### Induction
+
+This idea of "just keep going and eventually we have to stop because there was only a finite number" has a name. It is known as the **principle of mathematical induction**. Suppose we show two things:
+1. the minimal sized case(s) have a property
+2. any big case can be made into a smaller case
+then we are done because any case can be made smaller and smaller until we eventually find what we are looking for and the process stops because everything is finite.
+
+In terms of trees, the minimal case is a tree consisting of a pair of vertices and a single edge. Each vertex here is a leaf edge.
+```{dot}
+//| fig-width: 3
+//| fig-height: 1
+//| fig-cap: "Minimal tree with 2 vertices"
+graph G {
+    layout=circo
+    node [shape=point]
+    a -- b
+}
+```
+
+Now suppose we have a larger, more complex tree. Focus on a single edge somewhere in the tree, let us call its endpoints a and b.
+```{dot}
+//| fig-height: 2
+//| fig-cap: "Larger tree focusing on the edge ab"
+graph G {
+    layout=dot
+    rankdir=LR
+    node [shape=circle, width=0.3] a b
+    node [shape=point]
+
+    1 -- a
+    2 -- a
+    3 -- a
+
+    a -- b
+
+    b -- 4
+    b -- 5
+}
+```
+
+If neither a nor b are leaves then we smush the two vertices together merging the entire edge into single vertex which we will label "ab." This process is known as **edge contraction**.
+
+```{dot}
+//| fig-height: 2
+//| fig-cap: "Contracting the edge."
+graph G {
+    layout=dot
+    rankdir=LR
+    node [width=0.3] ab
+    node [shape=point]
+
+    1 -- ab
+    2 -- ab
+    3 -- ab
+
+    ab -- 4
+    ab -- 5
+}
+```
+
+By contracting the edge we create a smaller graph with one fewer vertex and one fewer edge.
+
+This process may be carried out again and again. Choose a new edge, either we find a leaf vertex or we contract. Because we cannot contract indefinitely we say now "by induction" there must be a leaf vertex.
+
+#### A little bit more formal
+
+Going the next step, induction is often thought about as "going up" rather than "going down." We worded the last argument as creating smaller and smaller graphs but another way to say that is
+
+1. Every tree with two vertices (there is only one such tree) has a leaf vertex
+2. Every tree with three vertices may be smushed (contracted) to a tree with two vertices thus every tree with three vertices has a leaf vertex.
+3. Every tree with four vertices may be contracted to a tree with three vertices so every tree with four vertices has a leaf vertex
+4. (Induction is where we observe in formal terms that this pattern extends to all whole numbers)
+5. Every tree with $n + 1$ vertices has a leaf vertex because (in the step before) every tree with $n$ vertices has a leaf vertex (because every tree with $n - 1$ vertices has a leaf vertex because every tree with $n - 2$ vertices has a leaf vertex...)
+
+Induction is revisited in Keller and Trotter's book, [chapter 3](https://appliedcombinatorics.org/book/ch_induction.html).
+
+### Counting Leaves
+
+Actually, before we go any further we need another fact
+
+::: {#thm-vertex-edge-relation}
+For any tree, there is always exactly one more vertex than edge. I.e. $|V| = |E| + 1$.
+:::
+
+::: {.proof}
+Have a look at what we did in the previous section for induction.
+
+1. A tree with 1 vertex has 0 edges
+2. A tree with 2 vertices has 1 edge
+3. A tree with 3 vertices has 2 edges
+4. A tree with $n + 1$ vertices may be smushed into a tree with $n$ vertices. This contraction process removes 1 vertex and 1 edge so the property of "$|V| = |E| + 1$" is preserved.
+
+So by induction all trees have $|V| = |E| + 1$.
+:::
+
+Where the last few sections were about induction, this one will show some ideas for enumeration (i.e. counting stuff). Going all the way back up to the Handshake Lemma @thm-handshaking-lemma let us break up that formula a bit in a way that lets us count leaf vertices.
+
+To that end, let $n_d$ be the number of vertices of degree $d$. So $n_1$ is the number of vertices of degree 1 (leaf vertices).
+
+::: {.callout-tip}
+A common trick in combinatorics is if we have a function like $\deg$ and we want to count where $\deg = 1$ then we also count where $\deg = 2, \deg = 3, \dots$ and then later isolate $\deg = 1$.
+:::
+
+```{dot}
+graph G {
+    layout=neato
+    node [shape=point]
+    1 -- 2 -- 3 -- 4
+    1 -- 5 -- 6
+    3 -- 7
+    5 -- 8 -- 9
+    2 -- 10
+    2 -- 11
+}
+```
+
+In this tree, we have $n_1 = 6, n_2 = 2, n_3 = 2, n_4 = 1$. The degree sum is
+
+\begin{align*}
+\sum \deg(v) &= 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 3 + 3 + 4 \\
+&= 1 \cdot 6 + 2 \cdot 2 + 3 \cdot 2 + 4 \cdot 1 \\
+&= 1n_1 + 2n_2 + 3n_3 + 4n_4 = 2|E| = 20
+\end{align*}
+
+So separating the degree sum into $n_1, n_2, \dots$ we get
+$$
+\sum_v \deg(v) = \sum_d d n_d = 2|E|.
+$$
+Spelled out:
+$$
+n_1 + 2n_2 + 3n_3 + 4n_4 + \cdots = 2|E|.
+$$
+
+Now let us look at a similar sum:
+$$
+n_1 + n_2 + n_3 + n_4 + \cdots
+$$
+So that is the number of vertices of degree 1, degree 2, degree 3, ... well that is every vertex so this sum is $|V|$. Or, as we learned in @thm-vertex-edge-relation, $|V| = |E| + 1$.
+
+So we have two identities:
+\begin{align*}
+n_1 + 2n_2 + 3n_3 + 4n_4 + \cdots &= 2|E| \\
+n_1 + \phantom{2}n_2 + \phantom{3}n_3 + \phantom{4}n_4 + \cdots &= |E| + 1.
+\end{align*}
+Subtract twice the second from the first and we have
+$$
+-n_1 + \phantom{n_2} + n_3 + 2n_4 + \dots = -2.
+$$
+
+Almost done! Lastly move the $-n_1$ to the right and the $-2$ to the left and we get our main result for this section.
+
+::: {#thm-counting-leaves}
+In any tree (with at least two vertices), the number of leaves is
+$$
+n_1 = 2 + n_3 + 2n_4 + 3n_5 + 4n_6 + \cdots
+$$
+:::
+
+This tells us a few interesting things all at once!
+
+::: {#cor-leaves-at-least-2}
+Every tree with at least two vertices has at least two leaves: $n_1 \ge 2$.
+:::
+
+::: {#cor-higher-degree-leaves}
+Moreover, for every vertex of degree 3 there is an additional leaf. For every vertex of degree 4 there are 2 additional leaves and so on.
+:::
+
+We can look at this last result in another way: take a vertex (let's say of degree 4) and follow the 4 edges until they lead to leaves. So this degree 4 vertex gives 4 leaves at least (more if there are other branches to follow).
+
+```{dot}
+//| fig-cap: a degree 4 vertex leading to four leaves
+graph G {
+    layout=circo
+    node [shape=point]
+    a -- {1 2 3 4}
+    1 -- 5 -- 6
+    2 -- 7
+    3 -- 8
+}
+```

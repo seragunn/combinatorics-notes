@@ -4,7 +4,7 @@ These notes were developed to accompany MTH 337: Applied Combinatorics during th
 They are meant to be used interspersed with the material from Keller and Trotter's book [Applied Combinatorics](https://www.appliedcombinatorics.org/appcomb/).
 Both these notes and Keller and Trotter's book are intended to have a heavy algorithmic and applied focus.
 
-A sample sylabus is (KT is Keller and Trotter's book)
+A sample syllabus is (KT is Keller and Trotter's book)
 
 1. KT-2: Strings, Sets, and Binomial Coefficients
 2. KT-3: Induction

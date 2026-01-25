@@ -1,4 +1,4 @@
-This work is Copyright © 2024 by Sera Gunn
+This work is Copyright © 2026 by Sera Gunn
 
 The content of the notes is distributed under the terms of the Creative Commons Attribution-ShareAlike 4.0 International license (CC-BY-SA-4.0). The terms of which may be found in [LICENSE.CC-BY-SA-4.0](LICENSE.CC-BY-SA-4.0) in the root of this project or online at https://creativecommons.org/licenses/by-sa/4.0/.
 

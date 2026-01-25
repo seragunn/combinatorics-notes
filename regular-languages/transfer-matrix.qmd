@@ -168,6 +168,7 @@ And this matches our answer in @sec-fib-put-together.
 With all this matrix algebra, the results we get can get pretty gnarly. Sometimes it's enough to get a recurrence relation to describe our answer. By @sec-OGF-to-recursive-formula, we know that the recurrence is given by the denominator.
 
 We will use now a [theorem from linear algebra](https://en.wikipedia.org/wiki/Invertible_matrix#In_relation_to_its_adjugate).
+
 ::: {#thm-matrix-inverse}
 The inverse of a matrix $A$ is given by
 $$
