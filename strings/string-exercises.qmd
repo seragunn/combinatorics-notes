@@ -1,0 +1,8 @@
+# Exercises
+
+Find a recursive relation for
+
+1. Binary strings that do not contain "100"
+2. Ternary strings that do not contain "100"
+3. Base-5 strings that do not contain "1234"
+4. Ternary strings that do not contain "100" or "02"

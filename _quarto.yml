@@ -28,6 +28,7 @@ book:
     - part: "Strings"
       chapters:
         - strings/forbidden.qmd
+        - strings/string-exercises.qmd
     - part: "Inclusion-Exclusion"
       chapters:
         - inclusion-exclusion/inclusion-exclusion.qmd
