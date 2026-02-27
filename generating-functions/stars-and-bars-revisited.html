@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.17">
+<meta name="generator" content="quarto-1.9.23">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; Stars and Bars Revisited – Combinatorics Notes</title>
+<title>16&nbsp; Stars and Bars Revisited – Combinatorics Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -43,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ce4278342a015d016477ed09bce942c5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-076ecbd647e1f0418c5051713cd9b730.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e8796d56305374f5a7ae7e14870c7d8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-730e711ceae20cff5787d378c2c341ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -146,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/stars-and-bars-revisited.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/stars-and-bars-revisited.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -190,7 +190,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Inclusion-Exclusion</span></a>
+ <span class="menu-text">Strings</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -198,14 +198,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
+  <a href="../strings/forbidden.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Forbidden Substrings</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
+  <a href="../strings/string-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -213,7 +213,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Permutations</span></a>
+ <span class="menu-text">Inclusion-Exclusion</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -221,38 +221,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../permutations/permutations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
+  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../permutations/visual.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/generators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/inversions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
   </div>
 </li>
       </ul>
@@ -260,7 +236,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Generating Functions</span></a>
+ <span class="menu-text">Permutations</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -268,38 +244,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/weights.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Weight Functions</span></span></a>
+  <a href="../permutations/permutations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
+  <a href="../permutations/visual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  <a href="../permutations/generators.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
+  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
+  <a href="../permutations/inversions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  <a href="../permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -307,7 +283,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Regular Languages</span></a>
+ <span class="menu-text">Generating Functions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -315,32 +291,79 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../generating-functions/weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Weight Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Regular Languages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/finite-automata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/putting-it-together.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/transfer-matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/regular-languages-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,25 +378,25 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#from-2-people-to-k-people" id="toc-from-2-people-to-k-people" class="nav-link active" data-scroll-target="#from-2-people-to-k-people"><span class="header-section-number">14.1</span> From 2 people to k people</a>
+  <li><a href="#from-2-people-to-k-people" id="toc-from-2-people-to-k-people" class="nav-link active" data-scroll-target="#from-2-people-to-k-people"><span class="header-section-number">16.1</span> From 2 people to k people</a>
   <ul class="collapse">
-  <li><a href="#applying-the-multiplication-theorem" id="toc-applying-the-multiplication-theorem" class="nav-link" data-scroll-target="#applying-the-multiplication-theorem"><span class="header-section-number">14.1.1</span> Applying the multiplication theorem</a></li>
+  <li><a href="#applying-the-multiplication-theorem" id="toc-applying-the-multiplication-theorem" class="nav-link" data-scroll-target="#applying-the-multiplication-theorem"><span class="header-section-number">16.1.1</span> Applying the multiplication theorem</a></li>
   </ul></li>
-  <li><a href="#variations-of-stars-and-bars" id="toc-variations-of-stars-and-bars" class="nav-link" data-scroll-target="#variations-of-stars-and-bars"><span class="header-section-number">14.2</span> Variations of Stars and Bars</a>
+  <li><a href="#variations-of-stars-and-bars" id="toc-variations-of-stars-and-bars" class="nav-link" data-scroll-target="#variations-of-stars-and-bars"><span class="header-section-number">16.2</span> Variations of Stars and Bars</a>
   <ul class="collapse">
-  <li><a href="#sec-upper-bound-ogf" id="toc-sec-upper-bound-ogf" class="nav-link" data-scroll-target="#sec-upper-bound-ogf"><span class="header-section-number">14.2.1</span> Other restrictions</a></li>
+  <li><a href="#sec-upper-bound-ogf" id="toc-sec-upper-bound-ogf" class="nav-link" data-scroll-target="#sec-upper-bound-ogf"><span class="header-section-number">16.2.1</span> Other restrictions</a></li>
   </ul></li>
-  <li><a href="#slack-variables" id="toc-slack-variables" class="nav-link" data-scroll-target="#slack-variables"><span class="header-section-number">14.3</span> Slack variables</a></li>
-  <li><a href="#sec-sb-ogf-summary" id="toc-sec-sb-ogf-summary" class="nav-link" data-scroll-target="#sec-sb-ogf-summary"><span class="header-section-number">14.4</span> Summary</a></li>
+  <li><a href="#slack-variables" id="toc-slack-variables" class="nav-link" data-scroll-target="#slack-variables"><span class="header-section-number">16.3</span> Slack variables</a></li>
+  <li><a href="#sec-sb-ogf-summary" id="toc-sec-sb-ogf-summary" class="nav-link" data-scroll-target="#sec-sb-ogf-summary"><span class="header-section-number">16.4</span> Summary</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/generating-functions/stars-and-bars-revisited.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/generating-functions/stars-and-bars-revisited.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/stars-and-bars-revisited.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/stars-and-bars-revisited.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></h1>
 </div>
 
 
@@ -394,24 +417,24 @@ window.Quarto = {
 *****\mid***.
 \]</span> The key insight is that if we change this to <span class="math display">\[
 0\,0\,0\,0\,0\mid1\,1\,1.
-\]</span> Now it looks like the problem we studied in <a href="multiplication.html#sec-0s-then-1s" class="quarto-xref"><span>Section 13.4</span></a>. The bar here is no longer necessary to know where the first group ends and the second begins.</p>
-<p>Now we can check that our stars-and-bars formula agrees with the formula computed in <a href="multiplication.html#sec-0s-then-1s" class="quarto-xref"><span>Section 13.4</span></a>. Indeed, that formula is <span class="math display">\[
+\]</span> Now it looks like the problem we studied in <a href="multiplication.html#sec-0s-then-1s" class="quarto-xref"><span>Section 15.4</span></a>. The bar here is no longer necessary to know where the first group ends and the second begins.</p>
+<p>Now we can check that our stars-and-bars formula agrees with the formula computed in <a href="multiplication.html#sec-0s-then-1s" class="quarto-xref"><span>Section 15.4</span></a>. Indeed, that formula is <span class="math display">\[
 \binom{n + 1}{1} = n + 1.
 \]</span></p>
-<section id="from-2-people-to-k-people" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="from-2-people-to-k-people"><span class="header-section-number">14.1</span> From 2 people to k people</h2>
+<section id="from-2-people-to-k-people" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="from-2-people-to-k-people"><span class="header-section-number">16.1</span> From 2 people to k people</h2>
 <p>Let’s copy the key insight for the <span class="math inline">\(k = 2\)</span> case. A distribution of <span class="math inline">\(n\)</span> objects to <span class="math inline">\(k\)</span> people, with each receiving <span class="math inline">\(0\)</span> or more, looks like a string <span class="math display">\[
 1\cdots12\cdots23\cdots3\cdots\cdots k\cdots k.
 \]</span> Here the number of <span class="math inline">\(i\)</span>s in the string is the number of objects person <span class="math inline">\(i\)</span> receives. E.g. <span class="math display">\[
 1122223555
 \]</span> means person <span class="math inline">\(1\)</span> receives <span class="math inline">\(2\)</span> objects, person <span class="math inline">\(2\)</span> receives <span class="math inline">\(4\)</span>, person <span class="math inline">\(3\)</span> receives <span class="math inline">\(1\)</span>, person <span class="math inline">\(5\)</span> receives <span class="math inline">\(3\)</span>, and everyone else (including person <span class="math inline">\(4\)</span>) receives none.</p>
-<section id="applying-the-multiplication-theorem" class="level3" data-number="14.1.1">
-<h3 data-number="14.1.1" class="anchored" data-anchor-id="applying-the-multiplication-theorem"><span class="header-section-number">14.1.1</span> Applying the multiplication theorem</h3>
-<p>Let <span class="math inline">\(L_i\)</span> be the language of strings consisting of <span class="math inline">\(0\)</span> or more of the character <span class="math inline">\(i\)</span>. Then the stars-and-bars language for <span class="math inline">\(k\)</span> people, is <span class="math inline">\(L_1 L_2 \cdots L_k\)</span>. We also know from <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 12.3</span></a> that each of these language has a generating function of <span class="math inline">\(\frac{1}{1-x}\)</span>. It follows that our stars-and-bars language has a generating function of <span class="math display">\[
+<section id="applying-the-multiplication-theorem" class="level3" data-number="16.1.1">
+<h3 data-number="16.1.1" class="anchored" data-anchor-id="applying-the-multiplication-theorem"><span class="header-section-number">16.1.1</span> Applying the multiplication theorem</h3>
+<p>Let <span class="math inline">\(L_i\)</span> be the language of strings consisting of <span class="math inline">\(0\)</span> or more of the character <span class="math inline">\(i\)</span>. Then the stars-and-bars language for <span class="math inline">\(k\)</span> people, is <span class="math inline">\(L_1 L_2 \cdots L_k\)</span>. We also know from <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 14.3</span></a> that each of these language has a generating function of <span class="math inline">\(\frac{1}{1-x}\)</span>. It follows that our stars-and-bars language has a generating function of <span class="math display">\[
 \frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1} x^n.
 \]</span> We know these are the coefficients because we know there are <span class="math inline">\(\binom{n + k - 1}{k - 1}\)</span> stars-and-bars strings of length <span class="math inline">\(n\)</span> (i.e.&nbsp;that many ways to distribute the <span class="math inline">\(n\)</span> objects among <span class="math inline">\(k\)</span> people).</p>
 <div id="exr-proof-by-derivatives" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 14.1</strong></span> Use proof by induction to show that <span class="math display">\[
+<p><span class="theorem-title"><strong>Exercise 16.1</strong></span> Use proof by induction to show that <span class="math display">\[
 \frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1} x^n.
 \]</span> Use the derivative to go from case <span class="math inline">\(k\)</span> to case <span class="math inline">\(k + 1\)</span>. Take the geometric series as the base case (<span class="math inline">\(k = 1\)</span>).</p>
 <p>Hint: the derivative is going to reduce the exponent from <span class="math inline">\(x^n\)</span> to <span class="math inline">\(x^{n - 1}\)</span> so to get a step ahead of that, we can add <span class="math inline">\(1\)</span> everywhere we see <span class="math inline">\(n\)</span>: <span class="math display">\[
@@ -420,8 +443,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="variations-of-stars-and-bars" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="variations-of-stars-and-bars"><span class="header-section-number">14.2</span> Variations of Stars and Bars</h2>
+<section id="variations-of-stars-and-bars" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="variations-of-stars-and-bars"><span class="header-section-number">16.2</span> Variations of Stars and Bars</h2>
 <p>How do do the stars and bars problem where every person gets at least <span class="math inline">\(1\)</span> object? Let’s look back at our work:</p>
 <ol type="1">
 <li>Broke up the problem into a concatenation <span class="math inline">\(L_1 L_2 \cdots L_k\)</span></li>
@@ -459,8 +482,8 @@ a + ar + ar^2 + ar^3 + \cdots = a(1 + r + r^2 + r^3 + \cdots) = \frac{a}{1 - r}.
 \frac{x^k}{(1 - x)^k} = \sum_{m = k}^\infty \binom{m - 1}{k - 1} x^{m}.
 \]</span></p>
 <p>This matches our result of <span class="math inline">\(\binom{m - 1}{k - 1}\)</span> ways to distribute <span class="math inline">\(m\)</span> objects to <span class="math inline">\(k\)</span> people, with each person receiving at least <span class="math inline">\(1\)</span>.</p>
-<section id="sec-upper-bound-ogf" class="level3" data-number="14.2.1">
-<h3 data-number="14.2.1" class="anchored" data-anchor-id="sec-upper-bound-ogf"><span class="header-section-number">14.2.1</span> Other restrictions</h3>
+<section id="sec-upper-bound-ogf" class="level3" data-number="16.2.1">
+<h3 data-number="16.2.1" class="anchored" data-anchor-id="sec-upper-bound-ogf"><span class="header-section-number">16.2.1</span> Other restrictions</h3>
 <p>Let’s take the problem <span class="math display">\[
 x_1 + x_2 + \cdots + x_k = n,
 \]</span> where <span class="math inline">\(x_i \ge 1\)</span>. Now consider a restriction like <span class="math inline">\(5 \le x_1 \le 13\)</span>. This changes the language <span class="math inline">\(L_1\)</span> to <span class="math inline">\(\{11111, 111111, \cdots, 1111111111111\}\)</span> and the generating function of <span class="math inline">\(L_1\)</span> to <span class="math display">\[
@@ -478,7 +501,7 @@ x^5 + x^6 + \cdots + x^{13} = \frac{x^5 - x^{14}}{1 - x}.
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Suppose we have a finite geometric sum with initial term <span class="math inline">\(a\)</span>, common ratio <span class="math inline">\(r\)</span> and proceeding for some number of steps. Then using the same method as <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 12.3</span></a>, we can compute the sum <span class="math display">\[\begin{align*}
+<p>Suppose we have a finite geometric sum with initial term <span class="math inline">\(a\)</span>, common ratio <span class="math inline">\(r\)</span> and proceeding for some number of steps. Then using the same method as <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 14.3</span></a>, we can compute the sum <span class="math display">\[\begin{align*}
 S &amp;= a + ar + ar^2 + \cdots + ar^m \\
 rS &amp;= \phantom{a + {}} ar + ar^2 + \cdots + ar^m + ar^{m + 1} \\
 S - rS &amp;= a \phantom{{}+ar + ar^2 + \cdots + ar^m} - ar^{m + 1}.
@@ -512,8 +535,8 @@ S - rS &amp;= a \phantom{{}+ar + ar^2 + \cdots + ar^m} - ar^{m + 1}.
 </div>
 </section>
 </section>
-<section id="slack-variables" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="slack-variables"><span class="header-section-number">14.3</span> Slack variables</h2>
+<section id="slack-variables" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="slack-variables"><span class="header-section-number">16.3</span> Slack variables</h2>
 <p>Consider the problem <span class="math display">\[
 x_1 + x_2 + \dots + x_k \le n
 \]</span> with <span class="math inline">\(x_i \ge 0\)</span>.</p>
@@ -527,8 +550,8 @@ x_1 + x_2 + \dots + x_k \le n
 \frac{x^k}{(1 - x)^{k + 1}} = x^k \sum_{n = 0}^\infty \binom{n + k}{k} x^n = \sum_{n = 0}^\infty \binom{n + k}{k} x^{n + k} =  \sum_{n = k}^\infty \binom{n}{k} x^n.
 \]</span></p>
 </section>
-<section id="sec-sb-ogf-summary" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="sec-sb-ogf-summary"><span class="header-section-number">14.4</span> Summary</h2>
+<section id="sec-sb-ogf-summary" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="sec-sb-ogf-summary"><span class="header-section-number">16.4</span> Summary</h2>
 <ol type="a">
 <li>For <span class="math inline">\(x_1 + \dots + x_k = n\)</span> and <span class="math inline">\(x_i \ge 0\)</span>, we have the OGF <span class="math display">\[
 \frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1} x^n.
@@ -951,12 +974,12 @@ x_1 + x_2 + \dots + x_k \le n
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../generating-functions/multiplication.html" class="pagination-link" aria-label="Multiplication of Generating Functions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../generating-functions/coefficient-extraction.html" class="pagination-link" aria-label="Coefficient Extraction">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

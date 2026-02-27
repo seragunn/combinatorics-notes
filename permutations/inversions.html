@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.17">
+<meta name="generator" content="quarto-1.9.23">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9&nbsp; Inversions – Combinatorics Notes</title>
+<title>11&nbsp; Inversions – Combinatorics Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -78,10 +78,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ce4278342a015d016477ed09bce942c5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-076ecbd647e1f0418c5051713cd9b730.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e8796d56305374f5a7ae7e14870c7d8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-730e711ceae20cff5787d378c2c341ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -181,7 +181,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../permutations/permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="../permutations/inversions.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Inversions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../permutations/permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="../permutations/inversions.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Inversions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -225,7 +225,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Inclusion-Exclusion</span></a>
+ <span class="menu-text">Strings</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -233,14 +233,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
+  <a href="../strings/forbidden.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Forbidden Substrings</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
+  <a href="../strings/string-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -248,7 +248,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Permutations</span></a>
+ <span class="menu-text">Inclusion-Exclusion</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -256,38 +256,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../permutations/permutations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
+  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../permutations/visual.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/generators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/inversions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
   </div>
 </li>
       </ul>
@@ -295,7 +271,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Generating Functions</span></a>
+ <span class="menu-text">Permutations</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -303,38 +279,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/weights.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Weight Functions</span></span></a>
+  <a href="../permutations/permutations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
+  <a href="../permutations/visual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  <a href="../permutations/generators.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
+  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
+  <a href="../permutations/inversions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  <a href="../permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -342,7 +318,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Regular Languages</span></a>
+ <span class="menu-text">Generating Functions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -350,32 +326,79 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../generating-functions/weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Weight Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Regular Languages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/finite-automata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/putting-it-together.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/transfer-matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/regular-languages-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -390,17 +413,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#parity-of-the-number-of-inversions" id="toc-parity-of-the-number-of-inversions" class="nav-link active" data-scroll-target="#parity-of-the-number-of-inversions"><span class="header-section-number">9.1</span> Parity of the number of inversions</a></li>
-  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span class="header-section-number">9.2</span> Analysis</a></li>
+  <li><a href="#parity-of-the-number-of-inversions" id="toc-parity-of-the-number-of-inversions" class="nav-link active" data-scroll-target="#parity-of-the-number-of-inversions"><span class="header-section-number">11.1</span> Parity of the number of inversions</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis"><span class="header-section-number">11.2</span> Analysis</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/permutations/inversions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/permutations/inversions.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../permutations/permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="../permutations/inversions.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Inversions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../permutations/permutations.html">Permutations</a></li><li class="breadcrumb-item"><a href="../permutations/inversions.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Inversions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Inversions</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Inversions</span></h1>
 </div>
 
 
@@ -421,7 +444,7 @@ window.Quarto = {
 <p>Let <span class="math inline">\(\pi\)</span> be a permutation. An <strong>inversion</strong> for <span class="math inline">\(\pi\)</span> is a pair of outputs which are not in sorted order. I.e. we have <span class="math inline">\(i &lt; j\)</span> to begin with and <span class="math inline">\(\pi(i) &gt; \pi(j)\)</span> to end with.</p>
 <p>In counting inversions, we look at where <span class="math inline">\(\pi(i)\)</span> is greater than <span class="math inline">\(\pi(j)\)</span> for some <span class="math inline">\(j\)</span> that comes after <span class="math inline">\(i\)</span>.</p>
 <div id="exm-inversions" class="theorem example">
-<p><span class="theorem-title"><strong>Example 9.1</strong></span> Consider the permutation represented by <span class="math inline">\(31254\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 11.1</strong></span> Consider the permutation represented by <span class="math inline">\(31254\)</span>.</p>
 <p>We have <span class="math inline">\(\pi(1) = 3\)</span> and this is greater than both <span class="math inline">\(\pi(2) = 1, \pi(3) = 2\)</span>.</p>
 <p>We have <span class="math inline">\(\pi(2) = 1\)</span> but this is not greater than anything that comes after.</p>
 <p>We have <span class="math inline">\(\pi(3) = 2\)</span> but this is not greater than anything that comes after.</p>
@@ -436,8 +459,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<section id="parity-of-the-number-of-inversions" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="parity-of-the-number-of-inversions"><span class="header-section-number">9.1</span> Parity of the number of inversions</h2>
+<section id="parity-of-the-number-of-inversions" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="parity-of-the-number-of-inversions"><span class="header-section-number">11.1</span> Parity of the number of inversions</h2>
 <p>Inversions as a concept have a few uses in combinatorics. Relevant to us now is that the number of inversions has the same parity as the permutation. To show this, we will consider how a single transposition affects this parity. But since the total number can go up or down, let us define a quantity which we can analyze to describe the parity.</p>
 <p>For the identity permutation, define <span class="math display">\[
 V(1) = \prod_{i &lt; j} (j - i)
@@ -449,9 +472,9 @@ V(\pi) = \prod_{i &lt; j}(\pi(j) - \pi(i)).
 <p>Note that we will have a factor of <span class="math inline">\(V(\pi)\)</span> which is negative whenever <span class="math inline">\(i &lt; j\)</span> and <span class="math inline">\(\pi(i) &gt; \pi(j)\)</span>. So the sign of <span class="math inline">\(V(\pi)\)</span> tells us the parity of the number of inversions.</p>
 <p>What’s useful here is that factoring out the various <span class="math inline">\(-1\)</span>’s and reordering, we can write <span class="math inline">\(V(\pi) = \pm V(1)\)</span> where it is a <span class="math inline">\(+1\)</span> if we have an even number of inversions and a <span class="math inline">\(-1\)</span> if we have an odd number.</p>
 </section>
-<section id="analysis" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="analysis"><span class="header-section-number">9.2</span> Analysis</h2>
-<p>We want to show that a single transposition changes <span class="math inline">\(V(1)\)</span> to <span class="math inline">\(-V(1)\)</span>. Then a sequence of odd length will have a sign of <span class="math inline">\(-1\)</span> and one of even length will have a sign of <span class="math inline">\(+1\)</span>, matching what we did in <a href="sign.html" class="quarto-xref"><span>Chapter 8</span></a>.</p>
+<section id="analysis" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="analysis"><span class="header-section-number">11.2</span> Analysis</h2>
+<p>We want to show that a single transposition changes <span class="math inline">\(V(1)\)</span> to <span class="math inline">\(-V(1)\)</span>. Then a sequence of odd length will have a sign of <span class="math inline">\(-1\)</span> and one of even length will have a sign of <span class="math inline">\(+1\)</span>, matching what we did in <a href="sign.html" class="quarto-xref"><span>Chapter 10</span></a>.</p>
 <p>Suppose we apply the transposition <span class="math inline">\((ij)\)</span> with <span class="math inline">\(i &lt; j\)</span>. Right away, we get one inversion because now <span class="math inline">\(\pi(i) &gt; \pi(j)\)</span>. Let’s look at the other numbers. Suppose <span class="math inline">\(x &lt; i &lt; j\)</span>. Then after swapping, we still have <span class="math inline">\(x\)</span> on the left of <span class="math inline">\(i,j\)</span>$ so no inversions here. Likewise, if <span class="math inline">\(i &lt; j &lt; x\)</span> then <span class="math inline">\(x\)</span> will still be on the right afterwards.</p>
 <p>The last case is that <span class="math inline">\(i &lt; x &lt; j\)</span>. Then we get two inversions going from <span class="math inline">\(i,x,j\)</span> to <span class="math inline">\(j,x,i\)</span>. One between <span class="math inline">\(i\)</span> and <span class="math inline">\(x\)</span> and one between <span class="math inline">\(x\)</span> and <span class="math inline">\(j\)</span> since both these pairs are now out of order.</p>
 <p>To summarize, this single transposition gives us:</p>
@@ -869,12 +892,12 @@ V(\pi) = \prod_{i &lt; j}(\pi(j) - \pi(i)).
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../permutations/sign.html" class="pagination-link" aria-label="Sign of a Permutation">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../permutations/permutation-exercises.html" class="pagination-link" aria-label="Exercises">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exercises</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercises</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

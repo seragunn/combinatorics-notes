@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.17">
+<meta name="generator" content="quarto-1.9.23">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>13&nbsp; Multiplication of Generating Functions – Combinatorics Notes</title>
+<title>15&nbsp; Multiplication of Generating Functions – Combinatorics Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -43,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ce4278342a015d016477ed09bce942c5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-076ecbd647e1f0418c5051713cd9b730.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e8796d56305374f5a7ae7e14870c7d8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-730e711ceae20cff5787d378c2c341ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -146,7 +146,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/multiplication.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/multiplication.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -190,7 +190,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Inclusion-Exclusion</span></a>
+ <span class="menu-text">Strings</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -198,14 +198,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
+  <a href="../strings/forbidden.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Forbidden Substrings</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
+  <a href="../strings/string-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -213,7 +213,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Permutations</span></a>
+ <span class="menu-text">Inclusion-Exclusion</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -221,38 +221,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../permutations/permutations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
+  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../permutations/visual.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/generators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/inversions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
   </div>
 </li>
       </ul>
@@ -260,7 +236,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Generating Functions</span></a>
+ <span class="menu-text">Permutations</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -268,38 +244,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/weights.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Weight Functions</span></span></a>
+  <a href="../permutations/permutations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
+  <a href="../permutations/visual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  <a href="../permutations/generators.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
+  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
+  <a href="../permutations/inversions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  <a href="../permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -307,7 +283,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Regular Languages</span></a>
+ <span class="menu-text">Generating Functions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -315,32 +291,79 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../generating-functions/weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Weight Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Regular Languages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/finite-automata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/putting-it-together.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/transfer-matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/regular-languages-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -355,12 +378,12 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#multiplication-of-monomials" id="toc-multiplication-of-monomials" class="nav-link active" data-scroll-target="#multiplication-of-monomials"><span class="header-section-number">13.1</span> Multiplication of Monomials</a></li>
-  <li><a href="#a-step-further" id="toc-a-step-further" class="nav-link" data-scroll-target="#a-step-further"><span class="header-section-number">13.2</span> A step further</a></li>
-  <li><a href="#multiplication-theorem" id="toc-multiplication-theorem" class="nav-link" data-scroll-target="#multiplication-theorem"><span class="header-section-number">13.3</span> Multiplication theorem</a></li>
-  <li><a href="#sec-0s-then-1s" id="toc-sec-0s-then-1s" class="nav-link" data-scroll-target="#sec-0s-then-1s"><span class="header-section-number">13.4</span> Strings with 0s followed by 1s</a>
+  <li><a href="#multiplication-of-monomials" id="toc-multiplication-of-monomials" class="nav-link active" data-scroll-target="#multiplication-of-monomials"><span class="header-section-number">15.1</span> Multiplication of Monomials</a></li>
+  <li><a href="#a-step-further" id="toc-a-step-further" class="nav-link" data-scroll-target="#a-step-further"><span class="header-section-number">15.2</span> A step further</a></li>
+  <li><a href="#multiplication-theorem" id="toc-multiplication-theorem" class="nav-link" data-scroll-target="#multiplication-theorem"><span class="header-section-number">15.3</span> Multiplication theorem</a></li>
+  <li><a href="#sec-0s-then-1s" id="toc-sec-0s-then-1s" class="nav-link" data-scroll-target="#sec-0s-then-1s"><span class="header-section-number">15.4</span> Strings with 0s followed by 1s</a>
   <ul class="collapse">
-  <li><a href="#calculus" id="toc-calculus" class="nav-link" data-scroll-target="#calculus"><span class="header-section-number">13.4.1</span> Calculus?</a></li>
+  <li><a href="#calculus" id="toc-calculus" class="nav-link" data-scroll-target="#calculus"><span class="header-section-number">15.4.1</span> Calculus?</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/generating-functions/multiplication.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/generating-functions/multiplication.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -368,9 +391,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/multiplication.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/multiplication.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></h1>
 </div>
 
 
@@ -392,25 +415,25 @@ window.Quarto = {
 LL' = \{uv : u \in L, v \in L'\}.
 \]</span></p>
 <p>The utility of this is that many common languages of strings can be written as concatenations of smaller, more simpler languages. And, it will turn out, we can compute the OGF of the more complex language out of the OGFs for the simpler languages.</p>
-<section id="multiplication-of-monomials" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="multiplication-of-monomials"><span class="header-section-number">13.1</span> Multiplication of Monomials</h2>
+<section id="multiplication-of-monomials" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="multiplication-of-monomials"><span class="header-section-number">15.1</span> Multiplication of Monomials</h2>
 <p>Suppose we have a language <span class="math inline">\(L\)</span> which consists of <span class="math inline">\(10\)</span> strings, each of length <span class="math inline">\(5\)</span>. Suppose we also have a language <span class="math inline">\(L'\)</span> consisting of <span class="math inline">\(6\)</span> strings, each of length <span class="math inline">\(7\)</span>. Concatenating any pair of strings will always yield a string of length <span class="math inline">\(12\)</span> and there are <span class="math inline">\(60\)</span> such pairs. This computation is represented by the following multiplication of generating functions: <span class="math display">\[
 (10x^5) \cdot (6x^7) = 60x^{12}.
 \]</span></p>
 </section>
-<section id="a-step-further" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="a-step-further"><span class="header-section-number">13.2</span> A step further</h2>
+<section id="a-step-further" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="a-step-further"><span class="header-section-number">15.2</span> A step further</h2>
 <p>Now suppose <span class="math inline">\(L\)</span> is the same as before: <span class="math inline">\(10\)</span> strings of length <span class="math inline">\(5\)</span>, and this time <span class="math inline">\(L'\)</span> consists of <span class="math inline">\(3\)</span> strings of length <span class="math inline">\(4\)</span> and <span class="math inline">\(7\)</span> strings of length <span class="math inline">\(8\)</span>. Now if we concatenate to form <span class="math inline">\(LL'\)</span> we are either combining a string of length <span class="math inline">\(5\)</span> with one of length <span class="math inline">\(4\)</span> (in <span class="math inline">\(10 \cdot 3\)</span> ways) or a string of length <span class="math inline">\(5\)</span> with one of length <span class="math inline">\(8\)</span> (in <span class="math inline">\(10 \cdot 7\)</span> ways). Again, this computation is reflected in the product of polynomials <span class="math display">\[
 10x^5 \cdot (3x^4 + 7x^8) = 30x^9 + 70x^{13}.
 \]</span></p>
 <div id="exr-multiply-finite-ogf" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 13.1</strong></span> Suppose <span class="math inline">\(L\)</span> consists of <span class="math inline">\(3\)</span> strings of length <span class="math inline">\(4\)</span> and <span class="math inline">\(8\)</span> of length <span class="math inline">\(6\)</span>. Suppose <span class="math inline">\(L'\)</span> consists of <span class="math inline">\(2\)</span> strings of length <span class="math inline">\(1\)</span> and <span class="math inline">\(5\)</span> strings of length <span class="math inline">\(4\)</span>. What will <span class="math inline">\(LL'\)</span> consist of?</p>
+<p><span class="theorem-title"><strong>Exercise 15.1</strong></span> Suppose <span class="math inline">\(L\)</span> consists of <span class="math inline">\(3\)</span> strings of length <span class="math inline">\(4\)</span> and <span class="math inline">\(8\)</span> of length <span class="math inline">\(6\)</span>. Suppose <span class="math inline">\(L'\)</span> consists of <span class="math inline">\(2\)</span> strings of length <span class="math inline">\(1\)</span> and <span class="math inline">\(5\)</span> strings of length <span class="math inline">\(4\)</span>. What will <span class="math inline">\(LL'\)</span> consist of?</p>
 </div>
 </section>
-<section id="multiplication-theorem" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="multiplication-theorem"><span class="header-section-number">13.3</span> Multiplication theorem</h2>
+<section id="multiplication-theorem" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="multiplication-theorem"><span class="header-section-number">15.3</span> Multiplication theorem</h2>
 <div id="thm-ogf-multiplication" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 13.1 (Multiplication Theorem)</strong></span> Let <span class="math inline">\(L\)</span> and <span class="math inline">\(L'\)</span> be two different languages. Let <span class="math inline">\(f\)</span> be a common weight function like the length of a string. Then <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 15.1 (Multiplication Theorem)</strong></span> Let <span class="math inline">\(L\)</span> and <span class="math inline">\(L'\)</span> be two different languages. Let <span class="math inline">\(f\)</span> be a common weight function like the length of a string. Then <span class="math display">\[
 \Phi_{LL'}(x) = \Phi_L(x)\Phi_{L'}(x).
 \]</span></p>
 </div>
@@ -419,7 +442,7 @@ LL' = \{uv : u \in L, v \in L'\}.
 \Phi_{LL'}(x) &amp;= \sum_{w \in LL'} x^{f(w)} \\
 &amp;= \sum_{u \in L} \sum_{v \in L'} x^{f(uv)} \\
 &amp;= \sum_{u \in L} \sum_{v \in L'} x^{f(u)}x^{f(v)}
-\end{align*}\]</span> using <a href="weights.html#sec-key-property-weights" class="quarto-xref"><span>Section 11.2.1</span></a>. Continuing, we get <span class="math display">\[\begin{align*}
+\end{align*}\]</span> using <a href="weights.html#sec-key-property-weights" class="quarto-xref"><span>Section 13.2.1</span></a>. Continuing, we get <span class="math display">\[\begin{align*}
 \phantom{\Phi_{LL'}(x)} &amp;= \sum_{u \in L} x^{f(u)} \sum_{v \in L'} x^{f(v)} \\
 &amp;= \Phi_L(x) \Phi_{L'}(x).
 \end{align*}\]</span></p>
@@ -440,9 +463,9 @@ Tip
 </div>
 </div>
 </section>
-<section id="sec-0s-then-1s" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="sec-0s-then-1s"><span class="header-section-number">13.4</span> Strings with 0s followed by 1s</h2>
-<p>Let <span class="math inline">\(L\)</span> be the language of strings with only <span class="math inline">\(0\)</span>s and let <span class="math inline">\(L'\)</span> be the language of strings with only <span class="math inline">\(1\)</span>s. In <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 12.3</span></a>, we saw that these languages have generating functions <span class="math inline">\(\frac{1}{1 - x}\)</span> (weighting by length). By theorem <a href="#thm-ogf-multiplication" class="quarto-xref">Theorem&nbsp;<span>13.1</span></a>, the language <span class="math inline">\(LL'\)</span> of all strings of <span class="math inline">\(0\)</span>s followed by <span class="math inline">\(1\)</span>s has generating function <span class="math display">\[
+<section id="sec-0s-then-1s" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="sec-0s-then-1s"><span class="header-section-number">15.4</span> Strings with 0s followed by 1s</h2>
+<p>Let <span class="math inline">\(L\)</span> be the language of strings with only <span class="math inline">\(0\)</span>s and let <span class="math inline">\(L'\)</span> be the language of strings with only <span class="math inline">\(1\)</span>s. In <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 14.3</span></a>, we saw that these languages have generating functions <span class="math inline">\(\frac{1}{1 - x}\)</span> (weighting by length). By theorem <a href="#thm-ogf-multiplication" class="quarto-xref">Theorem&nbsp;<span>15.1</span></a>, the language <span class="math inline">\(LL'\)</span> of all strings of <span class="math inline">\(0\)</span>s followed by <span class="math inline">\(1\)</span>s has generating function <span class="math display">\[
 \frac{1}{(1 - x)^2}.
 \]</span></p>
 <p>We can compute this in a couple ways. First, we ask the question: “how many strings are there of length <span class="math inline">\(n\)</span> consisting of a string of <span class="math inline">\(0\)</span>s followed by a string of <span class="math inline">\(1\)</span>s?” E.g. for <span class="math inline">\(n = 4\)</span> there are <span class="math inline">\(5\)</span> such strings: <span class="math display">\[
@@ -450,8 +473,8 @@ Tip
 \]</span> We can look at this as: there are either <span class="math inline">\(0, 1, 2, 3, 4\)</span> ones. In general, there will be <span class="math inline">\(n + 1\)</span> strings of length <span class="math inline">\(n\)</span> (corresponding to the monomial <span class="math inline">\((n + 1)x^n\)</span>). Therefore <span class="math display">\[
 \frac{1}{(1 - x)^2} = \sum_{n = 0}^\infty (n + 1)x^n = 1 + 2x + 3x^2 + 4x^3 + \cdots.
 \]</span></p>
-<section id="calculus" class="level3" data-number="13.4.1">
-<h3 data-number="13.4.1" class="anchored" data-anchor-id="calculus"><span class="header-section-number">13.4.1</span> Calculus?</h3>
+<section id="calculus" class="level3" data-number="15.4.1">
+<h3 data-number="15.4.1" class="anchored" data-anchor-id="calculus"><span class="header-section-number">15.4.1</span> Calculus?</h3>
 <p>The monomials we’ve just computed look suspiciously like derivatives: <span class="math inline">\(1\)</span> is the derivative of <span class="math inline">\(x\)</span>, <span class="math inline">\(2x\)</span> is the derivative of <span class="math inline">\(x^2\)</span>, <span class="math inline">\(3x^2\)</span> is the derivative of <span class="math inline">\(x^3\)</span>, and so on. I.e., we have <span class="math display">\[
 \frac{1}{(1 - x)^2} = \sum_{n = 0}^\infty \frac{d}{dx} x^n.
 \]</span></p>
@@ -472,18 +495,18 @@ Tip
 </div>
 <p>In our calculus courses, we learn that we can often take the derivative of a series term-by-term. Or in other words, we can safely move the derivative operator from inside the term to outside and vice versa: <span class="math display">\[
 \sum_{n = 0}^\infty \frac{d}{dx} x^n = \frac{d}{dx} \sum_{n = 0}^\infty \sum_{n = 0}^\infty x^n.
-\]</span> This we recognize as the geometric series from <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 12.3</span></a>. So that means we should expect <span class="math display">\[
+\]</span> This we recognize as the geometric series from <a href="ogf.html#sec-geom-series" class="quarto-xref"><span>Section 14.3</span></a>. So that means we should expect <span class="math display">\[
 \frac{1}{(1 - x)^2} = \frac{d}{dx} \frac{1}{1-x}.
 \]</span> Indeed, that is the case.</p>
 <p>The following is a result of analysis that is very potent for many OGF problems.</p>
 <div id="thm-derivative-of-ogf" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 13.2</strong></span> If <span class="math inline">\(\sum a_n x^n\)</span> converges to a function <span class="math inline">\(f(x)\)</span> (and the radius of convergence is not zero), then <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 15.2</strong></span> If <span class="math inline">\(\sum a_n x^n\)</span> converges to a function <span class="math inline">\(f(x)\)</span> (and the radius of convergence is not zero), then <span class="math display">\[
 \sum \frac{d}{dx} a_n x^n = f'(x)
 \]</span> (and the radius of convergence is preserved).</p>
 </div>
-<p>In <a href="ogf.html#sec-convergence" class="quarto-xref"><span>Section 12.3.1</span></a>, we said that these generating functions are still valid even when they don’t converge. But there is utility here in that if we have an expression to represent an infinite sum like how <span class="math inline">\(\frac{1}{1-x}\)</span> represents the geometric series, then we can compute the derivative of the expression and of the infinite series.</p>
+<p>In <a href="ogf.html#sec-convergence" class="quarto-xref"><span>Section 14.3.1</span></a>, we said that these generating functions are still valid even when they don’t converge. But there is utility here in that if we have an expression to represent an infinite sum like how <span class="math inline">\(\frac{1}{1-x}\)</span> represents the geometric series, then we can compute the derivative of the expression and of the infinite series.</p>
 <div id="exm-second-derivative" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13.1</strong></span> Given that <span class="math display">\[
+<p><span class="theorem-title"><strong>Example 15.1</strong></span> Given that <span class="math display">\[
 \frac{1}{(1 - x)^2} = 1 + 2x + 3x^2 + 4x^3 + \dots = \sum nx^{n-1},
 \]</span> we can compute the derivative on both sides to obtain <span class="math display">\[
 \frac{2}{(1 - x)^3} = 2 + 6x + 12x^2 + 20x^3 + \cdots = \sum n(n-1)x^{n-2}.
@@ -901,12 +924,12 @@ Tip
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../generating-functions/ogf.html" class="pagination-link" aria-label="Generating Functions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Generating Functions</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Generating Functions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../generating-functions/stars-and-bars-revisited.html" class="pagination-link" aria-label="Stars and Bars Revisited">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

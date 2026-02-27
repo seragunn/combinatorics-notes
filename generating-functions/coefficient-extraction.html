@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.17">
+<meta name="generator" content="quarto-1.9.23">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15&nbsp; Coefficient Extraction – Combinatorics Notes</title>
+<title>17&nbsp; Coefficient Extraction – Combinatorics Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -78,10 +78,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ce4278342a015d016477ed09bce942c5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-076ecbd647e1f0418c5051713cd9b730.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e8796d56305374f5a7ae7e14870c7d8f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-730e711ceae20cff5787d378c2c341ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -181,7 +181,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/coefficient-extraction.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/coefficient-extraction.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -225,7 +225,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Inclusion-Exclusion</span></a>
+ <span class="menu-text">Strings</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -233,14 +233,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
+  <a href="../strings/forbidden.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Forbidden Substrings</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
+  <a href="../strings/string-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -248,7 +248,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Permutations</span></a>
+ <span class="menu-text">Inclusion-Exclusion</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -256,38 +256,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../permutations/permutations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
+  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../permutations/visual.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/generators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/inversions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
   </div>
 </li>
       </ul>
@@ -295,7 +271,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">Generating Functions</span></a>
+ <span class="menu-text">Permutations</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -303,38 +279,38 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/weights.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Weight Functions</span></span></a>
+  <a href="../permutations/permutations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
+  <a href="../permutations/visual.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  <a href="../permutations/generators.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
+  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
+  <a href="../permutations/inversions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  <a href="../permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -342,7 +318,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">Regular Languages</span></a>
+ <span class="menu-text">Generating Functions</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -350,32 +326,79 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../generating-functions/weights.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Weight Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Regular Languages</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/finite-automata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/putting-it-together.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/transfer-matrix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../regular-languages/regular-languages-exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
       </ul>
@@ -390,15 +413,15 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#shifts" id="toc-shifts" class="nav-link active" data-scroll-target="#shifts"><span class="header-section-number">15.1</span> Shifts</a></li>
-  <li><a href="#sums-and-differences" id="toc-sums-and-differences" class="nav-link" data-scroll-target="#sums-and-differences"><span class="header-section-number">15.2</span> Sums and differences</a></li>
-  <li><a href="#derivatives" id="toc-derivatives" class="nav-link" data-scroll-target="#derivatives"><span class="header-section-number">15.3</span> Derivatives</a></li>
-  <li><a href="#newtons-binomial-theorem" id="toc-newtons-binomial-theorem" class="nav-link" data-scroll-target="#newtons-binomial-theorem"><span class="header-section-number">15.4</span> Newton’s Binomial Theorem</a></li>
-  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">15.5</span> Examples</a>
+  <li><a href="#shifts" id="toc-shifts" class="nav-link active" data-scroll-target="#shifts"><span class="header-section-number">17.1</span> Shifts</a></li>
+  <li><a href="#sums-and-differences" id="toc-sums-and-differences" class="nav-link" data-scroll-target="#sums-and-differences"><span class="header-section-number">17.2</span> Sums and differences</a></li>
+  <li><a href="#derivatives" id="toc-derivatives" class="nav-link" data-scroll-target="#derivatives"><span class="header-section-number">17.3</span> Derivatives</a></li>
+  <li><a href="#newtons-binomial-theorem" id="toc-newtons-binomial-theorem" class="nav-link" data-scroll-target="#newtons-binomial-theorem"><span class="header-section-number">17.4</span> Newton’s Binomial Theorem</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">17.5</span> Examples</a>
   <ul class="collapse">
-  <li><a href="#negative-binomial-theorem" id="toc-negative-binomial-theorem" class="nav-link" data-scroll-target="#negative-binomial-theorem"><span class="header-section-number">15.5.1</span> Negative Binomial Theorem</a></li>
-  <li><a href="#central-binomial-theorem" id="toc-central-binomial-theorem" class="nav-link" data-scroll-target="#central-binomial-theorem"><span class="header-section-number">15.5.2</span> Central Binomial Theorem</a></li>
-  <li><a href="#catalan-numbers" id="toc-catalan-numbers" class="nav-link" data-scroll-target="#catalan-numbers"><span class="header-section-number">15.5.3</span> Catalan Numbers</a></li>
+  <li><a href="#negative-binomial-theorem" id="toc-negative-binomial-theorem" class="nav-link" data-scroll-target="#negative-binomial-theorem"><span class="header-section-number">17.5.1</span> Negative Binomial Theorem</a></li>
+  <li><a href="#central-binomial-theorem" id="toc-central-binomial-theorem" class="nav-link" data-scroll-target="#central-binomial-theorem"><span class="header-section-number">17.5.2</span> Central Binomial Theorem</a></li>
+  <li><a href="#catalan-numbers" id="toc-catalan-numbers" class="nav-link" data-scroll-target="#catalan-numbers"><span class="header-section-number">17.5.3</span> Catalan Numbers</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/generating-functions/coefficient-extraction.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/generating-functions/coefficient-extraction.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
@@ -406,9 +429,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/coefficient-extraction.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../generating-functions/weights.html">Generating Functions</a></li><li class="breadcrumb-item"><a href="../generating-functions/coefficient-extraction.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></h1>
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></h1>
 </div>
 
 
@@ -443,8 +466,8 @@ Warning
 <p>Be careful! This is not the same thing as <span class="math inline">\(A(n)\)</span>. Plugging in <span class="math inline">\(n\)</span> is not the way to find the coefficient. For example, the coefficient of <span class="math inline">\(x^2\)</span> in the quadratic <span class="math inline">\(f(x) = 2x^2 + 3x + 1\)</span> is <span class="math inline">\([x^2]f(x) = 2\)</span> and not <span class="math inline">\(f(2)\)</span> which equals <span class="math inline">\(15\)</span>.</p>
 </div>
 </div>
-<section id="shifts" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="shifts"><span class="header-section-number">15.1</span> Shifts</h2>
+<section id="shifts" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="shifts"><span class="header-section-number">17.1</span> Shifts</h2>
 <p>Multiplying <span class="math inline">\(A(x)\)</span> by <span class="math inline">\(x^k\)</span> shifts the sequence left or right (depending on whether <span class="math inline">\(k\)</span> is positive or negative): <span class="math display">\[
 x^k \sum a_n x^n = \sum a_n x^{n + k} = \sum a_{n - k} x^n.
 \]</span> The second equals sign is obtained either by substituting <span class="math inline">\(n \gets n + k\)</span> or by noticing that the coefficient is always <span class="math inline">\(k\)</span> less than the exponent.</p>
@@ -477,42 +500,42 @@ x^k \sum a_n x^n = \sum a_n x^{n + k} = \sum a_{n - k} x^n.
 </div>
 <p>Putting this together, we have the following result.</p>
 <div id="thm-shift-coefficient" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 15.1 (Coefficient Shift)</strong></span> If <span class="math inline">\(A(x) = \sum a_nx^n\)</span> then <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 17.1 (Coefficient Shift)</strong></span> If <span class="math inline">\(A(x) = \sum a_nx^n\)</span> then <span class="math display">\[
 [x^n]x^kA(x) = [x^{n - k}] A(x) = a_{n - k}.
 \]</span> “The coefficient of <span class="math inline">\(x^n\)</span> in <span class="math inline">\(x^k A(x)\)</span> is <span class="math inline">\(a_{n - k}\)</span>.”</p>
 </div>
 </section>
-<section id="sums-and-differences" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="sums-and-differences"><span class="header-section-number">15.2</span> Sums and differences</h2>
+<section id="sums-and-differences" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="sums-and-differences"><span class="header-section-number">17.2</span> Sums and differences</h2>
 <p>Suppose <span class="math inline">\(A(x) = \sum a_n x^n, B(x) = \sum b_n x^n\)</span> are two power series. Then for any constants <span class="math inline">\(\lambda, \mu\)</span>, we have <span class="math display">\[
 \lambda A(x) + \mu B(x) = \lambda \sum a_n x^n + \mu \sum b_n x^n = \sum (\lambda a_n + \mu b_n) x^n.
 \]</span> In terms of our <span class="math inline">\([x^n]\)</span> operator, we record the following result.</p>
 <div id="thm-linear-coefficient" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 15.2 (Linear Combinations)</strong></span> <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 17.2 (Linear Combinations)</strong></span> <span class="math display">\[
 [x^n](\lambda A(x) + \mu B(x)) = \lambda [x^n] A(x) + \mu [x^n] B(x).
 \]</span></p>
 </div>
 </section>
-<section id="derivatives" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="derivatives"><span class="header-section-number">15.3</span> Derivatives</h2>
+<section id="derivatives" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="derivatives"><span class="header-section-number">17.3</span> Derivatives</h2>
 <p>As we saw earlier, <span class="math display">\[
 A'(x) = \sum na_nx^{n - 1} = \sum (n + 1)a_{n + 1}x^n.
 \]</span></p>
 <div id="thm-derivative-coefficient" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 15.3 (Derivatives and Antiderivatives)</strong></span> <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 17.3 (Derivatives and Antiderivatives)</strong></span> <span class="math display">\[
 [x^n] A'(x) = (n + 1) [x^{n + 1}] A(x).
 \]</span> Or for antiderivatives, <span class="math display">\[
 [x^n] A(x) = \frac{1}{n} [x^{n - 1}] A'(x).
 \]</span></p>
 </div>
 </section>
-<section id="newtons-binomial-theorem" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="newtons-binomial-theorem"><span class="header-section-number">15.4</span> Newton’s Binomial Theorem</h2>
+<section id="newtons-binomial-theorem" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="newtons-binomial-theorem"><span class="header-section-number">17.4</span> Newton’s Binomial Theorem</h2>
 <p>We’ve seen the Binomial Theorem, <span class="math display">\[
 (1 + x)^n = \sum_{k = 0}^n \binom{n}{k}x^k.
 \]</span> And, in the previous section, we worked out power series for <span class="math inline">\((1 - x)^{-n}\)</span>. These kinds of functions are quite common in combinatorics, and not just for integer exponents either.</p>
 <div id="def-general-binom" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 15.1</strong></span> The general binomial coefficient is <span class="math display">\[
+<p><span class="theorem-title"><strong>Definition 17.1</strong></span> The general binomial coefficient is <span class="math display">\[
 \binom{r}{k} = \frac{r(r - 1)(r - 2) \cdots (r - k + 1)}{k!}
 \]</span> and we define this for any real (or complex) number <span class="math inline">\(r\)</span>.</p>
 </div>
@@ -520,7 +543,7 @@ A'(x) = \sum na_nx^{n - 1} = \sum (n + 1)a_{n + 1}x^n.
 r(1+x)^{r - 1} \text{ then } r(r - 1) (1 + x)^{r - 2} \text{ then } r(r - 1)(r - 2)(1 + x)^{r - 3}, \dots
 \]</span></p>
 <div id="thm-newton-binom" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 15.4 (Newton’s Binomial Theorem)</strong></span> The Taylor series of <span class="math inline">\((1 + x)^r\)</span> is <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 17.4 (Newton’s Binomial Theorem)</strong></span> The Taylor series of <span class="math inline">\((1 + x)^r\)</span> is <span class="math display">\[
 \sum_{k = 0}^\infty \binom{r}{k}x^k.
 \]</span></p>
 </div>
@@ -545,11 +568,11 @@ Note
 </div>
 </div>
 </section>
-<section id="examples" class="level2" data-number="15.5">
-<h2 data-number="15.5" class="anchored" data-anchor-id="examples"><span class="header-section-number">15.5</span> Examples</h2>
-<p>Let’s finally get to solving the problem of <a href="stars-and-bars-revisited.html#sec-upper-bound-ogf" class="quarto-xref"><span>Section 14.2.1</span></a>. Recall that we had the generating function <span class="math display">\[
+<section id="examples" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="examples"><span class="header-section-number">17.5</span> Examples</h2>
+<p>Let’s finally get to solving the problem of <a href="stars-and-bars-revisited.html#sec-upper-bound-ogf" class="quarto-xref"><span>Section 16.2.1</span></a>. Recall that we had the generating function <span class="math display">\[
 A(x) = \frac{x^{k - 1}(x^5 - x^{14})}{(1 - x)^k} = \frac{x^{k + 4} - x^{k + 13}}{(1 - x)^k}.
-\]</span> Now we’re going to combine this with the first formula from <a href="stars-and-bars-revisited.html#sec-sb-ogf-summary" class="quarto-xref"><span>Section 14.4</span></a> to get <span class="math display">\[\begin{align*}
+\]</span> Now we’re going to combine this with the first formula from <a href="stars-and-bars-revisited.html#sec-sb-ogf-summary" class="quarto-xref"><span>Section 16.4</span></a> to get <span class="math display">\[\begin{align*}
 [x^n] \frac{x^{k + 4} - x^{k + 13}}{(1 - x)^k} &amp;= [x^n] x^{k + 4} \frac{1}{(1 - x^k)} - [x^n] x^{k + 13} \frac{1}{(1 - x)^k} \\
 &amp;= [x^{n - k - 4}] \frac{1}{(1 - x)^k} - [x^{n - k - 13}] \frac{1}{(1 - x)^k} \\
 &amp;= \binom{(n - k - 4) + k - 1}{k - 1} - \binom{(n - k - 13) + k - 1}{k - 1} \\
@@ -567,7 +590,7 @@ A(x) = \frac{x^{k - 1}(x^5 - x^{14})}{(1 - x)^k} = \frac{x^{k + 4} - x^{k + 13}}
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The formula from <a href="stars-and-bars-revisited.html#sec-sb-ogf-summary" class="quarto-xref"><span>Section 14.4</span></a> says <span class="math display">\[
+<p>The formula from <a href="stars-and-bars-revisited.html#sec-sb-ogf-summary" class="quarto-xref"><span>Section 16.4</span></a> says <span class="math display">\[
 \frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1}x^n.
 \]</span> That means that the coefficient of <span class="math inline">\(x^n\)</span> is <span class="math display">\[
 [x^n] \frac{1}{(1 - x)^k} = \binom{n + k - 1}{k - 1}.
@@ -577,21 +600,21 @@ A(x) = \frac{x^{k - 1}(x^5 - x^{14})}{(1 - x)^k} = \frac{x^{k + 4} - x^{k + 13}}
 </div>
 </div>
 </div>
-<section id="negative-binomial-theorem" class="level3" data-number="15.5.1">
-<h3 data-number="15.5.1" class="anchored" data-anchor-id="negative-binomial-theorem"><span class="header-section-number">15.5.1</span> Negative Binomial Theorem</h3>
-<p>Comparing <a href="#thm-newton-binom" class="quarto-xref">Theorem&nbsp;<span>15.4</span></a> and formula (a.) of <a href="stars-and-bars-revisited.html#sec-sb-ogf-summary" class="quarto-xref"><span>Section 14.4</span></a> yields an interesting result:</p>
+<section id="negative-binomial-theorem" class="level3" data-number="17.5.1">
+<h3 data-number="17.5.1" class="anchored" data-anchor-id="negative-binomial-theorem"><span class="header-section-number">17.5.1</span> Negative Binomial Theorem</h3>
+<p>Comparing <a href="#thm-newton-binom" class="quarto-xref">Theorem&nbsp;<span>17.4</span></a> and formula (a.) of <a href="stars-and-bars-revisited.html#sec-sb-ogf-summary" class="quarto-xref"><span>Section 16.4</span></a> yields an interesting result:</p>
 <p><span id="eq-negative-binomial"><span class="math display">\[
 \frac{1}{(1 - x)^k} = \sum_{n = 0}^\infty \binom{n + k - 1}{k - 1} x^n = \sum_{n = 0}^\infty \binom{-k}{n} (-x)^n.
-\tag{15.1}\]</span></span> Note that we are looking at <span class="math inline">\((1 - x)^{-k}\)</span> not <span class="math inline">\((1 + x)^{-k}\)</span> hence the <span class="math inline">\((-x)\)</span> on the right.</p>
+\tag{17.1}\]</span></span> Note that we are looking at <span class="math inline">\((1 - x)^{-k}\)</span> not <span class="math inline">\((1 + x)^{-k}\)</span> hence the <span class="math inline">\((-x)\)</span> on the right.</p>
 <p>The next theorem is most often stated with <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span> swapped. We also use the identity <span class="math inline">\(\binom{a + b}{a} = \binom{a + b}{b}\)</span>.</p>
 <div id="thm-negative-binomial" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 15.5 (Negative Binomial Theorem)</strong></span> <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 17.5 (Negative Binomial Theorem)</strong></span> <span class="math display">\[
 \binom{-k}{n} (-1)^n = \binom{n + k - 1}{k - 1} = \binom{n + k - 1}{n}.
 \]</span> Or, with <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span> in the usual position: <span class="math display">\[
 \binom{-n}{k} (-1)^k = \binom{n + k - 1}{n - 1} = \binom{n + k - 1}{k}.
 \]</span></p>
 </div>
-<p>Like many things in combinatorics, it’s interesting to give a second proof of this beyond the generating function proof in <a href="#eq-negative-binomial" class="quarto-xref">Equation&nbsp;<span>15.1</span></a>.</p>
+<p>Like many things in combinatorics, it’s interesting to give a second proof of this beyond the generating function proof in <a href="#eq-negative-binomial" class="quarto-xref">Equation&nbsp;<span>17.1</span></a>.</p>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{align*}
 \binom{-n}{k} (-1)^k &amp;= \frac{(-n)(-n - 1)(-n - 2)\cdots(-n-k+1)}{k!} (-1)^k \\
@@ -601,8 +624,8 @@ A(x) = \frac{x^{k - 1}(x^5 - x^{14})}{(1 - x)^k} = \frac{x^{k + 4} - x^{k + 13}}
 \end{align*}\]</span> In line 2, we distribute one <span class="math inline">\(-1\)</span> to each of the <span class="math inline">\(k\)</span> factors in the numerator.</p>
 </div>
 </section>
-<section id="central-binomial-theorem" class="level3" data-number="15.5.2">
-<h3 data-number="15.5.2" class="anchored" data-anchor-id="central-binomial-theorem"><span class="header-section-number">15.5.2</span> Central Binomial Theorem</h3>
+<section id="central-binomial-theorem" class="level3" data-number="17.5.2">
+<h3 data-number="17.5.2" class="anchored" data-anchor-id="central-binomial-theorem"><span class="header-section-number">17.5.2</span> Central Binomial Theorem</h3>
 <p>We’ve seen the binomial theorem with a whole number exponent. We’ve seen it with a negative integer exponent. The next place to go is fractions. Let’s start with <span class="math inline">\(n = \frac12\)</span>. For reference, here are the first couple values of this:</p>
 <div id="435caca3" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode sage code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
@@ -640,12 +663,12 @@ A(x) = \frac{x^{k - 1}(x^5 - x^{14})}{(1 - x)^k} = \frac{x^{k + 4} - x^{k + 13}}
 \end{align*}\]</span></p>
 <p>Let us record these results as a theorem.</p>
 <div id="thm-half-binom" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 15.6 (Half Binomials)</strong></span> <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 17.6 (Half Binomials)</strong></span> <span class="math display">\[
 \binom{1/2}{k} = (-1)^{k-1} \frac{1}{2^{2k - 1}k} \binom{2k-2}{k - 1} \text{ and } \binom{-1/2}{k} = \frac{(-1)^k}{4^k} \binom{2k}{k}.
 \]</span> The first formula is only valid for <span class="math inline">\(k \ge 1\)</span>. If <span class="math inline">\(k = 0\)</span> then we get <span class="math inline">\(\binom{1/2}{0} = 1\)</span> (product of zero terms in the numerator equals <span class="math inline">\(1\)</span> and the denominator is <span class="math inline">\(0! = 1\)</span>).</p>
 </div>
 <div id="exm-central-binomial-ogf" class="theorem example">
-<p><span class="theorem-title"><strong>Example 15.1</strong></span> Take the second formula, and use it with <a href="#thm-newton-binom" class="quarto-xref">Theorem&nbsp;<span>15.4</span></a>. We will put <span class="math inline">\((-4x)^k\)</span> instead of <span class="math inline">\(x^k\)</span> to cancel the <span class="math inline">\((-1/4)^k\)</span>. That is, <span class="math display">\[\begin{align*}
+<p><span class="theorem-title"><strong>Example 17.1</strong></span> Take the second formula, and use it with <a href="#thm-newton-binom" class="quarto-xref">Theorem&nbsp;<span>17.4</span></a>. We will put <span class="math inline">\((-4x)^k\)</span> instead of <span class="math inline">\(x^k\)</span> to cancel the <span class="math inline">\((-1/4)^k\)</span>. That is, <span class="math display">\[\begin{align*}
 \frac{1}{\sqrt{1 - 4x}} = (1 - 4x)^{-1/2} &amp;= \sum_{k = 0}^\infty \binom{-1/2}{k} (-4x)^k \\
 &amp;= \sum_{k = 0}^\infty \frac{(-1)^k}{4^k} \binom{2k}{k} (-4x)^k \\
 &amp;= \sum_{k = 0}^\infty \binom{2k}{k} x^k \\
@@ -655,9 +678,9 @@ A(x) = \frac{x^{k - 1}(x^5 - x^{14})}{(1 - x)^k} = \frac{x^{k + 4} - x^{k + 13}}
 <p>For those of you who have taken computer science or mathematical linguistics, there is a concept known as a “regular language”—languages which can be parsed by a regular expresion<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For these regular languages, we will see later on, that they always yeild a <em>rational</em> generating function. Here we have a non-rational generating function and indeed this language of strings with equal numbers of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s is not a regular language.</p>
 <p>Going beyond regular languages, the <a href="https://en.wikipedia.org/wiki/Chomsky%E2%80%93Sch%C3%BCtzenberger_enumeration_theorem">Chomsky–Schützenberger Theorem</a> says that if you have an unambiguous context-free grammar, then the generating function for that language is <em>algebraic</em>. That is what we are looking at with <span class="math inline">\(\frac{1}{\sqrt{1 - 4x}}\)</span>. This is an algebraic function because it is a square root of a rational function. Indeed, the language of strings with equal numbers of <span class="math inline">\(0\)</span>s and <span class="math inline">\(1\)</span>s is a context-free language.</p>
 </section>
-<section id="catalan-numbers" class="level3" data-number="15.5.3">
-<h3 data-number="15.5.3" class="anchored" data-anchor-id="catalan-numbers"><span class="header-section-number">15.5.3</span> Catalan Numbers</h3>
-<p>If you remember the formula for the Catalan numbers even vaguely, you’ll recognize the <span class="math inline">\(\binom{2k}{k}\)</span>. If you squint real hard, the first formula of <a href="#thm-half-binom" class="quarto-xref">Theorem&nbsp;<span>15.6</span></a> looks vaguely similar once you deal with the <span class="math inline">\((-1)^k\)</span> and the <span class="math inline">\(4^k\)</span> as we did in <a href="#exm-central-binomial-ogf" class="quarto-xref">Example&nbsp;<span>15.1</span></a>. Let’s dig into that.</p>
+<section id="catalan-numbers" class="level3" data-number="17.5.3">
+<h3 data-number="17.5.3" class="anchored" data-anchor-id="catalan-numbers"><span class="header-section-number">17.5.3</span> Catalan Numbers</h3>
+<p>If you remember the formula for the Catalan numbers even vaguely, you’ll recognize the <span class="math inline">\(\binom{2k}{k}\)</span>. If you squint real hard, the first formula of <a href="#thm-half-binom" class="quarto-xref">Theorem&nbsp;<span>17.6</span></a> looks vaguely similar once you deal with the <span class="math inline">\((-1)^k\)</span> and the <span class="math inline">\(4^k\)</span> as we did in <a href="#exm-central-binomial-ogf" class="quarto-xref">Example&nbsp;<span>17.1</span></a>. Let’s dig into that.</p>
 <p>First, recall the decomposition we had for Dyck paths.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -682,13 +705,13 @@ C(x) = 1 + xC(x)^2.
 \]</span></p>
 <p>If you solve this quadratic equation using the quadratic formula, we find that <span id="eq-initial-catalan-sol"><span class="math display">\[
 C(x) = \frac{1 \pm \sqrt{1 - 4x}}{2x}.
-\tag{15.2}\]</span></span></p>
-<p>In order to get numbers out of this, we use <a href="#thm-newton-binom" class="quarto-xref">Theorem&nbsp;<span>15.4</span></a> to expand the square root (separating the <span class="math inline">\(k = 0\)</span> term so we can apply the formula from <a href="#thm-half-binom" class="quarto-xref">Theorem&nbsp;<span>15.6</span></a>): <span class="math display">\[\begin{align*}
+\tag{17.2}\]</span></span></p>
+<p>In order to get numbers out of this, we use <a href="#thm-newton-binom" class="quarto-xref">Theorem&nbsp;<span>17.4</span></a> to expand the square root (separating the <span class="math inline">\(k = 0\)</span> term so we can apply the formula from <a href="#thm-half-binom" class="quarto-xref">Theorem&nbsp;<span>17.6</span></a>): <span class="math display">\[\begin{align*}
 \sqrt{1 - 4x} &amp;= 1 + \sum_{k = 1}^\infty \binom{1/2}{k}(-4x)^k \\
 &amp;= 1 + \sum_{k = 1}^\infty (-1)^{k-1} \frac{1}{2^{2k - 1}k} \binom{2k-2}{k - 1} (-4x)^k \\
 &amp;= 1 + \sum_{k = 1}^\infty \frac{-2}{k} \binom{2k-2}{k - 1} x^k.
 \end{align*}\]</span></p>
-<p>The presence of the <span class="math inline">\(-\)</span> sign indicates that we want to use the negative square root in <a href="#eq-initial-catalan-sol" class="quarto-xref">Equation&nbsp;<span>15.2</span></a>. Doing this, we obtain</p>
+<p>The presence of the <span class="math inline">\(-\)</span> sign indicates that we want to use the negative square root in <a href="#eq-initial-catalan-sol" class="quarto-xref">Equation&nbsp;<span>17.2</span></a>. Doing this, we obtain</p>
 <p><span class="math display">\[\begin{align*}
 - \sqrt{1 - 4x} &amp;= - 1 + \sum_{k = 1}^\infty \frac{2}{k} \binom{2k-2}{k - 1} x^k \\
 1 - \sqrt{1 - 4x} &amp;= \sum_{k = 1}^\infty \frac{2}{k} \binom{2k-2}{k - 1} x^k \\
@@ -697,7 +720,7 @@ C(x) = \frac{1 \pm \sqrt{1 - 4x}}{2x}.
 \end{align*}\]</span> (adding <span class="math inline">\(1\)</span> to each <span class="math inline">\(k\)</span> to get from <span class="math inline">\(k - 1\)</span> to <span class="math inline">\(k\)</span>).</p>
 <p>We’ve now found another way to get our Catalan number formula.</p>
 <div id="thm-catalan-ogf" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 15.7 (Catalan OGF)</strong></span> The generating function for the Catalan numbers is <span class="math display">\[
+<p><span class="theorem-title"><strong>Theorem 17.7 (Catalan OGF)</strong></span> The generating function for the Catalan numbers is <span class="math display">\[
 C(x) = \frac{1 - \sqrt{1 - 4x}}{2x} = \sum_{k = 0}^\infty \frac{1}{k + 1} \binom{2k}{k} x^k.
 \]</span></p>
 </div>
@@ -1116,12 +1139,12 @@ C(x) = \frac{1 - \sqrt{1 - 4x}}{2x} = \sum_{k = 0}^\infty \frac{1}{k + 1} \binom
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../generating-functions/stars-and-bars-revisited.html" class="pagination-link" aria-label="Stars and Bars Revisited">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../generating-functions/generating-function-exercises.html" class="pagination-link" aria-label="Exercises">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Exercises</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Exercises</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

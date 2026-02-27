@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Sera Gunn">
-<meta name="dcterms.date" content="2026-02-27">
 
-<title>Combinatorics Notes</title>
+<title>3&nbsp; Forbidden Substrings – Combinatorics Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -28,26 +26,27 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./preface.html" rel="next">
-<link href="./icon.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-076ecbd647e1f0418c5051713cd9b730.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-730e711ceae20cff5787d378c2c341ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../strings/string-exercises.html" rel="next">
+<link href="../trees/trees.html" rel="prev">
+<link href="../icon.svg" rel="icon" type="image/svg+xml">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-076ecbd647e1f0418c5051713cd9b730.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-730e711ceae20cff5787d378c2c341ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -76,8 +75,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -87,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Combinatorics Notes</span>
     </a>
   </div>
@@ -109,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
     <a href="https://github.com/seragunn/combinatorics-notes/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./Combinatorics-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="../Combinatorics-Notes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -118,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">About</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../strings/forbidden.html">Strings</a></li><li class="breadcrumb-item"><a href="../strings/forbidden.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Forbidden Substrings</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -132,13 +160,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preface.html" class="sidebar-item-text sidebar-link">
+  <a href="../preface.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
@@ -153,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./trees/trees.html" class="sidebar-item-text sidebar-link">
+  <a href="../trees/trees.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Trees</span></span></a>
   </div>
 </li>
@@ -170,13 +198,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strings/forbidden.html" class="sidebar-item-text sidebar-link">
+  <a href="../strings/forbidden.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Forbidden Substrings</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./strings/string-exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../strings/string-exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
@@ -193,13 +221,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
+  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
+  <a href="../inclusion-exclusion/totient.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span></a>
   </div>
 </li>
@@ -216,37 +244,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations/permutations.html" class="sidebar-item-text sidebar-link">
+  <a href="../permutations/permutations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations/visual.html" class="sidebar-item-text sidebar-link">
+  <a href="../permutations/visual.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Visual representations of permutations</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations/generators.html" class="sidebar-item-text sidebar-link">
+  <a href="../permutations/generators.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Generators</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations/sign.html" class="sidebar-item-text sidebar-link">
+  <a href="../permutations/sign.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Sign of a Permutation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations/inversions.html" class="sidebar-item-text sidebar-link">
+  <a href="../permutations/inversions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Inversions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../permutations/permutation-exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
@@ -263,37 +291,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./generating-functions/weights.html" class="sidebar-item-text sidebar-link">
+  <a href="../generating-functions/weights.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Weight Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
+  <a href="../generating-functions/ogf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Generating Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
+  <a href="../generating-functions/multiplication.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Multiplication of Generating Functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link">
+  <a href="../generating-functions/stars-and-bars-revisited.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Stars and Bars Revisited</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
+  <a href="../generating-functions/coefficient-extraction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Coefficient Extraction</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../generating-functions/generating-function-exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
@@ -310,31 +338,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link">
+  <a href="../regular-languages/regular-languages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regular Languages</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regular-languages/finite-automata.html" class="sidebar-item-text sidebar-link">
+  <a href="../regular-languages/finite-automata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finite Automata</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regular-languages/putting-it-together.html" class="sidebar-item-text sidebar-link">
+  <a href="../regular-languages/putting-it-together.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regular-languages/transfer-matrix.html" class="sidebar-item-text sidebar-link">
+  <a href="../regular-languages/transfer-matrix.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./regular-languages/regular-languages-exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="../regular-languages/regular-languages-exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Exercises</span></span></a>
   </div>
 </li>
@@ -350,35 +378,30 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#about" id="toc-about" class="nav-link active" data-scroll-target="#about">About</a></li>
+  <li><a href="#decomposing-the-problem" id="toc-decomposing-the-problem" class="nav-link active" data-scroll-target="#decomposing-the-problem"><span class="header-section-number">3.1</span> Decomposing the problem</a></li>
+  <li><a href="#introducing-notation" id="toc-introducing-notation" class="nav-link" data-scroll-target="#introducing-notation"><span class="header-section-number">3.2</span> Introducing notation</a>
+  <ul class="collapse">
+  <li><a href="#recursive-relations" id="toc-recursive-relations" class="nav-link" data-scroll-target="#recursive-relations"><span class="header-section-number">3.2.1</span> Recursive relations</a></li>
+  </ul></li>
+  <li><a href="#more-examples" id="toc-more-examples" class="nav-link" data-scroll-target="#more-examples"><span class="header-section-number">3.3</span> More Examples</a></li>
+  <li><a href="#excluding-multiple-strings" id="toc-excluding-multiple-strings" class="nav-link" data-scroll-target="#excluding-multiple-strings"><span class="header-section-number">3.4</span> Excluding multiple strings</a></li>
+  <li><a href="#self-overlapping-strings" id="toc-self-overlapping-strings" class="nav-link" data-scroll-target="#self-overlapping-strings"><span class="header-section-number">3.5</span> Self-overlapping strings</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/strings/forbidden.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/strings/forbidden.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../strings/forbidden.html">Strings</a></li><li class="breadcrumb-item"><a href="../strings/forbidden.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Forbidden Substrings</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Combinatorics Notes</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Forbidden Substrings</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Sera Gunn </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 27, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -388,19 +411,260 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about" class="level1 unnumbered">
-<h1 class="unnumbered">About</h1>
-<p>Notes for applied combinatorics, intended to supplement the book <a href="https://www.appliedcombinatorics.org/appcomb/">Applied Combinatorics</a> by Keller and Trotter</p>
-<p>Contains:</p>
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage"});</script>
+<p>Motivating questions:</p>
+<ol type="1">
+<li>How many binary strings of length <span class="math inline">\(n\)</span> do not contain “11”? (answer: Fibonacci number)</li>
+<li>How many binary strings of length <span class="math inline">\(n\)</span> do not contain “10”? (answer: <span class="math inline">\(n + 1\)</span>)</li>
+<li>How many ternary strings of length <span class="math inline">\(n\)</span> do not contain “102”?</li>
+<li>How many base-4 strings of length <span class="math inline">\(n\)</span> contain neither “12” or “20”?</li>
+</ol>
+<section id="decomposing-the-problem" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="decomposing-the-problem"><span class="header-section-number">3.1</span> Decomposing the problem</h2>
+<p>Let’s look at all the binary strings of length <span class="math inline">\(5\)</span> that do not contain “11”:</p>
+<ol type="1">
+<li>00000</li>
+<li>00001</li>
+<li>00010</li>
+<li>00100</li>
+<li>01000</li>
+<li>10000</li>
+<li>00101</li>
+<li>01001</li>
+<li>10001</li>
+<li>01010</li>
+<li>10010</li>
+<li>10100</li>
+<li>10101</li>
+</ol>
+<p>Which matches with the 7th Fibonacci number: 1, 1, 2, 3, 5, 8, 13.</p>
+<p>To understand why, let us split this list into two smaller lists. First, those sequences which start with a 0:</p>
+<ol type="1">
+<li>00000</li>
+<li>00001</li>
+<li>00010</li>
+<li>00100</li>
+<li>01000</li>
+<li>00101</li>
+<li>01001</li>
+<li>01010</li>
+</ol>
+<p>and with a 1:</p>
+<ol type="1">
+<li>10000</li>
+<li>10001</li>
+<li>10010</li>
+<li>10100</li>
+<li>10101</li>
+</ol>
+<p>And here we see that <span class="math inline">\(13 = 8 + 5\)</span> decomposes this Fibonacci number into the sum of the two previous ones.</p>
+<p>Observation: every string that starts with a 1, in fact starts with 10. If we remove this 10 from each string, we get the list of strings of length 3. Likewise, if we remove the 0 from the first list we get the list of strings of length 4. That is, we have a decomposition:</p>
+<p><span class="math display">\[\begin{align*}
+\text{strings of length n} &amp;= \text{strings that start with 0} + \text{strings that start with 10} \\
+&amp;\equiv \text{strings of length n - 1} + \text{strings of length n - 2}
+\end{align*}\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Notation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here we use the <span class="math inline">\(\equiv\)</span> symbol to mean equinumerous, i.e.&nbsp;having the same size/count as opposed to being literally equal as sets.</p>
+</div>
+</div>
+</section>
+<section id="introducing-notation" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="introducing-notation"><span class="header-section-number">3.2</span> Introducing notation</h2>
+<p>For this problem, it will be useful to have a notation that means “strings of length <span class="math inline">\(n - k\)</span> that start with <span class="math inline">\(u\)</span>,” still subject to the forbidden substring condition. We will call this <span class="math inline">\([u]_k\)</span>. E.g”.</p>
 <ul>
-<li>An alternate proof of the Inclusion/Exclusion formula and a fully worked out proof of the Euler Totient formula</li>
-<li>Notes on the structure of permutations (cycles, inversions, signs)</li>
-<li>Notes on generating functions formalized through regular languages</li>
-<li>Notes on finite state automata and their connection to regular languages and generating functions</li>
+<li><span class="math inline">\([\;]=\)</span> strings of length <span class="math inline">\(n\)</span></li>
+<li><span class="math inline">\([\;]_1=\)</span> strings of length <span class="math inline">\(n - 1\)</span></li>
+<li><span class="math inline">\([1]=\)</span> strings of length <span class="math inline">\(n\)</span> that begin with a “1”</li>
+<li><span class="math inline">\([101]_2=\)</span> strings of length <span class="math inline">\(n - 2\)</span> that begin with “102”</li>
+<li>etc.</li>
 </ul>
-<p xmlns:cc="http://creativecommons.org/ns#">
-This work © 2024 by <span property="cc:attributionName">Sera Gunn</span> is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1"></a>
-</p>
+<p>The previous decomposition can now be written as</p>
+<p><span class="math display">\[\begin{align*}
+[\;] &amp;= [0] + [10] \\
+&amp;\equiv [\;]_1 + [\;]_2.
+\end{align*}\]</span></p>
+<section id="recursive-relations" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="recursive-relations"><span class="header-section-number">3.2.1</span> Recursive relations</h3>
+<p>Continuing the previous problem, let <span class="math inline">\(s_n\)</span> equal the number of binary strings of length <span class="math inline">\(n\)</span> that do not contain “11.” So <span class="math inline">\(s_n = \#[\;]\)</span> and <span class="math inline">\(s_{n - k} = \#[\;]_k\)</span>. Thus, we have here</p>
+<p><span class="math display">\[s_n = s_{n - 1} + s_{n - 2}.\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Notation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sequences are often written using subscript notation like <span class="math inline">\(s_0, s_1, s_2, \dots\)</span> but we can also write them using a more function-like notation <span class="math inline">\(f(0), f(1), f(2), \dots\)</span>. The choice of which notation to use is personal preference.</p>
+</div>
+</div>
+<p>For any given problem, we usually want to compute the initial few terms of the sequence as well. Here we have</p>
+<ul>
+<li><span class="math inline">\(s_0 = 1\)</span> since there is only one string of length 0 namely “” (an empty string)</li>
+<li><span class="math inline">\(s_1 = 2\)</span> since the two strings of length 1 are “0” and “1”</li>
+<li><span class="math inline">\(s_2 = 3\)</span> with the strings being “00”, “01”, “10”</li>
+</ul>
+<p>Meaning our sequence goes <span class="math inline">\(1, 2, 3, 5, 8, 13, 21, \dots\)</span> (starting in index 0).</p>
+</section>
+</section>
+<section id="more-examples" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="more-examples"><span class="header-section-number">3.3</span> More Examples</h2>
+<div id="exm-one-zero" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.1</strong></span> How many binary strings are there of length <span class="math inline">\(n\)</span> that do not contain “10”?</p>
+<p>We start with the decomposition <span class="math display">\[ [\;] = [0] + [1]. \]</span> (A binary string either starts with a 0 or a 1.)</p>
+<p>Next, if the string starts with a 0 it can be followed by any valid string of length <span class="math inline">\(n - 1\)</span> so <span class="math display">\[ [0] \equiv [\;]_1. \]</span> (Strings that start with 0 are equinumerous with strings of length <span class="math inline">\(n - 1\)</span>.) So here the count is <span class="math inline">\(s_{n - 1}\)</span>.</p>
+<p>If the string starts with a 1, then it must be followed by a 1, and by another 1, etc. No 1 may be followed by a 0. Therefore <span class="math display">\[ [1] = \{11\dots111\}. \]</span> (The only string the starts with a 1 is the string consisting of only 1s.) So here the count is just <span class="math inline">\(1\)</span>.</p>
+<p>Putting this together, we have <span class="math display">\[ s_n = s_{n-1} + 1 \]</span></p>
+<p>In fact, the complete set of such strings is <span class="math inline">\(00\dots0011\dots11\)</span> (any number of 0s followed by any number of 1s) and there are <span class="math inline">\(n + 1\)</span> in total: <span class="math inline">\(s_n = n + 1\)</span>.</p>
+</div>
+<p>This last problem was a bit unusual because there was exactly one string that starts with a 1. If we increase the base from binary to ternary we will have a bit more flexibility.</p>
+<div id="exm-one-zero-ternary" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.2</strong></span> How many ternary strings are there of length <span class="math inline">\(n\)</span> that do not contain “10”? (Compare: KT exercise 3.11.3)</p>
+<p>This time, <span class="math display">\[\begin{align*}
+[\;] &amp;= [0] + [1] + [2] \\
+&amp;\equiv [\;]_1 + [1] + [\;]_1
+\end{align*}\]</span></p>
+<p>We also have <span class="math display">\[ [1] \equiv [\;]_1 - [0]_1 \equiv [\;]_1 - [\;]_2. \]</span></p>
+<p>So therefore <span class="math display">\[\begin{align*}
+[\;] &amp;\equiv 3[\;]_1 - [\;]_2 \\
+s_n &amp;= 3s_{n - 1} - s_{n - 2}.
+\end{align*}\]</span></p>
+</div>
+<p>The decomposition we did in <a href="#exm-one-zero-ternary" class="quarto-xref">Example&nbsp;<span>3.2</span></a> would have also worked in binary case in <a href="#exm-one-zero" class="quarto-xref">Example&nbsp;<span>3.1</span></a>. That would give us (for binary strings) <span class="math display">\[
+s_n = 2s_{n - 1} - s_{n - 2}
+\]</span></p>
+<p>Despite this being a different recursive relation, the solution we found <span class="math inline">\(s_n =
+n + 1\)</span> satisfies both of these recursive relations.</p>
+<div id="exm-one-oh-two" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.3</strong></span> How many ternary strings are there of length <span class="math inline">\(n\)</span> that do not contain “102”? (KT example 3.6)</p>
+<p>Start with <span class="math display">\[
+[\;] = [0] + [1] + [2].
+\]</span> If a string starts with 0 or 2 we don’t care what comes next: <span class="math display">\[
+[\;] \equiv [\;]_1 + [1] + [\;]_1 = 2[\;]_1 + [1].
+\]</span></p>
+<p>Strings that start with 1 are not followed by 02: <span class="math display">\[
+[1] \equiv [\;]_1 - [02]_1 \equiv [\;]_1 - [\;]_3.
+\]</span> (A string that starts with 1 is the same as any string of length <span class="math inline">\(n - 1\)</span> <em>except</em> those that start <span class="math inline">\(02\)</span>. Strings of length <span class="math inline">\(n - 1\)</span> that start 02 are equinumerous to any string of length <span class="math inline">\(n - 3\)</span>.)</p>
+<p>Together: <span class="math display">\[[\;] \equiv 2[\;]_1 + ([\;]_1 - [\;]_3) = 3[\;]_1 - [\;]_3.\]</span> And lastly, as a recursive formula, <span class="math display">\[ s_n = 3s_{n - 1} - s_{n - 3}. \]</span></p>
+</div>
+</section>
+<section id="excluding-multiple-strings" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="excluding-multiple-strings"><span class="header-section-number">3.4</span> Excluding multiple strings</h2>
+<p>Our technique also applies if we consider forbidding multiple strings. (KT exercise 3.11.5)</p>
+<div id="exm-multiple-forbidden" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.4</strong></span> How many base-4 strings do not contain either “12” or “20” as a substring?</p>
+<p>As always, any digit that isn’t a leading digit for our forbidden substrings is equinumerous with <span class="math inline">\([\;]_1\)</span>. So <span class="math display">\[\begin{align*}
+[\;] &amp;= [0] + [1] + [2] + [3] \\
+&amp;\equiv 2[\;]_1 + [1] + [2].
+\end{align*}\]</span></p>
+<p>Strings that start with 1 cannot be followed by a 2: <span class="math display">\[
+[1] \equiv [\;]_1 - [2]_1
+\]</span> Strings that start with a 2 cannot be followed by a 0: <span class="math display">\[
+[2] \equiv [\;]_1 - [0]_1 \equiv [\;]_1 - [\;]_2.
+\]</span></p>
+<p>We can substitute this second relation into the first, remembering to add the offsets <span class="math display">\[
+[1] \equiv [\;]_1 - [\;]_2 + [\;]_3
+\]</span></p>
+<p>And now putting everything together: <span class="math display">\[\begin{align*}
+[\;] &amp;\equiv 4[\;]_1 - 2[\;]_2 + [\;]_3 \\
+s_n &amp;= 4s_{n - 1} - 2s_{n - 2} + s_{n - 3}
+\end{align*}\]</span></p>
+</div>
+</section>
+<section id="self-overlapping-strings" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="self-overlapping-strings"><span class="header-section-number">3.5</span> Self-overlapping strings</h2>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The ideas here are more advanced, we will return to them later on in the course when we talk about <em>generating functions</em>.</p>
+</div>
+</div>
+<p>Something interesting happens if we change <a href="#exm-one-oh-two" class="quarto-xref">Example&nbsp;<span>3.3</span></a> to ternary strings forbidding “101” because “101” can overlap with itself: <span class="math display">\[\begin{align*}
+\mathtt{101..} \\
+\mathtt{..101}
+\end{align*}\]</span></p>
+<p>Meaning if we want to know how many strings start with a 1 we need to know 2 places later how many start with a 1 and then another 2 places later and another 2 places later…</p>
+<p><span class="math display">\[\begin{align*}
+[1] &amp;\equiv [\;]_1 - [01]_1 \\
+&amp;\equiv [\;]_1 - [1]_2 \\
+&amp;\equiv [\;]_1 - ([\;]_3 - [1]_4) \\
+&amp;\equiv [\;]_1 - [\;]_3 + [\;]_5 - [\;]_7 + \cdots
+\end{align*}\]</span></p>
+<p>And this is <em>okay</em>, but we have an infinite length recursive relation which is not ideal.</p>
+<p>One way to help analyse this is to treat this as more of an equation. And for that, the trick is to write <span class="math inline">\([u]_k = [u]x^k\)</span> so we can solve for things in terms of <span class="math inline">\(x\)</span>. (Just roll with this for a minute.)</p>
+<p><span class="math display">\[\begin{align*}
+[1] &amp;= [\;]x - [1]x^2 \\
+[1] + x^2[1] &amp;= [\;]x \\
+(1 + x^2)[1] &amp;= [\;]x \\
+[1] &amp;= [\;] \frac{x}{1 + x^2}
+\end{align*}\]</span></p>
+<p>Or as a Taylor series, <span class="math display">\[
+[1] = [\;](x - x^3 + x^5 - x^7 + \cdots)
+\]</span></p>
+<p>And ok this hasn’t yet produced something <em>new</em> but let’s see how this fits in to the rest of the solution.</p>
+<p><span class="math display">\[
+[\;] = [0] + [1] + [2] + 1
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Hold up
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We added a “+1”?? Yeah so when we work with <span class="math inline">\(x\)</span>’s like this, these <span class="math inline">\([u]\)</span> symbols now represent strings of <em>any</em> length. While strings of length <span class="math inline">\(n\)</span> start with 0, 1 or 2, the unique string of length 0, ““, starts with none of these so we have to include a +1 to represent that.</p>
+</div>
+</div>
+<p><span class="math display">\[\begin{align*}
+[\;] &amp;= [0] + [1] + [2] + 1 \\
+&amp;= 2[\;]x + [\;] \frac{x}{1 + x^2} + 1 \\
+[\;] \left(1 - 2x - \frac{x}{1 + x^2} \right) &amp;= 1 \\
+[\;] &amp;= \frac{1}{1 - 2x - \frac{x}{1 + x^2}}
+\end{align*}\]</span></p>
+<p>This simplifies to <span class="math display">\[
+[\;] = \frac{1 + x^2}{1 - 3x + x^2 - 2x^3}
+\]</span></p>
+And now we use the computer for help getting a Taylor series for this
+<div class="sage">
+<script type="text/x-sage">
+%display latex
+A = (1 + x^2)/(1 - 3*x + x^2 - 2*x^3)
+A.taylor(x, 0, 6)
+</script>
+</div>
+<p>The coefficients here tell us how many strings there are of that length: <span class="math display">\[\begin{align*}
+s_0 &amp;= 1 \\
+s_1 &amp;= 3 \\
+s_2 &amp;= 9 \\
+s_3 &amp;= 26 \\
+s_4 &amp;= 75 \\
+s_5 &amp;= 217 \\
+s_6 &amp;= 628
+\end{align*}\]</span> etc.</p>
+<p>The technique we have used here is called a <em>generating function</em> and we will return to this subject later on.</p>
+<p>Generating functions help us sort out really entangled recursive relations and self-overlapping strings.</p>
 
 
 </section>
@@ -808,10 +1072,13 @@ This work © 2024 by <span property="cc:attributionName">Sera Gunn</span> is lic
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../trees/trees.html" class="pagination-link" aria-label="Trees">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Trees</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./preface.html" class="pagination-link" aria-label="Preface">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../strings/string-exercises.html" class="pagination-link" aria-label="Exercises">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Exercises</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -820,4 +1087,4 @@ This work © 2024 by <span property="cc:attributionName">Sera Gunn</span> is lic
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/strings/forbidden.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/strings/forbidden.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
