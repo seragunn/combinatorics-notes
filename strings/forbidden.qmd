@@ -1,0 +1,310 @@
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>sagecell.makeSagecell({"inputLocation": ".sage"});</script>
+
+# Forbidden Substrings
+
+Motivating questions:
+
+1. How many binary strings of length $n$ do not contain "11"? (answer: Fibonacci number)
+2. How many binary strings of length $n$ do not contain "10"? (answer: $n + 1$)
+3. How many ternary strings of length $n$ do not contain "102"?
+4. How many base-4 strings of length $n$ contain neither "12" or "20"?
+
+## Decomposing the problem
+
+Let's look at all the binary strings of length $5$ that do not contain "11":
+
+1. 00000
+2. 00001
+3. 00010
+4. 00100
+5. 01000
+6. 10000
+7. 00101
+8. 01001
+9. 10001
+10. 01010
+11. 10010
+12. 10100
+13. 10101
+
+Which matches with the 7th Fibonacci number: 1, 1, 2, 3, 5, 8, 13.
+
+To understand why, let us split this list into two smaller lists. First, those sequences which start with a 0:
+
+1. 00000
+2. 00001
+3. 00010
+4. 00100
+5. 01000
+6. 00101
+7. 01001
+8. 01010
+
+and with a 1:
+
+1. 10000
+2. 10001
+3. 10010
+4. 10100
+5. 10101
+
+And here we see that $13 = 8 + 5$ decomposes this Fibonacci number into the sum of the two previous ones.
+
+Observation: every string that starts with a 1, in fact starts with 10. If we remove this 10 from each string, we get the list of strings of length 3. Likewise, if we remove the 0 from the first list we get the list of strings of length 4. That is, we have a decomposition:
+
+\begin{align*}
+\text{strings of length n} &= \text{strings that start with 0} + \text{strings that start with 10} \\
+&\equiv \text{strings of length n - 1} + \text{strings of length n - 2}
+\end{align*}
+
+::: {.callout-note}
+### Notation
+Here we use the $\equiv$ symbol to mean equinumerous, i.e. having the same size/count as opposed to being literally equal as sets.
+:::
+
+## Introducing notation
+
+For this problem, it will be useful to have a notation that means "strings of
+length $n - k$ that start with $u$," still subject to the forbidden substring
+condition. We will call this $[u]_k$. E.g".
+
+* $[\;]=$ strings of length $n$
+* $[\;]_1=$ strings of length $n - 1$
+* $[1]=$ strings of length $n$ that begin with a "1"
+* $[101]_2=$ strings of length $n - 2$ that begin with "102"
+* etc.
+
+The previous decomposition can now be written as
+
+\begin{align*}
+[\;] &= [0] + [10] \\
+&\equiv [\;]_1 + [\;]_2.
+\end{align*}
+
+### Recursive relations
+
+Continuing the previous problem, let $s_n$ equal the number of binary strings of length $n$ that do not contain "11." So $s_n = \#[\;]$ and $s_{n - k} = \#[\;]_k$. Thus, we have here
+
+$$s_n = s_{n - 1} + s_{n - 2}.$$
+
+::: {.callout-note}
+### Notation
+Sequences are often written using subscript notation like $s_0, s_1, s_2, \dots$ but we can also write them using a more function-like notation $f(0), f(1), f(2), \dots$. The choice of which notation to use is personal preference.
+:::
+
+For any given problem, we usually want to compute the initial few terms of the sequence as well. Here we have
+
+* $s_0 = 1$ since there is only one string of length 0 namely "" (an empty string)
+* $s_1 = 2$ since the two strings of length 1 are "0" and "1"
+* $s_2 = 3$ with the strings being "00", "01", "10"
+
+Meaning our sequence goes $1, 2, 3, 5, 8, 13, 21, \dots$ (starting in index 0).
+
+## More Examples
+
+::: {#exm-one-zero}
+How many binary strings are there of length $n$ that do not contain "10"?
+
+We start with the decomposition
+$$ [\;] = [0] + [1]. $$
+(A binary string either starts with a 0 or a 1.)
+
+Next, if the string starts with a 0 it can be followed by any valid string of length $n - 1$ so
+$$ [0] \equiv [\;]_1. $$
+(Strings that start with 0 are equinumerous with strings of length $n - 1$.) So here the count is $s_{n - 1}$.
+
+If the string starts with a 1, then it must be followed by a 1, and by another 1, etc. No 1 may be followed by a 0. Therefore
+$$ [1] = \{11\dots111\}. $$
+(The only string the starts with a 1 is the string consisting of only 1s.) So here the count is just $1$.
+
+Putting this together, we have
+$$ s_n = s_{n-1} + 1 $$
+
+In fact, the complete set of such strings is $00\dots0011\dots11$ (any number of 0s followed by any number of 1s) and there are $n + 1$ in total: $s_n = n + 1$.
+:::
+
+This last problem was a bit unusual because there was exactly one string that
+starts with a 1. If we increase the base from binary to ternary we will have a
+bit more flexibility.
+
+::: {#exm-one-zero-ternary}
+How many ternary strings are there of length $n$ that do not contain "10"? (Compare: KT exercise 3.11.3)
+
+This time,
+\begin{align*}
+[\;] &= [0] + [1] + [2] \\
+&\equiv [\;]_1 + [1] + [\;]_1
+\end{align*}
+
+We also have
+$$ [1] \equiv [\;]_1 - [0]_1 \equiv [\;]_1 - [\;]_2. $$
+
+So therefore
+\begin{align*}
+[\;] &\equiv 3[\;]_1 - [\;]_2 \\
+s_n &= 3s_{n - 1} - s_{n - 2}.
+\end{align*}
+:::
+
+The decomposition we did in @exm-one-zero-ternary would have also worked in
+binary case in @exm-one-zero. That would give us (for binary strings)
+$$
+s_n = 2s_{n - 1} - s_{n - 2}
+$$
+
+Despite this being a different recursive relation, the solution we found $s_n =
+n + 1$ satisfies both of these recursive relations.
+
+::: {#exm-one-oh-two}
+How many ternary strings are there of length $n$ that do not contain "102"? (KT example 3.6)
+
+Start with
+$$
+[\;] = [0] + [1] + [2].
+$$
+If a string starts with 0 or 2 we don't care what comes next:
+$$
+[\;] \equiv [\;]_1 + [1] + [\;]_1 = 2[\;]_1 + [1].
+$$
+
+Strings that start with 1 are not followed by 02:
+$$
+[1] \equiv [\;]_1 - [02]_1 \equiv [\;]_1 - [\;]_3.
+$$
+(A string that starts with 1 is the same as any string of length $n - 1$ *except* those that start $02$. Strings of length $n - 1$ that start 02 are equinumerous to any string of length $n - 3$.)
+
+Together:
+$$[\;] \equiv 2[\;]_1 + ([\;]_1 - [\;]_3) = 3[\;]_1 - [\;]_3.$$
+And lastly, as a recursive formula,
+$$ s_n = 3s_{n - 1} - s_{n - 3}. $$
+:::
+
+## Excluding multiple strings
+
+Our technique also applies if we consider forbidding multiple strings. (KT
+exercise 3.11.5)
+
+::: {#exm-multiple-forbidden}
+How many base-4 strings do not contain either "12" or "20" as a substring?
+
+As always, any digit that isn't a leading digit for our forbidden substrings is equinumerous with $[\;]_1$. So
+\begin{align*}
+[\;] &= [0] + [1] + [2] + [3] \\
+&\equiv 2[\;]_1 + [1] + [2].
+\end{align*}
+
+Strings that start with 1 cannot be followed by a 2:
+$$
+[1] \equiv [\;]_1 - [2]_1
+$$
+Strings that start with a 2 cannot be followed by a 0:
+$$
+[2] \equiv [\;]_1 - [0]_1 \equiv [\;]_1 - [\;]_2.
+$$
+
+We can substitute this second relation into the first, remembering to add the offsets
+$$
+[1] \equiv [\;]_1 - [\;]_2 + [\;]_3
+$$
+
+And now putting everything together:
+\begin{align*}
+[\;] &\equiv 4[\;]_1 - 2[\;]_2 + [\;]_3 \\
+s_n &= 4s_{n - 1} - 2s_{n - 2} + s_{n - 3}
+\end{align*}
+:::
+
+## Self-overlapping strings
+
+::: {.callout-caution}
+The ideas here are more advanced, we will return to them later on in the course
+when we talk about *generating functions*.
+:::
+
+Something interesting happens if we change @exm-one-oh-two to ternary strings forbidding "101" because "101" can overlap with itself:
+\begin{align*}
+\mathtt{101..} \\
+\mathtt{..101}
+\end{align*}
+
+Meaning if we want to know how many strings start with a 1 we need to know 2
+places later how many start with a 1 and then another 2 places later and
+another 2 places later...
+
+\begin{align*}
+[1] &\equiv [\;]_1 - [01]_1 \\
+&\equiv [\;]_1 - [1]_2 \\
+&\equiv [\;]_1 - ([\;]_3 - [1]_4) \\
+&\equiv [\;]_1 - [\;]_3 + [\;]_5 - [\;]_7 + \cdots
+\end{align*}
+
+And this is *okay*, but we have an infinite length recursive relation which is
+not ideal.
+
+One way to help analyse this is to treat this as more of an equation. And for
+that, the trick is to write $[u]_k = [u]x^k$ so we can solve for things in
+terms of $x$. (Just roll with this for a minute.)
+
+\begin{align*}
+[1] &= [\;]x - [1]x^2 \\
+[1] + x^2[1] &= [\;]x \\
+(1 + x^2)[1] &= [\;]x \\
+[1] &= [\;] \frac{x}{1 + x^2}
+\end{align*}
+
+Or as a Taylor series,
+$$
+[1] = [\;](x - x^3 + x^5 - x^7 + \cdots)
+$$
+
+And ok this hasn't yet produced something *new* but let's see how this fits in
+to the rest of the solution.
+
+$$
+[\;] = [0] + [1] + [2] + 1
+$$
+
+::: {.callout-tip}
+### Hold up
+We added a "+1"?? Yeah so when we work with $x$'s like this, these $[u]$ symbols now represent strings of *any* length. While strings of length $n$ start with 0, 1 or 2, the unique string of length 0, "", starts with none of these so we have to include a +1 to represent that.
+:::
+
+\begin{align*}
+[\;] &= [0] + [1] + [2] + 1 \\
+&= 2[\;]x + [\;] \frac{x}{1 + x^2} + 1 \\
+[\;] \left(1 - 2x - \frac{x}{1 + x^2} \right) &= 1 \\
+[\;] &= \frac{1}{1 - 2x - \frac{x}{1 + x^2}}
+\end{align*}
+
+This simplifies to
+$$
+[\;] = \frac{1 + x^2}{1 - 3x + x^2 - 2x^3}
+$$
+
+And now we use the computer for help getting a Taylor series for this
+<div class="sage">
+<script type="text/x-sage">
+%display latex
+A = (1 + x^2)/(1 - 3*x + x^2 - 2*x^3)
+A.taylor(x, 0, 6)
+</script>
+</div>
+
+The coefficients here tell us how many strings there are of that length:
+\begin{align*}
+s_0 &= 1 \\
+s_1 &= 3 \\
+s_2 &= 9 \\
+s_3 &= 26 \\
+s_4 &= 75 \\
+s_5 &= 217 \\
+s_6 &= 628
+\end{align*}
+etc.
+
+The technique we have used here is called a *generating function* and we will
+return to this subject later on.
+
+Generating functions help us sort out really entangled recursive relations and
+self-overlapping strings.

@@ -25,6 +25,9 @@ book:
     - part: "Trees"
       chapters:
         - trees/trees.qmd
+    - part: "Strings"
+      chapters:
+        - strings/forbidden.qmd
     - part: "Inclusion-Exclusion"
       chapters:
         - inclusion-exclusion/inclusion-exclusion.qmd
