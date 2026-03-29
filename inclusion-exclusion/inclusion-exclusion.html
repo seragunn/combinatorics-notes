@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.23">
+<meta name="generator" content="quarto-1.10.0">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -38,12 +38,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="../icon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-076ecbd647e1f0418c5051713cd9b730.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9c5e1a58ae97b3faeeb5cca0e0e2eaf1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-730e711ceae20cff5787d378c2c341ce.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -382,7 +381,15 @@ window.Quarto = {
   <li><a href="#for-three-sets" id="toc-for-three-sets" class="nav-link" data-scroll-target="#for-three-sets"><span class="header-section-number">5.2</span> For three sets</a></li>
   <li><a href="#sec-binomials-and-IE" id="toc-sec-binomials-and-IE" class="nav-link" data-scroll-target="#sec-binomials-and-IE"><span class="header-section-number">5.3</span> Binomial coefficients and I/E</a></li>
   <li><a href="#sec-avoiding" id="toc-sec-avoiding" class="nav-link" data-scroll-target="#sec-avoiding"><span class="header-section-number">5.4</span> Avoiding properties</a></li>
-  <li><a href="#simplifying-notation." id="toc-simplifying-notation." class="nav-link" data-scroll-target="#simplifying-notation."><span class="header-section-number">5.5</span> Simplifying notation.</a></li>
+  <li><a href="#simplifying-notation." id="toc-simplifying-notation." class="nav-link" data-scroll-target="#simplifying-notation."><span class="header-section-number">5.5</span> Simplifying notation.</a>
+  <ul class="collapse">
+  <li><a href="#stage-0a" id="toc-stage-0a" class="nav-link" data-scroll-target="#stage-0a"><span class="header-section-number">5.5.1</span> Stage 0a</a></li>
+  <li><a href="#stage-0b" id="toc-stage-0b" class="nav-link" data-scroll-target="#stage-0b"><span class="header-section-number">5.5.2</span> Stage 0b</a></li>
+  <li><a href="#stage-1a" id="toc-stage-1a" class="nav-link" data-scroll-target="#stage-1a"><span class="header-section-number">5.5.3</span> Stage 1a</a></li>
+  <li><a href="#stage-1b" id="toc-stage-1b" class="nav-link" data-scroll-target="#stage-1b"><span class="header-section-number">5.5.4</span> Stage 1b</a></li>
+  <li><a href="#stage-2" id="toc-stage-2" class="nav-link" data-scroll-target="#stage-2"><span class="header-section-number">5.5.5</span> Stage 2</a></li>
+  <li><a href="#stage-3" id="toc-stage-3" class="nav-link" data-scroll-target="#stage-3"><span class="header-section-number">5.5.6</span> Stage 3</a></li>
+  </ul></li>
   <li><a href="#application-1-surjections" id="toc-application-1-surjections" class="nav-link" data-scroll-target="#application-1-surjections"><span class="header-section-number">5.6</span> Application 1: Surjections</a></li>
   <li><a href="#application-2-derangements" id="toc-application-2-derangements" class="nav-link" data-scroll-target="#application-2-derangements"><span class="header-section-number">5.7</span> Application 2: Derangements</a></li>
   </ul>
@@ -475,7 +482,7 @@ Note&nbsp;5.1
 <p>For example, let $[m] = {1,,m} and suppose we want to count the number of functions <span class="math inline">\(f : [m] \to [n]\)</span> which <em>don’t</em> miss anything in the codomain. I.e. if <span class="math inline">\(A_i\)</span> is the set of functions where <span class="math inline">\(f(x)\)</span> never equals <span class="math inline">\(i\)</span>, then we want to count every function <em>not</em> in any set <span class="math inline">\(A_i\)</span>.</p>
 <p>Let <span class="math inline">\(X\)</span> be the total set of functions. Then to count the functions avoiding <span class="math inline">\(A_1 \cup \dots \cup A_n\)</span> we do</p>
 <p><span class="math display">\[\begin{align*}
-|X \setminus (A_1 \cup \dots A_n)| &amp;= |X| - |A_1 \cup \dots A_n| \\
+|X \setminus (A_1 \cup \dots A_n)| &amp;= |X| - |A_1 \cup \dots \cup A_n| \\
 &amp;= |X| - \sum_i |A_i| + \sum_{i &lt; j} |A_i \cap A_j| - \cdots
 \end{align*}\]</span></p>
 <div class="callout callout-style-default callout-caution callout-titled">
@@ -494,7 +501,9 @@ Note&nbsp;5.1
 </section>
 <section id="simplifying-notation." class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="simplifying-notation."><span class="header-section-number">5.5</span> Simplifying notation.</h2>
-<p>Let <span class="math inline">\(\mathscr{P} = \{P_1, \dots, P_n\}\)</span> be a collection of sets representing negative properties—conditions we want to avoid. For a subset <span class="math inline">\(S \subseteq \{1,\dots,n\}\)</span>, let <span class="math inline">\(N_\ge(S)\)</span> be the number of items satisfying at least those properties in <span class="math inline">\(S\)</span>. I.e. <span class="math inline">\(\bigcap_{i \in S} P_i\)</span>. We will say “<span class="math inline">\(x\)</span> satisfies <span class="math inline">\(S\)</span>” for short. Also, if <span class="math inline">\(S = \{a,b,c\}\)</span>, let us write for example, <span class="math inline">\(N_\ge(a,b,c)\)</span> instead of <span class="math inline">\(N_\ge(\{a,b,c\})\)</span> for simplicity.</p>
+<p>Let <span class="math inline">\(\mathscr{P} = \{P_1, \dots, P_n\}\)</span> be a collection of sets representing negative properties—conditions we want to avoid. For a subset <span class="math inline">\(S \subseteq \{1,\dots,n\}\)</span>, let <span class="math inline">\(N_\ge(S)\)</span> be the number of items satisfying at least those properties in <span class="math inline">\(S\)</span>. That is, <span class="math display">\[
+N_{\ge}(S) = \left| \{x : x \in P_i \text{ for all } i \in S\} \right| = \left|\bigcap_{i \in S} P_i \right|.
+\]</span> We will say “<span class="math inline">\(x\)</span> satisfies <span class="math inline">\(S\)</span>” for short. Also, if <span class="math inline">\(S = \{a,b,c\}\)</span>, let us write for example, <span class="math inline">\(N_\ge(a,b,c)\)</span> instead of <span class="math inline">\(N_\ge(\{a,b,c\})\)</span> for simplicity.</p>
 <p>Let <span class="math inline">\(N_{=}(S)\)</span> be the number of <span class="math inline">\(x\)</span> satisfying exactly those properties in <span class="math inline">\(S\)</span> and no properties not in <span class="math inline">\(S\)</span>. When <span class="math inline">\(\mathscr{P}\)</span> represents properties we wish to avoid, then <span class="math inline">\(N_{=}(\varnothing)\)</span> is the number of elements satisfying none of the properties.</p>
 <div id="thm-inclusion-exclusion" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 5.1 (Inclusion/Exclusion)</strong></span> <span class="math display">\[\begin{align*}
@@ -502,27 +511,78 @@ N_{=}(\varnothing) &amp;= N_{\ge}(\varnothing) - \sum_i N_\ge(i) + \sum_{i &lt; 
 &amp;= \sum_{S} (-1)^{|S|} N_\ge(S).
 \end{align*}\]</span></p>
 </div>
+<p>We will work up to the proof in stages to build our understanding. Similar to <a href="#sec-binomials-and-IE" class="quarto-xref"><span>Section 5.3</span></a> we will be looking element-by-element.</p>
+<section id="stage-0a" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="stage-0a"><span class="header-section-number">5.5.1</span> Stage 0a</h3>
+<p><span class="math display">\[
+0^k = \begin{cases}
+1 &amp; \text{if } k = 0 \\
+0 &amp; \text{if } k \ge 1
+\end{cases}
+\]</span></p>
+<p>The reason we take the convention <span class="math inline">\(0^0 = 1\)</span> here has to do with summation notation. Consider a polynomial: <span class="math display">\[
+f(x) = \sum_{k = 0}^n a_k x^k = a_0x^0 + a_1x^1 + a_2x^2 + \cdots + a_nx^n
+\]</span> We understand in this context that <span class="math inline">\(a_0x^0 = a_0\)</span> even when we substitute <span class="math inline">\(x = 0\)</span>. So in this context we need <span class="math inline">\(0^0 = 1\)</span>.</p>
+</section>
+<section id="stage-0b" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="stage-0b"><span class="header-section-number">5.5.2</span> Stage 0b</h3>
+<p><span class="math display">\[
+(1 - 1)^k = \begin{cases}
+1 &amp; \text{if } k = 0 \\
+0 &amp; \text{if } k \ge 1
+\end{cases}
+\]</span></p>
+</section>
+<section id="stage-1a" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="stage-1a"><span class="header-section-number">5.5.3</span> Stage 1a</h3>
+<p>Now let us apply the binomial theorem to the previous stage. This gives <span class="math display">\[
+(1 - 1)^k = \sum_{i = 0}^k \binom{k}{i}(-1)^i = \begin{cases}
+1 &amp; \text{if } k = 0 \\
+0 &amp; \text{if } k \ge 1
+\end{cases}
+\]</span></p>
+</section>
+<section id="stage-1b" class="level3" data-number="5.5.4">
+<h3 data-number="5.5.4" class="anchored" data-anchor-id="stage-1b"><span class="header-section-number">5.5.4</span> Stage 1b</h3>
+<p>The binomial coefficients count subsets of a certain size but instead we can sum over all subsets.</p>
+<p><span class="math display">\[
+\binom{k}{i} = \left| \{ S \subseteq [k] : |S| = i \} \right| = \sum_{ \substack{S \subseteq [k] \\ |S| = i }} 1.
+\]</span></p>
+<p>Substituting this into the previous stage, we get</p>
+<p><span class="math display">\[
+\sum_{i = 0}^k \sum_{ \substack{S \subseteq [k] \\ |S| = i }} (-1)^i = \sum_{i = 0}^k \sum_{ \substack{S \subseteq [k] \\ |S| = i }} (-1)^{|S|} = \begin{cases}
+1 &amp; \text{if } k = 0 \\
+0 &amp; \text{if } k \ge 1
+\end{cases}
+\]</span></p>
+</section>
+<section id="stage-2" class="level3" data-number="5.5.5">
+<h3 data-number="5.5.5" class="anchored" data-anchor-id="stage-2"><span class="header-section-number">5.5.5</span> Stage 2</h3>
+<p>The two summations can be simplified to just</p>
+<p><span class="math display">\[
+\sum_{S \subseteq [k]} (-1)^{|S|} = \begin{cases}
+1 &amp; \text{if } k = 0 \\
+0 &amp; \text{if } k \ge 1
+\end{cases}.
+\]</span></p>
+</section>
+<section id="stage-3" class="level3" data-number="5.5.6">
+<h3 data-number="5.5.6" class="anchored" data-anchor-id="stage-3"><span class="header-section-number">5.5.6</span> Stage 3</h3>
+<p>We will not return to the proof of the Inclusion-Exclusion formula, <a href="#thm-inclusion-exclusion" class="quarto-xref">Theorem&nbsp;<span>5.1</span></a>. A key step is going to be to swap the order of two summations. First, a small bit of notation, let <span class="math inline">\(I_x = \{ i : x \in P_i \}\)</span> be the list of properties <span class="math inline">\(x\)</span> satisfies.</p>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>As in <a href="#sec-binomials-and-IE" class="quarto-xref"><span>Section 5.3</span></a>, we will break up the sum focusing on each element. So first, we will write <span class="math display">\[
-\sum_{S} (-1)^{|S|} N_\ge(S) = \sum_S (-1)^{|S|} \sum_{\substack{x \\ x \text{ satisfies } S}} 1
-\]</span></p>
-<p>Here we replace the number <span class="math inline">\(N_\ge(S)\)</span> by a count of <span class="math inline">\(1\)</span> for each element <span class="math inline">\(x\)</span> which satisfies <span class="math inline">\(S\)</span>. This introduces a second sum into the picture and that will allow us to swap the order of summations. Currently, the second sum is over all <span class="math inline">\(x\)</span> with respect to the relation “<span class="math inline">\(x\)</span> satisfies <span class="math inline">\(S\)</span>.” When we put the sum over <span class="math inline">\(x\)</span> outside, we still have the relation “<span class="math inline">\(x\)</span> satisfies <span class="math inline">\(S\)</span>” but rather than summing over all <span class="math inline">\(x\)</span> with this property, we sum over all <span class="math inline">\(S\)</span>:</p>
-<p><span class="math display">\[
-\sum_S (-1)^{|S|} \sum_{\substack{x \\ x \text{ satisfies } S}} 1 = \sum_x \sum_{\substack{S \\ x \text{ satisfies } S}} (-1)^{|S|}.
-\]</span></p>
-<p>We also move the <span class="math inline">\((-1)^|S|\)</span> inside the second sum because that quantity depends on <span class="math inline">\(|S|\)</span>.</p>
-<p>Next, just as we did in <a href="#sec-binomials-and-IE" class="quarto-xref"><span>Section 5.3</span></a>, let us say that <span class="math inline">\(x\)</span> satisfies exactly <span class="math inline">\(P_{i_1}, \dots, P_{i_m}\)</span> (<span class="math inline">\(m\)</span> will depend on <span class="math inline">\(x\)</span>) and let <span class="math inline">\(S_x = \{i_1, \dots, i_m\}\)</span>. This set is the largest set that <span class="math inline">\(x\)</span> satisfies. Every other set that <span class="math inline">\(x\)</span> satisfies will be a subset of <span class="math inline">\(S_x\)</span>.</p>
-<p>We now break up our sum based on the size of those subsets <span class="math inline">\(S \subseteq S_x\)</span>, using the binomial coefficients to count the number of such <span class="math inline">\(S\)</span>:</p>
-<p><span class="math display">\[
-\sum_x \sum_{\substack{S \\ x \text{ satisfies } S}} (-1)^{|S|} = \sum_x \sum_{k = 0}^m \underbrace{\binom{m}{k} (-1)^k}_{\substack{|S| = k \text{ and } x \text{ satisfies } S \\ \iff |S| = k \text{ and } S \subseteq S_x}}.
-\]</span></p>
-<p>This, by the Binomial Theorem, is the same as <span class="math display">\[
-\sum_x (1 - 1)^m.
-\]</span> Remember here that <span class="math inline">\(m\)</span> depends on <span class="math inline">\(x\)</span>.</p>
-<p>As discussed in <a href="#nte-0to0" class="quarto-xref">Note&nbsp;<span>5.1</span></a>, <span class="math inline">\(0^m = 0\)</span> if <span class="math inline">\(m \ge 1\)</span> but if <span class="math inline">\(m = 0\)</span> then <span class="math inline">\(0^0 = 1\)</span>. Saying <span class="math inline">\(m = 0\)</span> means that <span class="math inline">\(x\)</span> satisfies exactly <span class="math inline">\(0\)</span> properties—which is what we are looking for. So the final simplification looks like <span class="math display">\[
-\sum_x 0^m = \sum_{\substack{x \\ m = 0}} 1 = N_{=}(\varnothing).
-\]</span></p>
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{align*}
+\sum_{S} (-1)^{|S|} N_\ge(S) &amp;= \sum_{S} (-1)^{|S|} \sum_{\substack{x \\ x \text{ satisfies } S}} 1 \\
+&amp;= \sum_{x} \sum_{\substack{S \\ x \text{ satisfies } S}} (-1)^{|S|} \\
+&amp;= \sum_{x} \sum_{S \subseteq I_x} (-1)^{|S|} \\
+&amp;= \sum_{x} \begin{cases}
+1 &amp; \text{if } |I_x| = 0 \\
+0 &amp; \text{if } |I_x| \ge 1
+\end{cases} \\
+&amp;= N_{=}(\varnothing).
+\end{align*}\]</span></p>
+<p>Only the elements which satisfy no properties are left in the sum.</p>
 </div>
+</section>
 </section>
 <section id="application-1-surjections" class="level2" data-number="5.6">
 <h2 data-number="5.6" class="anchored" data-anchor-id="application-1-surjections"><span class="header-section-number">5.6</span> Application 1: Surjections</h2>
