@@ -73,7 +73,7 @@ For example, let $[m] = \{1,\dots,m\} and suppose we want to count the number of
 Let $X$ be the total set of functions. Then to count the functions avoiding $A_1 \cup \dots \cup A_n$ we do
 
 \begin{align*}
-|X \setminus (A_1 \cup \dots A_n)| &= |X| - |A_1 \cup \dots A_n| \\
+|X \setminus (A_1 \cup \dots A_n)| &= |X| - |A_1 \cup \dots \cup A_n| \\
 &= |X| - \sum_i |A_i| + \sum_{i < j} |A_i \cap A_j| - \cdots
 \end{align*}
 
@@ -84,7 +84,12 @@ The formula $|A \setminus B| = |A| - |B|$ works only when $B$ is contained entir
 
 ## Simplifying notation.
 
-Let $\mathscr{P} = \{P_1, \dots, P_n\}$ be a collection of sets representing negative properties---conditions we want to avoid. For a subset $S \subseteq \{1,\dots,n\}$, let $N_\ge(S)$ be the number of items satisfying at least those properties in $S$. I.e. $\bigcap_{i \in S} P_i$. We will say "$x$ satisfies $S$" for short. Also, if $S = \{a,b,c\}$, let us write for example, $N_\ge(a,b,c)$ instead of $N_\ge(\{a,b,c\})$ for simplicity.
+Let $\mathscr{P} = \{P_1, \dots, P_n\}$ be a collection of sets representing negative properties---conditions we want to avoid. For a subset $S \subseteq \{1,\dots,n\}$, let $N_\ge(S)$ be the number of items satisfying at least those properties in $S$.
+That is,
+$$
+N_{\ge}(S) = \left| \{x : x \in P_i \text{ for all } i \in S\} \right| = \left|\bigcap_{i \in S} P_i \right|.
+$$
+We will say "$x$ satisfies $S$" for short. Also, if $S = \{a,b,c\}$, let us write for example, $N_\ge(a,b,c)$ instead of $N_\ge(\{a,b,c\})$ for simplicity.
 
 Let $N_{=}(S)$ be the number of $x$ satisfying exactly those properties in $S$ and no properties not in $S$. When $\mathscr{P}$ represents properties we wish to avoid, then $N_{=}(\varnothing)$ is the number of elements satisfying none of the properties.
 
@@ -96,38 +101,87 @@ N_{=}(\varnothing) &= N_{\ge}(\varnothing) - \sum_i N_\ge(i) + \sum_{i < j} N_\g
 \end{align*}
 :::
 
+We will work up to the proof in stages to build our understanding. Similar to @sec-binomials-and-IE we will be looking element-by-element.
+
+### Stage 0a
+
+$$
+0^k = \begin{cases}
+1 & \text{if } k = 0 \\
+0 & \text{if } k \ge 1
+\end{cases}
+$$
+
+The reason we take the convention $0^0 = 1$ here has to do with summation notation. Consider a polynomial:
+$$
+f(x) = \sum_{k = 0}^n a_k x^k = a_0x^0 + a_1x^1 + a_2x^2 + \cdots + a_nx^n
+$$
+We understand in this context that $a_0x^0 = a_0$ even when we substitute $x = 0$. So in this context we need $0^0 = 1$.
+
+### Stage 0b
+
+$$
+(1 - 1)^k = \begin{cases}
+1 & \text{if } k = 0 \\
+0 & \text{if } k \ge 1
+\end{cases}
+$$
+
+### Stage 1a
+
+Now let us apply the binomial theorem to the previous stage. This gives
+$$
+(1 - 1)^k = \sum_{i = 0}^k \binom{k}{i}(-1)^i = \begin{cases}
+1 & \text{if } k = 0 \\
+0 & \text{if } k \ge 1
+\end{cases}
+$$
+
+### Stage 1b
+
+The binomial coefficients count subsets of a certain size but instead we can sum over all subsets.
+
+$$
+\binom{k}{i} = \left| \{ S \subseteq [k] : |S| = i \} \right| = \sum_{ \substack{S \subseteq [k] \\ |S| = i }} 1.
+$$
+
+Substituting this into the previous stage, we get
+
+$$
+\sum_{i = 0}^k \sum_{ \substack{S \subseteq [k] \\ |S| = i }} (-1)^i = \sum_{i = 0}^k \sum_{ \substack{S \subseteq [k] \\ |S| = i }} (-1)^{|S|} = \begin{cases}
+1 & \text{if } k = 0 \\
+0 & \text{if } k \ge 1
+\end{cases}
+$$
+
+### Stage 2
+
+The two summations can be simplified to just
+
+$$
+\sum_{S \subseteq [k]} (-1)^{|S|} = \begin{cases}
+1 & \text{if } k = 0 \\
+0 & \text{if } k \ge 1
+\end{cases}.
+$$
+
+### Stage 3
+
+We will not return to the proof of the Inclusion-Exclusion formula, @thm-inclusion-exclusion. A key step is going to be to swap the order of two summations. First, a small bit of notation, let $I_x = \{ i : x \in P_i \}$ be the list of properties $x$ satisfies.
+
 ::: {.proof}
-As in @sec-binomials-and-IE, we will break up the sum focusing on each element. So first, we will write
-$$
-\sum_{S} (-1)^{|S|} N_\ge(S) = \sum_S (-1)^{|S|} \sum_{\substack{x \\ x \text{ satisfies } S}} 1
-$$
+\begin{align*}
+\sum_{S} (-1)^{|S|} N_\ge(S) &= \sum_{S} (-1)^{|S|} \sum_{\substack{x \\ x \text{ satisfies } S}} 1 \\
+&= \sum_{x} \sum_{\substack{S \\ x \text{ satisfies } S}} (-1)^{|S|} \\
+&= \sum_{x} \sum_{S \subseteq I_x} (-1)^{|S|} \\
+&= \sum_{x} \begin{cases}
+1 & \text{if } |I_x| = 0 \\
+0 & \text{if } |I_x| \ge 1
+\end{cases} \\
+&= N_{=}(\varnothing).
+\end{align*}
 
-Here we replace the number $N_\ge(S)$ by a count of $1$ for each element $x$ which satisfies $S$. This introduces a second sum into the picture and that will allow us to swap the order of summations. Currently, the second sum is over all $x$ with respect to the relation "$x$ satisfies $S$." When we put the sum over $x$ outside, we still have the relation "$x$ satisfies $S$" but rather than summing over all $x$ with this property, we sum over all $S$:
-
-$$
-\sum_S (-1)^{|S|} \sum_{\substack{x \\ x \text{ satisfies } S}} 1 = \sum_x \sum_{\substack{S \\ x \text{ satisfies } S}} (-1)^{|S|}.
-$$
-
-We also move the $(-1)^|S|$ inside the second sum because that quantity depends on $|S|$.
-
-Next, just as we did in @sec-binomials-and-IE, let us say that $x$ satisfies exactly $P_{i_1}, \dots, P_{i_m}$ ($m$ will depend on $x$) and let $S_x = \{i_1, \dots, i_m\}$. This set is the largest set that $x$ satisfies. Every other set that $x$ satisfies will be a subset of $S_x$.
-
-We now break up our sum based on the size of those subsets $S \subseteq S_x$, using the binomial coefficients to count the number of such $S$:
-
-$$
-\sum_x \sum_{\substack{S \\ x \text{ satisfies } S}} (-1)^{|S|} = \sum_x \sum_{k = 0}^m \underbrace{\binom{m}{k} (-1)^k}_{\substack{|S| = k \text{ and } x \text{ satisfies } S \\ \iff |S| = k \text{ and } S \subseteq S_x}}.
-$$
-
-This, by the Binomial Theorem, is the same as
-$$
-\sum_x (1 - 1)^m.
-$$
-Remember here that $m$ depends on $x$.
-
-As discussed in @nte-0to0, $0^m = 0$ if $m \ge 1$ but if $m = 0$ then $0^0 = 1$. Saying $m = 0$ means that $x$ satisfies exactly $0$ properties---which is what we are looking for. So the final simplification looks like
-$$
-\sum_x 0^m = \sum_{\substack{x \\ m = 0}} 1 = N_{=}(\varnothing).
-$$
+Only the elements which satisfy no properties are left in the sum.
 :::
 
 ## Application 1: Surjections
