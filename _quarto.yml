@@ -33,6 +33,9 @@ book:
       chapters:
         - inclusion-exclusion/inclusion-exclusion.qmd
         - inclusion-exclusion/totient.qmd
+    - part: "Stars and Bars"
+      chapters:
+        - stars-and-bars/stars-and-bars.qmd
     - part: "Permutations"
       chapters:
         - permutations/permutations.qmd

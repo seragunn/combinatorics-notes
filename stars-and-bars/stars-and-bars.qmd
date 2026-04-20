@@ -1,0 +1,147 @@
+# Stars and Bars
+
+We wish to find the number of solutions to problems of the following variety:
+
+Suppose we have $n$ objects (e.g. dollars, apples, books) that are to be
+distributed among $m$ people. In how many ways can this be accomplished?
+
+A common notation we will use here is $x_i$ will be the number of objects
+distributed to person $i$. And this will give us the equation or inequality
+
+\begin{align*}
+x_1 + x_2 + \cdots + x_m &= n \\
+\text{or } x_1 + x_2 + \cdots + x_m &\le n
+\end{align*}
+
+::: {#exm-stars-bars-exm}
+If there are $10$ books and we distribute $2, 4, 1, 3$ to person $1, 2, 3, 4$
+respectively then $x_1 = 2, x_2 = 4, x_3 = 1, x_4 = 3$ and
+$$
+x_1 + x_2 + x_3 + x_4 = 2 + 4 + 1 + 3 = 10.
+$$
+:::
+
+## Model 1: shuffling
+
+Consider the numbers from @exm-stars-bars-exm. We can represent this as an
+arrangement of stars and bars as
+
+$$
+\underbrace{* *}_{x_1} \mid \underbrace{* * * *}_{x_2} \mid \underbrace{*}_{x_3} \mid \underbrace{* * *}_{x_4}
+$$
+
+::: {.callout-note}
+### Number of bars
+Notice here that we need only 3 bars to divide the stars into 4 groups. In general, for the equation $x_1 + \dots + x_m = n$ we need $m - 1$ bars to divide the $n$ stars among $m$ people.
+:::
+
+Different shuffles of these 10 stars and 3 bars yield different distributions of objects:
+
+\begin{align*}
+********** | | | && 10 + 0 + 0 + 0 = 10 \\
+| ***** | ***** | && 0 + 5 + 5 + 0 = 10 \\
+| | ******* | *** && 0 + 0 + 7 + 3 = 10 \\
+** | ** | ** | **** && 2 + 2 + 2 + 4 = 10
+\end{align*}
+
+and so on.
+
+In this shuffling model,
+* a bar can be in any position including the front or end
+* two or more bars can be touching
+* this represents the condition $x_i \ge 0$
+
+::: {#thm-sb-shuffle}
+The number of solutions to
+$$
+x_1 + x_2 + \dots + x_m = n, \; x_i \ge 0
+$$
+is $\binom{m - 1 + n}{m - 1}$ or $\binom{m - 1 + n}{n}$.
+:::
+
+::: {.proof}
+Each way to write $n$ as a sum in this way corresponds to a stars and bars
+arrangement of shuffling $m - 1$ bars and $n$ stars. The number of shuffles is
+equal to *choosing* where the $m - 1$ bars go among the $m - 1 + n$ positions.
+
+Equivalently, we can *choose* where the $n$ stars go. Giving
+
+$$\binom{m - 1 + n}{m - 1} \text{ or } \binom{m - 1 + n}{n}. $$
+:::
+
+::: {#exm-sb-shuffle-count}
+How many ways are there to distribute 10 apples among 4 people where everyone can get $0$ or more apples?
+
+Solution: There are $n = 10$ objects and $m = 4$ people. The stars and bars
+arrangement has $10$ stars and $3$ bars. By @thm-sb-shuffle there are $\binom{3
++ 10}{3}$ ways to distribute the apples.
+:::
+
+## Model 2: gaps
+
+Another variation on this problem is what do we do when we want to ensure everyone gets at least one object? That is, $x_i \ge 1$ rather than $\ge 0$?
+
+Here we will use an idea that sometimes appears in math competition type problems of "how many ways to shuffle if..."
+
+::: {#exm-gaps-12}
+How many ways are there to seat $10$ people in a row such that person $1$ and person $2$ are not sat next to each other?
+
+Solution 1:
+Count all the shuffles and subtract the ones containing the substring "12" or the substring "21".
+
+* There are $10!$ ways to shuffle the 10 people: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+* Now group "12" together into a single symbol
+    * There are $9!$ ways to shuffle the symbols '12', 3, 4, 5, 6, 7, 8, 9, 10
+* Likewise there are $9!$ ways if we have "21" instead of "12" in our shuffle
+* So the final count is $10! - 9! - 9!$
+
+Solution 2:
+First shuffle the $8$ people 3, 4, 5, 6, 7, 8, 9, 10 then put 1 and 2 in the
+gaps created by this shuffle. E.g. if that shuffle is 6, 3, 10, 9, 5, 4, 7, 8
+then we can put 1 and 2 in any of these positions
+$$
+ \textunderscore 6 \textunderscore 3 \textunderscore 10 \textunderscore 9 \textunderscore 5 \textunderscore 4 \textunderscore 7 \textunderscore 8 \textunderscore 
+$$
+
+Here there are 9 gaps in which we need to *choose* 2 to put 1 and 2. But the 1
+and 2 can go in either order so we multiply by 2. I.e. $\binom{9}{2} \cdot 2 =
+P(9, 2)$. Alternatively: there are 9 choices to put the 1 and then 8 choices to
+put the 2 since it can't go in the same spot as the 1.
+
+In total therefore, there are $8! \cdot 9 \cdot 8$ arrangements.
+
+Exercise: double check that the quantities we obtained in these two solutions are in fact equal.
+:::
+
+Solution 2 in this previous example is the approach we will take for our stars
+and bars problem. If we want $x_i \ge 1$ then the bars cannot touch, there
+needs to be at least 1 star in between every pair of bars as well as at least
+one star at the front and at least one at the end.
+
+For example, in our 10 apples, 4 people problem, the bars can go in any of these positions:
+
+$$ * \textunderscore * \textunderscore * \textunderscore * \textunderscore * \textunderscore * \textunderscore * \textunderscore * \textunderscore * \textunderscore * $$
+
+::: {.callout-note}
+### Number of gaps
+If there are $n$ stars/objects, there are $n - 1$ gaps in which to place the
+bars. This is because the bars can't go at the very start or very end because
+the first and last person needs at least one star. So the bars have to go in
+between.
+:::
+
+::: {#thm-sb-gaps}
+The number of solutions to
+$$
+x_1 + x_2 + \dots + x_m = n, \; x_i \ge 1
+$$
+is $\binom{n - 1}{m - 1}$.
+:::
+
+::: {.proof}
+Each way to write $n$ as a sum in this way corresponds to a stars and bars
+arrangement with $n$ stars, $n - 1$ gaps and $m - 1$ bars. The number of arrangements is
+equal to *choosing* where the $m - 1$ bars go in the $n - 1$ gaps. That is,
+$$\binom{n - 1}{m - 1}. $$
+:::
+
