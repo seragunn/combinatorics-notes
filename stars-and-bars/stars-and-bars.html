@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Inclusion/Exclusion – Combinatorics Notes</title>
+<title>7&nbsp; Stars and Bars – Combinatorics Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../inclusion-exclusion/totient.html" rel="next">
-<link href="../strings/string-exercises.html" rel="prev">
+<link href="../permutations/permutations.html" rel="next">
+<link href="../inclusion-exclusion/totient.html" rel="prev">
 <link href="../icon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -145,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inclusion-exclusion/inclusion-exclusion.html">Inclusion-Exclusion</a></li><li class="breadcrumb-item"><a href="../inclusion-exclusion/inclusion-exclusion.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stars-and-bars/stars-and-bars.html">Stars and Bars</a></li><li class="breadcrumb-item"><a href="../stars-and-bars/stars-and-bars.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stars and Bars</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -220,7 +220,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link active">
+  <a href="../inclusion-exclusion/inclusion-exclusion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></span></a>
   </div>
 </li>
@@ -243,7 +243,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stars-and-bars/stars-and-bars.html" class="sidebar-item-text sidebar-link">
+  <a href="../stars-and-bars/stars-and-bars.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stars and Bars</span></span></a>
   </div>
 </li>
@@ -394,30 +394,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#for-two-sets" id="toc-for-two-sets" class="nav-link active" data-scroll-target="#for-two-sets"><span class="header-section-number">5.1</span> For two sets</a></li>
-  <li><a href="#for-three-sets" id="toc-for-three-sets" class="nav-link" data-scroll-target="#for-three-sets"><span class="header-section-number">5.2</span> For three sets</a></li>
-  <li><a href="#sec-binomials-and-IE" id="toc-sec-binomials-and-IE" class="nav-link" data-scroll-target="#sec-binomials-and-IE"><span class="header-section-number">5.3</span> Binomial coefficients and I/E</a></li>
-  <li><a href="#sec-avoiding" id="toc-sec-avoiding" class="nav-link" data-scroll-target="#sec-avoiding"><span class="header-section-number">5.4</span> Avoiding properties</a></li>
-  <li><a href="#simplifying-notation." id="toc-simplifying-notation." class="nav-link" data-scroll-target="#simplifying-notation."><span class="header-section-number">5.5</span> Simplifying notation.</a>
-  <ul class="collapse">
-  <li><a href="#stage-0a" id="toc-stage-0a" class="nav-link" data-scroll-target="#stage-0a"><span class="header-section-number">5.5.1</span> Stage 0a</a></li>
-  <li><a href="#stage-0b" id="toc-stage-0b" class="nav-link" data-scroll-target="#stage-0b"><span class="header-section-number">5.5.2</span> Stage 0b</a></li>
-  <li><a href="#stage-1a" id="toc-stage-1a" class="nav-link" data-scroll-target="#stage-1a"><span class="header-section-number">5.5.3</span> Stage 1a</a></li>
-  <li><a href="#stage-1b" id="toc-stage-1b" class="nav-link" data-scroll-target="#stage-1b"><span class="header-section-number">5.5.4</span> Stage 1b</a></li>
-  <li><a href="#stage-2" id="toc-stage-2" class="nav-link" data-scroll-target="#stage-2"><span class="header-section-number">5.5.5</span> Stage 2</a></li>
-  <li><a href="#stage-3" id="toc-stage-3" class="nav-link" data-scroll-target="#stage-3"><span class="header-section-number">5.5.6</span> Stage 3</a></li>
-  </ul></li>
-  <li><a href="#application-1-surjections" id="toc-application-1-surjections" class="nav-link" data-scroll-target="#application-1-surjections"><span class="header-section-number">5.6</span> Application 1: Surjections</a></li>
-  <li><a href="#application-2-derangements" id="toc-application-2-derangements" class="nav-link" data-scroll-target="#application-2-derangements"><span class="header-section-number">5.7</span> Application 2: Derangements</a></li>
+  <li><a href="#model-1-shuffling" id="toc-model-1-shuffling" class="nav-link active" data-scroll-target="#model-1-shuffling"><span class="header-section-number">7.1</span> Model 1: shuffling</a></li>
+  <li><a href="#model-2-gaps" id="toc-model-2-gaps" class="nav-link" data-scroll-target="#model-2-gaps"><span class="header-section-number">7.2</span> Model 2: gaps</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/inclusion-exclusion/inclusion-exclusion.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/inclusion-exclusion/inclusion-exclusion.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/stars-and-bars/stars-and-bars.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/stars-and-bars/stars-and-bars.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../inclusion-exclusion/inclusion-exclusion.html">Inclusion-Exclusion</a></li><li class="breadcrumb-item"><a href="../inclusion-exclusion/inclusion-exclusion.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stars-and-bars/stars-and-bars.html">Stars and Bars</a></li><li class="breadcrumb-item"><a href="../stars-and-bars/stars-and-bars.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stars and Bars</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inclusion/Exclusion</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stars and Bars</span></h1>
 </div>
 
 
@@ -434,234 +421,110 @@ window.Quarto = {
 </header>
 
 
-<section id="for-two-sets" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="for-two-sets"><span class="header-section-number">5.1</span> For two sets</h2>
-<div id="exm-two-sets" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5.1</strong></span> Suppose there are <span class="math inline">\(100\)</span> CS students an a school. Of these, <span class="math inline">\(50\)</span> know Java and <span class="math inline">\(60\)</span> know Python (everyone knows at least one of these two languages). If we add <span class="math inline">\(50 + 60\)</span> we get the <span class="math inline">\(100\)</span> total students plus <span class="math inline">\(10\)</span> students who know both.</p>
-<p><span class="math display">\[
-50 + 60 = 100 + 10.
-\]</span></p>
-</div>
-<p>Given two sets <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, we can compute <span class="math inline">\(|A \cup B|\)</span> by first adding everything in <span class="math inline">\(A\)</span> and adding everything in <span class="math inline">\(B\)</span>. This counts all of <span class="math inline">\(A \cup B\)</span> except the items in <span class="math inline">\(A \cap B\)</span> were counted twice. Thus</p>
-<p><span class="math display">\[
-|A| + |B| = |A \cup B| + |A \cap B|.
-\]</span></p>
-</section>
-<section id="for-three-sets" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="for-three-sets"><span class="header-section-number">5.2</span> For three sets</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../i/Inclusion-exclusion-3sets.png" class="img-fluid figure-img"></p>
-<figcaption>Inclusion/Exclusion for 3 sets</figcaption>
-</figure>
-</div>
-<p>We can do a similar process for three sets. Start by adding up <span class="math inline">\(|A| + |B| + |C|\)</span> then subtract all the intersections of pairs then add back in <span class="math inline">\(|A \cap B \cap C|\)</span>. For items in each region of the Venn diagram, think about how many times an item is added/subtracted overall.</p>
-<p>E.g. items in <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> but not <span class="math inline">\(C\)</span> will be added in twice in the first step (<span class="math inline">\(|A| + |B|\)</span>) and subtracted once in the second step (<span class="math inline">\(|A \cap B|\)</span>) so they are counted once.</p>
-<p>Items in <span class="math inline">\(A \cap B \cap C\)</span> are added in <span class="math inline">\(3 - 3 + 1 = 1\)</span> times.</p>
-</section>
-<section id="sec-binomials-and-IE" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="sec-binomials-and-IE"><span class="header-section-number">5.3</span> Binomial coefficients and I/E</h2>
-<p>Suppose we are looking at a union of <span class="math inline">\(n\)</span> sets: <span class="math inline">\(A_1 \cup \dots \cup A_n\)</span>. Consider an element <span class="math inline">\(x\)</span> belonging exactly to <span class="math inline">\(A_1, \dots, A_m\)</span> and no other sets. If we do the same procedure of adding <span class="math inline">\(|A_1| + \dots + |A_n|\)</span> then we are counting <span class="math inline">\(x\)</span> a total of <span class="math inline">\(m\)</span> times. Then, when we subtract all the pairwise intersections, <span class="math inline">\(|A_i \cap A_j|\)</span>, we are subtracting from the count of <span class="math inline">\(x\)</span> a total of <span class="math inline">\(\binom{m}{2}\)</span> because there are <span class="math inline">\(\binom{m}{2}\)</span> ways to choose two indices <span class="math inline">\(\{i, j\} \subset \{1, \dots, m\}\)</span>.</p>
-<p>Thus, if we alternate: adding in single sets, subtracting pairs of intersections, adding triples, subtracting quadruples, etc. we are counting <span class="math inline">\(x\)</span> a total of</p>
-<p><span id="eq-IE-alternating-sum"><span class="math display">\[
-\binom{m}1 - \binom{m}2 + \binom{m}3 -  \binom{m}4 + \cdots
-\tag{5.1}\]</span></span> times.</p>
-<p>Let’s have a closer look at this. We know the Binomial Theorem says that <span class="math display">\[
-(1 + x)^m = \binom{m}0x^0 + \binom{m}1x^1 + \binom{m}2x^2 + \dots + \binom{m}mx^m.
-\]</span> Substituting <span class="math inline">\(x = -1\)</span>, we get</p>
-<p><span class="math display">\[
-0 = \binom{m}0 - \binom{m}1 + \binom{m}2 - \dots + \binom{m}m (-1)^m.
-\]</span></p>
-<p>And since <span class="math inline">\(\binom{m}0 = 1\)</span>, if we move all the other terms to the other side of the equation, we see that <a href="#eq-IE-alternating-sum" class="quarto-xref">Equation&nbsp;<span>5.1</span></a> evaluates to <span class="math inline">\(1\)</span>.</p>
-<div id="nte-0to0" class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note&nbsp;5.1
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>For this problem we are counting the size of <span class="math inline">\(A_1 \cup \dots \cup A_n\)</span> so each element is in at least one set (<span class="math inline">\(m \ge 1\)</span>). This is important so that we can say that <span class="math inline">\(0^m = 0\)</span>. In the context of the binomial theorem, <span class="math inline">\((1 - 1)^0 = \binom{0}{0} = 1\)</span>. This will be important later when we want to count elements not belonging to any set.</p>
-</div>
-</div>
-<p>The general I/E formula is then</p>
+<p>We wish to find the number of solutions to problems of the following variety:</p>
+<p>Suppose we have <span class="math inline">\(n\)</span> objects (e.g.&nbsp;dollars, apples, books) that are to be distributed among <span class="math inline">\(m\)</span> people. In how many ways can this be accomplished?</p>
+<p>A common notation we will use here is <span class="math inline">\(x_i\)</span> will be the number of objects distributed to person <span class="math inline">\(i\)</span>. And this will give us the equation or inequality</p>
 <p><span class="math display">\[\begin{align*}
-|A_1 \cup \dots \cup A_n| &amp;= \sum_i |A_i| - \sum_{i &lt; j} |A_i \cap A_j| + \sum_{i &lt; j &lt; k} |A_i \cap A_j \cap A_k| - \dots \\
-&amp;= \sum_{t = 1}^n (-1)^{t + 1} \sum_{i_1 &lt; \dots &lt; i_t} |A_{i_1} \cap \dots \cap A_{i_t}|.
+x_1 + x_2 + \cdots + x_m &amp;= n \\
+\text{or } x_1 + x_2 + \cdots + x_m &amp;\le n
 \end{align*}\]</span></p>
-<p>Note: <span class="math inline">\((-1)^{t + 1}\)</span> takes the values <span class="math inline">\(1, -1, 1, -1, \dots\)</span> starting at <span class="math inline">\(t = 1\)</span>.</p>
-</section>
-<section id="sec-avoiding" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="sec-avoiding"><span class="header-section-number">5.4</span> Avoiding properties</h2>
-<p>Inclusion/Exclusion appears most frequently in combinatorics not as a means to count <span class="math inline">\(|A_1 \cup \dots \cup A_n|\)</span> directly but rather as a means to count everything <em>not</em> in <span class="math inline">\(A_1 \cup \dots \cup A_n\)</span>.</p>
-<p>For example, let $[m] = {1,,m} and suppose we want to count the number of functions <span class="math inline">\(f : [m] \to [n]\)</span> which <em>don’t</em> miss anything in the codomain. I.e. if <span class="math inline">\(A_i\)</span> is the set of functions where <span class="math inline">\(f(x)\)</span> never equals <span class="math inline">\(i\)</span>, then we want to count every function <em>not</em> in any set <span class="math inline">\(A_i\)</span>.</p>
-<p>Let <span class="math inline">\(X\)</span> be the total set of functions. Then to count the functions avoiding <span class="math inline">\(A_1 \cup \dots \cup A_n\)</span> we do</p>
-<p><span class="math display">\[\begin{align*}
-|X \setminus (A_1 \cup \dots A_n)| &amp;= |X| - |A_1 \cup \dots \cup A_n| \\
-&amp;= |X| - \sum_i |A_i| + \sum_{i &lt; j} |A_i \cap A_j| - \cdots
-\end{align*}\]</span></p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div id="exm-stars-bars-exm" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.1</strong></span> If there are <span class="math inline">\(10\)</span> books and we distribute <span class="math inline">\(2, 4, 1, 3\)</span> to person <span class="math inline">\(1, 2, 3, 4\)</span> respectively then <span class="math inline">\(x_1 = 2, x_2 = 4, x_3 = 1, x_4 = 3\)</span> and <span class="math display">\[
+x_1 + x_2 + x_3 + x_4 = 2 + 4 + 1 + 3 = 10.
+\]</span></p>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The formula <span class="math inline">\(|A \setminus B| = |A| - |B|\)</span> works only when <span class="math inline">\(B\)</span> is contained entirely inside <span class="math inline">\(A\)</span>.</p>
-</div>
-</div>
-</section>
-<section id="simplifying-notation." class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="simplifying-notation."><span class="header-section-number">5.5</span> Simplifying notation.</h2>
-<p>Let <span class="math inline">\(\mathscr{P} = \{P_1, \dots, P_n\}\)</span> be a collection of sets representing negative properties—conditions we want to avoid. For a subset <span class="math inline">\(S \subseteq \{1,\dots,n\}\)</span>, let <span class="math inline">\(N_\ge(S)\)</span> be the number of items satisfying at least those properties in <span class="math inline">\(S\)</span>. That is, <span class="math display">\[
-N_{\ge}(S) = \left| \{x : x \in P_i \text{ for all } i \in S\} \right| = \left|\bigcap_{i \in S} P_i \right|.
-\]</span> We will say “<span class="math inline">\(x\)</span> satisfies <span class="math inline">\(S\)</span>” for short. Also, if <span class="math inline">\(S = \{a,b,c\}\)</span>, let us write for example, <span class="math inline">\(N_\ge(a,b,c)\)</span> instead of <span class="math inline">\(N_\ge(\{a,b,c\})\)</span> for simplicity.</p>
-<p>Let <span class="math inline">\(N_{=}(S)\)</span> be the number of <span class="math inline">\(x\)</span> satisfying exactly those properties in <span class="math inline">\(S\)</span> and no properties not in <span class="math inline">\(S\)</span>. When <span class="math inline">\(\mathscr{P}\)</span> represents properties we wish to avoid, then <span class="math inline">\(N_{=}(\varnothing)\)</span> is the number of elements satisfying none of the properties.</p>
-<div id="thm-inclusion-exclusion" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5.1 (Inclusion/Exclusion)</strong></span> <span class="math display">\[\begin{align*}
-N_{=}(\varnothing) &amp;= N_{\ge}(\varnothing) - \sum_i N_\ge(i) + \sum_{i &lt; j} N_\ge(i,j) - \cdots \\
-&amp;= \sum_{S} (-1)^{|S|} N_\ge(S).
-\end{align*}\]</span></p>
-</div>
-<p>We will work up to the proof in stages to build our understanding. Similar to <a href="#sec-binomials-and-IE" class="quarto-xref"><span>Section 5.3</span></a> we will be looking element-by-element.</p>
-<section id="stage-0a" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="stage-0a"><span class="header-section-number">5.5.1</span> Stage 0a</h3>
+<section id="model-1-shuffling" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="model-1-shuffling"><span class="header-section-number">7.1</span> Model 1: shuffling</h2>
+<p>Consider the numbers from <a href="#exm-stars-bars-exm" class="quarto-xref">Example&nbsp;<span>7.1</span></a>. We can represent this as an arrangement of stars and bars as</p>
 <p><span class="math display">\[
-0^k = \begin{cases}
-1 &amp; \text{if } k = 0 \\
-0 &amp; \text{if } k \ge 1
-\end{cases}
+\underbrace{* *}_{x_1} \mid \underbrace{* * * *}_{x_2} \mid \underbrace{*}_{x_3} \mid \underbrace{* * *}_{x_4}
 \]</span></p>
-<p>The reason we take the convention <span class="math inline">\(0^0 = 1\)</span> here has to do with summation notation. Consider a polynomial: <span class="math display">\[
-f(x) = \sum_{k = 0}^n a_k x^k = a_0x^0 + a_1x^1 + a_2x^2 + \cdots + a_nx^n
-\]</span> We understand in this context that <span class="math inline">\(a_0x^0 = a_0\)</span> even when we substitute <span class="math inline">\(x = 0\)</span>. So in this context we need <span class="math inline">\(0^0 = 1\)</span>.</p>
-</section>
-<section id="stage-0b" class="level3" data-number="5.5.2">
-<h3 data-number="5.5.2" class="anchored" data-anchor-id="stage-0b"><span class="header-section-number">5.5.2</span> Stage 0b</h3>
-<p><span class="math display">\[
-(1 - 1)^k = \begin{cases}
-1 &amp; \text{if } k = 0 \\
-0 &amp; \text{if } k \ge 1
-\end{cases}
-\]</span></p>
-</section>
-<section id="stage-1a" class="level3" data-number="5.5.3">
-<h3 data-number="5.5.3" class="anchored" data-anchor-id="stage-1a"><span class="header-section-number">5.5.3</span> Stage 1a</h3>
-<p>Now let us apply the binomial theorem to the previous stage. This gives <span class="math display">\[
-(1 - 1)^k = \sum_{i = 0}^k \binom{k}{i}(-1)^i = \begin{cases}
-1 &amp; \text{if } k = 0 \\
-0 &amp; \text{if } k \ge 1
-\end{cases}
-\]</span></p>
-</section>
-<section id="stage-1b" class="level3" data-number="5.5.4">
-<h3 data-number="5.5.4" class="anchored" data-anchor-id="stage-1b"><span class="header-section-number">5.5.4</span> Stage 1b</h3>
-<p>The binomial coefficients count subsets of a certain size but instead we can sum over all subsets.</p>
-<p><span class="math display">\[
-\binom{k}{i} = \left| \{ S \subseteq [k] : |S| = i \} \right| = \sum_{ \substack{S \subseteq [k] \\ |S| = i }} 1.
-\]</span></p>
-<p>Substituting this into the previous stage, we get</p>
-<p><span class="math display">\[
-\sum_{i = 0}^k \sum_{ \substack{S \subseteq [k] \\ |S| = i }} (-1)^i = \sum_{i = 0}^k \sum_{ \substack{S \subseteq [k] \\ |S| = i }} (-1)^{|S|} = \begin{cases}
-1 &amp; \text{if } k = 0 \\
-0 &amp; \text{if } k \ge 1
-\end{cases}
-\]</span></p>
-</section>
-<section id="stage-2" class="level3" data-number="5.5.5">
-<h3 data-number="5.5.5" class="anchored" data-anchor-id="stage-2"><span class="header-section-number">5.5.5</span> Stage 2</h3>
-<p>The two summations can be simplified to just</p>
-<p><span class="math display">\[
-\sum_{S \subseteq [k]} (-1)^{|S|} = \begin{cases}
-1 &amp; \text{if } k = 0 \\
-0 &amp; \text{if } k \ge 1
-\end{cases}.
-\]</span></p>
-</section>
-<section id="stage-3" class="level3" data-number="5.5.6">
-<h3 data-number="5.5.6" class="anchored" data-anchor-id="stage-3"><span class="header-section-number">5.5.6</span> Stage 3</h3>
-<p>We will not return to the proof of the Inclusion-Exclusion formula, <a href="#thm-inclusion-exclusion" class="quarto-xref">Theorem&nbsp;<span>5.1</span></a>. A key step is going to be to swap the order of two summations. First, a small bit of notation, let <span class="math inline">\(I_x = \{ i : x \in P_i \}\)</span> be the list of properties <span class="math inline">\(x\)</span> satisfies.</p>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[\begin{align*}
-\sum_{S} (-1)^{|S|} N_\ge(S) &amp;= \sum_{S} (-1)^{|S|} \sum_{\substack{x \\ x \text{ satisfies } S}} 1 \\
-&amp;= \sum_{x} \sum_{\substack{S \\ x \text{ satisfies } S}} (-1)^{|S|} \\
-&amp;= \sum_{x} \sum_{S \subseteq I_x} (-1)^{|S|} \\
-&amp;= \sum_{x} \begin{cases}
-1 &amp; \text{if } |I_x| = 0 \\
-0 &amp; \text{if } |I_x| \ge 1
-\end{cases} \\
-&amp;= N_{=}(\varnothing).
-\end{align*}\]</span></p>
-<p>Only the elements which satisfy no properties are left in the sum.</p>
-</div>
-</section>
-</section>
-<section id="application-1-surjections" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="application-1-surjections"><span class="header-section-number">5.6</span> Application 1: Surjections</h2>
-<p>As in <a href="#sec-avoiding" class="quarto-xref"><span>Section 5.4</span></a>, let <span class="math inline">\(X\)</span> be the set of all functions from <span class="math inline">\([m]\)</span> to <span class="math inline">\([n]\)</span> and let <span class="math inline">\(P_i\)</span> be the set of functions where <span class="math inline">\(i\)</span> is never an output: <span class="math inline">\(f(x) \neq i\)</span> for any input <span class="math inline">\(x\)</span>.</p>
-<div id="lem-functions-missing-k" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 5.1</strong></span> &nbsp;</p>
-<ol type="a">
-<li>The number of functions from an <span class="math inline">\(m\)</span> element set to an <span class="math inline">\(n\)</span> element set is <span class="math inline">\(n^m\)</span>.</li>
-<li>The number of functions from an <span class="math inline">\(m\)</span> element set to an <span class="math inline">\(n\)</span> element set that avoid <span class="math inline">\(k\)</span> outputs is <span class="math inline">\((n - k)^m\)</span>.</li>
-</ol>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span></p>
-<ol type="a">
-<li>There are <span class="math inline">\(n\)</span> choices for <span class="math inline">\(f(1)\)</span> and <span class="math inline">\(n\)</span> choices for <span class="math inline">\(f(2)\)</span>, etc. So there are <span class="math inline">\(n^m\)</span> choices in total for <span class="math inline">\(f(1), \dots, f(m)\)</span>.</li>
-<li>If we are avoiding <span class="math inline">\(k\)</span> outputs then there are only <span class="math inline">\(n - k\)</span> choices for each of <span class="math inline">\(f(1),\dots,f(m)\)</span> so <span class="math inline">\((n - k)^m\)</span>.</li>
-</ol>
-</div>
-<p>With this in mind, we have <span class="math inline">\(N_\ge(S) = (n - k)^m\)</span> if <span class="math inline">\(|S| = k\)</span> (we avoid at least the specified <span class="math inline">\(k\)</span> outputs). So by inclusion exclusion, the number of functions which avoid <em>no</em> outputs (i.e.&nbsp;surjections) is</p>
-<p><span class="math display">\[\begin{align*}
-&amp;N_\ge(\varnothing) - \sum_i N_\ge(i) + \sum_{i &lt; j} N_\ge(i,j) - \cdots \\
-&amp;\hspace{4em} = n^m - \sum_i (n - 1)^m + \sum_{i &lt; j} (n - 2)^m - \cdots.
-\end{align*}\]</span></p>
-<p>And since there are <span class="math inline">\(\binom{n}{k}\)</span> ways to choose <span class="math inline">\(k\)</span> outputs to avoid, we can also write this as</p>
-<p><span class="math display">\[
-n^m - \binom{n}1 (n - 1)^m + \binom{n}2 (n - 2)^m - \dots = \sum_{k} \binom{n}k (-1)^k (n - k)^m.
-\]</span></p>
-<p>The textbook calls this number <span class="math inline">\(S(m,n)\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Note
+<span class="screen-reader-only">Note</span>Number of bars
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In the above application, <span class="math inline">\(N_\ge(S) = (n - k)^m\)</span> only depended on the size <span class="math inline">\(k\)</span> of <span class="math inline">\(S\)</span>. This is true in many but not all examples.</p>
+<p>Notice here that we need only 3 bars to divide the stars into 4 groups. In general, for the equation <span class="math inline">\(x_1 + \dots + x_m = n\)</span> we need <span class="math inline">\(m - 1\)</span> bars to divide the <span class="math inline">\(n\)</span> stars among <span class="math inline">\(m\)</span> people.</p>
 </div>
 </div>
-</section>
-<section id="application-2-derangements" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="application-2-derangements"><span class="header-section-number">5.7</span> Application 2: Derangements</h2>
-<p>Let <span class="math inline">\(X\)</span> be the set of all permutations of <span class="math inline">\([n]\)</span>. We wish to count the permutations with no fixed points. So let <span class="math inline">\(P_i\)</span> be the property that <span class="math inline">\(i\)</span> is a fixed point. Then <span class="math inline">\(N_{=}(\varnothing)\)</span> is the number of permutations with zero fixed points. This number is called <span class="math inline">\(d_n\)</span> in the textbook.</p>
-<div id="lem-k-fixedpoints" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 5.2</strong></span> &nbsp;</p>
-<ol type="a">
-<li>The number of permutations of <span class="math inline">\([n]\)</span> is <span class="math inline">\(n!\)</span></li>
-<li>The number of permutations with at least <span class="math inline">\(k\)</span> specified fixed points is <span class="math inline">\((n - k)!\)</span></li>
-</ol>
+<p>Different shuffles of these 10 stars and 3 bars yield different distributions of objects:</p>
+<p><span class="math display">\[\begin{align*}
+********** | | | &amp;&amp; 10 + 0 + 0 + 0 = 10 \\
+| ***** | ***** | &amp;&amp; 0 + 5 + 5 + 0 = 10 \\
+| | ******* | *** &amp;&amp; 0 + 0 + 7 + 3 = 10 \\
+** | ** | ** | **** &amp;&amp; 2 + 2 + 2 + 4 = 10
+\end{align*}\]</span></p>
+<p>and so on.</p>
+<p>In this shuffling model, * a bar can be in any position including the front or end * two or more bars can be touching * this represents the condition <span class="math inline">\(x_i \ge 0\)</span></p>
+<div id="thm-sb-shuffle" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 7.1</strong></span> The number of solutions to <span class="math display">\[
+x_1 + x_2 + \dots + x_m = n, \; x_i \ge 0
+\]</span> is <span class="math inline">\(\binom{m - 1 + n}{m - 1}\)</span> or <span class="math inline">\(\binom{m - 1 + n}{n}\)</span>.</p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span></p>
-<ol type="a">
-<li>Discussed in Chapter 2 of the book.</li>
-<li>To say that there are <span class="math inline">\(k\)</span> specified fixed points means were are permuting the other <span class="math inline">\(n - k\)</span> items. Similar to (a), there are <span class="math inline">\((n - k)!\)</span> ways to permute <span class="math inline">\(n - k\)</span> items.</li>
-</ol>
+<p><span class="proof-title"><em>Proof</em>. </span>Each way to write <span class="math inline">\(n\)</span> as a sum in this way corresponds to a stars and bars arrangement of shuffling <span class="math inline">\(m - 1\)</span> bars and <span class="math inline">\(n\)</span> stars. The number of shuffles is equal to <em>choosing</em> where the <span class="math inline">\(m - 1\)</span> bars go among the <span class="math inline">\(m - 1 + n\)</span> positions.</p>
+<p>Equivalently, we can <em>choose</em> where the <span class="math inline">\(n\)</span> stars go. Giving</p>
+<p><span class="math display">\[\binom{m - 1 + n}{m - 1} \text{ or } \binom{m - 1 + n}{n}. \]</span></p>
 </div>
-<p>Applying Inclusion/Exclusion, we thus have <span class="math display">\[
-d_n = n! - \binom{n}1 (n - 1)! + \binom{n}2 (n - 2)! - \dots = \sum_{k} \binom{n}k (-1)^k (n - k)!.
-\]</span> Again, there are <span class="math inline">\(\binom{n}k\)</span> ways to choose a set <span class="math inline">\(S\)</span> of <span class="math inline">\(k\)</span> fixed points and each of these has the same number <span class="math inline">\(N_\ge(S) = (n - k)!\)</span>.</p>
+<div id="exm-sb-shuffle-count" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.2</strong></span> How many ways are there to distribute 10 apples among 4 people where everyone can get <span class="math inline">\(0\)</span> or more apples?</p>
+<p>Solution: There are <span class="math inline">\(n = 10\)</span> objects and <span class="math inline">\(m = 4\)</span> people. The stars and bars arrangement has <span class="math inline">\(10\)</span> stars and <span class="math inline">\(3\)</span> bars. By <a href="#thm-sb-shuffle" class="quarto-xref">Theorem&nbsp;<span>7.1</span></a> there are <span class="math inline">\(\binom{3
++ 10}{3}\)</span> ways to distribute the apples.</p>
+</div>
+</section>
+<section id="model-2-gaps" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="model-2-gaps"><span class="header-section-number">7.2</span> Model 2: gaps</h2>
+<p>Another variation on this problem is what do we do when we want to ensure everyone gets at least one object? That is, <span class="math inline">\(x_i \ge 1\)</span> rather than <span class="math inline">\(\ge 0\)</span>?</p>
+<p>Here we will use an idea that sometimes appears in math competition type problems of “how many ways to shuffle if…”</p>
+<div id="exm-gaps-12" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7.3</strong></span> How many ways are there to seat <span class="math inline">\(10\)</span> people in a row such that person <span class="math inline">\(1\)</span> and person <span class="math inline">\(2\)</span> are not sat next to each other?</p>
+<p>Solution 1: Count all the shuffles and subtract the ones containing the substring “12” or the substring “21”.</p>
+<ul>
+<li>There are <span class="math inline">\(10!\)</span> ways to shuffle the 10 people: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</li>
+<li>Now group “12” together into a single symbol
+<ul>
+<li>There are <span class="math inline">\(9!\)</span> ways to shuffle the symbols ‘12’, 3, 4, 5, 6, 7, 8, 9, 10</li>
+</ul></li>
+<li>Likewise there are <span class="math inline">\(9!\)</span> ways if we have “21” instead of “12” in our shuffle</li>
+<li>So the final count is <span class="math inline">\(10! - 9! - 9!\)</span></li>
+</ul>
+<p>Solution 2: First shuffle the <span class="math inline">\(8\)</span> people 3, 4, 5, 6, 7, 8, 9, 10 then put 1 and 2 in the gaps created by this shuffle. E.g. if that shuffle is 6, 3, 10, 9, 5, 4, 7, 8 then we can put 1 and 2 in any of these positions <span class="math display">\[
+\textunderscore 6 \textunderscore 3 \textunderscore 10 \textunderscore 9 \textunderscore 5 \textunderscore 4 \textunderscore 7 \textunderscore 8 \textunderscore
+\]</span></p>
+<p>Here there are 9 gaps in which we need to <em>choose</em> 2 to put 1 and 2. But the 1 and 2 can go in either order so we multiply by 2. I.e. <span class="math inline">\(\binom{9}{2} \cdot 2 =
+P(9, 2)\)</span>. Alternatively: there are 9 choices to put the 1 and then 8 choices to put the 2 since it can’t go in the same spot as the 1.</p>
+<p>In total therefore, there are <span class="math inline">\(8! \cdot 9 \cdot 8\)</span> arrangements.</p>
+<p>Exercise: double check that the quantities we obtained in these two solutions are in fact equal.</p>
+</div>
+<p>Solution 2 in this previous example is the approach we will take for our stars and bars problem. If we want <span class="math inline">\(x_i \ge 1\)</span> then the bars cannot touch, there needs to be at least 1 star in between every pair of bars as well as at least one star at the front and at least one at the end.</p>
+<p>For example, in our 10 apples, 4 people problem, the bars can go in any of these positions:</p>
+<p><span class="math display">\[ * \textunderscore * \textunderscore * \textunderscore * \textunderscore * \textunderscore * \textunderscore * \textunderscore * \textunderscore * \textunderscore * \]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Number of gaps
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If there are <span class="math inline">\(n\)</span> stars/objects, there are <span class="math inline">\(n - 1\)</span> gaps in which to place the bars. This is because the bars can’t go at the very start or very end because the first and last person needs at least one star. So the bars have to go in between.</p>
+</div>
+</div>
+<div id="thm-sb-gaps" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 7.2</strong></span> The number of solutions to <span class="math display">\[
+x_1 + x_2 + \dots + x_m = n, \; x_i \ge 1
+\]</span> is <span class="math inline">\(\binom{n - 1}{m - 1}\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Each way to write <span class="math inline">\(n\)</span> as a sum in this way corresponds to a stars and bars arrangement with <span class="math inline">\(n\)</span> stars, <span class="math inline">\(n - 1\)</span> gaps and <span class="math inline">\(m - 1\)</span> bars. The number of arrangements is equal to <em>choosing</em> where the <span class="math inline">\(m - 1\)</span> bars go in the <span class="math inline">\(n - 1\)</span> gaps. That is, <span class="math display">\[\binom{n - 1}{m - 1}. \]</span></p>
+</div>
 
 
 </section>
@@ -1069,13 +932,13 @@ d_n = n! - \binom{n}1 (n - 1)! + \binom{n}2 (n - 2)! - \dots = \sum_{k} \binom{n
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../strings/string-exercises.html" class="pagination-link" aria-label="Exercises">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Exercises</span></span>
+      <a href="../inclusion-exclusion/totient.html" class="pagination-link" aria-label="Euler's Totient Function">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../inclusion-exclusion/totient.html" class="pagination-link" aria-label="Euler's Totient Function">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Euler’s Totient Function</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../permutations/permutations.html" class="pagination-link" aria-label="Permutations">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Permutations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1084,4 +947,4 @@ d_n = n! - \binom{n}1 (n - 1)! + \binom{n}2 (n - 2)! - \dots = \sum_{k} \binom{n
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/inclusion-exclusion/inclusion-exclusion.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/inclusion-exclusion/inclusion-exclusion.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/stars-and-bars/stars-and-bars.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/stars-and-bars/stars-and-bars.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
