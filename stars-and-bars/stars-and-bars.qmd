@@ -145,3 +145,98 @@ equal to *choosing* where the $m - 1$ bars go in the $n - 1$ gaps. That is,
 $$\binom{n - 1}{m - 1}. $$
 :::
 
+::: {#exm-sb-shuffle-count}
+How many ways are there to distribute 10 apples among 4 people where everyone can get $1$ or more apples?
+
+Solution: There are $n = 10$ objects and $m = 4$ people. The stars and bars
+arrangement has $10$ stars, $9$ gaps and $3$ bars. By @thm-sb-gaps there are $\binom{9}{3}$ ways to distribute the apples.
+:::
+
+## Changing the lower bounds
+
+There are several ways to modify the stars and bars model. The first way is to change the lower bounds from $x_i \ge 0$ or $x_i \ge 1$ to some other lower bound.
+
+::: {#exm-sb-lower-bounds}
+How many ways are the distribute 20 apples among 5 people in such a way that person 1 gets at least 4 ($x_1 \ge 4$), person 2 gets at least 3 ($x_2 \ge 3$), person 3 gets at least 1 and person 4 gets at least 0?
+
+Solution: person 1 wants at least 4 apples so start by given them 4 apples. Likewise give 3 apples to person 2 and 1 to person 3. In total, we have given away 8 apples so now we have 12 apples remaining.
+
+At this point, everybody is satisfied with the number of apples they have received. So the amount of additional apples they will get is 0 or more for everyone. We can represent this with a change of variable $y_1 = x_1 - 4$, $y_2 = x_2 - 3$, $y_3 = x_3 - 1$ and $y_4 = x_4 - 0$ where $y_i$ represents the amount of *additional* apples that person will get beyond the lower bound they have already reveived. Now the problem is
+
+$$
+y_1 + y_2 + y_3 + y_4 = 12, \; y_i \ge 0
+$$
+
+The number of solutions is therefore $\binom{4 - 1 + 12}{4 - 1} = \binom{15}{3}$ by @thm-sb-shuffle.
+:::
+
+## Slack variables
+
+Suppose instead of the equation
+
+$$
+x_1 + x_2 + \dots + x_m = n
+$$
+
+we have an inequality
+
+$$
+x_1 + x_2 + \dots + x_m \le n.
+$$
+
+::: {#exm-slack-gaps}
+Suppose there are 10 coupons leftover from an event that are being distributed among the 4 volunteers. Everyone will take at least 1 coupon but some may be leftover to fund the next event. How many ways can the coupons be distributed?
+
+Solution: Here we have
+$$
+x_1 + x_2 + x_3 + x_4 \le 10, \; x_i \ge 1
+$$
+
+The trick is to create a new variable, $x_5$ to represent the amount leftover. This is commonly called a **slack variable**. Notice there might be 0 leftover so $x_5 \ge 0$. This gives us
+
+$$
+x_1 + x_2 + x_3 + x_4 + x_5 = 10, \; x_1, x_2, x_3, x_4 \ge 1, \; x_5 \ge 0
+$$
+
+As in @exm-sb-lower-bounds, we now subtract the lower bounds for each $x_i$ to get
+
+$$
+y_1 + y_2 + y_3 + y_4 + y_5 = 6, \; y_i \ge 0
+$$
+
+Which has $\binom{4 + 6}{4}$ solutions by @thm-sb-shuffle (4 bars, 6 stars).
+:::
+
+## An upper and lower bound
+
+::: {#exm-sb-one-upper}
+How many solutions are there to
+$$
+x_1 + x_2 + x_3 + x_4 \le 20, \; 3 \le x_1 \le 8, \; x_2, x_3, x_4 \ge 0 ?
+$$
+
+Solution: First, as with @exm-slack-gaps, we add a slack variable $x_5 \ge 0$. This gives us
+$$
+x_1 + x_2 + x_3 + x_4 + x_5 = 20, \; 3 \le x_1 \le 8, \; x_2, x_3, x_4, x_5 \ge 0.
+$$
+
+Second, as in #exm-sb-lower-bounds, we want to give 3 to the first person. Let $y_1 = x_1 - 3$ be the amount of *additional* objects given to person 1. We have
+$$
+3 \le x_1 \le 8 \implies 0 \le x_1 - 3 \le 5
+$$
+(If they already have 3 objects, they can get at most 5 more before exceeding the upper bound of 8.) So now, our problem looks like
+$$
+y_1 + y_2 + y_3 + y_4 + y_5 = 17, \; y_i \ge 0, y_1 \le 5
+$$
+Ignoring the upper bound, there are $\binom{4 + 17}{4}$ solutions by @thm-sb-shuffle (4 bars, 17 stars). But this counts also the cases where $y_1 \not\le 5$, i.e. $y_1 \ge 6$. So we correct our count by subtracting the number of solutions to
+$$
+y_1 + y_2 + y_3 + y_4 + y_5 = 17, \; y_i \ge 0, y_1 \ge 6.
+$$
+Here again, we distribute 6 objects to person 1, leaving 11 objects. So there are $\binom{4 + 11}{4}$ solutions with $y_1 \ge 6$.
+
+Combining our counts, we have
+$$
+\binom{4 + 17}{4} - \binom{4 + 11}{4}
+$$
+total solutions.
+:::
