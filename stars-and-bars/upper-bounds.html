@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>23&nbsp; Putting Everything Together – Combinatorics Notes</title>
+<title>8&nbsp; Upper bounds in Stars and Bars – Combinatorics Notes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,53 +23,18 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../regular-languages/transfer-matrix.html" rel="next">
-<link href="../regular-languages/finite-automata.html" rel="prev">
+<link href="../permutations/permutations.html" rel="next">
+<link href="../stars-and-bars/stars-and-bars.html" rel="prev">
 <link href="../icon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -108,9 +73,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -183,7 +145,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/putting-it-together.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stars-and-bars/stars-and-bars.html">Stars and Bars</a></li><li class="breadcrumb-item"><a href="../stars-and-bars/upper-bounds.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Upper bounds in Stars and Bars</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -287,7 +249,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../stars-and-bars/upper-bounds.html" class="sidebar-item-text sidebar-link">
+  <a href="../stars-and-bars/upper-bounds.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Upper bounds in Stars and Bars</span></span></a>
   </div>
 </li>
@@ -410,7 +372,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../regular-languages/putting-it-together.html" class="sidebar-item-text sidebar-link active">
+  <a href="../regular-languages/putting-it-together.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></span></a>
   </div>
 </li>
@@ -438,23 +400,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#trinary-example" id="toc-trinary-example" class="nav-link active" data-scroll-target="#trinary-example"><span class="header-section-number">23.1</span> Trinary Example</a>
-  <ul class="collapse">
-  <li><a href="#getting-a-formula" id="toc-getting-a-formula" class="nav-link" data-scroll-target="#getting-a-formula"><span class="header-section-number">23.1.1</span> Getting a formula</a></li>
-  </ul></li>
-  <li><a href="#sec-fib-put-together" id="toc-sec-fib-put-together" class="nav-link" data-scroll-target="#sec-fib-put-together"><span class="header-section-number">23.2</span> Fibonacci Example</a></li>
-  <li><a href="#more-examples" id="toc-more-examples" class="nav-link" data-scroll-target="#more-examples"><span class="header-section-number">23.3</span> More Examples</a></li>
-  <li><a href="#sec-OGF-to-recursive-formula" id="toc-sec-OGF-to-recursive-formula" class="nav-link" data-scroll-target="#sec-OGF-to-recursive-formula"><span class="header-section-number">23.4</span> General Result</a></li>
-  <li><a href="#epilogue" id="toc-epilogue" class="nav-link" data-scroll-target="#epilogue"><span class="header-section-number">23.5</span> Epilogue</a></li>
+  <li><a href="#two-upper-bounds" id="toc-two-upper-bounds" class="nav-link active" data-scroll-target="#two-upper-bounds"><span class="header-section-number">8.1</span> Two upper bounds</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/regular-languages/putting-it-together.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/regular-languages/putting-it-together.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/stars-and-bars/upper-bounds.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/stars-and-bars/upper-bounds.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../regular-languages/regular-languages.html">Regular Languages</a></li><li class="breadcrumb-item"><a href="../regular-languages/putting-it-together.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../stars-and-bars/stars-and-bars.html">Stars and Bars</a></li><li class="breadcrumb-item"><a href="../stars-and-bars/upper-bounds.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Upper bounds in Stars and Bars</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Putting Everything Together</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Upper bounds in Stars and Bars</span></h1>
 </div>
 
 
@@ -471,75 +426,7 @@ window.Quarto = {
 </header>
 
 
-<p>We’ve done some examples where we take a description and create a finite state automaton. We’ve done state elimination to create regular expressions. So let’s look one last time at how to turn these regular expressions into formulae.</p>
-<section id="trinary-example" class="level2" data-number="23.1">
-<h2 data-number="23.1" class="anchored" data-anchor-id="trinary-example"><span class="header-section-number">23.1</span> Trinary Example</h2>
-<p>In <a href="finite-automata.html#sec-trinary-FSA" class="quarto-xref"><span>Section 22.3.4</span></a>, we had the regular expression <span class="math display">\[
-0^*[1(0 + 1)^*2 + 2(0 + 2)^*1](0 + 1 + 2)^*.
-\]</span></p>
-<p>Now we could break this into sublanguages like <span class="math inline">\(L_0 = \{0\}\)</span> and <span class="math inline">\(\Phi_{L_0} = x^{f(0)} = x^1\)</span> but we can streamline this a bit.</p>
-<ol type="1">
-<li>Take your regular expression.</li>
-<li>Replace each character like <span class="math inline">\(0, 1, 2\)</span> with <span class="math inline">\(x^{f(0)}, x^{f(1)}, x^{f(2)}\)</span>. If we’re weighting by length these should all just be <span class="math inline">\(x\)</span>.</li>
-<li>Replace <span class="math inline">\(A^*\)</span> by <span class="math inline">\(\frac{1}{1 - A}\)</span>.</li>
-</ol>
-<p>Let’s illustrate: <span class="math display">\[\begin{align*}
-&amp;\phantom{{}={}}\; 0^*[1(0 + 1)^*2 + 2(0 + 2)^*1](0 + 1 + 2)^* \\
-&amp;\mapsto x^*[x(x + x)^*x + x(x + x)^*x](x + x + x)^* \\
-&amp;= x^*[2x^2(2x)^*](3x)^* \\
-&amp;= \frac{1}{1 - x}\frac{2x^2}{1 - 2x}\frac{1}{1 - 3x} \\
-&amp;= \frac{2x^2}{(1 - x)(1 -  2x)(1 - 3x)}.
-\end{align*}\]</span></p>
-<section id="getting-a-formula" class="level3" data-number="23.1.1">
-<h3 data-number="23.1.1" class="anchored" data-anchor-id="getting-a-formula"><span class="header-section-number">23.1.1</span> Getting a formula</h3>
-<p>On it’s face, it’s hard to tell what the taylor series is for this function. So we first ask Sage to give us a partial fraction decomposition.</p>
-<div id="27e144bb" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode sage code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>display latex</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="dv">2</span><span class="er">x</span><span class="op">^</span><span class="dv">2</span> <span class="op">/</span> ((<span class="dv">1</span> <span class="op">-</span> x)<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> <span class="dv">2</span><span class="er">x</span>)<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span> <span class="dv">3</span><span class="er">x</span>))</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A.partial_fraction()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-\(\displaystyle -\frac{1}{3 \, x - 1} + \frac{2}{2 \, x - 1} - \frac{1}{x - 1}\)
-</div>
-</div>
-<p>Sage typically puts the <span class="math inline">\(x\)</span>’s first but it’s more useful to us to write this as <span class="math display">\[
-\frac{1}{1 - 3x} - \frac{2}{1 - 2x} + \frac{1}{1 - x}.
-\]</span></p>
-<p>We use the important identity <span class="math inline">\(\frac{1}{1 - ax} = \sum a^n x^n\)</span> to convert this to <span class="math display">\[
-\sum_{n = 0}^\infty 3^n x^n - 2 \sum_{n = 0}^{\infty} 2^n x^n + \sum_{n = 0}^\infty x^n = \sum_{n = 0}^\infty (3^n - 2 \cdot 2^n + 1) x^n.
-\]</span></p>
-<p>Conclusion: there are <span class="math inline">\(3^n - 2 \cdot 2^n + 1\)</span> trinary strings of length <span class="math inline">\(n\)</span> with at least one <span class="math inline">\(1\)</span> and one <span class="math inline">\(2\)</span>.</p>
-<div id="nte-IE-OGF" class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note&nbsp;23.1
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>We can also obtain this answer by Inclusion/Exclusion. Let <span class="math inline">\(X\)</span> denote the set of all trinary strings of length <span class="math inline">\(n\)</span>. Let <span class="math inline">\(A\)</span> be strings with no <span class="math inline">\(1\)</span> and let <span class="math inline">\(B\)</span> be strings with no <span class="math inline">\(2\)</span>. Then <span class="math inline">\(|X| = 3^n\)</span> and <span class="math inline">\(|A| = |B| = 2^n\)</span> since each represents strings with two choices of character.</p>
-<p>We want <span class="math inline">\(|X| - |A \cup B| = |X| - |A| - |B| + |A \cap B|\)</span> using the formula we had in <a href="../inclusion-exclusion/inclusion-exclusion.html#sec-avoiding" class="quarto-xref"><span>Section 5.4</span></a>. So <span class="math inline">\(3^n - 2^n - 2^n + 1\)</span> which matches what we have using generating functions.</p>
-</div>
-</div>
-<p>We’re beginning to see how generating functions tie together our material on binomial coefficients, strings, inclusion/exclusion and also recurrence relations.</p>
-</section>
-</section>
-<section id="sec-fib-put-together" class="level2" data-number="23.2">
-<h2 data-number="23.2" class="anchored" data-anchor-id="sec-fib-put-together"><span class="header-section-number">23.2</span> Fibonacci Example</h2>
-<p>At the end of <a href="finite-automata.html#sec-fibonacci-FSA" class="quarto-xref"><span>Section 22.4</span></a>, we had the regular expression <span class="math inline">\((0 + 10)^*(\varepsilon + 1)\)</span>. We repeat our method to turn this into a generating function. First, we should point out that <span class="math inline">\(\varepsilon\)</span> will become <span class="math inline">\(x^{f(\varepsilon)} = x^0 = 1\)</span>. So <span class="math display">\[
-(x + x^2)^*(1 + x) = \frac{1 + x}{1 - x - x^2}.
-\]</span></p>
-<p>Partial fractions don’t help us out here. At least…not easily.</p>
-<p>On the other hand, we know that the Fibonacci numbers satisfy the recurrence <span class="math inline">\(f_n = f_{n - 1} + f_{n - 2}\)</span>. To make the connection clearer, let us write this as</p>
-<p><span class="math display">\[
-f_n - f_{n - 1} - f_{n - 2}.
-\]</span></p>
-</section>
-<section id="more-examples" class="level2" data-number="23.3">
-<h2 data-number="23.3" class="anchored" data-anchor-id="more-examples"><span class="header-section-number">23.3</span> More Examples</h2>
-<p>Consider the sequence generated by <span class="math inline">\(a_0 = 0, a_1 = 0, a_2 = 1\)</span> and <span class="math inline">\(a_n + 4a_{n - 1} - 2a_{n - 2} + 5a_{n - 3}\)</span> for <span class="math inline">\(n \ge 3\)</span>.</p>
-<p>We can compute a generating function <span class="math inline">\(\sum a_n x^n\)</span> in Sage <a href="https://doc.sagemath.org/html/en/reference/combinat/sage/rings/cfinite_sequence.html#sage-rings-cfinite-sequence">using the following commands</a>.</p>
+<p>The last part of the method involves upper bounds. E.g. <span class="math inline">\(3 \le x_1 \le 8\)</span>. Here we will use inclusion-exclusion. First count all the solutions with <span class="math inline">\(3 \le x_1\)</span> and then subtract the ones that violate the upper bound. I.e. the ones where <span class="math inline">\(x_1 \ge 9\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -550,112 +437,55 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Per the Sage documentation, the coefficients are given in ascending order (from <span class="math inline">\(n - 3\)</span> to <span class="math inline">\(n - 2\)</span> to <span class="math inline">\(n - 1\)</span>): <span class="math display">\[
-a_{n + 3} = -5 a_n + 2 a_{n + 1} - 4 a_{n + 2}.
-\]</span></p>
+<p>Notice that the negation of <span class="math inline">\(x \le k\)</span> is <span class="math inline">\(x \ge k + 1\)</span>.</p>
 </div>
 </div>
-<div id="ad06b88a" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode sage code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> CFiniteSequences(ZZ) <span class="co"># sequences over the integers</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>C.from_recurrence([<span class="op">-</span><span class="dv">5</span>, <span class="dv">2</span>, <span class="op">-</span><span class="dv">4</span>], [<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>]).ogf()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-\(\displaystyle \frac{x^{2}}{5x^{3} - 2x^{2} + 4x + 1}\)
-</div>
-</div>
-<p>The numerator is hard to predict as it depends on the initial values as well as the recurrence. But pay attention to that denominator: <span class="math display">\[
-1 + 4x - 2x^2 + 5x^3
-\]</span></p>
-<p>These coefficients match our recurrence!</p>
-</section>
-<section id="sec-OGF-to-recursive-formula" class="level2" data-number="23.4">
-<h2 data-number="23.4" class="anchored" data-anchor-id="sec-OGF-to-recursive-formula"><span class="header-section-number">23.4</span> General Result</h2>
-<p>Suppose a Taylor series <span class="math inline">\(\sum a_n x^n\)</span> can be written as a rational function <span class="math inline">\(P(x)/Q(x)\)</span> where:</p>
-<ol type="1">
-<li><span class="math inline">\(\deg P &lt; \deg Q\)</span></li>
-<li><span class="math inline">\(Q(x) = c_0 + c_1x + c_2x^2 + \dots + c_kx^k\)</span> (degree <span class="math inline">\(k\)</span>)</li>
-</ol>
-<p>Then the coefficients <span class="math inline">\(a_n\)</span> satisfy the recurrence relation</p>
+<p>If we rephrase this by defining <span class="math inline">\(y_1 = x_1 - 3\)</span> (the amount given to person 1 beyond the lower bound of 3), then notice that</p>
 <p><span class="math display">\[
-c_0 a_n + c_1 a_{n - 1} + c_2 a_{n - 2} + \dots + c_k a_{n - k} = 0, \text{ for } n \ge k
+3 \le x_1 \le 8 \implies 0 \le x_1 - 3 \le 5.
 \]</span></p>
-<p>(And the reverse holds as well!)</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The condition that <span class="math inline">\(\deg P &lt; \deg Q\)</span> isn’t crucial to this. It takes care of a few things. First, if <span class="math inline">\(\deg P \ge \deg Q\)</span> we could do long division to simplify.</p>
-<p>Second, if we have something like <span class="math inline">\(x/ (1 - x) = -1 + 1/(1 - x)\)</span>, then the recurrence relation we get from the denominator is <span class="math inline">\(a_n = a_{n - 1}\)</span> but if we write down this Taylor series, the coefficients are <span class="math inline">\(0, 1, 1, 1, 1, \dots\)</span>. So the recurrence relation <span class="math inline">\(a_n = a_{n - 1}\)</span> only holds if <span class="math inline">\(n \ge 2\)</span>.</p>
-<p>The big takeaway here is: making <span class="math inline">\(\deg P \ge \deg Q\)</span> alters the initial terms and the recurrence relation takes longer to kick in.</p>
-</div>
-</div>
-<div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\(A = \sum a_n x^n = P(x) / Q(x)\)</span>. Multiplying both sides by <span class="math inline">\(Q(x)\)</span> we should find that <span class="math inline">\(AQ = P\)</span> (a polynomial). So <span class="math display">\[\begin{align*}
-AQ &amp;= (c_0 + c_1x + \dots + c_kx^k) \sum a_n x^n \\
-&amp;= c_0 \sum a_n x^n + c_1 \sum a_nx^{n + 1} + \dots + c_k \sum a_n x^{n + k} \\
-&amp;= c_0 \sum a_n x^n + c_1 \sum a_{n - 1}x^n + \dots + c_k \sum a_{n - k} x^n.
-\end{align*}\]</span></p>
-<p>Now this is supposed to be a polynomial. And it is, if and only if the coefficients are <span class="math inline">\(0\)</span> for <span class="math inline">\(n\)</span> bigger than <span class="math inline">\(\deg P\)</span> and in particular if <span class="math inline">\(n \ge k = \deg Q\)</span>. So for <span class="math inline">\(n \ge k\)</span>, we have <span class="math display">\[
-c_0 a_n + c_1 a_{n - 1} + \dots + c_k a_{n - k}.
+<p>So we will be subtracting from the upper bound as well. In words: if person one is given 3 at the start, they can get at most 5 additional objects.</p>
+<div id="exm-sb-one-upper" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.1</strong></span> How many solutions are there to <span class="math display">\[
+x_1 + x_2 + x_3 + x_4 \le 20, \; 3 \le x_1 \le 8, \; x_2, x_3, x_4 \ge 0 ?
 \]</span></p>
-<p>And the steps here are reversible: if we satisfy this recurrence then <span class="math inline">\(AQ\)</span> is a polynomial of degree less than <span class="math inline">\(k\)</span>.</p>
-</div>
-</section>
-<section id="epilogue" class="level2" data-number="23.5">
-<h2 data-number="23.5" class="anchored" data-anchor-id="epilogue"><span class="header-section-number">23.5</span> Epilogue</h2>
-<p>When our generating function comes apart nicely into partial fractions, we can use the identity <span class="math inline">\(\frac{1}{1 - ax} = \sum a^n x^n\)</span> to extract the coefficient of <span class="math inline">\(a^n\)</span>. More generally, we can handle generating functions like <span class="math inline">\(1 / (1 - ax)^k\)</span> using the formulas of <a href="../generating-functions/stars-and-bars-revisited.html#sec-sb-ogf-summary" class="quarto-xref"><span>Section 18.4</span></a>.</p>
-<p>For something like <span class="math inline">\(x / (1 - x - x^2)\)</span>, partial fractions <em>can</em> be used to obtain <span class="math display">\[
-\frac{x}{1 - x - x^2} = \frac1{\sqrt5} \left( \frac{1}{1 - \phi x} - \frac{1}{1 - \psi x} \right); \text{ where } \phi, \psi = \frac{1 \pm \sqrt 5}{2}.
+<p>Solution: First, as with <a href="stars-and-bars.html#exm-slack-gaps" class="quarto-xref">Example&nbsp;<span>7.6</span></a>, we add a slack variable <span class="math inline">\(x_5 \ge 0\)</span>. This gives us <span class="math display">\[
+x_1 + x_2 + x_3 + x_4 + x_5 = 20, \; 3 \le x_1 \le 8, \; x_2, x_3, x_4, x_5 \ge 0.
 \]</span></p>
-<p>With the resulting formula <span class="math display">\[
-f_n = \frac{1}{\sqrt 5}(\phi^n -  \psi^n).
-\]</span> Known as <em>Binet’s formula</em> which we saw a version of in <a href="../generating-functions/ogf.html#sec-convergence" class="quarto-xref"><span>Section 16.3.1</span></a>. This formula is super cool but computationally leaves a lot to be desired as multiplying large decimal numbers together can be quite expensive.</p>
-<p>The fastest way to compute the Fibonacci sequence comes right from the recurrence definition. With a little bit of linear algebra, we can turn that linear recurrence into <span class="math display">\[
-\begin{pmatrix}
-0 &amp; 1 \\
-1 &amp; 1
-\end{pmatrix}
-\begin{pmatrix}
-f_n \\
-f_{n + 1}
-\end{pmatrix}
-=
-\begin{pmatrix}
-0 f_n + f_{n + 1} \\
-f_n + f_{n + 1}
-\end{pmatrix}
-=
-\begin{pmatrix}
-f_{n + 1} \\
-f_{n + 2}
-\end{pmatrix}.
-\]</span></p>
-<p>So the Fibonacci numbers and in fact, all of these linear recurrence relations, can be computed via matrix multiplication. This has the immediate advantage that we can use the identity <span class="math inline">\(A^{2n} = (A^n)^2\)</span> to cut down our number of steps quite significantly. I.e. we have an algorithm where if <span class="math inline">\(n\)</span> has <span class="math inline">\(k\)</span> bits in binary, then the algorithm takes <span class="math inline">\(\mathcal O(k) = \mathcal O(\log_2 n)\)</span> matrix multiplications.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>Second, as in <a href="stars-and-bars.html#exm-sb-lower-bounds" class="quarto-xref">Example&nbsp;<span>7.5</span></a>, we want to give 3 to the first person. Let <span class="math inline">\(y_1 = x_1 - 3\)</span> be the amount of <em>additional</em> objects given to person 1. We have <span class="math display">\[
+3 \le x_1 \le 8 \implies 0 \le y_1 \le 5
+\]</span> (See the above discussion as well.) So now, our problem looks like <span class="math display">\[
+y_1 + y_2 + y_3 + y_4 + y_5 = 17, \; y_i \ge 0, y_1 \le 5
+\]</span> Ignoring the upper bound, there are <span class="math inline">\(\binom{4 + 17}{4}\)</span> solutions by <a href="stars-and-bars.html#thm-sb-shuffle" class="quarto-xref">Theorem&nbsp;<span>7.1</span></a> (4 bars, 17 stars). But this counts also the cases where <span class="math inline">\(y_1 \not\le 5\)</span>, i.e.&nbsp;<span class="math inline">\(y_1 \ge 6\)</span>. So we correct our count by subtracting the number of solutions to <span class="math display">\[
+y_1 + y_2 + y_3 + y_4 + y_5 = 17, \; y_i \ge 0, y_1 \ge 6.
+\]</span> Here again, we distribute 6 objects to person 1, leaving 11 objects. So there are <span class="math inline">\(\binom{4 + 11}{4}\)</span> solutions with <span class="math inline">\(y_1 \ge 6\)</span>.</p>
+<p>Combining our counts, we have <span class="math display">\[
+\binom{4 + 17}{4} - \binom{4 + 11}{4}
+\]</span> total solutions.</p>
 </div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The Sage commands for this look like</p>
-<div id="2a1bef3e" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode sage code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> CFiniteSequences(ZZ)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Fib <span class="op">=</span> C.from_recurrence([<span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Fib.closed_form()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-\(\displaystyle \sqrt{\frac{1}{5}} {\left(\frac{1}{2} \, \sqrt{5} + \frac{1}{2}\right)}^{n} - \sqrt{\frac{1}{5}} {\left(-\frac{1}{2} \, \sqrt{5} + \frac{1}{2}\right)}^{n}\)
-</div>
-</div>
-</div>
+<section id="two-upper-bounds" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="two-upper-bounds"><span class="header-section-number">8.1</span> Two upper bounds</h2>
+<p>With two (or more) upper bounds, we will need a more complex form of stars and bars. To keep the complexity to a reasonable level, let us just stick to two upper bounds. Here we recall the formula from Inclusion-Exclusion.</p>
+<p><span class="math display">\[ \text{Number of solutions} = N(\varnothing) - N(1) - N(2) + N(1, 2). \]</span></p>
+<div id="exm-sb-two-upper" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8.2</strong></span> How many solutions are there to <span class="math display">\[x_1 + x_2 + x_3 + x_4 + x_5 + x_6 = 75\]</span> where <span class="math inline">\(4 \le x_1 \le 12\)</span> and <span class="math inline">\(2 \le x_2 \le 7\)</span> and <span class="math inline">\(x_3 \ge 6\)</span> and <span class="math inline">\(x_4 \ge 8\)</span> and <span class="math inline">\(x_5, x_6 \ge 0\)</span>?</p>
+<p>Step 1: subtract all the lower bounds. Both from the constraints and from the number of objects/stars. Here we subtract <span class="math inline">\(4 + 2 + 6 + 8 = 20\)</span> to get</p>
+<p><span class="math display">\[y_1 + y_2 + y_3 + y_4 + y_5 + y_6 = 55.\]</span></p>
+<p>And subtracting from the upper and lower bounds we get <span class="math inline">\(0 \le y_1 \le 8\)</span> and <span class="math inline">\(0 \le y_2 \le 5\)</span> and <span class="math inline">\(y_3, y_4, y_5, y_6 \ge 0\)</span>.</p>
+<p>Step 2: define <span class="math inline">\(P_1\)</span> to be the property that <span class="math inline">\(y_1\)</span> is bigger than its upper bound, i.e.&nbsp;<span class="math inline">\(y_1 \ge 9\)</span> and define <span class="math inline">\(P_2\)</span> to be the property that <span class="math inline">\(y_2 \ge 6\)</span>.</p>
+<p>Step 3: compute the total without considering any upper bounds. This follows the shuffle method and has <span class="math inline">\(55\)</span> stars, <span class="math inline">\(6 - 1 = 5\)</span> bars for a total of</p>
+<p><span class="math display">\[ N(\varnothing) = \binom{5 + 55}{5} = \binom{60}{5}. \]</span></p>
+<p>Step 4: compute <span class="math inline">\(N(1)\)</span> and <span class="math inline">\(N(2)\)</span> and <span class="math inline">\(N(1, 2)\)</span>. The trick here is that if <span class="math inline">\(y_1 \ge 9\)</span> we can subtract <span class="math inline">\(9\)</span> from the top number of our binomial coefficient (following the logic from before: give 9 objects, we have 9 fewer stars but the same number of bars). Likewise <span class="math inline">\(N(2)\)</span> will subtract <span class="math inline">\(6\)</span> from the top number since <span class="math inline">\(y_2 \ge 6\)</span> and following the subtract <span class="math inline">\(6\)</span> through the logic from <a href="stars-and-bars.html#exm-sb-lower-bounds" class="quarto-xref">Example&nbsp;<span>7.5</span></a>.</p>
+<p>Finally <span class="math inline">\(N(1,2)\)</span> we subtract both <span class="math inline">\(6\)</span> and <span class="math inline">\(9\)</span> for the same reason. This gives</p>
+<ul>
+<li><span class="math inline">\(N(\varnothing) = \binom{60}{5}\)</span></li>
+<li><span class="math inline">\(N(1) = \binom{60 - 9}{5}\)</span></li>
+<li><span class="math inline">\(N(2) = \binom{60 - 6}{5}\)</span></li>
+<li><span class="math inline">\(N(1,2) = \binom{60 - 9 - 6}{5}\)</span></li>
+</ul>
+<p>Putting that together we have <span class="math display">\[
+N(\varnothing) - N(1) - N(2) - N(1,2) = \binom{60}{5} - \binom{51}{5} - \binom{54}{5} - \binom{45}{5}
+\]</span> solutions to the problem.</p>
 </div>
 
 
@@ -1064,13 +894,13 @@ Tip
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../regular-languages/finite-automata.html" class="pagination-link" aria-label="Finite Automata">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Finite Automata</span></span>
+      <a href="../stars-and-bars/stars-and-bars.html" class="pagination-link" aria-label="Stars and Bars">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Stars and Bars</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../regular-languages/transfer-matrix.html" class="pagination-link" aria-label="Transfer Matrix Method">
-        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Transfer Matrix Method</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../permutations/permutations.html" class="pagination-link" aria-label="Permutations">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Permutations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1079,4 +909,4 @@ Tip
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/regular-languages/putting-it-together.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/regular-languages/putting-it-together.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/seragunn/combinatorics-notes/edit/main/stars-and-bars/upper-bounds.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/seragunn/combinatorics-notes/blob/main/stars-and-bars/upper-bounds.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div></div></footer></body></html>
