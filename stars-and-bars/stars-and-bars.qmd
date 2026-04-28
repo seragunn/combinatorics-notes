@@ -206,37 +206,3 @@ $$
 
 Which has $\binom{4 + 6}{4}$ solutions by @thm-sb-shuffle (4 bars, 6 stars).
 :::
-
-## An upper and lower bound
-
-::: {#exm-sb-one-upper}
-How many solutions are there to
-$$
-x_1 + x_2 + x_3 + x_4 \le 20, \; 3 \le x_1 \le 8, \; x_2, x_3, x_4 \ge 0 ?
-$$
-
-Solution: First, as with @exm-slack-gaps, we add a slack variable $x_5 \ge 0$. This gives us
-$$
-x_1 + x_2 + x_3 + x_4 + x_5 = 20, \; 3 \le x_1 \le 8, \; x_2, x_3, x_4, x_5 \ge 0.
-$$
-
-Second, as in #exm-sb-lower-bounds, we want to give 3 to the first person. Let $y_1 = x_1 - 3$ be the amount of *additional* objects given to person 1. We have
-$$
-3 \le x_1 \le 8 \implies 0 \le x_1 - 3 \le 5
-$$
-(If they already have 3 objects, they can get at most 5 more before exceeding the upper bound of 8.) So now, our problem looks like
-$$
-y_1 + y_2 + y_3 + y_4 + y_5 = 17, \; y_i \ge 0, y_1 \le 5
-$$
-Ignoring the upper bound, there are $\binom{4 + 17}{4}$ solutions by @thm-sb-shuffle (4 bars, 17 stars). But this counts also the cases where $y_1 \not\le 5$, i.e. $y_1 \ge 6$. So we correct our count by subtracting the number of solutions to
-$$
-y_1 + y_2 + y_3 + y_4 + y_5 = 17, \; y_i \ge 0, y_1 \ge 6.
-$$
-Here again, we distribute 6 objects to person 1, leaving 11 objects. So there are $\binom{4 + 11}{4}$ solutions with $y_1 \ge 6$.
-
-Combining our counts, we have
-$$
-\binom{4 + 17}{4} - \binom{4 + 11}{4}
-$$
-total solutions.
-:::

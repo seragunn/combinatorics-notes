@@ -1,0 +1,93 @@
+# Upper bounds in Stars and Bars
+
+The last part of the method involves upper bounds. E.g. $3 \le x_1 \le 8$. Here
+we will use inclusion-exclusion. First count all the solutions with $3 \le x_1$
+and then subtract the ones that violate the upper bound. I.e. the ones where
+$x_1 \ge 9$.
+
+::: {.callout-note}
+Notice that the negation of $x \le k$ is $x \ge k + 1$.
+:::
+
+If we rephrase this by defining $y_1 = x_1 - 3$ (the amount given to person 1
+beyond the lower bound of 3), then notice that
+
+$$
+3 \le x_1 \le 8 \implies 0 \le x_1 - 3 \le 5.
+$$
+
+So we will be subtracting from the upper bound as well. In words: if person one
+is given 3 at the start, they can get at most 5 additional objects.
+
+::: {#exm-sb-one-upper}
+How many solutions are there to
+$$
+x_1 + x_2 + x_3 + x_4 \le 20, \; 3 \le x_1 \le 8, \; x_2, x_3, x_4 \ge 0 ?
+$$
+
+Solution: First, as with @exm-slack-gaps, we add a slack variable $x_5 \ge 0$. This gives us
+$$
+x_1 + x_2 + x_3 + x_4 + x_5 = 20, \; 3 \le x_1 \le 8, \; x_2, x_3, x_4, x_5 \ge 0.
+$$
+
+Second, as in @exm-sb-lower-bounds, we want to give 3 to the first person. Let $y_1 = x_1 - 3$ be the amount of *additional* objects given to person 1. We have
+$$
+3 \le x_1 \le 8 \implies 0 \le y_1 \le 5
+$$
+(See the above discussion as well.) So now, our problem looks like
+$$
+y_1 + y_2 + y_3 + y_4 + y_5 = 17, \; y_i \ge 0, y_1 \le 5
+$$
+Ignoring the upper bound, there are $\binom{4 + 17}{4}$ solutions by @thm-sb-shuffle (4 bars, 17 stars). But this counts also the cases where $y_1 \not\le 5$, i.e. $y_1 \ge 6$. So we correct our count by subtracting the number of solutions to
+$$
+y_1 + y_2 + y_3 + y_4 + y_5 = 17, \; y_i \ge 0, y_1 \ge 6.
+$$
+Here again, we distribute 6 objects to person 1, leaving 11 objects. So there are $\binom{4 + 11}{4}$ solutions with $y_1 \ge 6$.
+
+Combining our counts, we have
+$$
+\binom{4 + 17}{4} - \binom{4 + 11}{4}
+$$
+total solutions.
+:::
+
+## Two upper bounds
+
+With two (or more) upper bounds, we will need a more complex form of stars and
+bars. To keep the complexity to a reasonable level, let us just stick to two
+upper bounds. Here we recall the formula from Inclusion-Exclusion.
+
+$$ \text{Number of solutions} = N(\varnothing) - N(1) - N(2) + N(1, 2). $$
+
+::: {#exm-sb-two-upper}
+How many solutions are there to
+$$x_1 + x_2 + x_3 + x_4 + x_5 + x_6 = 75$$
+where $4 \le x_1 \le 12$ and $2 \le x_2 \le 7$ and $x_3 \ge 6$ and $x_4 \ge 8$ and $x_5, x_6 \ge 0$?
+
+Step 1: subtract all the lower bounds. Both from the constraints and from the number of objects/stars. Here we subtract $4 + 2 + 6 + 8 = 20$ to get
+
+$$y_1 + y_2 + y_3 + y_4 + y_5 + y_6 = 55.$$
+
+And subtracting from the upper and lower bounds we get $0 \le y_1 \le 8$ and $0 \le y_2 \le 5$ and $y_3, y_4, y_5, y_6 \ge 0$.
+
+Step 2: define $P_1$ to be the property that $y_1$ is bigger than its upper bound, i.e. $y_1 \ge 9$ and define $P_2$ to be the property that $y_2 \ge 6$.
+
+Step 3: compute the total without considering any upper bounds. This follows the shuffle method and has $55$ stars, $6 - 1 = 5$ bars for a total of
+
+$$ N(\varnothing) = \binom{5 + 55}{5} = \binom{60}{5}. $$
+
+Step 4: compute $N(1)$ and $N(2)$ and $N(1, 2)$. The trick here is that if $y_1 \ge 9$ we can subtract $9$ from the top number of our binomial coefficient (following the logic from before: give 9 objects, we have 9 fewer stars but the same number of bars). Likewise $N(2)$ will subtract $6$ from the top number since $y_2 \ge 6$ and following the subtract $6$ through the logic from @exm-sb-lower-bounds.
+
+Finally $N(1,2)$ we subtract both $6$ and $9$ for the same reason. This gives
+
+* $N(\varnothing) = \binom{60}{5}$
+* $N(1) = \binom{60 - 9}{5}$
+* $N(2) = \binom{60 - 6}{5}$
+* $N(1,2) = \binom{60 - 9 - 6}{5}$
+
+Putting that together we have
+$$
+N(\varnothing) - N(1) - N(2) - N(1,2) = \binom{60}{5} - \binom{51}{5} - \binom{54}{5} - \binom{45}{5}
+$$
+solutions to the problem.
+:::

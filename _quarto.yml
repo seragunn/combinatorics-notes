@@ -36,6 +36,7 @@ book:
     - part: "Stars and Bars"
       chapters:
         - stars-and-bars/stars-and-bars.qmd
+        - stars-and-bars/upper-bounds.qmd
     - part: "Permutations"
       chapters:
         - permutations/permutations.qmd
